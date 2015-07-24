@@ -39,7 +39,7 @@ Public Class Form1
         TakeOwn.UseShellExecute = True
         TakeOwn.WorkingDirectory = System.Environment.GetEnvironmentVariable("windir")  'Gets Windows Directory
         TakeOwn.Verb = "runas"          'Run as Admin
-        TakeOwn.WindowStyle = ProcessWindowStyle.Normal     'Shows the command prompt, though you can change it to .Hidden to hide it.
+        TakeOwn.WindowStyle = ProcessWindowStyle.Hidden     'Shows the command prompt, though you can change it to .Hidden to hide it.
         TakeOwn.FileName = "cmd.exe"
         TakeOwn.Arguments = "/c " & Temp & "/takemyfiles.bat"       '/c tells command prompt to execute and close, then we supply the path to our take-ownership batch.
         Dim L = Process.Start(TakeOwn)  'Start the take ownership program.
