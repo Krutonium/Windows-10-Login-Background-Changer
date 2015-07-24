@@ -54,8 +54,8 @@ Public Class Form1
             File.Copy(PRIFileSource & ".bak", PRIFileSource)    'Copy a new copy of it.
             File.WriteAllBytes(Temp & "/PS.ps1", My.Resources.CLW_Script)   'Extract the Powershell Application that does the actual modding.
             Dim PSi As New ProcessStartInfo
-            PSi.Arguments = "-ExecutionPolicy Bypass -file " & Temp & "/PS.ps1 " & PRIFile & " " & NewPriFile & " " & Chr(34) & tbFilePath.Text & Chr(34)
-            'Line Above: sets up the command line needed to run the powershell file. Chr(34) is a Quotation mark.
+            PSi.Arguments = "-ExecutionPolicy Bypass -file " & Temp & "/PS.ps1 " & PRIFile & " " & NewPriFile & " " & tbFilePath.Text
+            'Line Above: sets up the command line needed to run the powershell file. Spaces will mess it up :/
             PSi.FileName = "powershell" 'Powershell of course.
             PSi.WindowStyle = ProcessWindowStyle.Hidden
             'PSi.FileName = Temp & "/PS.ps1"
