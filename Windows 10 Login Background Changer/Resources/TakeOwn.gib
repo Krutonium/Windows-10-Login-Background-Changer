@@ -1,0 +1,6 @@
+@echo off
+title TakeOwn v0.1
+REM takeown /f %windir%\systemresources\windows.ui.logon /a /r /d y
+takeown /f %windir%\systemresources\windows.ui.logon /r 
+ICACLS %windir%\SystemResources\Windows.UI.Logon  /T /grant *S-1-5-32-544:F
+exit
