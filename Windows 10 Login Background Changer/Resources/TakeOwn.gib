@@ -1,7 +1,7 @@
 @echo off
 REM The reason this file is .gib is because VS won't let me extract it the easy way if it is a recognised file type.
 title TakeOwn v0.1
-REM takeown /f %windir%\systemresources\windows.ui.logon /a /r /d y
-takeown /f %windir%\systemresources\windows.ui.logon /r 
+takeown /f %windir%\systemresources\windows.ui.logon /a /r /d y
+REM takeown /f %windir%\systemresources\windows.ui.logon /r 
 ICACLS %windir%\SystemResources\Windows.UI.Logon  /T /grant *S-1-5-32-544:F
 exit

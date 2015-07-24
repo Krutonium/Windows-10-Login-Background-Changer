@@ -1,7 +1,10 @@
 ﻿Imports System.IO
+Imports System.Security.AccessControl
+
 Public Class Form1
     Dim Temp As String = Path.GetTempPath & "BackgroundChanger"
     Dim PRIFileSource As String = System.Environment.GetEnvironmentVariable("windir") & "\SystemResources\Windows.UI.Logon\Windows.UI.Logon.pri"
+    Dim SysResources As String = System.Environment.GetEnvironmentVariable("windir") & "\SystemResources\Windows.UI.Logon\"
     Dim PRIFile As String = Temp & "/Windows.UI.Logon.pri"
     Dim NewPriFile As String = Temp & "/Windows.UI.Logon_new.pri"
     Dim First As Boolean = True
@@ -22,9 +25,16 @@ Public Class Form1
             Directory.Delete(Temp, True)        'If our directory in %temp% exists, delete it.
         End If
         Directory.CreateDirectory(Temp)         'Now make it again.
-        File.WriteAllBytes(Temp & "/takemyfiles.bat", My.Resources.TakeOwn)     'Take Ownership Batch File.
+        'File.WriteAllBytes(Temp & "/takemyfiles.bat", My.Resources.TakeOwn)     'Take Ownership Batch File.
         PictureBox1.BackColor = Color.Transparent   'This is the picturebox that shows the usericon/password box. We need it to be transparent of course.
         PictureBox1.Parent = PBPreview              'Fixes an issue with WinForms that makes it so you can't see a picturebox through a picturebox.
+
+        'Dim User As String = System.Security.Principal.WindowsIdentity.GetCurrent.Name
+        'Dim FolderInfo As IO.DirectoryInfo = New IO.DirectoryInfo(SysResources)
+        'Dim FolderAcl As New DirectorySecurity
+        'FolderAcl.AddAccessRule(New FileSystemAccessRule(User, FileSystemRights.FullControl, AccessControlType.Allow, PropagationFlags.InheritOnly, AccessControlType.Allow))
+        'FolderInfo.SetAccessControl(FolderAcl)
+
         Dim TakeOwn As New ProcessStartInfo
         TakeOwn.UseShellExecute = True
         TakeOwn.WorkingDirectory = System.Environment.GetEnvironmentVariable("windir")  'Gets Windows Directory
@@ -122,7 +132,7 @@ Public Class Form1
         Dim Y As Integer = Screen.PrimaryScreen.Bounds.Height
         Dim rand As New Random
         Randomize()
-        Dim RandNum As String = Rand.Next(0, 100000)
+        Dim RandNum As String = rand.Next(0, 100000)
         RandNum += ".jpg"
         RandNum = "\" & RandNum
         Using Bmp As New Bitmap(X, Y, Imaging.PixelFormat.Format32bppPArgb)         'Generates a solid color image at 300ppi, at the resolution of the primary screen.
