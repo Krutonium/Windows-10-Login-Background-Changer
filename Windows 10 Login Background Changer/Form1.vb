@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports System.Security.AccessControl
+Imports System.Security.Principal
+
 
 Public Class Form1
     Dim Temp As String = Path.GetTempPath & "BackgroundChanger"
@@ -25,27 +27,15 @@ Public Class Form1
             Directory.Delete(Temp, True)        'If our directory in %temp% exists, delete it.
         End If
         Directory.CreateDirectory(Temp)         'Now make it again.
-        'File.WriteAllBytes(Temp & "/takemyfiles.bat", My.Resources.TakeOwn)     'Take Ownership Batch File.
         PictureBox1.BackColor = Color.Transparent   'This is the picturebox that shows the usericon/password box. We need it to be transparent of course.
         PictureBox1.Parent = PBPreview              'Fixes an issue with WinForms that makes it so you can't see a picturebox through a picturebox.
 
-        'Dim User As String = System.Security.Principal.WindowsIdentity.GetCurrent.Name
-        'Dim FolderInfo As IO.DirectoryInfo = New IO.DirectoryInfo(SysResources)
-        'Dim FolderAcl As New DirectorySecurity
-        'FolderAcl.AddAccessRule(New FileSystemAccessRule(User, FileSystemRights.FullControl, AccessControlType.Allow, PropagationFlags.InheritOnly, AccessControlType.Allow))
-        'FolderInfo.SetAccessControl(FolderAcl)
+        'Dim P As
 
-        Dim TakeOwn As New ProcessStartInfo
-        TakeOwn.UseShellExecute = True
-        TakeOwn.WorkingDirectory = System.Environment.GetEnvironmentVariable("windir")  'Gets Windows Directory
-        TakeOwn.Verb = "runas"          'Run as Admin
-        TakeOwn.WindowStyle = ProcessWindowStyle.Hidden     'Shows the command prompt, though you can change it to .Hidden to hide it.
-        TakeOwn.FileName = "cmd.exe"
-        TakeOwn.Arguments = "/c " & Temp & "/takemyfiles.bat"       '/c tells command prompt to execute and close, then we supply the path to our take-ownership batch.
-        Dim L = Process.Start(TakeOwn)  'Start the take ownership program.
-        Do Until L.HasExited
-            System.Threading.Thread.Sleep(100)  'Check every 100ms if cmd.exe has closed.
-        Loop
+        'TakeOwnDir(SysResources)
+        'TakeOwnFile(PRIFileSource)
+        'TakeOwnFile(PRIFileSource & ".bak")
+
         If File.Exists(PRIFileSource & ".bak") = False Then
             File.Copy(PRIFileSource, PRIFileSource & ".bak")        'Make a backup if one doesn't already exist.
             MsgBox("Backup created.")
