@@ -4,6 +4,10 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/4yydgx42k9iqaaw7/branch/master?svg=true)](https://ci.appveyor.com/project/PFCKrutonium/windows-10-login-background-changer/branch/master)
 
+# Don't use this application yet, we are currently working through issues with accessing some files (And a new UI!)
+
+[Download the Application](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/download/1/Windows.10.Login.Background.Changer.exe)
+
 
 Changes the Windows 10 Login Screen Background
 
