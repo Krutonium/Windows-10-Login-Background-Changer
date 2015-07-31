@@ -86,7 +86,7 @@ namespace W10_BG_Logon_Changer.Controls
         {
             if (_runningApplySettings) return;
 
-            if (_mainWindow.SelectedFile.Length <= 0 || !File.Exists(_mainWindow.SelectedFile))
+            if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
                 MessageBox.Show("You must select a file first before you can patch (Default options count as file)",
                     "Error trying to patch");
