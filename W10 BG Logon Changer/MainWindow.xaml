@@ -5,8 +5,9 @@
         ShowIconOnTitleBar="True"
         GlowBrush="{DynamicResource AccentColorBrush}"
         NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
-        Title="W10 Logon BG Changer" Height="600" Width="1024">
+        Title="W10 Logon BG Changer" Height="600" Width="1024" WindowState="Maximized">
     <controls:MetroWindow.LeftWindowCommands>
+        
         <controls:WindowCommands>
             <Button Click="LockButton_Click" x:Name="LockButton">
                 <StackPanel Orientation="Horizontal">
