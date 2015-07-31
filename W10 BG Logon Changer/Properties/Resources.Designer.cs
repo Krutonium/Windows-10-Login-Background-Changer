@@ -71,6 +71,16 @@ namespace W10_BG_Logon_Changer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Toyz|http://github.com/Toyz
+        ///PFCKrutonium|http://github.com/PFCKrutonium.
+        /// </summary>
+        internal static string Authors {
+            get {
+                return ResourceManager.GetString("Authors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] CLW_Script {

@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Management.Automation;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media.Imaging;
 using HelperLibrary;
 using MahApps.Metro.Controls;
 using W10_BG_Logon_Changer.Controls;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+using W10_BG_Logon_Changer.Properties;
+using W10_BG_Logon_Changer.Tools;
 
 namespace W10_BG_Logon_Changer
 {
@@ -30,6 +33,9 @@ namespace W10_BG_Logon_Changer
             }
         }
 
+        public AssemblyInfo AssemblyInfo = new AssemblyInfo(Assembly.GetEntryAssembly());
+
+
         private readonly string _tempPriFile = Path.Combine(Path.GetTempPath(), "bak_temp_pri.pri");
 
         private readonly string _newPriLocation = Path.Combine(Path.GetTempPath(), "new_temp_pri.pri");
@@ -38,7 +44,7 @@ namespace W10_BG_Logon_Changer
         {
             InitializeComponent();
 
-            if (!Properties.Settings.Default.eula)
+            if (!Settings.Default.eula)
             {
                 var dlg =
                     MessageBox.Show(
@@ -51,12 +57,15 @@ namespace W10_BG_Logon_Changer
                 }
             }
 
+            Title += " - " + AssemblyInfo.Version;
 
-            Properties.Settings.Default.eula = true;
-            Properties.Settings.Default.Save();
+            Settings.Default.eula = true;
+            Settings.Default.Save();
 
             SettingFlyout.Content = new BGEditorControl(this);
             SettingFlyout.IsOpen = true;
+
+            AboutFlyout.Content = new AboutControl(this);
 
             HelperLib.TakeOwnership(Config.LogonFolder);
             HelperLib.TakeOwnership(Config.PriFileLocation);
@@ -75,6 +84,11 @@ namespace W10_BG_Logon_Changer
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             SettingFlyout.IsOpen = !SettingFlyout.IsOpen;
+        }
+
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutFlyout.IsOpen = !AboutFlyout.IsOpen;
         }
 
         public void ApplyChanges()
@@ -117,6 +131,28 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
+        }
+
+        private void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            ToggleButton tb = sender as ToggleButton;
+
+            DoToggleStuff(tb);
+        }
+
+        private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+        {
+            ToggleButton tb = sender as ToggleButton;
+
+            DoToggleStuff(tb);
+        }
+
+        private void DoToggleStuff(ToggleButton tb)
+        {
+            if (tb != null)
+            {
+                LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
+            }
         }
     }
 }
