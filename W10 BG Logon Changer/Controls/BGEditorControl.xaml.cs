@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -92,6 +93,31 @@ namespace W10_BG_Logon_Changer.Controls
         private void ApplySettings_Click(object sender, RoutedEventArgs e)
         {
             _mainWindow.ApplyChanges();
+        }
+
+        private void CurrentAccentButton_Click(object sender, RoutedEventArgs e)
+        {
+            var f = Path.GetTempFileName();
+
+            Properties.Resources.trans.Save(f, ImageFormat.Png);
+
+            _mainWindow.SelectedFile = f;
+
+
+            SelectedFile.Text = "Background Locaiton...";
+            ColorPreview.Background = _orgColor;
+        }
+
+        private void RestoreHeroDefaults_Click(object sender, RoutedEventArgs e)
+        {
+            var f = Path.GetTempFileName();
+
+            Properties.Resources._default.Save(f, ImageFormat.Png);
+
+            _mainWindow.SelectedFile = f;
+
+            SelectedFile.Text = "Background Locaiton...";
+            ColorPreview.Background = _orgColor;
         }
     }
 }

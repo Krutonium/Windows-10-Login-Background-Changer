@@ -37,6 +37,24 @@ namespace W10_BG_Logon_Changer
         public MainWindow()
         {
             InitializeComponent();
+
+            if (!Properties.Settings.Default.eula)
+            {
+                var dlg =
+                    MessageBox.Show(
+                        "Upon using this software you agree that we are not at fault if your system stops working corretly.",
+                        "EULA", MessageBoxButton.YesNo);
+
+                if (dlg == MessageBoxResult.No)
+                {
+                    Close();
+                }
+            }
+
+
+            Properties.Settings.Default.eula = true;
+            Properties.Settings.Default.Save();
+
             SettingFlyout.Content = new BGEditorControl(this);
             SettingFlyout.IsOpen = true;
 
@@ -98,6 +116,7 @@ namespace W10_BG_Logon_Changer
             }
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
+            MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
         }
     }
 }
