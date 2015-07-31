@@ -179,5 +179,10 @@ namespace W10_BG_Logon_Changer
             LoginViewer.Source = image;
             //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
         }
+
+        private void LockButton_Click(object sender, RoutedEventArgs e)
+        {
+            Win32Api.LockWorkStation();
+        }
     }
 }

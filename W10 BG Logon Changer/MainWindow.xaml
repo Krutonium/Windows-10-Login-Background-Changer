@@ -6,6 +6,26 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
         Title="W10 Logon BG Changer" Height="600" Width="1024">
+    <controls:MetroWindow.LeftWindowCommands>
+        <controls:WindowCommands>
+            <Button Click="LockButton_Click" x:Name="LockButton">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_lock}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Lock Windows" />
+                </StackPanel>
+            </Button>
+            <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
+
+        </controls:WindowCommands>
+    </controls:MetroWindow.LeftWindowCommands>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
             <Button Click="SettingsButton_Click" x:Name="SettingsButton">
@@ -22,7 +42,6 @@
                    Text="Edit Background" />
                 </StackPanel>
             </Button>
-            <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
 
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
