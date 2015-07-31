@@ -97,6 +97,12 @@ namespace W10_BG_Logon_Changer
 
         public void ApplyChanges()
         {
+            //Lets just delete the old one maybe this was getting bugged?
+            if (File.Exists(_newPriLocation))
+            {
+                File.Delete(_newPriLocation);
+            }
+
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
             byte[] ps1File = Properties.Resources.CLW_Script;
