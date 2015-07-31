@@ -155,14 +155,14 @@ namespace W10_BG_Logon_Changer
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
         }
 
-        private void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
+        public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
         {
             ToggleButton tb = sender as ToggleButton;
 
             DoToggleStuff(tb);
         }
 
-        private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+        public void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
         {
             ToggleButton tb = sender as ToggleButton;
 
@@ -172,11 +172,21 @@ namespace W10_BG_Logon_Changer
         private void DoToggleStuff(ToggleButton tb)
         {
             if (tb == null) return;
-            ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
-                ? Properties.Resources.login.ToBitmapSource()
-                : Properties.Resources.login_noUser.ToBitmapSource();
 
-            LoginViewer.Source = image;
+            switch (tb.Tag.ToString())
+            {
+                case "gimage":
+                    GlyphsViewer.Visibility = tb.IsChecked != null && (bool) tb.IsChecked ? Visibility.Visible : Visibility.Hidden;
+                    break;
+                case "uimage":
+                    ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
+                        ? Properties.Resources.login.ToBitmapSource()
+                        : Properties.Resources.login_noUser.ToBitmapSource();
+
+                    LoginViewer.Source = image;
+                    break;
+            }
+
             //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
         }
 

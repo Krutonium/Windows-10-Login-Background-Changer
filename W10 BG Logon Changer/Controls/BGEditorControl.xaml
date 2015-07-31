@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="W10_BG_Logon_Changer.Controls.BgEditorControl" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="300">
     <Grid>
         <TextBox x:Name="SelectedFile"  Height="23" Margin="10,10,99,0" TextWrapping="NoWrap"  Text="Background location..." IsReadOnly="True" VerticalAlignment="Top"/>
         <Button Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6"/>
@@ -13,7 +13,7 @@
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" Margin="0,3,0,0" TextWrapping="Wrap" Text="Pick a color" VerticalAlignment="Top" Width="191"/>
         </Grid>
         <Button Content="Color" Margin="0,41,10,0" VerticalAlignment="Top" Click="ColorPickerButton_Click" HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6"/>
-        <Button Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,81" Height="42" VerticalAlignment="Bottom"/>
+        <Button Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,204" Height="42" VerticalAlignment="Bottom"/>
         <GroupBox Header="Advanced Options" Margin="10,0,10,10" Height="66" VerticalAlignment="Bottom">
             <Grid>
                 <Button Click="RestoreDefaults_Click" Content="Restore Default" VerticalAlignment="Top" HorizontalAlignment="Left" Width="126"/>
@@ -22,5 +22,14 @@
             </Grid>
         </GroupBox>
         <Button Content="Use Current Accent Color" Margin="10,69,10,0" VerticalAlignment="Top" Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6"/>
+        <GroupBox Header="Advanced Settings" Margin="10,0,10,81" Height="118" VerticalAlignment="Bottom">
+            <Grid>
+                <Custom:ToggleSwitchButton IsChecked="True" Tag="uimage" x:Name="ShowUserImageToggle"  Content="ToggleSwitchButton" Margin="0,0,-1,44" Width="70" Height="Auto" HorizontalAlignment="Right"/>
+                <Custom:ToggleSwitchButton IsChecked="True" Tag="gimage" x:Name="ShowGlyphsIconsToggle" Content="ToggleSwitchButton" Margin="0,40,-1,4" Width="70" HorizontalAlignment="Right" Height="Auto"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Show User Image (EX: Username)" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,53,0,0" TextWrapping="Wrap" Text="Show glyphs in bottom right" VerticalAlignment="Top"/>
+
+            </Grid>
+        </GroupBox>
     </Grid>
 </UserControl>

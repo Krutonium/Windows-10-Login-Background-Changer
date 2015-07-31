@@ -58,7 +58,6 @@
     <Grid>
         <Image x:Name="WallpaperViewer" Source="Images/default.jpg"/>
         <Image x:Name="LoginViewer" Source="Images/login.png"/>
-        <controls:ToggleSwitchButton IsChecked="True" Unchecked="ToggleButton_OnUnchecked" Checked="ToggleButton_OnChecked" Content="ToggleSwitchButton" HorizontalAlignment="Left" Margin="10,0,0,10" Height="33" Width="58" VerticalAlignment="Bottom"/>
-
+        <Image x:Name="GlyphsViewer" Source="Images/glyphs.png"/>
     </Grid>
 </controls:MetroWindow>
