@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Management.Automation;
 using System.Reflection;
+using System.Resources;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Imaging;
@@ -13,6 +14,7 @@ using MahApps.Metro.Controls;
 using W10_BG_Logon_Changer.Controls;
 using W10_BG_Logon_Changer.Properties;
 using W10_BG_Logon_Changer.Tools;
+using W10_BG_Logon_Changer.Tools.UserColorHandler;
 
 namespace W10_BG_Logon_Changer
 {
@@ -56,6 +58,8 @@ namespace W10_BG_Logon_Changer
                     Close();
                 }
             }
+
+            Debug.WriteLine(ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
 
             Title += " - " + AssemblyInfo.Version;
 

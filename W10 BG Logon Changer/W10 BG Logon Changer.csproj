@@ -66,6 +66,8 @@
     </ApplicationDefinition>
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
+    <Compile Include="Tools\UserColorHandler\ColorFunctions.cs" />
+    <Compile Include="Tools\UserColorHandler\ImmersiveColors.cs" />
     <Page Include="Controls\AboutControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

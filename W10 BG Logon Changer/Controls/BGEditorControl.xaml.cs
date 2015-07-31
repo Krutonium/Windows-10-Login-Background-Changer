@@ -1,10 +1,13 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Color = System.Drawing.Color;
 using MessageBox = System.Windows.MessageBox;
@@ -102,6 +105,9 @@ namespace W10_BG_Logon_Changer.Controls
             Properties.Resources.trans.Save(f, ImageFormat.Png);
 
             _mainWindow.SelectedFile = f;
+            Color c = ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground);
+
+            _mainWindow.WallpaperViewer.Source = new BitmapImage(new Uri(FillImageColor(c)));
 
 
             SelectedFile.Text = "Background location...";
