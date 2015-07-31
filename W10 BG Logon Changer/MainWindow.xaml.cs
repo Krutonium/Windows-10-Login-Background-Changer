@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Management.Automation;
 using System.Reflection;
@@ -83,6 +84,14 @@ namespace W10_BG_Logon_Changer
             HelperLib.TakeOwnership(Config.BakPriFileLocation);
 
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
+
+            if (File.Exists(Config.CurrentImageLocation))
+            {
+                var temp = Path.GetTempFileName();
+
+                File.Copy(Config.CurrentImageLocation, temp, true);
+                WallpaperViewer.Source = new BitmapImage(new Uri(temp));
+            }
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -102,6 +111,8 @@ namespace W10_BG_Logon_Changer
             {
                 File.Delete(_newPriLocation);
             }
+
+            File.Copy(SelectedFile, Config.CurrentImageLocation, true);
 
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
