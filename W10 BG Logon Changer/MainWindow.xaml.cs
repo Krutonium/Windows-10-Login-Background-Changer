@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using HelperLibrary;
 using MahApps.Metro.Controls;
@@ -67,7 +68,7 @@ namespace W10_BG_Logon_Changer
             Settings.Default.eula = true;
             Settings.Default.Save();
 
-            SettingFlyout.Content = new BGEditorControl(this);
+            SettingFlyout.Content = new BgEditorControl(this);
             SettingFlyout.IsOpen = true;
 
             AboutFlyout.Content = new AboutControl(this);
@@ -170,10 +171,13 @@ namespace W10_BG_Logon_Changer
 
         private void DoToggleStuff(ToggleButton tb)
         {
-            if (tb != null)
-            {
-                LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
-            }
+            if (tb == null) return;
+            ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
+                ? Properties.Resources.login.ToBitmapSource()
+                : Properties.Resources.login_noUser.ToBitmapSource();
+
+            LoginViewer.Source = image;
+            //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
         }
     }
 }
