@@ -10,10 +10,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using Microsoft.Win32.Security;
 
 namespace HelperLibrary
 {
-    public class Class1
+    public class HelperLib
     {
         public static void TakeOwnership(string FD)
         {

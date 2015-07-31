@@ -1,0 +1,39 @@
+﻿<controls:MetroWindow x:Class="W10_BG_Logon_Changer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        ShowIconOnTitleBar="True"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
+        Title="W10 Logon BG Changer" Height="600" Width="1024">
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Click="SettingsButton_Click" x:Name="SettingsButton">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Edit Background" />
+                </StackPanel>
+            </Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="SettingFlyout" Header="Background Settings" Position="Right" Width="350">
+                <!-- Your custom content here -->
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+    <Grid>
+        <Image x:Name="WallpaperViewer" Source="Images/default.jpg"/>
+        <Image Source="Images/login.png"/>
+
+    </Grid>
+</controls:MetroWindow>
