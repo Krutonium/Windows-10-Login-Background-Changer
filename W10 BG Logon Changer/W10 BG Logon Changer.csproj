@@ -134,9 +134,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Resources\trans.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
