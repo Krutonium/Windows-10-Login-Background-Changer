@@ -117,7 +117,10 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
-            byte[] ps1File = Properties.Resources.CLW_Script;
+            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, SelectedFile);
+
+            //File.Copy(_newPriLocation, "test.pri");
+            /*byte[] ps1File = Properties.Resources.CLW_Script;
             string file = string.Empty;
             
             using (var stream = new StreamReader(new MemoryStream(ps1File)))
@@ -149,7 +152,7 @@ namespace W10_BG_Logon_Changer
                         Debug.WriteLine(outputItem.BaseObject);
                     }
                 }
-            }
+            }*/
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
