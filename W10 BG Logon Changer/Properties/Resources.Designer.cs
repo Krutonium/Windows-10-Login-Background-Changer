@@ -71,8 +71,8 @@ namespace W10_BG_Logon_Changer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toyz|http://github.com/Toyz
-        ///PFCKrutonium|http://github.com/PFCKrutonium.
+        ///   Looks up a localized string similar to PFCKrutonium|http://github.com/PFCKrutonium
+        ///Toyz|http://github.com/Toyz.
         /// </summary>
         internal static string Authors {
             get {
@@ -87,6 +87,26 @@ namespace W10_BG_Logon_Changer.Properties {
             get {
                 object obj = ResourceManager.GetObject("CLW_Script", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login {
+            get {
+                object obj = ResourceManager.GetObject("login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login_noUser {
+            get {
+                object obj = ResourceManager.GetObject("login_noUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
