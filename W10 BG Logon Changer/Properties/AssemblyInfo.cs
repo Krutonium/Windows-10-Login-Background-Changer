@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("W10 BG Logon Changer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This program is designed to make changing the Windows 10 Hero Logon picture much easier..")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("W10 BG Logon Changer")]

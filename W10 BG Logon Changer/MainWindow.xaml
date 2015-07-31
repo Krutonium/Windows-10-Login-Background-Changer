@@ -22,6 +22,8 @@
                    Text="Edit Background" />
                 </StackPanel>
             </Button>
+            <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
+
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
     <controls:MetroWindow.Flyouts>
@@ -29,11 +31,15 @@
             <controls:Flyout x:Name="SettingFlyout" Header="Background Settings" Position="Right" Width="350">
                 <!-- Your custom content here -->
             </controls:Flyout>
+            <controls:Flyout x:Name="AboutFlyout" Header="About" Position="Left" Width="350">
+                <!-- Your custom content here -->
+            </controls:Flyout>
         </controls:FlyoutsControl>
     </controls:MetroWindow.Flyouts>
     <Grid>
         <Image x:Name="WallpaperViewer" Source="Images/default.jpg"/>
-        <Image Source="Images/login.png"/>
+        <Image x:Name="LoginViewer" Source="Images/login.png"/>
+        <controls:ToggleSwitchButton IsChecked="True" Unchecked="ToggleButton_OnUnchecked" Checked="ToggleButton_OnChecked" Content="ToggleSwitchButton" HorizontalAlignment="Left" Margin="10,0,0,10" Height="33" Width="58" VerticalAlignment="Bottom"/>
 
     </Grid>
 </controls:MetroWindow>

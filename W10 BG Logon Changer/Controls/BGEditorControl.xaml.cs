@@ -56,7 +56,7 @@ namespace W10_BG_Logon_Changer.Controls
                 var sd = new SolidColorBrush(cfd.Color.ToMediaColor());
                 ColorPreview.Background = sd;
 
-                SelectedFile.Text = "Background Locaiton...";
+                SelectedFile.Text = "Background location...";
             }
         }
 
@@ -104,7 +104,7 @@ namespace W10_BG_Logon_Changer.Controls
             _mainWindow.SelectedFile = f;
 
 
-            SelectedFile.Text = "Background Locaiton...";
+            SelectedFile.Text = "Background location...";
             ColorPreview.Background = _orgColor;
         }
 
@@ -116,7 +116,7 @@ namespace W10_BG_Logon_Changer.Controls
 
             _mainWindow.SelectedFile = f;
 
-            SelectedFile.Text = "Background Locaiton...";
+            SelectedFile.Text = "Background location...";
             ColorPreview.Background = _orgColor;
         }
     }
