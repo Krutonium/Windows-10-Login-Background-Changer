@@ -171,15 +171,13 @@ namespace W10_BG_Logon_Changer
 
         private void DoToggleStuff(ToggleButton tb)
         {
-            if (tb != null)
-            {
-                ImageSource image = tb.IsChecked.Value
-                    ? Properties.Resources.login.ToBitmapSource()
-                    : Properties.Resources.login_noUser.ToBitmapSource();
+            if (tb == null) return;
+            ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
+                ? Properties.Resources.login.ToBitmapSource()
+                : Properties.Resources.login_noUser.ToBitmapSource();
 
-                LoginViewer.Source = image;
-                //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
-            }
+            LoginViewer.Source = image;
+            //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
         }
     }
 }
