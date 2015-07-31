@@ -155,6 +155,7 @@
   <ItemGroup>
     <None Include="Resources\Authors.txt" />
     <Resource Include="Eula.ico" />
+    <Resource Include="Images\glyphs.png" />
     <Content Include="Resources\trans.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

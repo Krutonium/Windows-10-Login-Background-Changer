@@ -31,6 +31,12 @@ namespace W10_BG_Logon_Changer.Controls
             _mainWindow = mainWindow;
             InitializeComponent();
             _orgColor = ColorPreview.Background;
+
+            ShowUserImageToggle.Checked += _mainWindow.ToggleButton_OnChecked;
+            ShowUserImageToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
+
+            ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
+            ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
