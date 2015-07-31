@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace W10_BG_Logon_Changer.Tools.UserColorHandler
+﻿namespace W10_BG_Logon_Changer.Tools.UserColorHandler
 {
     public enum ImmersiveColors
     {
