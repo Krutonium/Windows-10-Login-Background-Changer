@@ -2,12 +2,15 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro.Controls;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
+using Button = System.Windows.Controls.Button;
 using Color = System.Drawing.Color;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
@@ -18,12 +21,12 @@ namespace W10_BG_Logon_Changer.Controls
     /// <summary>
     /// Interaction logic for BGEditorControl.xaml
     /// </summary>
-    public partial class BGEditorControl : UserControl
+    public partial class BgEditorControl : UserControl
     {
         private readonly MainWindow _mainWindow;
         private readonly Brush _orgColor;
 
-        public BGEditorControl(MainWindow mainWindow)
+        public BgEditorControl(MainWindow mainWindow)
         {
             _mainWindow = mainWindow;
             InitializeComponent();
@@ -62,39 +65,56 @@ namespace W10_BG_Logon_Changer.Controls
             }
         }
 
-        private string FillImageColor(Color c)
-        {
-            var image = Path.GetTempFileName();
-
-            DrawFilledRectangle(3840, 2160, new SolidBrush(c)).Save(image, ImageFormat.Jpeg);
-
-            return image;
-        }
-
-        private Bitmap DrawFilledRectangle(int x, int y, System.Drawing.Brush b)
-        {
-            var bmp = new Bitmap(x, y);
-            using (var graph = Graphics.FromImage(bmp))
-            {
-                var imageSize = new Rectangle(0, 0, x, y);
-                graph.FillRectangle(b, imageSize);
-            }
-            return bmp;
-        }
-
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
             var msg = MessageBox.Show("Are you sure you wish to reset the image?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
-            if (msg == MessageBoxResult.Yes)
-            {
-                File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
-            }
+            if (msg != MessageBoxResult.Yes) return;
+            File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
+
+            File.Delete(Config.CurrentImageLocation);
+
+            var f = Path.GetTempFileName();
+            Properties.Resources._default.Save(f, ImageFormat.Png);
+
+            Reset(f);
         }
+
+        private bool _runningApplySettings;
 
         private void ApplySettings_Click(object sender, RoutedEventArgs e)
         {
-            _mainWindow.ApplyChanges();
+            if (_runningApplySettings) return;
+
+            if (_mainWindow.SelectedFile.Length <= 0 || !File.Exists(_mainWindow.SelectedFile))
+            {
+                MessageBox.Show("You must select a file first before you can patch (Default options count as file)",
+                    "Error trying to patch");
+                return;
+            }
+
+            _runningApplySettings = true;
+            var holderContent = ((Button) sender);
+            var progress = new ProgressRing
+            {
+                IsActive = true,
+                Visibility = Visibility.Visible,
+                IsLarge =  false,
+                Width = 30,
+                Height = 30
+            };
+
+            var def = holderContent.Content;
+            holderContent.Content = progress;
+
+            Task.Run(() => _mainWindow.ApplyChanges()).ContinueWith(delegate
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    holderContent.Content = def;
+                    _runningApplySettings = false;
+                });
+            });
         }
 
         private void CurrentAccentButton_Click(object sender, RoutedEventArgs e)
@@ -104,13 +124,9 @@ namespace W10_BG_Logon_Changer.Controls
             Properties.Resources.trans.Save(f, ImageFormat.Png);
 
             _mainWindow.SelectedFile = f;
-            Color c = ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground);
+            var c = ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground);
 
-            _mainWindow.WallpaperViewer.Source = new BitmapImage(new Uri(FillImageColor(c)));
-
-
-            SelectedFile.Text = "Background location...";
-            ColorPreview.Background = _orgColor;
+            Reset(FillImageColor(c));
         }
 
         private void RestoreHeroDefaults_Click(object sender, RoutedEventArgs e)
@@ -121,8 +137,43 @@ namespace W10_BG_Logon_Changer.Controls
 
             _mainWindow.SelectedFile = f;
 
+            Reset();
+        }
+
+        private void Reset(string image = "")
+        {
             SelectedFile.Text = "Background location...";
             ColorPreview.Background = _orgColor;
+
+            if (image != "")
+            {
+                OverrideImageFromMainWindow(image);
+            }
+        }
+
+        private void OverrideImageFromMainWindow(string url)
+        {
+            _mainWindow.WallpaperViewer.Source = new BitmapImage(new Uri(url));
+        }
+
+        public string FillImageColor(Color c)
+        {
+            var image = Path.GetTempFileName();
+
+            DrawFilledRectangle(3840, 2160, new SolidBrush(c)).Save(image, ImageFormat.Jpeg);
+
+            return image;
+        }
+
+        private static Bitmap DrawFilledRectangle(int x, int y, System.Drawing.Brush b)
+        {
+            var bmp = new Bitmap(x, y);
+            using (var graph = Graphics.FromImage(bmp))
+            {
+                var imageSize = new Rectangle(0, 0, x, y);
+                graph.FillRectangle(b, imageSize);
+            }
+            return bmp;
         }
     }
 }
