@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.IO;
-using System.Management.Automation;
 using System.Reflection;
 using System.Resources;
 using System.Windows;
@@ -118,41 +117,6 @@ namespace W10_BG_Logon_Changer
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
             PriBuilder.CreatePri(_tempPriFile, _newPriLocation, SelectedFile);
-
-            //File.Copy(_newPriLocation, "test.pri");
-            /*byte[] ps1File = Properties.Resources.CLW_Script;
-            string file = string.Empty;
-            
-            using (var stream = new StreamReader(new MemoryStream(ps1File)))
-                file = stream.ReadToEnd();
-
-            using (PowerShell PowerShellInstance = PowerShell.Create())
-            {
-                PowerShellInstance.AddScript(file);
-                var pars = new Dictionary<string, string>
-                {
-                    {"p1", _tempPriFile},
-                    {"p2", _newPriLocation},
-                    {"p3", SelectedFile}
-                };
-
-                PowerShellInstance.AddParameters(pars);
-
-                Collection<PSObject> PSOutput = PowerShellInstance.Invoke();
-
-                // loop through each output object item
-                foreach (PSObject outputItem in PSOutput)
-                {
-                    // if null object was dumped to the pipeline during the script then a null
-                    // object may be present here. check for null to prevent potential NRE.
-                    if (outputItem != null)
-                    {
-                        //TODO: do something with the output item 
-                        // outputItem.BaseOBject
-                        Debug.WriteLine(outputItem.BaseObject);
-                    }
-                }
-            }*/
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
