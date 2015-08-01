@@ -8,7 +8,7 @@
     d:DesignHeight="500" d:DesignWidth="300">
     <Grid>
         <TextBox x:Name="SelectedFile" Height="23" Margin="10,10,99,0" TextWrapping="NoWrap"
-                 Text="Background location..." IsReadOnly="True" VerticalAlignment="Top" />
+                 Text="Background filename appears here." IsReadOnly="True" VerticalAlignment="Top"/>
         <Button Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
         <Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="23" Margin="10,41,99,0" VerticalAlignment="Top">
@@ -19,7 +19,7 @@
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
         <Button Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,242" Height="42"
                 VerticalAlignment="Bottom" />
-        <GroupBox Header="Advanced Options" Margin="10,0,10,10" Height="66" VerticalAlignment="Bottom">
+        <GroupBox Header="Restore to Default" Margin="10,0,10,10" Height="66" VerticalAlignment="Bottom">
             <Grid>
                 <Button Click="RestoreDefaults_Click" Content="Restore Default" VerticalAlignment="Top"
                         HorizontalAlignment="Left" Width="126" />
@@ -30,7 +30,7 @@
         </GroupBox>
         <Button Content="Use Current Accent Color" Margin="10,69,10,0" VerticalAlignment="Top"
                 Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
-        <GroupBox Header="Advanced Settings" Margin="10,0,10,81" Height="156" VerticalAlignment="Bottom">
+        <GroupBox Header="Application Settings" Margin="10,0,10,81" Height="156" VerticalAlignment="Bottom">
             <Grid>
                 <Custom:ToggleSwitchButton IsChecked="True" Tag="uimage" x:Name="ShowUserImageToggle"
                                            Content="ToggleSwitchButton" Margin="0,0,0,77" Width="70" Height="35"
@@ -38,11 +38,11 @@
                 <Custom:ToggleSwitchButton IsChecked="True" Tag="gimage" x:Name="ShowGlyphsIconsToggle"
                                            Content="ToggleSwitchButton" Margin="0,42,0,39" Width="70"
                                            HorizontalAlignment="Right" Height="35" />
-                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
-                           Text="Show User Image (EX: Username)" VerticalAlignment="Top" />
-                <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap"
+                <TextBlock HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap"
+                           Text="Show User Information" VerticalAlignment="Top" />
+                <TextBlock HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap"
                            Text="Show glyphs in bottom right" VerticalAlignment="Top" />
-                <TextBlock HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap"
+                <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap"
                 	Text="Flyout Location" VerticalAlignment="Top" />
                 <ComboBox x:Name="FlyoutPosSelect" Margin="96,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
                     <ComboBoxItem Content="Left"/>
@@ -56,7 +56,7 @@
             <ComboBoxItem Content="1080p" />
             <ComboBoxItem Content="4K" />
             <ComboBoxItem Content="My Resolution" />
-            <ComboBoxItem Content="No scale" IsSelected="True" />
+            <ComboBoxItem Content="None" IsSelected="True" />
         </ComboBox>
         <TextBlock Margin="10,104,213,0" TextWrapping="Wrap" Text="Image Scaling" VerticalAlignment="Top"
                    Foreground="White" />

@@ -38,7 +38,7 @@ namespace W10_BG_Logon_Changer
             {
                 var dlg =
                     MessageBox.Show(
-                        "Upon using this software you agree that we are not at fault if your system stops working corretly.",
+                        "You agree that upon using this software, we are not at fault if your system stops working correctly.",
                         "EULA", MessageBoxButton.YesNo);
 
                 if (dlg == MessageBoxResult.No)
@@ -64,7 +64,7 @@ namespace W10_BG_Logon_Changer
 
             if (!File.Exists(Config.BakPriFileLocation))
             {
-                Debug.WriteLine("Orginal file didn't exist D:");
+                Debug.WriteLine("Original file doesn't exist! D:");
                 File.Copy(Config.PriFileLocation, Config.BakPriFileLocation);
             }
 
@@ -165,7 +165,7 @@ namespace W10_BG_Logon_Changer
             PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
-            MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
+            MessageBox.Show("Successfully changed login background! Please lock your device to view your new background.", "Success!");
         }
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)

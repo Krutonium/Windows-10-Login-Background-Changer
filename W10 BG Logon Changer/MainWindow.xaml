@@ -5,7 +5,7 @@
                       ShowIconOnTitleBar="True"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
-                      Title="W10 Logon BG Changer" Height="600" Width="1024" WindowState="Maximized"
+                      Title="W10 Logon BG Changer" Height="600" WindowState="Maximized" Width="1024"
                       >
 
     <controls:MetroWindow.LeftWindowCommands>
