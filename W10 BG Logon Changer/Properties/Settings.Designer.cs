@@ -34,5 +34,41 @@ namespace W10_BG_Logon_Changer.Properties {
                 this["eula"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool gimage {
+            get {
+                return ((bool)(this["gimage"]));
+            }
+            set {
+                this["gimage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool uimage {
+            get {
+                return ((bool)(this["uimage"]));
+            }
+            set {
+                this["uimage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string last_folder {
+            get {
+                return ((string)(this["last_folder"]));
+            }
+            set {
+                this["last_folder"] = value;
+            }
+        }
     }
 }

@@ -41,6 +41,9 @@ namespace W10_BG_Logon_Changer.Controls
 
             ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
             ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
+
+            ShowUserImageToggle.IsChecked = Properties.Settings.Default.uimage;
+            ShowGlyphsIconsToggle.IsChecked = Properties.Settings.Default.gimage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -52,11 +55,16 @@ namespace W10_BG_Logon_Changer.Controls
                 Multiselect = false
             };
 
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.last_folder))
+                ofd.InitialDirectory = Properties.Settings.Default.last_folder;
+
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
+            Properties.Settings.Default.last_folder = Path.GetDirectoryName(ofd.FileName);
             _mainWindow.SelectedFile = ofd.FileName;
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
+            Properties.Settings.Default.Save();
         }
 
         private void ColorPickerButton_Click(object sender, RoutedEventArgs e)

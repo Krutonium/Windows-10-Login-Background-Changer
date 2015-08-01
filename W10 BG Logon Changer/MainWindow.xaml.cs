@@ -182,11 +182,15 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
+                    Debug.Assert(tb.IsChecked != null, "tb.IsChecked != null");
+                    Settings.Default.gimage = tb.IsChecked.Value;
                     GlyphsViewer.Visibility = tb.IsChecked != null && (bool) tb.IsChecked
                         ? Visibility.Visible
                         : Visibility.Hidden;
                     break;
                 case "uimage":
+                    Debug.Assert(tb.IsChecked != null, "tb.IsChecked != null");
+                    Settings.Default.uimage = tb.IsChecked.Value;
                     ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
                         ? Properties.Resources.login.ToBitmapSource()
                         : Properties.Resources.login_noUser.ToBitmapSource();
@@ -195,6 +199,7 @@ namespace W10_BG_Logon_Changer
                     break;
             }
 
+            Settings.Default.Save();
             //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
         }
 
