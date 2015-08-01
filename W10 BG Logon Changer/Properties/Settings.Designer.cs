@@ -58,5 +58,17 @@ namespace W10_BG_Logon_Changer.Properties {
                 this["uimage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string last_folder {
+            get {
+                return ((string)(this["last_folder"]));
+            }
+            set {
+                this["last_folder"] = value;
+            }
+        }
     }
 }
