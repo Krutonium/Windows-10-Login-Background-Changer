@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
 using System.Resources;
@@ -116,7 +119,9 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
-            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, SelectedFile);
+            var imagetemp = Path.GetTempFileName();
+            ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
+            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
@@ -160,6 +165,31 @@ namespace W10_BG_Logon_Changer
         private void LockButton_Click(object sender, RoutedEventArgs e)
         {
             Win32Api.LockWorkStation();
+        }
+
+        public static Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
         }
     }
 }
