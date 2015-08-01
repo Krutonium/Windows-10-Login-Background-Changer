@@ -5,7 +5,9 @@
                       ShowIconOnTitleBar="True"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
-                      Title="W10 Logon BG Changer" Height="600" Width="1024" WindowState="Maximized">
+                      Title="W10 Logon BG Changer" Height="600" Width="1024" WindowState="Maximized"
+                      >
+
     <controls:MetroWindow.LeftWindowCommands>
 
         <controls:WindowCommands>
@@ -58,8 +60,8 @@
     </controls:MetroWindow.Flyouts>
     <Grid>
         <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
-        <Image x:Name="UserViewer" Source="Images/user.png" MouseUp="ImageViewer_MouseUp" />
-        <Image x:Name="PswdViewer" Source="Images/pswd.png" MouseUp="ImageViewer_MouseUp" />
-        <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp" />
+        <Image x:Name="UserViewer" Source="Images/user.png" MouseUp="ImageViewer_MouseUp"/>
+        <Image x:Name="PswdViewer" Source="Images/pswd.png" MouseUp="ImageViewer_MouseUp"/>
+        <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp"/>
     </Grid>
 </controls:MetroWindow>
