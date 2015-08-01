@@ -1,2 +1,3 @@
-PFCKrutonium|http://github.com/PFCKrutonium
-Toyz|http://github.com/Toyz
+PFCKrutonium|https://github.com/PFCKrutonium
+Toyz|https://github.com/Toyz
+Syrexide|https://github.com/Syrexide
