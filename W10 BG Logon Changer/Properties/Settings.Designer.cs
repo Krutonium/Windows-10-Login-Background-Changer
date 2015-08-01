@@ -70,5 +70,17 @@ namespace W10_BG_Logon_Changer.Properties {
                 this["last_folder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Right")]
+        public global::MahApps.Metro.Controls.Position flyoutloc {
+            get {
+                return ((global::MahApps.Metro.Controls.Position)(this["flyoutloc"]));
+            }
+            set {
+                this["flyoutloc"] = value;
+            }
+        }
     }
 }

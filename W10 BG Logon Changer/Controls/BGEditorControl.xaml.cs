@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -44,6 +45,17 @@ namespace W10_BG_Logon_Changer.Controls
 
             ShowUserImageToggle.IsChecked = Properties.Settings.Default.uimage;
             ShowGlyphsIconsToggle.IsChecked = Properties.Settings.Default.gimage;
+
+            Debug.WriteLine(Properties.Settings.Default.flyoutloc);
+            switch (Properties.Settings.Default.flyoutloc)
+            {
+                case Position.Right:
+                    FlyoutPosSelect.SelectedIndex = 1;
+                    break;
+                case Position.Left:
+                    FlyoutPosSelect.SelectedIndex = 0;
+                    break;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -72,15 +84,13 @@ namespace W10_BG_Logon_Changer.Controls
             var cfd = new ColorDialog();
             var dialog = cfd.ShowDialog();
 
-            if (dialog == DialogResult.OK || dialog == DialogResult.Yes)
-            {
-                _mainWindow.SelectedFile = FillImageColor(cfd.Color);
+            if (dialog != DialogResult.OK && dialog != DialogResult.Yes) return;
+            _mainWindow.SelectedFile = FillImageColor(cfd.Color);
 
-                var sd = new SolidColorBrush(cfd.Color.ToMediaColor());
-                ColorPreview.Background = sd;
+            var sd = new SolidColorBrush(cfd.Color.ToMediaColor());
+            ColorPreview.Background = sd;
 
-                SelectedFile.Text = "Background location...";
-            }
+            SelectedFile.Text = "Background location...";
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
@@ -196,6 +206,20 @@ namespace W10_BG_Logon_Changer.Controls
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Scaling = ((ComboBox) sender).SelectedIndex;
+        }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine(((ComboBox)sender).SelectedIndex);
+            switch (((ComboBox) sender).SelectedIndex)
+            {
+                case 0:
+                    _mainWindow.ChangeFlyoutLocation("left");
+                    break;
+                case 1:
+                    _mainWindow.ChangeFlyoutLocation("right");
+                    break;
+            }
         }
     }
 }
