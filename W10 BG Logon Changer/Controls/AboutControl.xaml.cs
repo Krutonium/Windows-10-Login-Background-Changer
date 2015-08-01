@@ -8,7 +8,7 @@ using W10_BG_Logon_Changer.Tools;
 namespace W10_BG_Logon_Changer.Controls
 {
     /// <summary>
-    /// Interaction logic for AboutControl.xaml
+    ///     Interaction logic for AboutControl.xaml
     /// </summary>
     public partial class AboutControl : UserControl
     {
@@ -20,17 +20,17 @@ namespace W10_BG_Logon_Changer.Controls
 
             var authors = Properties.Resources.Authors;
 
-            StackPanel sp = new StackPanel {Orientation = Orientation.Vertical};
-            
-            using (StringReader reader = new StringReader(authors))
+            var sp = new StackPanel {Orientation = Orientation.Vertical};
+
+            using (var reader = new StringReader(authors))
             {
-                string line = string.Empty;
+                var line = string.Empty;
                 do
                 {
                     line = reader.ReadLine();
                     if (line != null)
                     {
-                        TextBlock tb = new TextBlock
+                        var tb = new TextBlock
                         {
                             Text = line,
                             Padding = new Thickness(5)
@@ -40,14 +40,16 @@ namespace W10_BG_Logon_Changer.Controls
 
                         if (l.Length > 0)
                         {
-                            string inlineExpression = string.Format("<bold>{0}</bold> | <hyperlink NavigateUri='{1}' Click='Url_Click'>{1}</hyperlink>", l[0], l[1]);
+                            var inlineExpression =
+                                string.Format(
+                                    "<bold>{0}</bold> | <hyperlink NavigateUri='{1}' Click='Url_Click'>{1}</hyperlink>",
+                                    l[0], l[1]);
                             InlineExpression.SetInlineExpression(tb, inlineExpression);
                         }
 
 
                         sp.Children.Add(tb);
                     }
-
                 } while (line != null);
             }
 

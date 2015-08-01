@@ -475,6 +475,6 @@
         ImmersiveBootEditBackground,
         ImmersiveBootTextLinkRest,
         ImmersiveBootTextLinkHover,
-        ImmersiveBootTextLinkPressed,
+        ImmersiveBootTextLinkPressed
     }
 }

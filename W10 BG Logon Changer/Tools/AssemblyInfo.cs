@@ -6,6 +6,8 @@ namespace W10_BG_Logon_Changer.Tools
 {
     public class AssemblyInfo
     {
+        private readonly Assembly _assembly;
+
         public AssemblyInfo(Assembly assembly)
         {
             if (assembly == null)
@@ -13,22 +15,20 @@ namespace W10_BG_Logon_Changer.Tools
             _assembly = assembly;
         }
 
-        private readonly Assembly _assembly;
-
         /// <summary>
-        /// Gets the title property
+        ///     Gets the title property
         /// </summary>
         public string ProductTitle
         {
             get
             {
                 return GetAttributeValue<AssemblyTitleAttribute>(a => a.Title,
-                       Path.GetFileNameWithoutExtension(_assembly.CodeBase));
+                    Path.GetFileNameWithoutExtension(_assembly.CodeBase));
             }
         }
 
         /// <summary>
-        /// Gets the application's version
+        ///     Gets the application's version
         /// </summary>
         public string Version
         {
@@ -40,16 +40,15 @@ namespace W10_BG_Logon_Changer.Tools
         }
 
         /// <summary>
-        /// Gets the description about the application.
+        ///     Gets the description about the application.
         /// </summary>
         public string Description
         {
             get { return GetAttributeValue<AssemblyDescriptionAttribute>(a => a.Description); }
         }
 
-
         /// <summary>
-        ///  Gets the product's full name.
+        ///     Gets the product's full name.
         /// </summary>
         public string Product
         {
@@ -57,7 +56,7 @@ namespace W10_BG_Logon_Changer.Tools
         }
 
         /// <summary>
-        /// Gets the copyright information for the product.
+        ///     Gets the copyright information for the product.
         /// </summary>
         public string Copyright
         {
@@ -65,7 +64,7 @@ namespace W10_BG_Logon_Changer.Tools
         }
 
         /// <summary>
-        /// Gets the company information for the product.
+        ///     Gets the company information for the product.
         /// </summary>
         public string Company
         {
@@ -73,10 +72,10 @@ namespace W10_BG_Logon_Changer.Tools
         }
 
         protected string GetAttributeValue<TAttr>(Func<TAttr,
-          string> resolveFunc, string defaultResult = null) where TAttr : Attribute
+            string> resolveFunc, string defaultResult = null) where TAttr : Attribute
         {
-            var attributes = _assembly.GetCustomAttributes(typeof(TAttr), false);
-            return attributes.Length > 0 ? resolveFunc((TAttr)attributes[0]) : defaultResult;
+            var attributes = _assembly.GetCustomAttributes(typeof (TAttr), false);
+            return attributes.Length > 0 ? resolveFunc((TAttr) attributes[0]) : defaultResult;
         }
     }
 }

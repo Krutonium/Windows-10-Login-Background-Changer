@@ -16,7 +16,7 @@ namespace W10_BG_Logon_Changer.Tools
 
             inputStream.CopyTo(outputStream);
 
-            var replacementLengthAligned = (Math.Ceiling((double)replacementStream.Length/8)*8);
+            var replacementLengthAligned = (Math.Ceiling((double) replacementStream.Length/8)*8);
 
             //Header
             inputStream.Seek(0x14, SeekOrigin.Begin);

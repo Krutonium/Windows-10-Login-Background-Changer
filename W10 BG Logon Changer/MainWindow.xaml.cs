@@ -19,47 +19,14 @@ using W10_BG_Logon_Changer.Tools.UserColorHandler;
 namespace W10_BG_Logon_Changer
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private string _selectedFile;
-
-        public string SelectedFile
-        {
-            get { return _selectedFile; }
-            set
-            {
-                //WallpaperViewer.Source = new BitmapImage(new Uri(value));
-                switch (BgEditorControl.Scaling)
-                {
-                    case 0:
-                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1280, 720).ToBitmapSource();
-                        break;
-                    case 1:
-                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1920 , 1080).ToBitmapSource();
-                        break;
-                    case 2:
-                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 3840, 2160).ToBitmapSource();
-                        break;
-                    case 3:
-                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).ToBitmapSource();
-                        break;
-                    case 4:
-                        WallpaperViewer.Source = new BitmapImage(new Uri(value));
-                        break;
-                }
-
-                _selectedFile = value;
-            }
-        }
-
-        public AssemblyInfo AssemblyInfo = new AssemblyInfo(Assembly.GetEntryAssembly());
-
-
-        private readonly string _tempPriFile = Path.Combine(Path.GetTempPath(), "bak_temp_pri.pri");
-
         private readonly string _newPriLocation = Path.Combine(Path.GetTempPath(), "new_temp_pri.pri");
+        private readonly string _tempPriFile = Path.Combine(Path.GetTempPath(), "bak_temp_pri.pri");
+        private string _selectedFile;
+        public AssemblyInfo AssemblyInfo = new AssemblyInfo(Assembly.GetEntryAssembly());
 
         public MainWindow()
         {
@@ -112,6 +79,37 @@ namespace W10_BG_Logon_Changer
             }
         }
 
+        public string SelectedFile
+        {
+            get { return _selectedFile; }
+            set
+            {
+                //WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                switch (BgEditorControl.Scaling)
+                {
+                    case 0:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1280, 720).ToBitmapSource();
+                        break;
+                    case 1:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1920, 1080).ToBitmapSource();
+                        break;
+                    case 2:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 3840, 2160).ToBitmapSource();
+                        break;
+                    case 3:
+                        WallpaperViewer.Source =
+                            ResizeImage(Image.FromFile(value), (int) SystemParameters.PrimaryScreenWidth,
+                                (int) SystemParameters.PrimaryScreenHeight).ToBitmapSource();
+                        break;
+                    case 4:
+                        WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                        break;
+                }
+
+                _selectedFile = value;
+            }
+        }
+
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             SettingFlyout.IsOpen = !SettingFlyout.IsOpen;
@@ -132,7 +130,7 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(SelectedFile, Config.CurrentImageLocation, true);
 
-            
+
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
             var imagetemp = Path.GetTempFileName();
@@ -149,7 +147,8 @@ namespace W10_BG_Logon_Changer
                     ResizeImage(Image.FromFile(SelectedFile), 3840, 2160).Save(imagetemp, ImageFormat.Png);
                     break;
                 case 3:
-                    ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
+                    ResizeImage(Image.FromFile(SelectedFile), (int) SystemParameters.PrimaryScreenWidth,
+                        (int) SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
                     break;
                 case 4:
                     imagetemp = SelectedFile;
@@ -164,14 +163,14 @@ namespace W10_BG_Logon_Changer
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
         {
-            ToggleButton tb = sender as ToggleButton;
+            var tb = sender as ToggleButton;
 
             DoToggleStuff(tb);
         }
 
         public void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
         {
-            ToggleButton tb = sender as ToggleButton;
+            var tb = sender as ToggleButton;
 
             DoToggleStuff(tb);
         }
@@ -183,7 +182,9 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    GlyphsViewer.Visibility = tb.IsChecked != null && (bool) tb.IsChecked ? Visibility.Visible : Visibility.Hidden;
+                    GlyphsViewer.Visibility = tb.IsChecked != null && (bool) tb.IsChecked
+                        ? Visibility.Visible
+                        : Visibility.Hidden;
                     break;
                 case "uimage":
                     ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
