@@ -58,8 +58,8 @@
     </controls:MetroWindow.Flyouts>
     <Grid>
         <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
-        <Image x:Name="UserViewer" Source="Images/user.png" />
-        <Image x:Name="PswdViewer" Source="Images/pswd.png" />
-        <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" />
+        <Image x:Name="UserViewer" Source="Images/user.png" MouseUp="ImageViewer_MouseUp" />
+        <Image x:Name="PswdViewer" Source="Images/pswd.png" MouseUp="ImageViewer_MouseUp" />
+        <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp" />
     </Grid>
 </controls:MetroWindow>
