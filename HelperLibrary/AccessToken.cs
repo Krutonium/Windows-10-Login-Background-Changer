@@ -3,9 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Microsoft.Win32.Security
 {
-    using DWORD = UInt32;
     using BOOL = Int32;
-
 
     /// <summary>
     ///  Encapsulation of a Win32 token handle.
@@ -21,7 +19,6 @@ namespace Microsoft.Win32.Security
             _handle = handle;
         }
 
-
         protected override void Dispose(bool disposing)
         {
             if (_handle != IntPtr.Zero)
@@ -34,7 +31,6 @@ namespace Microsoft.Win32.Security
             }
         }
 
-
         /// <summary>
         /// Enable a single privilege on the process.
         /// </summary>
@@ -43,7 +39,7 @@ namespace Microsoft.Win32.Security
         ///  in the privilege list of the process</exception>
         public void EnablePrivilege(TokenPrivilege privilege)
         {
-            var privs = new TokenPrivileges {privilege};
+            var privs = new TokenPrivileges { privilege };
             EnableDisablePrivileges(privs);
         }
 
@@ -64,7 +60,7 @@ namespace Microsoft.Win32.Security
                 BOOL rc = Win32.AdjustTokenPrivileges(
                     _handle,
                     Win32.FALSE,
-                    (IntPtr) priv,
+                    (IntPtr)priv,
                     0,
                     IntPtr.Zero,
                     out cbLength);
@@ -93,7 +89,7 @@ namespace Microsoft.Win32.Security
             IntPtr processHandle = Win32.OpenProcess(
                 ProcessAccessType.PROCESS_QUERY_INFORMATION,
                 Win32.FALSE,
-                (uint) pid);
+                (uint)pid);
             if (processHandle == IntPtr.Zero)
                 return IntPtr.Zero;
             Win32.CheckCall(processHandle);

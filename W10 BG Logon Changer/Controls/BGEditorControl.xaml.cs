@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -9,7 +10,6 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using MahApps.Metro.Controls;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Button = System.Windows.Controls.Button;
@@ -52,6 +52,7 @@ namespace W10_BG_Logon_Changer.Controls
                 case Position.Right:
                     FlyoutPosSelect.SelectedIndex = 1;
                     break;
+
                 case Position.Left:
                     FlyoutPosSelect.SelectedIndex = 0;
                     break;
@@ -121,7 +122,7 @@ namespace W10_BG_Logon_Changer.Controls
             }
 
             _runningApplySettings = true;
-            var holderContent = ((Button) sender);
+            var holderContent = ((Button)sender);
             var progress = new ProgressRing
             {
                 IsActive = true,
@@ -205,17 +206,18 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Scaling = ((ComboBox) sender).SelectedIndex;
+            Scaling = ((ComboBox)sender).SelectedIndex;
         }
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Debug.WriteLine(((ComboBox)sender).SelectedIndex);
-            switch (((ComboBox) sender).SelectedIndex)
+            switch (((ComboBox)sender).SelectedIndex)
             {
                 case 0:
                     _mainWindow.ChangeFlyoutLocation("left");
                     break;
+
                 case 1:
                     _mainWindow.ChangeFlyoutLocation("right");
                     break;

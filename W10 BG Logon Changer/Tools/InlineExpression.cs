@@ -12,7 +12,7 @@ namespace W10_BG_Logon_Changer.Tools
     public class InlineExpression
     {
         public static readonly DependencyProperty InlineExpressionProperty = DependencyProperty.RegisterAttached(
-            "InlineExpression", typeof (string), typeof (TextBlock),
+            "InlineExpression", typeof(string), typeof(TextBlock),
             new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public static void SetInlineExpression(TextBlock textBlock, string value)
@@ -37,7 +37,7 @@ namespace W10_BG_Logon_Changer.Tools
 
         public static string GetInlineExpression(TextBlock textBlock)
         {
-            return (string) textBlock.GetValue(InlineExpressionProperty);
+            return (string)textBlock.GetValue(InlineExpressionProperty);
         }
 
         private static Inline[] GetInlines(FrameworkElement element, IEnumerable<InlineDescription> inlineDescriptions)
@@ -65,26 +65,32 @@ namespace W10_BG_Logon_Changer.Tools
                     var run = new Run(description.Text);
                     inline = run;
                     break;
+
                 case InlineType.LineBreak:
                     var lineBreak = new LineBreak();
                     inline = lineBreak;
                     break;
+
                 case InlineType.Span:
                     var span = new Span();
                     inline = span;
                     break;
+
                 case InlineType.Bold:
                     var bold = new Bold();
                     inline = bold;
                     break;
+
                 case InlineType.Italic:
                     var italic = new Italic();
                     inline = italic;
                     break;
+
                 case InlineType.Hyperlink:
                     var hyperlink = new Hyperlink();
                     inline = hyperlink;
                     break;
+
                 case InlineType.Underline:
                     var underline = new Underline();
                     inline = underline;
@@ -158,24 +164,31 @@ namespace W10_BG_Logon_Changer.Tools
                 case "run":
                     type = InlineType.Run;
                     break;
+
                 case "linebreak":
                     type = InlineType.LineBreak;
                     break;
+
                 case "span":
                     type = InlineType.Span;
                     break;
+
                 case "bold":
                     type = InlineType.Bold;
                     break;
+
                 case "italic":
                     type = InlineType.Italic;
                     break;
+
                 case "hyperlink":
                     type = InlineType.Hyperlink;
                     break;
+
                 case "underline":
                     type = InlineType.Underline;
                     break;
+
                 default:
                     return null;
             }

@@ -1,14 +1,10 @@
+using Microsoft.Win32.Security.Win32Structs;
 using System;
 using System.Runtime.InteropServices;
-using Microsoft.Win32.Security.Win32Structs;
 
 namespace Microsoft.Win32.Security
 {
-    using HANDLE = IntPtr;
-    using DWORD = UInt32;
     using BOOL = Int32;
-    using LPVOID = IntPtr;
-    using PSID = IntPtr;
 
     /// <summary>
     /// Summary description for TokenPrivilege.
@@ -66,11 +62,11 @@ namespace Microsoft.Win32.Security
         {
             LUID_AND_ATTRIBUTES la;
             la.Luid = _luid.GetNativeLUID();
-            la.Attributes = (uint) _attributes;
-            var res = new byte[Marshal.SizeOf(typeof (LUID_AND_ATTRIBUTES))];
+            la.Attributes = (uint)_attributes;
+            var res = new byte[Marshal.SizeOf(typeof(LUID_AND_ATTRIBUTES))];
             fixed (byte* luida = res)
             {
-                Marshal.StructureToPtr(la, (IntPtr) luida, false);
+                Marshal.StructureToPtr(la, (IntPtr)luida, false);
             }
             return res;
         }

@@ -124,6 +124,7 @@ namespace Microsoft.Win32.Security
 
         // PROCESS specific
         PROCESS_TERMINATE = 0x0001,
+
         PROCESS_CREATE_THREAD = 0x0002,
         PROCESS_SET_SESSIONID = 0x0004,
         PROCESS_VM_OPERATION = 0x0008,
@@ -156,7 +157,6 @@ namespace Microsoft.Win32.Security
         Enabled = 0x00000002,
         UsedForAccess = 0x80000000,
     }
-
 
     [Flags]
     public enum SecurityDescriptorControlFlags : ushort // WORD

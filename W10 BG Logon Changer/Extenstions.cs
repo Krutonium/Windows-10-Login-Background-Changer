@@ -8,8 +8,8 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
-using MColor = System.Windows.Media.Color;
 using DColor = System.Drawing.Color;
+using MColor = System.Windows.Media.Color;
 
 namespace W10_BG_Logon_Changer
 {

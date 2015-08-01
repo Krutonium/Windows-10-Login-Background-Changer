@@ -153,7 +153,9 @@
     <Resource Include="Images\glyphs.png" />
     <Resource Include="Images\pswd.png" />
     <Resource Include="Images\user.png" />
-    <Content Include="Resources\trans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\trans.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
