@@ -135,7 +135,7 @@ namespace W10_BG_Logon_Changer
             
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
-            var imagetemp = SelectedFile;
+            var imagetemp = Path.GetTempFileName();
             //ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
             switch (BgEditorControl.Scaling)
             {
@@ -150,6 +150,9 @@ namespace W10_BG_Logon_Changer
                     break;
                 case 3:
                     ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
+                    break;
+                case 4:
+                    imagetemp = SelectedFile;
                     break;
             }
 
