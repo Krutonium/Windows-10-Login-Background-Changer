@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -6,28 +7,32 @@ namespace W10_BG_Logon_Changer.Tools.Animations
 {
     public static class ImageFader
     {
-        private const int Speed = 1;
-        private const double Fadespeed = 0.10;
+        private const int interval = 1;
+        private const double speed = 0.10;
 
-        public async static void Fadein(Image image)
+        public async static void fadeIn(Image image)
         {
-            for (double i = 0; i < 1.01; i += Fadespeed)
+            for (double i = 0; i < 1.01; i += speed)
             {
                 i = Math.Round(i, 2);
 
-                await Task.Delay(Speed);
+                await Task.Delay(interval);
+
+                Debug.WriteLine("[" + image.Name + "] fadeIn: " + i);
 
                 image.Opacity = i;
             }
         }
 
-        public async static void Fadeout(Image image)
+        public async static void fadeOut(Image image)
         {
-            for (double i = 1; i > -0.01; i -= Fadespeed)
+            for (double i = 1; i > -0.01; i -= speed)
             {
                 i = Math.Round(i, 2);
 
-                await Task.Delay(Speed);
+                await Task.Delay(interval);
+
+                Debug.WriteLine("[" + image.Name + "] fadeOut: " + i);
 
                 image.Opacity = i;
             }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelperLibrary;
+using MahApps.Metro.Controls;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -7,16 +9,12 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using HelperLibrary;
-using MahApps.Metro.Controls;
 using W10_BG_Logon_Changer.Controls;
 using W10_BG_Logon_Changer.Properties;
 using W10_BG_Logon_Changer.Tools;
-using W10_BG_Logon_Changer.Tools.UserColorHandler;
-using System.Threading.Tasks;
 using W10_BG_Logon_Changer.Tools.Animations;
+using W10_BG_Logon_Changer.Tools.UserColorHandler;
 
 namespace W10_BG_Logon_Changer
 {
@@ -97,17 +95,21 @@ namespace W10_BG_Logon_Changer
                     case 0:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1280, 720).ToBitmapSource();
                         break;
+
                     case 1:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1920, 1080).ToBitmapSource();
                         break;
+
                     case 2:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 3840, 2160).ToBitmapSource();
                         break;
+
                     case 3:
                         WallpaperViewer.Source =
-                            ResizeImage(Image.FromFile(value), (int) SystemParameters.PrimaryScreenWidth,
-                                (int) SystemParameters.PrimaryScreenHeight).ToBitmapSource();
+                            ResizeImage(Image.FromFile(value), (int)SystemParameters.PrimaryScreenWidth,
+                                (int)SystemParameters.PrimaryScreenHeight).ToBitmapSource();
                         break;
+
                     case 4:
                         WallpaperViewer.Source = new BitmapImage(new Uri(value));
                         break;
@@ -137,7 +139,6 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(SelectedFile, Config.CurrentImageLocation, true);
 
-
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
             var imagetemp = Path.GetTempFileName();
@@ -147,16 +148,20 @@ namespace W10_BG_Logon_Changer
                 case 0:
                     ResizeImage(Image.FromFile(SelectedFile), 1280, 720).Save(imagetemp, ImageFormat.Png);
                     break;
+
                 case 1:
                     ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
                     break;
+
                 case 2:
                     ResizeImage(Image.FromFile(SelectedFile), 3840, 2160).Save(imagetemp, ImageFormat.Png);
                     break;
+
                 case 3:
-                    ResizeImage(Image.FromFile(SelectedFile), (int) SystemParameters.PrimaryScreenWidth,
-                        (int) SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
+                    ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth,
+                        (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
                     break;
+
                 case 4:
                     imagetemp = SelectedFile;
                     break;
@@ -187,26 +192,29 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    Settings.Default.gimage = (bool) tb.IsChecked; 
+                    Settings.Default.gimage = (bool)tb.IsChecked;
                     switch (tb.IsChecked)
                     {
                         case true:
-                            ImageFader.Fadein(GlyphsViewer);
+                            ImageFader.fadeIn(GlyphsViewer);
                             break;
+
                         case false:
-                            ImageFader.Fadeout(GlyphsViewer);
+                            ImageFader.fadeOut(GlyphsViewer);
                             break;
                     }
                     break;
+
                 case "uimage":
-                    Settings.Default.uimage = (bool) tb.IsChecked;
+                    Settings.Default.uimage = (bool)tb.IsChecked;
                     switch (tb.IsChecked)
                     {
                         case true:
-                            ImageFader.Fadein(UserViewer);
+                            ImageFader.fadeIn(UserViewer);
                             break;
+
                         case false:
-                            ImageFader.Fadeout(UserViewer);
+                            ImageFader.fadeOut(UserViewer);
                             break;
                     }
                     break;
@@ -251,9 +259,12 @@ namespace W10_BG_Logon_Changer
             {
                 case "left":
                     SettingFlyout.Position = Position.Left;
+                    AboutFlyout.Position = Position.Right;
                     break;
+
                 case "right":
                     SettingFlyout.Position = Position.Right;
+                    AboutFlyout.Position = Position.Left;
                     break;
             }
 

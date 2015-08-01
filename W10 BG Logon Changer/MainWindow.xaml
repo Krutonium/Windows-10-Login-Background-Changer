@@ -5,12 +5,17 @@
                       ShowIconOnTitleBar="True"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
-                      Title="W10 Logon BG Changer" Height="600" WindowState="Maximized" Width="1024"
-                      MinHeight="400"
+                      Title="W10 Logon BG Changer" Height="600" WindowState="Maximized" Width="1008"
+                      MinHeight="500" MinWidth="830"
                       >
 
     <controls:MetroWindow.LeftWindowCommands>
 
+        <controls:WindowCommands>
+            <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.LeftWindowCommands>
+    <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
             <Button Click="LockButton_Click" x:Name="LockButton">
                 <StackPanel Orientation="Horizontal">
@@ -26,12 +31,6 @@
                                Text="Lock Windows" />
                 </StackPanel>
             </Button>
-            <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
-
-        </controls:WindowCommands>
-    </controls:MetroWindow.LeftWindowCommands>
-    <controls:MetroWindow.RightWindowCommands>
-        <controls:WindowCommands>
             <Button Click="SettingsButton_Click" x:Name="SettingsButton">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20"
@@ -61,8 +60,8 @@
     </controls:MetroWindow.Flyouts>
     <Grid>
         <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
-        <Image x:Name="UserViewer" Source="Images/user.png" MouseUp="ImageViewer_MouseUp"/>
-        <Image x:Name="PswdViewer" Source="Images/pswd.png" MouseUp="ImageViewer_MouseUp"/>
+        <Image x:Name="UserViewer" Source="Images/user.png"/>
+        <Image x:Name="PswdViewer" Source="Images/pswd.png"/>
         <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp"/>
     </Grid>
 </controls:MetroWindow>

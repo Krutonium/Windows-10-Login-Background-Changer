@@ -1,20 +1,14 @@
+using Microsoft.Win32.Security.Win32Structs;
 using System;
 using System.Runtime.InteropServices;
-using Microsoft.Win32.Security.Win32Structs;
 
 namespace Microsoft.Win32.Security
 {
-    using HANDLE = IntPtr;
-    using DWORD = UInt32;
     using BOOL = Int32;
-    using LPVOID = IntPtr;
-    using PACL = IntPtr;
+    using DWORD = UInt32;
+    using HANDLE = IntPtr;
+
     using PTOKEN_PRIVILEGES = IntPtr;
-    using PSECURITY_DESCRIPTOR = IntPtr;
-    using SECURITY_DESCRIPTOR_CONTROL = SecurityDescriptorControlFlags;
-    using LPCTSTR = String;
-    using HKEY = IntPtr;
-    using LONG = Int32;
 
     /// <summary>
     /// Summary description for Win32Interop.
@@ -32,10 +26,9 @@ namespace Microsoft.Win32.Security
         private const string Kernel32 = "kernel32.dll";
         private const string Advapi32 = "Advapi32.dll";
 
-
         public static DWORD GetLastError()
         {
-            return (DWORD) Marshal.GetLastWin32Error();
+            return (DWORD)Marshal.GetLastWin32Error();
         }
 
         public static void ThrowLastError()
@@ -45,7 +38,7 @@ namespace Microsoft.Win32.Security
 
         public static void CheckCall(bool funcResult)
         {
-            if (! funcResult)
+            if (!funcResult)
             {
                 ThrowLastError();
             }
@@ -73,7 +66,6 @@ namespace Microsoft.Win32.Security
         [DllImport(Kernel32, CallingConvention = CallingConvention.Winapi)]
         public static extern void SetLastError(DWORD dwErrCode);
 
-
         /*
 		[DllImport(Kernel32, CallingConvention=CallingConvention.Winapi, SetLastError=true, CharSet=CharSet.Auto)]
 		public static extern HANDLE CreateEvent(
@@ -89,7 +81,6 @@ namespace Microsoft.Win32.Security
         public static extern HANDLE OpenProcess(ProcessAccessType dwDesiredAccess, BOOL bInheritHandle,
                                                 DWORD dwProcessId);
 
-
         [DllImport(Kernel32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
         public static extern BOOL CloseHandle(HANDLE handle);
 
@@ -99,7 +90,6 @@ namespace Microsoft.Win32.Security
         ///
         [DllImport(Advapi32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
         public static extern BOOL OpenProcessToken(HANDLE hProcess, TokenAccessType dwDesiredAccess, out HANDLE hToken);
-
 
         [DllImport(Advapi32, CallingConvention = CallingConvention.Winapi, SetLastError = true, CharSet = CharSet.Auto)]
         public static extern BOOL LookupPrivilegeValue(string lpSystemName, string lpName, out LUID Luid);

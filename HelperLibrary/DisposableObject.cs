@@ -17,7 +17,7 @@ namespace Microsoft.Win32.Security
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+        #endregion IDisposable Members
 
         ~DisposableObject()
         {
