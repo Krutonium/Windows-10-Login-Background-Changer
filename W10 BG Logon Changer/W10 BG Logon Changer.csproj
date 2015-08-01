@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Tools\Animations\ImageFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
     <Compile Include="Tools\PriBuilder.cs" />

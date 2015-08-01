@@ -16,6 +16,7 @@ using W10_BG_Logon_Changer.Properties;
 using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using System.Threading.Tasks;
+using W10_BG_Logon_Changer.Tools.Animations;
 
 namespace W10_BG_Logon_Changer
 {
@@ -176,59 +177,30 @@ namespace W10_BG_Logon_Changer
             DoToggleStuff(tb);
         }
 
-        private async void DoToggleStuff(ToggleButton tb)
+        private void DoToggleStuff(ToggleButton tb)
         {
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    if (tb.IsChecked == true)
+                    switch (tb.IsChecked)
                     {
-                        for (double i = 0; i < 1.01; i += 0.01)
-                        {
-                            i = Math.Round(i, 2);
-
-                            await Task.Delay(1);
-
-                            this.GlyphsViewer.Opacity = i;
-
-                        }
-                    }
-                    else if (tb.IsChecked == false)
-                    {
-                        for (double i = 1; i > -0.01; i -= 0.01)
-                        {
-                            i = Math.Round(i, 2);
-
-                            await Task.Delay(1);
-
-                            this.GlyphsViewer.Opacity = i;
-                        }
+                        case true:
+                            ImageFader.Fadein(GlyphsViewer);
+                            break;
+                        case false:
+                            ImageFader.Fadeout(GlyphsViewer);
+                            break;
                     }
                     break;
                 case "uimage":
-                    if (tb.IsChecked == true)
+                    switch (tb.IsChecked)
                     {
-                        for (double i = 0; i < 1.01; i += 0.01)
-                        {
-                            i = Math.Round(i, 2);
-
-                            await Task.Delay(1);
-
-                            this.UserViewer.Opacity = i;
-
-                        }
-                    }
-                    else if (tb.IsChecked == false)
-                    {
-                        for (double i = 1; i > -0.01; i -= 0.01)
-                        {
-                            i = Math.Round(i, 2);
-
-                            await Task.Delay(1);
-
-                            this.UserViewer.Opacity = i;
-
-                        }
+                        case true:
+                            ImageFader.Fadein(UserViewer);
+                            break;
+                        case false:
+                            ImageFader.Fadeout(UserViewer);
+                            break;
                     }
                     break;
             }
