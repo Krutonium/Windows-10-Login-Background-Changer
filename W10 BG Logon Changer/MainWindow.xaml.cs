@@ -260,5 +260,10 @@ namespace W10_BG_Logon_Changer
             Settings.Default.flyoutloc = SettingFlyout.Position;
             Settings.Default.Save();
         }
+
+        private void ImageViewer_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            SettingFlyout.IsOpen = false;
+        }
     }
 }
