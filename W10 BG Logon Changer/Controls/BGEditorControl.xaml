@@ -31,5 +31,13 @@
 
             </Grid>
         </GroupBox>
+        <ComboBox Margin="92,99,10,0" VerticalAlignment="Top" SelectedIndex="4" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="720p"  />
+            <ComboBoxItem Content="1080p"  />
+            <ComboBoxItem Content="4K"  />
+            <ComboBoxItem Content="My Resolution"  />
+            <ComboBoxItem Content="No scale" IsSelected="True" />
+        </ComboBox>
+        <TextBlock Margin="10,104,213,0" TextWrapping="Wrap" Text="Image Scaling" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </UserControl>
