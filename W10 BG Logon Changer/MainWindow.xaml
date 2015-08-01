@@ -48,7 +48,7 @@
     </controls:MetroWindow.RightWindowCommands>
     <controls:MetroWindow.Flyouts>
         <controls:FlyoutsControl>
-            <controls:Flyout x:Name="SettingFlyout" Header="Background Settings" Position="Right" Width="350">
+            <controls:Flyout x:Name="SettingFlyout" Header="Background Settings" Width="350">
                 <!-- Your custom content here -->
             </controls:Flyout>
             <controls:Flyout x:Name="AboutFlyout" Header="About" Position="Left" Width="350">

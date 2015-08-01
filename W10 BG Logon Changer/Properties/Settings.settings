@@ -14,5 +14,8 @@
     <Setting Name="last_folder" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="flyoutloc" Type="MahApps.Metro.Controls.Position" Scope="User">
+      <Value Profile="(Default)">Right</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
