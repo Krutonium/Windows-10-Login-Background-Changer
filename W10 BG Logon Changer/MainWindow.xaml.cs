@@ -79,6 +79,11 @@ namespace W10_BG_Logon_Changer
                 File.Copy(Config.CurrentImageLocation, temp, true);
                 WallpaperViewer.Source = new BitmapImage(new Uri(temp));
             }
+
+            Loaded += (o, i) =>
+            {
+                SettingFlyout.Position = Settings.Default.flyoutloc;
+            };
         }
 
         public string SelectedFile
@@ -182,6 +187,7 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
+                    Settings.Default.gimage = (bool) tb.IsChecked; 
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -193,6 +199,7 @@ namespace W10_BG_Logon_Changer
                     }
                     break;
                 case "uimage":
+                    Settings.Default.uimage = (bool) tb.IsChecked;
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -235,6 +242,28 @@ namespace W10_BG_Logon_Changer
             }
 
             return destImage;
+        }
+
+        public void ChangeFlyoutLocation(string loc)
+        {
+            Debug.WriteLine(loc);
+            switch (loc)
+            {
+                case "left":
+                    SettingFlyout.Position = Position.Left;
+                    break;
+                case "right":
+                    SettingFlyout.Position = Position.Right;
+                    break;
+            }
+
+            Settings.Default.flyoutloc = SettingFlyout.Position;
+            Settings.Default.Save();
+        }
+
+        private void ImageViewer_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            SettingFlyout.IsOpen = false;
         }
     }
 }
