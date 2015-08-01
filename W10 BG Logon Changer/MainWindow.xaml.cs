@@ -140,16 +140,16 @@ namespace W10_BG_Logon_Changer
             switch (BgEditorControl.Scaling)
             {
                 case 0:
-                    ResizeImage(Image.FromFile(SelectedFile), 1280, 720).Save(imagetemp);
+                    ResizeImage(Image.FromFile(SelectedFile), 1280, 720).Save(imagetemp, ImageFormat.Png);
                     break;
                 case 1:
-                    ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp);
+                    ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
                     break;
                 case 2:
-                    ResizeImage(Image.FromFile(SelectedFile), 3840, 2160).Save(imagetemp);
+                    ResizeImage(Image.FromFile(SelectedFile), 3840, 2160).Save(imagetemp, ImageFormat.Png);
                     break;
                 case 3:
-                    ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp);
+                    ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
                     break;
             }
 
