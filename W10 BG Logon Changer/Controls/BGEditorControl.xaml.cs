@@ -12,6 +12,7 @@ using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Button = System.Windows.Controls.Button;
 using Color = System.Drawing.Color;
+using ComboBox = System.Windows.Controls.ComboBox;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using UserControl = System.Windows.Controls.UserControl;
@@ -25,6 +26,8 @@ namespace W10_BG_Logon_Changer.Controls
     {
         private readonly MainWindow _mainWindow;
         private readonly Brush _orgColor;
+
+        public static int Scaling = 5;
 
         public BgEditorControl(MainWindow mainWindow)
         {
@@ -180,6 +183,11 @@ namespace W10_BG_Logon_Changer.Controls
                 graph.FillRectangle(b, imageSize);
             }
             return bmp;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Scaling = ((ComboBox) sender).SelectedIndex;
         }
     }
 }

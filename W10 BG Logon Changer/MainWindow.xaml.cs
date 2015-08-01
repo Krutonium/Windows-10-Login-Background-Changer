@@ -30,7 +30,26 @@ namespace W10_BG_Logon_Changer
             get { return _selectedFile; }
             set
             {
-                WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                //WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                switch (BgEditorControl.Scaling)
+                {
+                    case 0:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1280, 720).ToBitmapSource();
+                        break;
+                    case 1:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1920 , 1080).ToBitmapSource();
+                        break;
+                    case 2:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 3840, 2160).ToBitmapSource();
+                        break;
+                    case 3:
+                        WallpaperViewer.Source = ResizeImage(Image.FromFile(value), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).ToBitmapSource();
+                        break;
+                    case 4:
+                        WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                        break;
+                }
+
                 _selectedFile = value;
             }
         }
@@ -116,9 +135,25 @@ namespace W10_BG_Logon_Changer
             
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
-            //var imagetemp = Path.GetTempFileName();
+            var imagetemp = SelectedFile;
             //ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
-            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, SelectedFile);
+            switch (BgEditorControl.Scaling)
+            {
+                case 0:
+                    ResizeImage(Image.FromFile(SelectedFile), 1280, 720).Save(imagetemp);
+                    break;
+                case 1:
+                    ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp);
+                    break;
+                case 2:
+                    ResizeImage(Image.FromFile(SelectedFile), 3840, 2160).Save(imagetemp);
+                    break;
+                case 3:
+                    ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp);
+                    break;
+            }
+
+            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
