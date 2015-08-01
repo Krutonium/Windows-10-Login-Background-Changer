@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
-using System.Resources;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
@@ -117,11 +113,12 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(SelectedFile, Config.CurrentImageLocation, true);
 
+            
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 
-            var imagetemp = Path.GetTempFileName();
-            ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
-            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
+            //var imagetemp = Path.GetTempFileName();
+            //ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
+            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, SelectedFile);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
             MessageBox.Show("Finished patching the file please lock and look at it", "Finished patching");
