@@ -12,7 +12,8 @@ namespace W10_BG_Logon_Changer.Tools
     public class InlineExpression
     {
         public static readonly DependencyProperty InlineExpressionProperty = DependencyProperty.RegisterAttached(
-            "InlineExpression", typeof(string), typeof(TextBlock), new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "InlineExpression", typeof (string), typeof (TextBlock),
+            new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public static void SetInlineExpression(TextBlock textBlock, string value)
         {
@@ -36,31 +37,15 @@ namespace W10_BG_Logon_Changer.Tools
 
         public static string GetInlineExpression(TextBlock textBlock)
         {
-            return (string)textBlock.GetValue(InlineExpressionProperty);
-        }
-
-        enum InlineType
-        {
-            Run,
-            LineBreak,
-            Span,
-            Bold,
-            Italic,
-            Hyperlink,
-            Underline
-        }
-
-        class InlineDescription
-        {
-            public InlineType Type { get; set; }
-            public string Text { get; set; }
-            public InlineDescription[] Inlines { get; set; }
-            public string StyleName { get; set; }
+            return (string) textBlock.GetValue(InlineExpressionProperty);
         }
 
         private static Inline[] GetInlines(FrameworkElement element, IEnumerable<InlineDescription> inlineDescriptions)
         {
-            return inlineDescriptions.Select(description => GetInline(element, description)).Where(inline => inline != null).ToArray();
+            return
+                inlineDescriptions.Select(description => GetInline(element, description))
+                    .Where(inline => inline != null)
+                    .ToArray();
         }
 
         private static Inline GetInline(FrameworkElement element, InlineDescription description)
@@ -111,7 +96,10 @@ namespace W10_BG_Logon_Changer.Tools
                 var span = inline as Span;
                 if (span != null)
                 {
-                    var childInlines = description.Inlines.Select(inlineDescription => GetInline(element, inlineDescription)).Where(childInline => childInline != null).ToList();
+                    var childInlines =
+                        description.Inlines.Select(inlineDescription => GetInline(element, inlineDescription))
+                            .Where(childInline => childInline != null)
+                            .ToList();
 
                     span.Inlines.AddRange(childInlines);
                 }
@@ -143,7 +131,11 @@ namespace W10_BG_Logon_Changer.Tools
             if (rootElement == null)
                 return new InlineDescription[0];
 
-            return rootElement.ChildNodes.Cast<XmlNode>().Select(GetInlineDescription).Where(description => description != null).ToArray();
+            return
+                rootElement.ChildNodes.Cast<XmlNode>()
+                    .Select(GetInlineDescription)
+                    .Where(description => description != null)
+                    .ToArray();
         }
 
         private static InlineDescription GetInlineDescription(XmlNode node)
@@ -202,7 +194,10 @@ namespace W10_BG_Logon_Changer.Tools
             }
             else
             {
-                childDescriptions.AddRange(element.ChildNodes.Cast<XmlNode>().Select(GetInlineDescription).Where(childDescription => childDescription != null));
+                childDescriptions.AddRange(
+                    element.ChildNodes.Cast<XmlNode>()
+                        .Select(GetInlineDescription)
+                        .Where(childDescription => childDescription != null));
             }
 
             var inlineDescription = new InlineDescription
@@ -228,6 +223,25 @@ namespace W10_BG_Logon_Changer.Tools
                 Text = value
             };
             return inlineDescription;
+        }
+
+        private enum InlineType
+        {
+            Run,
+            LineBreak,
+            Span,
+            Bold,
+            Italic,
+            Hyperlink,
+            Underline
+        }
+
+        private class InlineDescription
+        {
+            public InlineType Type { get; set; }
+            public string Text { get; set; }
+            public InlineDescription[] Inlines { get; set; }
+            public string StyleName { get; set; }
         }
     }
 }

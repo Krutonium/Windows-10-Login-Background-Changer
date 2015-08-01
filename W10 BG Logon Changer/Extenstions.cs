@@ -12,13 +12,6 @@ namespace W10_BG_Logon_Changer
 {
     public static class Extenstions
     {
-        internal static class NativeMethods
-        {
-            [DllImport("gdi32.dll")]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            internal static extern bool DeleteObject(IntPtr hObject);
-        }
-
         public static MColor ToMediaColor(this DColor color)
         {
             return MColor.FromArgb(color.A, color.R, color.G, color.B);
@@ -26,7 +19,7 @@ namespace W10_BG_Logon_Changer
 
         public static BitmapSource ToBitmapSource(this Image source)
         {
-            Bitmap bitmap = new Bitmap(source);
+            var bitmap = new Bitmap(source);
 
             var bitSrc = bitmap.ToBitmapSource();
 
@@ -59,6 +52,13 @@ namespace W10_BG_Logon_Changer
             }
 
             return bitSrc;
+        }
+
+        internal static class NativeMethods
+        {
+            [DllImport("gdi32.dll")]
+            [return: MarshalAs(UnmanagedType.Bool)]
+            internal static extern bool DeleteObject(IntPtr hObject);
         }
     }
 }

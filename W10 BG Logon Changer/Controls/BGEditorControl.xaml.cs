@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -20,14 +21,14 @@ using UserControl = System.Windows.Controls.UserControl;
 namespace W10_BG_Logon_Changer.Controls
 {
     /// <summary>
-    /// Interaction logic for BGEditorControl.xaml
+    ///     Interaction logic for BGEditorControl.xaml
     /// </summary>
     public partial class BgEditorControl : UserControl
     {
+        public static int Scaling = 5;
         private readonly MainWindow _mainWindow;
         private readonly Brush _orgColor;
-
-        public static int Scaling = 5;
+        private bool _runningApplySettings;
 
         public BgEditorControl(MainWindow mainWindow)
         {
@@ -76,7 +77,8 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
-            var msg = MessageBox.Show("Are you sure you wish to reset the image?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+            var msg = MessageBox.Show("Are you sure you wish to reset the image?", "Are you sure?",
+                MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
             if (msg != MessageBoxResult.Yes) return;
             File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
@@ -88,8 +90,6 @@ namespace W10_BG_Logon_Changer.Controls
 
             Reset(f);
         }
-
-        private bool _runningApplySettings;
 
         private void ApplySettings_Click(object sender, RoutedEventArgs e)
         {
@@ -108,7 +108,7 @@ namespace W10_BG_Logon_Changer.Controls
             {
                 IsActive = true,
                 Visibility = Visibility.Visible,
-                IsLarge =  false,
+                IsLarge = false,
                 Width = 30,
                 Height = 30
             };
@@ -185,7 +185,7 @@ namespace W10_BG_Logon_Changer.Controls
             return bmp;
         }
 
-        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Scaling = ((ComboBox) sender).SelectedIndex;
         }

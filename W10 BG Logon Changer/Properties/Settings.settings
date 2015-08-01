@@ -1,5 +1,7 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="W10_BG_Logon_Changer.Properties" GeneratedClassName="Settings">
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="W10_BG_Logon_Changer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="eula" Type="System.Boolean" Scope="User">
