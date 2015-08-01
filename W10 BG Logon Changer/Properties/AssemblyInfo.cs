@@ -8,7 +8,7 @@ using System.Windows;
 
 [assembly: AssemblyTitle("W10 BG Logon Changer")]
 [assembly:
-    AssemblyDescription("This program is designed to make changing the Windows 10 Hero Logon picture much easier..")]
+    AssemblyDescription("This program was designed to make changing the Windows 10 logon background image much easier.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("W10 BG Logon Changer")]

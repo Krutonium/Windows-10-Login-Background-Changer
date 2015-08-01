@@ -115,8 +115,8 @@ namespace W10_BG_Logon_Changer.Controls
 
             if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
-                MessageBox.Show("You must select a file first before you can patch (Default options count as file)",
-                    "Error trying to patch");
+                MessageBox.Show("You must first select a file before you can set your login background! (Default options count as a file)",
+                    "Error");
                 return;
             }
 
