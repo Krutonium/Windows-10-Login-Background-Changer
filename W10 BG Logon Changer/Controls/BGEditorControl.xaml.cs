@@ -41,6 +41,9 @@ namespace W10_BG_Logon_Changer.Controls
 
             ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
             ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
+
+            ShowUserImageToggle.IsChecked = Properties.Settings.Default.uimage;
+            ShowGlyphsIconsToggle.IsChecked = Properties.Settings.Default.gimage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
