@@ -12,4 +12,14 @@ Changes the Windows 10 Login Screen Background
 
 Requires Visual Studio 2013 Express for Desktop or better to open.
 
-If someone should wish to update this file with more information, please feel free.
+##### Note: Very light colors makes the Username and email impossible to see. Be careful with lighter colors.
+
+
+
+# Screenshots
+
+### This is the main interface:
+![default user interface](http://imgur.com/W4Ta04q.png)
+
+### This is an example with a color background for the login screen.
+![color background](http://i.imgur.com/wuEDk4k.png)
