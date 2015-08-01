@@ -116,6 +116,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
@@ -137,10 +138,6 @@
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\login.png" />
-    <Resource Include="Images\login_noUser.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\default.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +150,8 @@
     <None Include="Resources\Authors.txt" />
     <Resource Include="Eula.ico" />
     <Resource Include="Images\glyphs.png" />
+    <Resource Include="Images\pswd.png" />
+    <Resource Include="Images\user.png" />
     <Content Include="Resources\trans.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
