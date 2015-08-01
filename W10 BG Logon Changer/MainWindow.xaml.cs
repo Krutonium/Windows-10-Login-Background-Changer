@@ -15,6 +15,7 @@ using W10_BG_Logon_Changer.Controls;
 using W10_BG_Logon_Changer.Properties;
 using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
+using System.Threading.Tasks;
 
 namespace W10_BG_Logon_Changer
 {
@@ -175,32 +176,63 @@ namespace W10_BG_Logon_Changer
             DoToggleStuff(tb);
         }
 
-        private void DoToggleStuff(ToggleButton tb)
+        private async void DoToggleStuff(ToggleButton tb)
         {
-            if (tb == null) return;
-
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    Debug.Assert(tb.IsChecked != null, "tb.IsChecked != null");
-                    Settings.Default.gimage = tb.IsChecked.Value;
-                    GlyphsViewer.Visibility = tb.IsChecked != null && (bool) tb.IsChecked
-                        ? Visibility.Visible
-                        : Visibility.Hidden;
+                    if (tb.IsChecked == true)
+                    {
+                        for (double i = 0; i < 1.01; i += 0.01)
+                        {
+                            i = Math.Round(i, 2);
+
+                            await Task.Delay(1);
+
+                            this.GlyphsViewer.Opacity = i;
+
+                        }
+                    }
+                    else if (tb.IsChecked == false)
+                    {
+                        for (double i = 1; i > -0.01; i -= 0.01)
+                        {
+                            i = Math.Round(i, 2);
+
+                            await Task.Delay(1);
+
+                            this.GlyphsViewer.Opacity = i;
+                        }
+                    }
                     break;
                 case "uimage":
-                    Debug.Assert(tb.IsChecked != null, "tb.IsChecked != null");
-                    Settings.Default.uimage = tb.IsChecked.Value;
-                    ImageSource image = tb.IsChecked != null && tb.IsChecked.Value
-                        ? Properties.Resources.login.ToBitmapSource()
-                        : Properties.Resources.login_noUser.ToBitmapSource();
+                    if (tb.IsChecked == true)
+                    {
+                        for (double i = 0; i < 1.01; i += 0.01)
+                        {
+                            i = Math.Round(i, 2);
 
-                    LoginViewer.Source = image;
+                            await Task.Delay(1);
+
+                            this.UserViewer.Opacity = i;
+
+                        }
+                    }
+                    else if (tb.IsChecked == false)
+                    {
+                        for (double i = 1; i > -0.01; i -= 0.01)
+                        {
+                            i = Math.Round(i, 2);
+
+                            await Task.Delay(1);
+
+                            this.UserViewer.Opacity = i;
+
+                        }
+                    }
                     break;
             }
-
             Settings.Default.Save();
-            //LoginViewer.Visibility = !tb.IsChecked.Value ? Visibility.Hidden : Visibility.Visible;
         }
 
         private void LockButton_Click(object sender, RoutedEventArgs e)
