@@ -61,11 +61,11 @@ namespace W10_BG_Logon_Changer
         {
             stream.Seek(0, SeekOrigin.Begin);
 
-            var jpg = new List<string> {"FF", "D8"};
-            var bmp = new List<string> {"42", "4D"};
-            var gif = new List<string> {"47", "49", "46"};
-            var png = new List<string> {"89", "50", "4E", "47", "0D", "0A", "1A", "0A"};
-            var imgTypes = new List<List<string>> {jpg, bmp, gif, png};
+            var jpg = new List<string> { "FF", "D8" };
+            var bmp = new List<string> { "42", "4D" };
+            var gif = new List<string> { "47", "49", "46" };
+            var png = new List<string> { "89", "50", "4E", "47", "0D", "0A", "1A", "0A" };
+            var imgTypes = new List<List<string>> { jpg, bmp, gif, png };
 
             var bytesIterated = new List<string>();
 

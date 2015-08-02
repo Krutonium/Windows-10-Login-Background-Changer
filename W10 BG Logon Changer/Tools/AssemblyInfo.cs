@@ -74,8 +74,8 @@ namespace W10_BG_Logon_Changer.Tools
         protected string GetAttributeValue<TAttr>(Func<TAttr,
             string> resolveFunc, string defaultResult = null) where TAttr : Attribute
         {
-            var attributes = _assembly.GetCustomAttributes(typeof (TAttr), false);
-            return attributes.Length > 0 ? resolveFunc((TAttr) attributes[0]) : defaultResult;
+            var attributes = _assembly.GetCustomAttributes(typeof(TAttr), false);
+            return attributes.Length > 0 ? resolveFunc((TAttr)attributes[0]) : defaultResult;
         }
     }
 }
