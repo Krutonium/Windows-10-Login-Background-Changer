@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -10,11 +9,14 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro.Controls;
+using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Button = System.Windows.Controls.Button;
 using Color = System.Drawing.Color;
 using ComboBox = System.Windows.Controls.ComboBox;
+using Image = System.Drawing.Image;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using UserControl = System.Windows.Controls.UserControl;
@@ -43,11 +45,11 @@ namespace W10_BG_Logon_Changer.Controls
             ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
             ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
 
-            ShowUserImageToggle.IsChecked = Properties.Settings.Default.uimage;
-            ShowGlyphsIconsToggle.IsChecked = Properties.Settings.Default.gimage;
+            ShowUserImageToggle.IsChecked = Settings.Get("uimage", true);//Settings.Default.uimage;
+            ShowGlyphsIconsToggle.IsChecked = Settings.Get("gimage", true);//Settings.Default.gimage;
 
-            Debug.WriteLine(Properties.Settings.Default.flyoutloc);
-            switch (Properties.Settings.Default.flyoutloc)
+            //Debug.WriteLine(Settings.Default.flyoutloc);
+            switch (Settings.Get("flyout", Position.Right))
             {
                 case Position.Right:
                     FlyoutPosSelect.SelectedIndex = 1;
@@ -63,24 +65,37 @@ namespace W10_BG_Logon_Changer.Controls
         {
             var ofd = new OpenFileDialog
             {
-                Filter = "Image Files (*.png, *.jpg)|*.png;*.jpg",
-                Title = "Select an Image",
+                Filter = "Image Formats|*.jpg;*.jpeg;*.png;*.bmp;*.tif;*.tiff",
+                Title = "Select a Image",
                 Multiselect = false
             };
 
-            if (!string.IsNullOrEmpty(Properties.Settings.Default.last_folder))
-                ofd.InitialDirectory = Properties.Settings.Default.last_folder;
+            if (!string.IsNullOrEmpty(Settings.Get("last_folder", string.Empty)))
+                ofd.InitialDirectory = Settings.Get("last_folder", string.Empty);
 
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
-            Properties.Settings.Default.last_folder = Path.GetDirectoryName(ofd.FileName);
-            _mainWindow.SelectedFile = ofd.FileName;
+            Settings.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
+            string fileName = ofd.FileName;
+
+            var extension = Path.GetExtension(fileName);
+            if (extension != null)
+            {
+                var ext = extension.ToLower();
+                if (ext != ".png" || ext != ".jpg" || ext != ".jpeg")
+                {
+                    var temp = Path.GetTempFileName();
+                    Image.FromFile(fileName).Save(temp, ImageFormat.Png);
+                    fileName = temp;
+                }
+            }
+
+            _mainWindow.SelectedFile = fileName;
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
-
-            Properties.Settings.Default.filename = ofd.FileName;
-            Properties.Settings.Default.Save();
-            _mainWindow.GlyphsViewer.ToolTip = Properties.Settings.Default.filename;
+            Settings.Set("filename", ofd.FileName);
+            Settings.Save();
+            _mainWindow.GlyphsViewer.ToolTip = ofd.FileName;
         }
 
         private void ColorPickerButton_Click(object sender, RoutedEventArgs e)
@@ -124,6 +139,8 @@ namespace W10_BG_Logon_Changer.Controls
                 return;
             }
 
+            Settings.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
+            Settings.Save();
             _runningApplySettings = true;
             var holderContent = ((Button)sender);
             var progress = new ProgressRing
@@ -152,7 +169,7 @@ namespace W10_BG_Logon_Changer.Controls
         {
             var f = Path.GetTempFileName();
 
-            Properties.Resources.trans.Save(f, ImageFormat.Png);
+            DrawFilledRectangle(1024, 1024, new SolidBrush(Color.Transparent)).Save(f, ImageFormat.Png);
 
             _mainWindow.SelectedFile = f;
             var c = ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground);

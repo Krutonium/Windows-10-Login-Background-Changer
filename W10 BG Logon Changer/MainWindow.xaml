@@ -5,7 +5,7 @@
                       ShowIconOnTitleBar="True"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
-                      Title="W10 Logon BG Changer" Height="600" WindowState="Maximized" Width="1008"
+                      Title="W10 Logon BG Changer" Height="600" Width="1008"
                       MinHeight="500" MinWidth="830"
                       >
 
