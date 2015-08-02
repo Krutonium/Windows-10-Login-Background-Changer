@@ -63,8 +63,8 @@ namespace W10_BG_Logon_Changer.Controls
         {
             var ofd = new OpenFileDialog
             {
-                Filter = "JPG (*.jpg)|*.jpg|PNG (*.png)|*.png",
-                Title = "Select a Image",
+                Filter = "Image Files (*.png, *.jpg)|*.png;*.jpg",
+                Title = "Select an Image",
                 Multiselect = false
             };
 
@@ -77,7 +77,10 @@ namespace W10_BG_Logon_Changer.Controls
             _mainWindow.SelectedFile = ofd.FileName;
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
+
+            Properties.Settings.Default.filename = ofd.FileName;
             Properties.Settings.Default.Save();
+            _mainWindow.GlyphsViewer.ToolTip = Properties.Settings.Default.filename;
         }
 
         private void ColorPickerButton_Click(object sender, RoutedEventArgs e)
@@ -91,7 +94,7 @@ namespace W10_BG_Logon_Changer.Controls
             var sd = new SolidColorBrush(cfd.Color.ToMediaColor());
             ColorPreview.Background = sd;
 
-            SelectedFile.Text = "Background location...";
+            SelectedFile.Text = "Background filename will appear here.";
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
@@ -170,7 +173,7 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void Reset(string image = "")
         {
-            SelectedFile.Text = "Background location...";
+            SelectedFile.Text = "Background filename appears here.";
             ColorPreview.Background = _orgColor;
 
             if (image != "")
