@@ -4,6 +4,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/4yydgx42k9iqaaw7/branch/master?svg=true)](https://ci.appveyor.com/project/PFCKrutonium/windows-10-login-background-changer/branch/master)
 
+[![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/windows-10-login-background-changer/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)   
+
 [Download the Application](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases)
 
 
