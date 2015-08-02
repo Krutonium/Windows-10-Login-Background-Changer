@@ -94,6 +94,10 @@ namespace W10_BG_Logon_Changer.Controls
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
             Settings.Default.Save();
+
+            Settings.Default.filename = ofd.FileName;
+            Settings.Default.Save();
+            _mainWindow.GlyphsViewer.ToolTip = Settings.Default.filename;
         }
 
         private void ColorPickerButton_Click(object sender, RoutedEventArgs e)
@@ -107,7 +111,7 @@ namespace W10_BG_Logon_Changer.Controls
             var sd = new SolidColorBrush(cfd.Color.ToMediaColor());
             ColorPreview.Background = sd;
 
-            SelectedFile.Text = "Background location...";
+            SelectedFile.Text = "Background filename will appear here.";
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
@@ -186,7 +190,7 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void Reset(string image = "")
         {
-            SelectedFile.Text = "Background location...";
+            SelectedFile.Text = "Background filename appears here.";
             ColorPreview.Background = _orgColor;
 
             if (image != "")

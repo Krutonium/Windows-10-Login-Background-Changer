@@ -64,6 +64,7 @@
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
     <Compile Include="Tools\PriBuilder.cs" />
+    <Compile Include="Tools\Settings.cs" />
     <Compile Include="Tools\UserColorHandler\ColorFunctions.cs" />
     <Compile Include="Tools\UserColorHandler\ImmersiveColors.cs" />
     <Compile Include="Win32API.cs" />
