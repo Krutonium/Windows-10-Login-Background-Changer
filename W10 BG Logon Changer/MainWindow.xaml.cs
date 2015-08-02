@@ -223,7 +223,7 @@ namespace W10_BG_Logon_Changer
                     }
                     break;
             }
-            Settings.Set(tb.Tag.ToString(), (bool)tb.IsChecked);
+            Settings.Set(tb.Tag.ToString(), tb.IsChecked != null && (bool)tb.IsChecked);
             Settings.Save();
         }
 
