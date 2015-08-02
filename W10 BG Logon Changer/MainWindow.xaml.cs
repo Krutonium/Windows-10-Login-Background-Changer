@@ -198,7 +198,6 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    Settings.Set("gimage", (bool)tb.IsChecked);
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -212,7 +211,6 @@ namespace W10_BG_Logon_Changer
                     break;
 
                 case "uimage":
-                    Settings.Set("uimage", (bool)tb.IsChecked);
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -225,6 +223,7 @@ namespace W10_BG_Logon_Changer
                     }
                     break;
             }
+            Settings.Set(tb.Tag.ToString(), (bool)tb.IsChecked);
             Settings.Save();
         }
 
