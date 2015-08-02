@@ -45,8 +45,8 @@ namespace W10_BG_Logon_Changer.Controls
             ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
             ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
 
-            ShowUserImageToggle.IsChecked = Settings.Get("uimage", true);//Settings.Default.uimage;
-            ShowGlyphsIconsToggle.IsChecked = Settings.Get("gimage", true);//Settings.Default.gimage;
+            ShowUserImageToggle.IsChecked = Settings.Get("uimage", true); //Settings.Default.uimage;
+            ShowGlyphsIconsToggle.IsChecked = Settings.Get("gimage", true); //Settings.Default.gimage;
 
             //Debug.WriteLine(Settings.Default.flyoutloc);
             switch (Settings.Get("flyout", Position.Right))
@@ -76,7 +76,7 @@ namespace W10_BG_Logon_Changer.Controls
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
             Settings.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
-            string fileName = ofd.FileName;
+            var fileName = ofd.FileName;
 
             var extension = Path.GetExtension(fileName);
             if (extension != null)
@@ -134,7 +134,8 @@ namespace W10_BG_Logon_Changer.Controls
 
             if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
-                MessageBox.Show("You must first select a file before you can set your login background! (Default options count as a file)",
+                MessageBox.Show(
+                    "You must first select a file before you can set your login background! (Default options count as a file)",
                     "Error");
                 return;
             }
@@ -142,7 +143,7 @@ namespace W10_BG_Logon_Changer.Controls
             Settings.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
             Settings.Save();
             _runningApplySettings = true;
-            var holderContent = ((Button)sender);
+            var holderContent = ((Button) sender);
             var progress = new ProgressRing
             {
                 IsActive = true,
@@ -226,13 +227,13 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Scaling = ((ComboBox)sender).SelectedIndex;
+            Scaling = ((ComboBox) sender).SelectedIndex;
         }
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Debug.WriteLine(((ComboBox)sender).SelectedIndex);
-            switch (((ComboBox)sender).SelectedIndex)
+            Debug.WriteLine(((ComboBox) sender).SelectedIndex);
+            switch (((ComboBox) sender).SelectedIndex)
             {
                 case 0:
                     _mainWindow.ChangeFlyoutLocation("left");

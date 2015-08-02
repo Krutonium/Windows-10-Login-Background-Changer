@@ -20,7 +20,7 @@ namespace W10_BG_Logon_Changer.Controls
 
             var authors = Properties.Resources.Authors;
 
-            var sp = new StackPanel { Orientation = Orientation.Vertical };
+            var sp = new StackPanel {Orientation = Orientation.Vertical};
 
             using (var reader = new StringReader(authors))
             {
@@ -57,7 +57,7 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void Url_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(((Hyperlink)sender).NavigateUri.ToString());
+            Process.Start(((Hyperlink) sender).NavigateUri.ToString());
         }
     }
 }

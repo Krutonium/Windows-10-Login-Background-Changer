@@ -1,6 +1,4 @@
-﻿using HelperLibrary;
-using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,7 +7,10 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelperLibrary;
+using MahApps.Metro.Controls;
 using W10_BG_Logon_Changer.Controls;
 using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.Animations;
@@ -45,7 +46,8 @@ namespace W10_BG_Logon_Changer
                 }
             }
 
-            Debug.WriteLine("[AccentColor]: " + ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
+            Debug.WriteLine("[AccentColor]: " +
+                            ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
 
             Title += " - " + AssemblyInfo.Version;
 
@@ -107,8 +109,8 @@ namespace W10_BG_Logon_Changer
 
                     case 3:
                         WallpaperViewer.Source =
-                            ResizeImage(Image.FromFile(value), (int)SystemParameters.PrimaryScreenWidth,
-                                (int)SystemParameters.PrimaryScreenHeight).ToBitmapSource();
+                            ResizeImage(Image.FromFile(value), (int) SystemParameters.PrimaryScreenWidth,
+                                (int) SystemParameters.PrimaryScreenHeight).ToBitmapSource();
                         break;
 
                     case 4:
@@ -159,8 +161,8 @@ namespace W10_BG_Logon_Changer
                     break;
 
                 case 3:
-                    ResizeImage(Image.FromFile(SelectedFile), (int)SystemParameters.PrimaryScreenWidth,
-                        (int)SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
+                    ResizeImage(Image.FromFile(SelectedFile), (int) SystemParameters.PrimaryScreenWidth,
+                        (int) SystemParameters.PrimaryScreenHeight).Save(imagetemp, ImageFormat.Png);
                     break;
 
                 case 4:
@@ -172,7 +174,9 @@ namespace W10_BG_Logon_Changer
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
-            MessageBox.Show("Successfully changed login background! Please lock your device to view your new background.", "Success!");
+            MessageBox.Show(
+                "Successfully changed login background! Please lock your device to view your new background.",
+                "Success!");
         }
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
@@ -194,7 +198,7 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    Settings.Set("gimage", (bool)tb.IsChecked);
+                    Settings.Set("gimage", (bool) tb.IsChecked);
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -208,7 +212,7 @@ namespace W10_BG_Logon_Changer
                     break;
 
                 case "uimage":
-                    Settings.Set("uimage", (bool)tb.IsChecked);
+                    Settings.Set("uimage", (bool) tb.IsChecked);
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -276,7 +280,7 @@ namespace W10_BG_Logon_Changer
             Settings.Save();
         }
 
-        private void ImageViewer_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImageViewer_MouseUp(object sender, MouseButtonEventArgs e)
         {
             SettingFlyout.IsOpen = false;
             AboutFlyout.IsOpen = false;

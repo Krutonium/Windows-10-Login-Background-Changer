@@ -7,16 +7,20 @@ using System.Xml.Serialization;
 
 namespace W10_BG_Logon_Changer.Tools.Customs
 {
-    [Serializable()]
+    [Serializable]
     public class SerializableDictionary<TKey, TVal> : Dictionary<TKey, TVal>, IXmlSerializable, ISerializable
     {
         #region Constants
+
         private const string DictionaryNodeName = "Dictionary";
         private const string ItemNodeName = "Item";
         private const string KeyNodeName = "Key";
         private const string ValueNodeName = "Value";
+
         #endregion
+
         #region Constructors
+
         public SerializableDictionary()
         {
         }
@@ -47,36 +51,40 @@ namespace W10_BG_Logon_Changer.Tools.Customs
         }
 
         #endregion
+
         #region ISerializable Members
 
         protected SerializableDictionary(SerializationInfo info, StreamingContext context)
         {
-            int itemCount = info.GetInt32("ItemCount");
-            for (int i = 0; i < itemCount; i++)
+            var itemCount = info.GetInt32("ItemCount");
+            for (var i = 0; i < itemCount; i++)
             {
-                KeyValuePair<TKey, TVal> kvp = (KeyValuePair<TKey, TVal>)info.GetValue(String.Format("Item{0}", i), typeof(KeyValuePair<TKey, TVal>));
+                var kvp =
+                    (KeyValuePair<TKey, TVal>)
+                        info.GetValue(string.Format("Item{0}", i), typeof (KeyValuePair<TKey, TVal>));
                 Add(kvp.Key, kvp.Value);
             }
         }
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("ItemCount", this.Count);
-            int itemIdx = 0;
-            foreach (KeyValuePair<TKey, TVal> kvp in this)
+            info.AddValue("ItemCount", Count);
+            var itemIdx = 0;
+            foreach (var kvp in this)
             {
-                info.AddValue(String.Format("Item{0}", itemIdx), kvp, typeof(KeyValuePair<TKey, TVal>));
+                info.AddValue(string.Format("Item{0}", itemIdx), kvp, typeof (KeyValuePair<TKey, TVal>));
                 itemIdx++;
             }
         }
 
         #endregion
+
         #region IXmlSerializable Members
 
         void IXmlSerializable.WriteXml(XmlWriter writer)
         {
             //writer.WriteStartElement(DictionaryNodeName);
-            foreach (KeyValuePair<TKey, TVal> kvp in this)
+            foreach (var kvp in this)
             {
                 writer.WriteStartElement(ItemNodeName);
                 writer.WriteStartElement(KeyNodeName);
@@ -108,10 +116,10 @@ namespace W10_BG_Logon_Changer.Tools.Customs
             {
                 reader.ReadStartElement(ItemNodeName);
                 reader.ReadStartElement(KeyNodeName);
-                TKey key = (TKey)KeySerializer.Deserialize(reader);
+                var key = (TKey) KeySerializer.Deserialize(reader);
                 reader.ReadEndElement();
                 reader.ReadStartElement(ValueNodeName);
-                TVal value = (TVal)ValueSerializer.Deserialize(reader);
+                var value = (TVal) ValueSerializer.Deserialize(reader);
                 reader.ReadEndElement();
                 reader.ReadEndElement();
                 Add(key, value);
@@ -128,7 +136,9 @@ namespace W10_BG_Logon_Changer.Tools.Customs
         }
 
         #endregion
+
         #region Private Properties
+
         protected XmlSerializer ValueSerializer
         {
             get { return _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof (TVal))); }
@@ -138,10 +148,14 @@ namespace W10_BG_Logon_Changer.Tools.Customs
         {
             get { return _keySerializer ?? (_keySerializer = new XmlSerializer(typeof (TKey))); }
         }
+
         #endregion
+
         #region Private Members
+
         private XmlSerializer _keySerializer;
         private XmlSerializer _valueSerializer;
+
         #endregion
     }
 }

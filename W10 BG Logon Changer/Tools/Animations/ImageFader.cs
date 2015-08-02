@@ -10,7 +10,7 @@ namespace W10_BG_Logon_Changer.Tools.Animations
         private const int interval = 1;
         private const double speed = 0.10;
 
-        public async static void fadeIn(Image image)
+        public static async void fadeIn(Image image)
         {
             for (double i = 0; i < 1.01; i += speed)
             {
@@ -24,7 +24,7 @@ namespace W10_BG_Logon_Changer.Tools.Animations
             }
         }
 
-        public async static void fadeOut(Image image)
+        public static async void fadeOut(Image image)
         {
             for (double i = 1; i > -0.01; i -= speed)
             {

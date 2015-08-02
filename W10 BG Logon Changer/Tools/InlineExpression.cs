@@ -12,7 +12,7 @@ namespace W10_BG_Logon_Changer.Tools
     public class InlineExpression
     {
         public static readonly DependencyProperty InlineExpressionProperty = DependencyProperty.RegisterAttached(
-            "InlineExpression", typeof(string), typeof(TextBlock),
+            "InlineExpression", typeof (string), typeof (TextBlock),
             new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public static void SetInlineExpression(TextBlock textBlock, string value)
@@ -37,7 +37,7 @@ namespace W10_BG_Logon_Changer.Tools
 
         public static string GetInlineExpression(TextBlock textBlock)
         {
-            return (string)textBlock.GetValue(InlineExpressionProperty);
+            return (string) textBlock.GetValue(InlineExpressionProperty);
         }
 
         private static Inline[] GetInlines(FrameworkElement element, IEnumerable<InlineDescription> inlineDescriptions)

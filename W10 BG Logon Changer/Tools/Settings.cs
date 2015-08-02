@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -8,7 +9,7 @@ namespace W10_BG_Logon_Changer.Tools
 {
     public static class Settings
     {
-        private static SerializableDictionary<string, object> _settingsObject; 
+        private static SerializableDictionary<string, object> _settingsObject;
 
         public static void Save()
         {
@@ -28,20 +29,20 @@ namespace W10_BG_Logon_Changer.Tools
             {
                 try
                 {
-                    using (FileStream fileStream = new FileStream(Config.SettingsFilePath, FileMode.Open))
+                    using (var fileStream = new FileStream(Config.SettingsFilePath, FileMode.Open))
                     {
                         IFormatter bf = new BinaryFormatter();
                         _settingsObject = (SerializableDictionary<string, object>) bf.Deserialize(fileStream);
                     }
                 }
-                catch (System.Exception e)
+                catch (Exception e)
                 {
                     Debug.WriteLine("[Settings Error] {0}", e.ToString());
                 }
             }
             if (_settingsObject == null)
             {
-                 _settingsObject = new SerializableDictionary<string, object>();
+                _settingsObject = new SerializableDictionary<string, object>();
             }
         }
 
