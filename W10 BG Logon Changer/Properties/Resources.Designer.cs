@@ -71,8 +71,10 @@ namespace W10_BG_Logon_Changer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PFCKrutonium|http://github.com/PFCKrutonium
-        ///Toyz|http://github.com/Toyz.
+        ///   Looks up a localized string similar to PFCKrutonium|https://github.com/PFCKrutonium
+        ///Toyz|https://github.com/Toyz
+        ///Syrexide|https://github.com/Syrexide
+        ///.
         /// </summary>
         internal static string Authors {
             get {

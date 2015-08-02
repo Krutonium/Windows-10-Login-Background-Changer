@@ -45,7 +45,7 @@ namespace W10_BG_Logon_Changer
                 }
             }
 
-            Debug.WriteLine(ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
+            Debug.WriteLine("[AccentColor]: " + ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
 
             Title += " - " + AssemblyInfo.Version;
 
@@ -62,7 +62,7 @@ namespace W10_BG_Logon_Changer
 
             if (!File.Exists(Config.BakPriFileLocation))
             {
-                Debug.WriteLine("Original file doesn't exist! D:");
+                Debug.WriteLine("[Warning]: Could not find Windows.UI.Logon.pri.bak file. Creating new.");
                 File.Copy(Config.PriFileLocation, Config.BakPriFileLocation);
             }
 
@@ -81,6 +81,7 @@ namespace W10_BG_Logon_Changer
             Loaded += (o, i) =>
             {
                 SettingFlyout.Position = Settings.Default.flyoutloc;
+                GlyphsViewer.ToolTip = Settings.Default.filename;
             };
         }
 
@@ -170,6 +171,7 @@ namespace W10_BG_Logon_Changer
             PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
+
             MessageBox.Show("Successfully changed login background! Please lock your device to view your new background.", "Success!");
         }
 
@@ -254,17 +256,19 @@ namespace W10_BG_Logon_Changer
 
         public void ChangeFlyoutLocation(string loc)
         {
-            Debug.WriteLine(loc);
+            Debug.WriteLine("[SettingFlyout]: " + loc);
             switch (loc)
             {
                 case "left":
                     SettingFlyout.Position = Position.Left;
                     AboutFlyout.Position = Position.Right;
+                    Debug.WriteLine("[AboutFlyout]: right");
                     break;
 
                 case "right":
                     SettingFlyout.Position = Position.Right;
                     AboutFlyout.Position = Position.Left;
+                    Debug.WriteLine("[AboutFlyout]: left");
                     break;
             }
 
@@ -275,6 +279,7 @@ namespace W10_BG_Logon_Changer
         private void ImageViewer_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             SettingFlyout.IsOpen = false;
+            AboutFlyout.IsOpen = false;
         }
     }
 }
