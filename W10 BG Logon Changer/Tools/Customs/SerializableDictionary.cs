@@ -17,7 +17,7 @@ namespace W10_BG_Logon_Changer.Tools.Customs
         private const string KeyNodeName = "Key";
         private const string ValueNodeName = "Value";
 
-        #endregion
+        #endregion Constants
 
         #region Constructors
 
@@ -50,7 +50,7 @@ namespace W10_BG_Logon_Changer.Tools.Customs
         {
         }
 
-        #endregion
+        #endregion Constructors
 
         #region ISerializable Members
 
@@ -61,7 +61,7 @@ namespace W10_BG_Logon_Changer.Tools.Customs
             {
                 var kvp =
                     (KeyValuePair<TKey, TVal>)
-                        info.GetValue(string.Format("Item{0}", i), typeof (KeyValuePair<TKey, TVal>));
+                        info.GetValue(string.Format("Item{0}", i), typeof(KeyValuePair<TKey, TVal>));
                 Add(kvp.Key, kvp.Value);
             }
         }
@@ -72,12 +72,12 @@ namespace W10_BG_Logon_Changer.Tools.Customs
             var itemIdx = 0;
             foreach (var kvp in this)
             {
-                info.AddValue(string.Format("Item{0}", itemIdx), kvp, typeof (KeyValuePair<TKey, TVal>));
+                info.AddValue(string.Format("Item{0}", itemIdx), kvp, typeof(KeyValuePair<TKey, TVal>));
                 itemIdx++;
             }
         }
 
-        #endregion
+        #endregion ISerializable Members
 
         #region IXmlSerializable Members
 
@@ -116,10 +116,10 @@ namespace W10_BG_Logon_Changer.Tools.Customs
             {
                 reader.ReadStartElement(ItemNodeName);
                 reader.ReadStartElement(KeyNodeName);
-                var key = (TKey) KeySerializer.Deserialize(reader);
+                var key = (TKey)KeySerializer.Deserialize(reader);
                 reader.ReadEndElement();
                 reader.ReadStartElement(ValueNodeName);
-                var value = (TVal) ValueSerializer.Deserialize(reader);
+                var value = (TVal)ValueSerializer.Deserialize(reader);
                 reader.ReadEndElement();
                 reader.ReadEndElement();
                 Add(key, value);
@@ -135,27 +135,27 @@ namespace W10_BG_Logon_Changer.Tools.Customs
             return null;
         }
 
-        #endregion
+        #endregion IXmlSerializable Members
 
         #region Private Properties
 
         protected XmlSerializer ValueSerializer
         {
-            get { return _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof (TVal))); }
+            get { return _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof(TVal))); }
         }
 
         private XmlSerializer KeySerializer
         {
-            get { return _keySerializer ?? (_keySerializer = new XmlSerializer(typeof (TKey))); }
+            get { return _keySerializer ?? (_keySerializer = new XmlSerializer(typeof(TKey))); }
         }
 
-        #endregion
+        #endregion Private Properties
 
         #region Private Members
 
         private XmlSerializer _keySerializer;
         private XmlSerializer _valueSerializer;
 
-        #endregion
+        #endregion Private Members
     }
 }

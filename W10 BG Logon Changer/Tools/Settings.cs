@@ -32,7 +32,7 @@ namespace W10_BG_Logon_Changer.Tools
                     using (var fileStream = new FileStream(Config.SettingsFilePath, FileMode.Open))
                     {
                         IFormatter bf = new BinaryFormatter();
-                        _settingsObject = (SerializableDictionary<string, object>) bf.Deserialize(fileStream);
+                        _settingsObject = (SerializableDictionary<string, object>)bf.Deserialize(fileStream);
                     }
                 }
                 catch (Exception e)
@@ -51,7 +51,7 @@ namespace W10_BG_Logon_Changer.Tools
             if (!_settingsObject.ContainsKey(key)) return @default;
             if (_settingsObject[key] != null)
             {
-                return (T) _settingsObject[key];
+                return (T)_settingsObject[key];
             }
 
             return @default;
