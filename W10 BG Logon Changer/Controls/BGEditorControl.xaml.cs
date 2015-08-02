@@ -111,26 +111,15 @@ namespace W10_BG_Logon_Changer.Controls
 
             SelectedFile.Text = "Background filename will appear here.";
 
-            Color clr = cfd.Color;
+            var clr = cfd.Color;
 
-            int r = 0;
-            int g = 0;
-            int b = 0;
+            var r = Convert.ToInt32(clr.R);
+            var g = Convert.ToInt32(clr.G);
+            var b = Convert.ToInt32(clr.B);
 
-            r = Convert.ToInt32(clr.R);
-            g = Convert.ToInt32(clr.G);
-            b = Convert.ToInt32(clr.B);
+            var rgb = r + g + b;
 
-            int rgb = r + g + b;
-
-            if (rgb > 382)
-            {
-                pickColor.Foreground = new SolidColorBrush(Colors.Black);
-            }
-            else
-            {
-                pickColor.Foreground = new SolidColorBrush(Colors.White);
-            }
+            pickColor.Foreground = rgb > 382 ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
