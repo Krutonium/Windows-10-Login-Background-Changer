@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using TSettings;
 using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
@@ -45,11 +46,11 @@ namespace W10_BG_Logon_Changer.Controls
             ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
             ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
 
-            ShowUserImageToggle.IsChecked = Settings.Get("uimage", true);//Settings.Default.uimage;
-            ShowGlyphsIconsToggle.IsChecked = Settings.Get("gimage", true);//Settings.Default.gimage;
+            ShowUserImageToggle.IsChecked = Settings.Default.Get("uimage", true);//Settings.Default.uimage;
+            ShowGlyphsIconsToggle.IsChecked = Settings.Default.Get("gimage", true);//Settings.Default.gimage;
 
             //Debug.WriteLine(Settings.Default.flyoutloc);
-            switch (Settings.Get("flyout", Position.Right))
+            switch (Settings.Default.Get("flyout", Position.Right))
             {
                 case Position.Right:
                     FlyoutPosSelect.SelectedIndex = 1;
@@ -70,12 +71,12 @@ namespace W10_BG_Logon_Changer.Controls
                 Multiselect = false
             };
 
-            if (!string.IsNullOrEmpty(Settings.Get("last_folder", string.Empty)))
-                ofd.InitialDirectory = Settings.Get("last_folder", string.Empty);
+            if (!string.IsNullOrEmpty(Settings.Default.Get("last_folder", string.Empty)))
+                ofd.InitialDirectory = Settings.Default.Get("last_folder", string.Empty);
 
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
-            Settings.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
+            Settings.Default.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
             string fileName = ofd.FileName;
 
             var extension = Path.GetExtension(fileName);
@@ -93,8 +94,8 @@ namespace W10_BG_Logon_Changer.Controls
             _mainWindow.SelectedFile = fileName;
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
-            Settings.Set("filename", ofd.FileName);
-            Settings.Save();
+            Settings.Default.Set("filename", ofd.FileName);
+            Settings.Default.Save();
             _mainWindow.GlyphsViewer.ToolTip = ofd.FileName;
         }
 
@@ -149,8 +150,8 @@ namespace W10_BG_Logon_Changer.Controls
                 return;
             }
 
-            Settings.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
-            Settings.Save();
+            Settings.Default.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
+            Settings.Default.Save();
             _runningApplySettings = true;
             var holderContent = ((Button)sender);
             var progress = new ProgressRing

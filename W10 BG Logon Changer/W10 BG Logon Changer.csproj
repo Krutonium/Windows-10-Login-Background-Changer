@@ -52,6 +52,10 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TSettings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Toyz.Settings.1.0.0\lib\TSettings.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -66,7 +70,6 @@
     <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
     <Compile Include="Tools\PriBuilder.cs" />
-    <Compile Include="Tools\Settings.cs" />
     <Compile Include="Tools\UserColorHandler\ColorFunctions.cs" />
     <Compile Include="Tools\UserColorHandler\ImmersiveColors.cs" />
     <Compile Include="Win32API.cs" />
