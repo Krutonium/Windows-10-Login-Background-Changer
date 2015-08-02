@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using W10_BG_Logon_Changer.Tools.Customs;
@@ -8,18 +9,6 @@ namespace W10_BG_Logon_Changer.Tools
     public static class Settings
     {
         private static SerializableDictionary<string, object> _settingsObject; 
-        static Settings()
-        {
-            if (_settingsObject == null)
-            {
-                if (!File.Exists(Config.SettingsFilePath))
-                    _settingsObject = new SerializableDictionary<string, object>();
-            }
-            else
-            {
-                Load();
-            }
-        }
 
         public static void Save()
         {
@@ -35,10 +24,24 @@ namespace W10_BG_Logon_Changer.Tools
 
         public static void Load()
         {
-            using (FileStream fileStream = new FileStream(Config.SettingsFilePath, FileMode.Open))
+            if (File.Exists(Config.SettingsFilePath))
             {
-                IFormatter bf = new BinaryFormatter();
-                _settingsObject = (SerializableDictionary<string, object>)bf.Deserialize(fileStream);
+                try
+                {
+                    using (FileStream fileStream = new FileStream(Config.SettingsFilePath, FileMode.Open))
+                    {
+                        IFormatter bf = new BinaryFormatter();
+                        _settingsObject = (SerializableDictionary<string, object>) bf.Deserialize(fileStream);
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.WriteLine("[Settings Error] {0}", e.ToString());
+                }
+            }
+            if (_settingsObject == null)
+            {
+                 _settingsObject = new SerializableDictionary<string, object>();
             }
         }
 
