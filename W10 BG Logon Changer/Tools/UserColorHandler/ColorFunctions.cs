@@ -80,12 +80,12 @@ namespace W10_BG_Logon_Changer.Tools.UserColorHandler
             var pElementName = Marshal.StringToHGlobalUni(key);
             var type = GetImmersiveColorTypeFromName(pElementName);
             Marshal.FreeCoTaskMem(pElementName);
-            var colourdword = GetImmersiveColorFromColorSetEx((uint)colourset, type, false, 0);
+            var colourdword = GetImmersiveColorFromColorSetEx((uint) colourset, type, false, 0);
             var colourbytes = new byte[4];
-            colourbytes[0] = (byte)((0xFF000000 & colourdword) >> 24); // A
-            colourbytes[1] = (byte)((0x00FF0000 & colourdword) >> 16); // B
-            colourbytes[2] = (byte)((0x0000FF00 & colourdword) >> 8); // G
-            colourbytes[3] = (byte)(0x000000FF & colourdword); // R
+            colourbytes[0] = (byte) ((0xFF000000 & colourdword) >> 24); // A
+            colourbytes[1] = (byte) ((0x00FF0000 & colourdword) >> 16); // B
+            colourbytes[2] = (byte) ((0x0000FF00 & colourdword) >> 8); // G
+            colourbytes[3] = (byte) (0x000000FF & colourdword); // R
             return Color.FromArgb(colourbytes[0], colourbytes[3], colourbytes[2], colourbytes[1]);
         }
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -58,31 +57,24 @@ namespace W10_BG_Logon_Changer
             return bitSrc;
         }
 
-        internal static class NativeMethods
-        {
-            [DllImport("gdi32.dll")]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            internal static extern bool DeleteObject(IntPtr hObject);
-        }
-
         public static bool IsImage(this Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);
 
-            List<string> jpg = new List<string> { "FF", "D8" };
-            List<string> bmp = new List<string> { "42", "4D" };
-            List<string> gif = new List<string> { "47", "49", "46" };
-            List<string> png = new List<string> { "89", "50", "4E", "47", "0D", "0A", "1A", "0A" };
-            List<List<string>> imgTypes = new List<List<string>> { jpg, bmp, gif, png };
+            var jpg = new List<string> {"FF", "D8"};
+            var bmp = new List<string> {"42", "4D"};
+            var gif = new List<string> {"47", "49", "46"};
+            var png = new List<string> {"89", "50", "4E", "47", "0D", "0A", "1A", "0A"};
+            var imgTypes = new List<List<string>> {jpg, bmp, gif, png};
 
-            List<string> bytesIterated = new List<string>();
+            var bytesIterated = new List<string>();
 
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
-                string bit = stream.ReadByte().ToString("X2");
+                var bit = stream.ReadByte().ToString("X2");
                 bytesIterated.Add(bit);
 
-                bool isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
+                var isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
                 if (isImage)
                 {
                     return true;
@@ -90,6 +82,13 @@ namespace W10_BG_Logon_Changer
             }
 
             return false;
+        }
+
+        internal static class NativeMethods
+        {
+            [DllImport("gdi32.dll")]
+            [return: MarshalAs(UnmanagedType.Bool)]
+            internal static extern bool DeleteObject(IntPtr hObject);
         }
     }
 }
