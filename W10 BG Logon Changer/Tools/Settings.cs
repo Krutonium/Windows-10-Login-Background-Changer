@@ -48,7 +48,7 @@ namespace W10_BG_Logon_Changer.Tools
 
         public static T Get<T>(string key, T @default)
         {
-            if (!_settingsObject.ContainsKey(key)) return @default;
+            if (!Exist(key)) return @default;
             if (_settingsObject[key] != null)
             {
                 return (T)_settingsObject[key];
@@ -57,9 +57,16 @@ namespace W10_BG_Logon_Changer.Tools
             return @default;
         }
 
+        public static T Get<T>(string key) where T : new()
+        {
+            if(!Exist(key)) return new T();
+
+            return (T) _settingsObject[key];
+        }
+
         public static void Set<T>(string key, T @value)
         {
-            if (_settingsObject.ContainsKey(key) && _settingsObject[key] != null)
+            if (Exist(key) && _settingsObject[key] != null)
             {
                 var test = _settingsObject[key].GetType();
 
@@ -72,6 +79,25 @@ namespace W10_BG_Logon_Changer.Tools
             }
 
             _settingsObject.Add(key, @value);
+        }
+
+        public static Type GetValueType(string key)
+        {
+            return Exist(key) ? _settingsObject[key].GetType() : null;
+        }
+
+        public static bool Delete(string key)
+        {
+            if (!_settingsObject.ContainsKey(key)) return false;
+
+            _settingsObject.Remove(key);
+
+            return true;
+        }
+
+        public static bool Exist(string key)
+        {
+            return _settingsObject.ContainsKey(key);
         }
     }
 }
