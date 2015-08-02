@@ -57,6 +57,13 @@ namespace W10_BG_Logon_Changer.Tools
             return @default;
         }
 
+        public static T Get<T>(string key) where T : new()
+        {
+            if(!Exist(key)) return new T();
+
+            return (T) _settingsObject[key];
+        }
+
         public static void Set<T>(string key, T @value)
         {
             if (Exist(key) && _settingsObject[key] != null)

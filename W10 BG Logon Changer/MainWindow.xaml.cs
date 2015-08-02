@@ -54,6 +54,8 @@ namespace W10_BG_Logon_Changer
             Settings.Set("eula", true);
             Settings.Save();
 
+            Debug.WriteLine("[EULA Test] {0}", Settings.Get<bool>("eula"));
+
             SettingFlyout.Content = new BgEditorControl(this);
             SettingFlyout.IsOpen = true;
 
