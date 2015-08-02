@@ -6,7 +6,7 @@
 
 [![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/windows-10-login-background-changer/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)   
 
-[Download the Application](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases)
+[Download the Application](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/latest)
 
 
 Changes the Windows 10 Login Screen Background
