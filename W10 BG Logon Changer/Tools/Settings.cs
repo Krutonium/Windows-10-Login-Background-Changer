@@ -1,53 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using W10_BG_Logon_Changer.Tools.Customs;
 
 namespace W10_BG_Logon_Changer.Tools
 {
     public static class Settings
     {
-        private static readonly Dictionary<string, object> SettingsObject; 
+        private static SerializableDictionary<string, object> _settingsObject; 
         static Settings()
         {
-            if (SettingsObject == null)
+            if (_settingsObject == null)
             {
                 if (!File.Exists(Config.SettingsFilePath))
-                    SettingsObject = new Dictionary<string, object>();
+                    _settingsObject = new SerializableDictionary<string, object>();
             }
             else
             {
-                //serlize are settings file
+                Load();
             }
         }
 
-        public static T Get<T>(string key, T @default) where T : class
+        public static void Save()
         {
-            if (SettingsObject[key] != null)
+            if (!Directory.Exists(Path.GetDirectoryName(Config.SettingsFilePath)))
+                Directory.CreateDirectory(Path.GetDirectoryName(Config.SettingsFilePath));
+
+            using (var fileStream = new FileStream(Config.SettingsFilePath, FileMode.Create))
             {
-                return (T) SettingsObject[key];
+                IFormatter bf = new BinaryFormatter();
+                bf.Serialize(fileStream, _settingsObject);
+            }
+        }
+
+        public static void Load()
+        {
+            using (FileStream fileStream = new FileStream(Config.SettingsFilePath, FileMode.Open))
+            {
+                IFormatter bf = new BinaryFormatter();
+                _settingsObject = (SerializableDictionary<string, object>)bf.Deserialize(fileStream);
+            }
+        }
+
+        public static T Get<T>(string key, T @default)
+        {
+            if (!_settingsObject.ContainsKey(key)) return @default;
+            if (_settingsObject[key] != null)
+            {
+                return (T) _settingsObject[key];
             }
 
             return @default;
         }
 
-        public static void Set<T>(string key, T @value) where T : class
+        public static void Set<T>(string key, T @value)
         {
-            if (SettingsObject[key] != null)
+            if (_settingsObject.ContainsKey(key) && _settingsObject[key] != null)
             {
-                var test = SettingsObject[key].GetType();
+                var test = _settingsObject[key].GetType();
 
                 if (@value.GetType() == test)
                 {
-                    SettingsObject[key] = @value;
+                    _settingsObject[key] = @value;
                 }
 
                 return;
             }
 
-            SettingsObject.Add(key, @value);
+            _settingsObject.Add(key, @value);
         }
     }
 }

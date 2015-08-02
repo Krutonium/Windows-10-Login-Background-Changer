@@ -62,6 +62,7 @@
     </ApplicationDefinition>
     <Compile Include="Tools\Animations\ImageFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
+    <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
     <Compile Include="Tools\PriBuilder.cs" />
     <Compile Include="Tools\Settings.cs" />

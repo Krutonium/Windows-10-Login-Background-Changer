@@ -11,7 +11,6 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Imaging;
 using W10_BG_Logon_Changer.Controls;
-using W10_BG_Logon_Changer.Properties;
 using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.Animations;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
@@ -31,8 +30,9 @@ namespace W10_BG_Logon_Changer
         public MainWindow()
         {
             InitializeComponent();
+            Settings.Load();
 
-            if (!Settings.Default.eula)
+            if (!Settings.Get("eula", false))
             {
                 var dlg =
                     MessageBox.Show(
@@ -49,8 +49,8 @@ namespace W10_BG_Logon_Changer
 
             Title += " - " + AssemblyInfo.Version;
 
-            Settings.Default.eula = true;
-            Settings.Default.Save();
+            Settings.Set("eula", true);
+            Settings.Save();
 
             SettingFlyout.Content = new BgEditorControl(this);
             SettingFlyout.IsOpen = true;
@@ -80,8 +80,8 @@ namespace W10_BG_Logon_Changer
 
             Loaded += (o, i) =>
             {
-                SettingFlyout.Position = Settings.Default.flyoutloc;
-                GlyphsViewer.ToolTip = Settings.Default.filename;
+                SettingFlyout.Position = Settings.Get("flyout", Position.Right);
+                GlyphsViewer.ToolTip = Settings.Get("filename", "No File");
             };
         }
 
@@ -194,7 +194,7 @@ namespace W10_BG_Logon_Changer
             switch (tb.Tag.ToString())
             {
                 case "gimage":
-                    Settings.Default.gimage = (bool)tb.IsChecked;
+                    Settings.Set("gimage", (bool)tb.IsChecked);
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -208,7 +208,7 @@ namespace W10_BG_Logon_Changer
                     break;
 
                 case "uimage":
-                    Settings.Default.uimage = (bool)tb.IsChecked;
+                    Settings.Set("uimage", (bool)tb.IsChecked);
                     switch (tb.IsChecked)
                     {
                         case true:
@@ -221,7 +221,7 @@ namespace W10_BG_Logon_Changer
                     }
                     break;
             }
-            Settings.Default.Save();
+            Settings.Save();
         }
 
         private void LockButton_Click(object sender, RoutedEventArgs e)
@@ -272,8 +272,8 @@ namespace W10_BG_Logon_Changer
                     break;
             }
 
-            Settings.Default.flyoutloc = SettingFlyout.Position;
-            Settings.Default.Save();
+            Settings.Set("flyout", SettingFlyout.Position);
+            Settings.Save();
         }
 
         private void ImageViewer_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)

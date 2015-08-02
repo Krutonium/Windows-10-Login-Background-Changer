@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using MahApps.Metro.Controls;
-using W10_BG_Logon_Changer.Properties;
+using W10_BG_Logon_Changer.Tools;
 using W10_BG_Logon_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Button = System.Windows.Controls.Button;
@@ -45,11 +45,11 @@ namespace W10_BG_Logon_Changer.Controls
             ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
             ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
 
-            ShowUserImageToggle.IsChecked = Settings.Default.uimage;
-            ShowGlyphsIconsToggle.IsChecked = Settings.Default.gimage;
+            ShowUserImageToggle.IsChecked = Settings.Get("uimage", true);//Settings.Default.uimage;
+            ShowGlyphsIconsToggle.IsChecked = Settings.Get("gimage", true);//Settings.Default.gimage;
 
-            Debug.WriteLine(Settings.Default.flyoutloc);
-            switch (Settings.Default.flyoutloc)
+            //Debug.WriteLine(Settings.Default.flyoutloc);
+            switch (Settings.Get("flyout", Position.Right))
             {
                 case Position.Right:
                     FlyoutPosSelect.SelectedIndex = 1;
@@ -70,12 +70,12 @@ namespace W10_BG_Logon_Changer.Controls
                 Multiselect = false
             };
 
-            if (!string.IsNullOrEmpty(Settings.Default.last_folder))
-                ofd.InitialDirectory = Settings.Default.last_folder;
+            if (!string.IsNullOrEmpty(Settings.Get("last_folder", string.Empty)))
+                ofd.InitialDirectory = Settings.Get("last_folder", string.Empty);
 
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
-            Settings.Default.last_folder = Path.GetDirectoryName(ofd.FileName);
+            Settings.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
             string fileName = ofd.FileName;
 
             var extension = Path.GetExtension(fileName);
@@ -93,11 +93,9 @@ namespace W10_BG_Logon_Changer.Controls
             _mainWindow.SelectedFile = fileName;
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
-            Settings.Default.Save();
-
-            Settings.Default.filename = ofd.FileName;
-            Settings.Default.Save();
-            _mainWindow.GlyphsViewer.ToolTip = Settings.Default.filename;
+            Settings.Set("filename", ofd.FileName);
+            Settings.Save();
+            _mainWindow.GlyphsViewer.ToolTip = ofd.FileName;
         }
 
         private void ColorPickerButton_Click(object sender, RoutedEventArgs e)
@@ -141,6 +139,8 @@ namespace W10_BG_Logon_Changer.Controls
                 return;
             }
 
+            Settings.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
+            Settings.Save();
             _runningApplySettings = true;
             var holderContent = ((Button)sender);
             var progress = new ProgressRing
