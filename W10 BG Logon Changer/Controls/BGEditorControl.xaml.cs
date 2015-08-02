@@ -65,8 +65,8 @@ namespace W10_BG_Logon_Changer.Controls
         {
             var ofd = new OpenFileDialog
             {
-                Filter = "Image Formats|*.jpg;*.jpeg;*.png;*.bmp;*.tif;*.tiff",
-                Title = "Select a Image",
+                Filter = "Image Files|*.png;*.jpg;*.jpeg;*.bmp;*.tif;*.tiff",
+                Title = "Select an Image",
                 Multiselect = false
             };
 
@@ -124,7 +124,7 @@ namespace W10_BG_Logon_Changer.Controls
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
-            var msg = MessageBox.Show("Are you sure you wish to reset the image?", "Are you sure?",
+            var msg = MessageBox.Show("Are you sure you want to reset the image?", "Are you sure?",
                 MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
             if (msg != MessageBoxResult.Yes) return;

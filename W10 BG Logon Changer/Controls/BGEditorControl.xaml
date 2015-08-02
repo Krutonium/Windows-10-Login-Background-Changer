@@ -41,7 +41,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap"
                            Text="Show User Information" VerticalAlignment="Top" />
                 <TextBlock HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap"
-                           Text="Show glyphs in bottom right" VerticalAlignment="Top" />
+                           Text="Show Glyphs" VerticalAlignment="Top" />
                 <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap"
                            Text="Flyout Location" VerticalAlignment="Top" />
                 <ComboBox x:Name="FlyoutPosSelect" Margin="96,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
