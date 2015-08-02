@@ -47,6 +47,11 @@ namespace W10_BG_Logon_Changer
                 }
             }
 
+            if (Helpers.IsBackgroundDisabled())
+            {
+                MessageBox.Show("Background image is disabled in the registry", "Background image disabled");
+            }
+
             Debug.WriteLine("[AccentColor]: " +
                             ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
 
