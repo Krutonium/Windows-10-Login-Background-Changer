@@ -136,6 +136,8 @@ namespace W10_Logon_BG_Changer.Controls
             Properties.Resources._default.Save(f, ImageFormat.Png);
 
             Reset(f);
+            Settings.Default.Delete("current.img");
+            Settings.Default.Save();
         }
 
         private void ApplySettings_Click(object sender, RoutedEventArgs e)
@@ -224,8 +226,6 @@ namespace W10_Logon_BG_Changer.Controls
             if (image != "")
             {
                 OverrideImageFromMainWindow(image);
-                Settings.Default.Delete("current.img");
-                Settings.Default.Save();
             }
         }
 
