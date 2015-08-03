@@ -3,9 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using W10_BG_Logon_Changer.Tools;
+using W10_Logon_BG_Changer.Tools;
 
-namespace W10_BG_Logon_Changer.Controls
+namespace W10_Logon_BG_Changer.Controls
 {
     /// <summary>
     ///     Interaction logic for AboutControl.xaml

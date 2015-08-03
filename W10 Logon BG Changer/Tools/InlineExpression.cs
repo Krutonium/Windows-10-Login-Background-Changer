@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Xml;
 
-namespace W10_BG_Logon_Changer.Tools
+namespace W10_Logon_BG_Changer.Tools
 {
     public class InlineExpression
     {

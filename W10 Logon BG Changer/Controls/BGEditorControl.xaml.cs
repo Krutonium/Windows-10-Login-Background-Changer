@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -10,9 +9,9 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro.Controls;
 using TSettings;
-using W10_BG_Logon_Changer.Tools;
-using W10_BG_Logon_Changer.Tools.UserColorHandler;
+using W10_Logon_BG_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Button = System.Windows.Controls.Button;
 using Color = System.Drawing.Color;
@@ -22,7 +21,7 @@ using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using UserControl = System.Windows.Controls.UserControl;
 
-namespace W10_BG_Logon_Changer.Controls
+namespace W10_Logon_BG_Changer.Controls
 {
     /// <summary>
     ///     Interaction logic for BGEditorControl.xaml

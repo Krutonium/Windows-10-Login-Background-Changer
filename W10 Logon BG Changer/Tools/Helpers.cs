@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 
-namespace W10_BG_Logon_Changer.Tools
+namespace W10_Logon_BG_Changer.Tools
 {
     class Helpers
     {

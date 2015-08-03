@@ -1,6 +1,4 @@
-﻿using HelperLibrary;
-using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -11,13 +9,15 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelperLibrary;
+using MahApps.Metro.Controls;
 using TSettings;
-using W10_BG_Logon_Changer.Controls;
-using W10_BG_Logon_Changer.Tools;
-using W10_BG_Logon_Changer.Tools.Animations;
-using W10_BG_Logon_Changer.Tools.UserColorHandler;
+using W10_Logon_BG_Changer.Controls;
+using W10_Logon_BG_Changer.Tools;
+using W10_Logon_BG_Changer.Tools.Animations;
+using W10_Logon_BG_Changer.Tools.UserColorHandler;
 
-namespace W10_BG_Logon_Changer
+namespace W10_Logon_BG_Changer
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
@@ -85,7 +85,12 @@ namespace W10_BG_Logon_Changer
                 var temp = Path.GetTempFileName();
 
                 File.Copy(Config.CurrentImageLocation, temp, true);
-                WallpaperViewer.Source = new BitmapImage(new Uri(temp));
+
+                Settings.Default.Set("current.img", File.ReadAllBytes(temp));
+                Settings.Default.Save();
+
+                File.Delete(Config.CurrentImageLocation);
+                //WallpaperViewer.Source = new BitmapImage(new Uri(temp));
             }
 
             Loaded += (o, i) =>
@@ -93,6 +98,15 @@ namespace W10_BG_Logon_Changer
                 SettingFlyout.Position = Settings.Default.Get("flyout", Position.Right);
                 GlyphsViewer.ToolTip = Settings.Default.Get("filename", "No File");
             };
+
+            if (Settings.Default.Exist("current.img"))
+            {
+                var temp = Path.GetTempFileName();
+
+                File.WriteAllBytes(temp, Settings.Default.Get<byte[]>("current.img"));
+
+                WallpaperViewer.Source = new BitmapImage(new Uri(temp));
+            }
         }
 
         public string SelectedFile
@@ -148,7 +162,10 @@ namespace W10_BG_Logon_Changer
                 File.Delete(_newPriLocation);
             }
 
-            File.Copy(SelectedFile, Config.CurrentImageLocation, true);
+            //File.Copy(SelectedFile, Config.CurrentImageLocation, true);
+
+            Settings.Default.Set("current.img", File.ReadAllBytes(SelectedFile));
+            Settings.Default.Save();
 
             File.Copy(Config.BakPriFileLocation, _tempPriFile, true);
 

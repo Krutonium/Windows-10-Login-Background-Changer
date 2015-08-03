@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 
-namespace W10_BG_Logon_Changer.Tools
+namespace W10_Logon_BG_Changer.Tools
 {
     public class AssemblyInfo
     {
