@@ -6,13 +6,13 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("W10 BG Logon Changer")]
+[assembly: AssemblyTitle("W10 Logon BG Changer")]
 [assembly:
     AssemblyDescription("This program was designed to make changing the Windows 10 logon background image much easier.")
 ]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("W10 BG Logon Changer")]
+[assembly: AssemblyProduct("W10 Logon BG Changer")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

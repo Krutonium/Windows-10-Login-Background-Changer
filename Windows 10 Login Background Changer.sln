@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibrary", "HelperLibrary\HelperLibrary.csproj", "{D80AC683-AB1C-4D44-9094-CC60A1011657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 BG Logon Changer", "W10 BG Logon Changer\W10 BG Logon Changer.csproj", "{7B662768-6BFF-4270-B395-2D531B999BC7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 Logon BG Changer - Command Line", "W10 Logon BG Changer - Command Line\W10 Logon BG Changer - Command Line.csproj", "{F8B89D71-769A-4253-918B-1A767879C975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 Logon BG Changer", "W10 Logon BG Changer\W10 Logon BG Changer.csproj", "{7B662768-6BFF-4270-B395-2D531B999BC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{D80AC683-AB1C-4D44-9094-CC60A1011657}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D80AC683-AB1C-4D44-9094-CC60A1011657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80AC683-AB1C-4D44-9094-CC60A1011657}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B662768-6BFF-4270-B395-2D531B999BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B662768-6BFF-4270-B395-2D531B999BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B662768-6BFF-4270-B395-2D531B999BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B662768-6BFF-4270-B395-2D531B999BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8B89D71-769A-4253-918B-1A767879C975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8B89D71-769A-4253-918B-1A767879C975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8B89D71-769A-4253-918B-1A767879C975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8B89D71-769A-4253-918B-1A767879C975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B662768-6BFF-4270-B395-2D531B999BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B662768-6BFF-4270-B395-2D531B999BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B662768-6BFF-4270-B395-2D531B999BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B662768-6BFF-4270-B395-2D531B999BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
