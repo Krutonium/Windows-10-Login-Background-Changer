@@ -12,7 +12,6 @@ namespace W10_Logon_BG_Changer___Command_Line
 
         private static void Main(string[] args)
         {
-
             switch (args[0])
             {
                 case "authors":
