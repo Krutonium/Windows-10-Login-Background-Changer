@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace W10_BG_Logon_Changer.Tools.UserColorHandler
+namespace W10_Logon_BG_Changer.Tools.UserColorHandler
 {
     public static class ColorFunctions
     {

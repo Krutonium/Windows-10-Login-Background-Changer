@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace W10_BG_Logon_Changer
+namespace W10_Logon_BG_Changer
 {
     public static class Win32Api
     {

@@ -1,4 +1,4 @@
-﻿<controls:MetroWindow x:Class="W10_BG_Logon_Changer.MainWindow"
+﻿<controls:MetroWindow x:Class="W10_Logon_BG_Changer.MainWindow"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"

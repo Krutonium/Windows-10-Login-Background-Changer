@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace W10_BG_Logon_Changer.Tools.Animations
+namespace W10_Logon_BG_Changer.Tools.Animations
 {
     public static class ImageFader
     {

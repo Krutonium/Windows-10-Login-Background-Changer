@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using DColor = System.Drawing.Color;
 using MColor = System.Windows.Media.Color;
 
-namespace W10_BG_Logon_Changer
+namespace W10_Logon_BG_Changer
 {
     public static class Extenstions
     {

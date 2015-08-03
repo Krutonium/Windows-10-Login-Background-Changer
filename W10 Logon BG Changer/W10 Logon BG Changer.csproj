@@ -7,7 +7,7 @@
     <ProjectGuid>{7B662768-6BFF-4270-B395-2D531B999BC7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>W10_BG_Logon_Changer</RootNamespace>
+    <RootNamespace>W10_Logon_BG_Changer</RootNamespace>
     <AssemblyName>W10 BG Logon Changer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
