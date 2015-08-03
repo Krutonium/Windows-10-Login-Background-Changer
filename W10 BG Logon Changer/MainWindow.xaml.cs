@@ -32,8 +32,7 @@ namespace W10_BG_Logon_Changer
         public MainWindow()
         {
             InitializeComponent();
-            Settings.Encryption = new TSettings.Encryptions.DesEncrpytion("W10Logon", "W10Logon");
-            new Settings(Config.SettingsFilePath);
+            Settings.Init(Config.SettingsFilePath, new TSettings.Encryptions.DesEncrpytion("W10Logon", "W10Logon"));
 
             if (!Settings.Default.Get("eula", false))
             {
@@ -46,6 +45,11 @@ namespace W10_BG_Logon_Changer
                 {
                     Close();
                 }
+            }
+
+            if (Helpers.IsBackgroundDisabled())
+            {
+                MessageBox.Show("Background image is disabled in the registry", "Background image disabled");
             }
 
             Debug.WriteLine("[AccentColor]: " +
