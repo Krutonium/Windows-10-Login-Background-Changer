@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelperLibrary;
+using MahApps.Metro.Controls;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,8 +11,6 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using HelperLibrary;
-using MahApps.Metro.Controls;
 using TSettings;
 using W10_Logon_BG_Changer.Controls;
 using W10_Logon_BG_Changer.Tools;
