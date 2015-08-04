@@ -9,15 +9,15 @@
     <Grid>
         <TextBox x:Name="SelectedFile" Height="23" Margin="10,10,99,0" TextWrapping="NoWrap"
                  Text="Background filename appears here." IsReadOnly="True" VerticalAlignment="Top" />
-        <Button Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click"
+        <Button x:Name="BrowseButton"  Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
         <Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="24" Margin="10,80,99,0" VerticalAlignment="Top">
             <TextBlock x:Name="pickColor" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,3,0,0" TextWrapping="Wrap"
                        Text="Pick a color" VerticalAlignment="Top" Width="191" Foreground="Black" />
         </Grid>
-        <Button Content="Color" Margin="0,80,10,0" VerticalAlignment="Top" Click="ColorPickerButton_Click"
+        <Button x:Name="ColorPickerButton"  Content="Color" Margin="0,80,10,0" VerticalAlignment="Top" Click="ColorPickerButton_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
-        <Button Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,242" Height="42"
+        <Button x:Name="ApplyChangesButton"  Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,242" Height="42"
                 VerticalAlignment="Bottom" />
         <GroupBox Header="Restore to Default" Margin="10,0,10,10" Height="66" VerticalAlignment="Bottom">
             <Grid>
@@ -28,7 +28,7 @@
 
             </Grid>
         </GroupBox>
-        <Button Content="Use Current Accent Color" Margin="10,108,10,0" VerticalAlignment="Top"
+        <Button x:Name="ColorAccentButton" Content="Use Current Accent Color" Margin="10,108,10,0" VerticalAlignment="Top"
                 Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
         <GroupBox Header="Application Settings" Margin="10,0,10,81" Height="156" VerticalAlignment="Bottom">
             <Grid>
