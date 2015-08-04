@@ -19,18 +19,18 @@
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
         <Button x:Name="ApplyChangesButton"  Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,242" Height="42"
                 VerticalAlignment="Bottom" />
-        <GroupBox Header="Restore to Default" Margin="10,0,10,10" Height="66" VerticalAlignment="Bottom">
+        <GroupBox x:Name="RestoreDefaultArea" Header="Restore to Default" Margin="10,0,10,10" Height="66" VerticalAlignment="Bottom">
             <Grid>
-                <Button Click="RestoreDefaults_Click" Content="Restore Default" VerticalAlignment="Top"
+                <Button x:Name="RestoreDefaultButton"  Click="RestoreDefaults_Click" Content="Restore Default" VerticalAlignment="Top"
                         HorizontalAlignment="Left" Width="126" />
-                <Button Click="RestoreHeroDefaults_Click" Content="Restore Hero" VerticalAlignment="Top"
+                <Button x:Name="RestoreHeroButton" Click="RestoreHeroDefaults_Click" Content="Restore Hero" VerticalAlignment="Top"
                         HorizontalAlignment="Right" Width="126" />
 
             </Grid>
         </GroupBox>
         <Button x:Name="ColorAccentButton" Content="Use Current Accent Color" Margin="10,108,10,0" VerticalAlignment="Top"
                 Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
-        <GroupBox Header="Application Settings" Margin="10,0,10,81" Height="156" VerticalAlignment="Bottom">
+        <GroupBox x:Name="AdvancedOptionsArea"  Header="Application Settings" Margin="10,0,10,81" Height="156" VerticalAlignment="Bottom">
             <Grid>
                 <Custom:ToggleSwitchButton IsChecked="True" Tag="uimage" x:Name="ShowUserImageToggle"
                                            Content="ToggleSwitchButton" Margin="0,0,0,77" Width="70" Height="35"
@@ -50,8 +50,8 @@
                 </ComboBox>
             </Grid>
         </GroupBox>
-        <ComboBox Margin="92,138,10,0" VerticalAlignment="Top" SelectedIndex="4"
-                  SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox Margin="0,138,10,0" VerticalAlignment="Top" SelectedIndex="4"
+                  SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="144">
             <ComboBoxItem Content="720p" />
             <ComboBoxItem Content="1080p" />
             <ComboBoxItem Content="4K" />

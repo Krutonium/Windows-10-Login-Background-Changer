@@ -78,6 +78,10 @@ namespace W10_Logon_BG_Changer.Controls
             ShowUserInfoLabel.Text = LanguageLibrary.Language.Default.show_user_info;
             ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
             FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
+            RestoreHeroButton.Content = LanguageLibrary.Language.Default.restore_hero_button;
+            RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_default_button;
+            RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
+            AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

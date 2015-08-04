@@ -20,11 +20,17 @@
   <flyout_edit_title>Edit Background</flyout_edit_title>
   <flyout_about_title>About</flyout_about_title>
   
+  <!-- Groups -->
+  <group_restore_default>Restore to Defaults</group_restore_default>
+  <group_advanced_options>Application Settings</group_advanced_options>
+  
   <!-- Buttons -->
   <browse_button>Browse</browse_button>
   <color_button>Color</color_button>
   <accet_color_button>Use Current Accent Color</accet_color_button>
   <apply_changes_button>Apply Changes?</apply_changes_button>
+  <restore_defaults_button>Restore Defaults</restore_defaults_button>
+  <restore_hero_button>Restore Hero</restore_hero_button>
   
   <!-- Labels -->
   <image_scale>Image Scaling</image_scale>
