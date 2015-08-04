@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using System.Drawing;
+using Microsoft.Win32;
 
 namespace W10_Logon_BG_Changer.Tools
 {
@@ -17,6 +18,16 @@ namespace W10_Logon_BG_Changer.Tools
             }
 
             return false;
+        }
+
+        public static Color ContrastColor(Color color)
+        {
+            // Counting the perceptive luminance - human eye favors green color... 
+            double a = 1 - (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
+
+            var d = a < 0.5 ? 0 : 255;
+
+            return Color.FromArgb(d, d, d);
         }
     }
 }
