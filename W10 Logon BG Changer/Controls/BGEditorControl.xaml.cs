@@ -79,7 +79,7 @@ namespace W10_Logon_BG_Changer.Controls
             ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
             FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
             RestoreHeroButton.Content = LanguageLibrary.Language.Default.restore_hero_button;
-            RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_default_button;
+            RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
             AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
         }

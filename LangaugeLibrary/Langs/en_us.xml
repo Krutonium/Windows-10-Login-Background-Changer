@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
   <lang_name>English US</lang_name>
   
   <!-- titles -->
@@ -23,6 +24,8 @@
   <!-- Groups -->
   <group_restore_default>Restore to Defaults</group_restore_default>
   <group_advanced_options>Application Settings</group_advanced_options>
+  <group_authors_area>Authors</group_authors_area>
+  <group_about_area>About</group_about_area>
   
   <!-- Buttons -->
   <browse_button>Browse</browse_button>
