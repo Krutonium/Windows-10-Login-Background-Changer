@@ -33,12 +33,11 @@ namespace W10_Logon_BG_Changer
         {
             InitializeComponent();
 
-
-            Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
-
             Settings.Init(Config.SettingsFilePath, new TSettings.Encryptions.DesEncrpytion("W10Logon", "W10Logon"));
 
             LanguageLibrary.Language.Set(Settings.Default.Get("language", "en_us"));
+            Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
+
             if (!Settings.Default.Get("eula", false))
             {
                 var dlg =
