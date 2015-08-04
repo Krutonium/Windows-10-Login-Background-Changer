@@ -35,7 +35,7 @@ namespace W10_Logon_BG_Changer
 
             Settings.Init(Config.SettingsFilePath, new TSettings.Encryptions.DesEncrpytion("W10Logon", "W10Logon"));
 
-            LanguageLibrary.Language.Set(Settings.Default.Get("language", "en_us"));
+            LanguageLibrary.Language.Set(Settings.Default.Get("language", "kn_nl"));
             Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
 
             foreach (var lang in LanguageLibrary.Language.GetLangNames())
