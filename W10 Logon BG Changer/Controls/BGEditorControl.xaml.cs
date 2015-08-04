@@ -67,6 +67,13 @@ namespace W10_Logon_BG_Changer.Controls
                     FlyoutPosSelect.SelectedIndex = 0;
                     break;
             }
+
+            BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
+            ColorPickerButton.Content = LanguageLibrary.Language.Default.color_button;
+            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
+            pickColor.Text = LanguageLibrary.Language.Default.color_preview;
+            ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
+            ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -121,20 +128,18 @@ namespace W10_Logon_BG_Changer.Controls
 
             ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor()); ;
 
-            SelectedFile.Text = "Background filename will appear here.";
+            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
 
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
-            var msg = MessageBox.Show("Are you sure you want to reset the image?", "Are you sure?",
+            var msg = MessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg, LanguageLibrary.Language.Default.title_are_you_sure,
                 MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
             if (msg != MessageBoxResult.Yes) return;
             File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
-
-            //File.Delete(Config.CurrentImageLocation);
             
             var f = Path.GetTempFileName();
             Properties.Resources._default.Save(f, ImageFormat.Png);
@@ -151,8 +156,8 @@ namespace W10_Logon_BG_Changer.Controls
 
             if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
-                MessageBox.Show("You must first select a file before you can set your login background! (Default options count as a file)",
-                    "Error");
+                MessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
+                    LanguageLibrary.Language.Default.title_error);
                 return;
             }
 
@@ -222,7 +227,7 @@ namespace W10_Logon_BG_Changer.Controls
 
         private void Reset(string image = "")
         {
-            SelectedFile.Text = "Background filename appears here.";
+            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
             ColorPreview.Background = _orgColor;
             var c = ((SolidColorBrush)ColorPreview.Background).Color;
             var color = Color.FromArgb(c.R, c.G, c.B);

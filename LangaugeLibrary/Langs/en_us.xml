@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <!-- titles -->
+  <title_error>Error</title_error>
+  <title_info>Info</title_info>
+  <title_warning>Warning</title_warning>
+  <title_finished>Finished</title_finished>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Background Disabled</title_bg_disabled>
+  <title_are_you_sure>Are you sure?</title_are_you_sure>
+  
+  <!-- Buttons -->
+  <browse_button>Browse</browse_button>
+  <color_button>Color</color_button>
+  <accet_color_button>Use Current Accent Color</accet_color_button>
+  <apply_changes_button>Apply Changes?</apply_changes_button>
+  
+  <!-- Message bodies -->
+  <background_disabled>Background image is disabled in the registry</background_disabled>
+  <EULA>You agree that upon using this software, we are not at fault if your system stops working correctly.</EULA>
+  <color_preview>Color Preview</color_preview>
+  <finished_msg>You must first select a file before you can set your login background! (Default options count as a file)"</finished_msg>
+  <select_img>Background filename appears here.</select_img>
+  <reset_image_msg>Are you sure you want to reset the image?</reset_image_msg>
+  <no_selected_file>You must first select a file before you can set your login background! (Default options count as a file)</no_selected_file>
+</Language>

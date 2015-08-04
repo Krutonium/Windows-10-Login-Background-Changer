@@ -32,14 +32,19 @@ namespace W10_Logon_BG_Changer
         public MainWindow()
         {
             InitializeComponent();
+
+            LanguageLibrary.Language.Set("en_us");
+
+            Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
+
             Settings.Init(Config.SettingsFilePath, new TSettings.Encryptions.DesEncrpytion("W10Logon", "W10Logon"));
 
             if (!Settings.Default.Get("eula", false))
             {
                 var dlg =
                     MessageBox.Show(
-                        "You agree that upon using this software, we are not at fault if your system stops working correctly.",
-                        "EULA", MessageBoxButton.YesNo);
+                        LanguageLibrary.Language.Default.EULA,
+                        LanguageLibrary.Language.Default.title_eula, MessageBoxButton.YesNo);
 
                 if (dlg == MessageBoxResult.No)
                 {
@@ -49,7 +54,7 @@ namespace W10_Logon_BG_Changer
 
             if (Helpers.IsBackgroundDisabled())
             {
-                MessageBox.Show("Background image is disabled in the registry", "Background image disabled");
+                MessageBox.Show(LanguageLibrary.Language.Default.background_disabled, LanguageLibrary.Language.Default.title_dg_disabled);
             }
 
             Debug.WriteLine("[AccentColor]: " +
