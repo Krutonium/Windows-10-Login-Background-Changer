@@ -23,6 +23,8 @@
   <!-- Groups -->
   <group_restore_default>Restore to Defaults</group_restore_default>
   <group_advanced_options>Application Settings</group_advanced_options>
+  <group_authors_area>Authors</group_authors_area>
+  <group_about_area>About</group_about_area>
   
   <!-- Buttons -->
   <browse_button>Browse</browse_button>

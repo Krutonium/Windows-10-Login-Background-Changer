@@ -18,6 +18,9 @@ namespace W10_Logon_BG_Changer.Controls
 
             AboutBox.Text = mainWindow.AssemblyInfo.Description;
 
+            AboutArea.Header = LanguageLibrary.Language.Default.group_about_area;
+            AuthorsGroupBox.Header = LanguageLibrary.Language.Default.group_authors_area;
+
             var authors = Properties.Resources.Authors;
 
             var sp = new StackPanel { Orientation = Orientation.Vertical };

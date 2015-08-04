@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <GroupBox Header="About" VerticalAlignment="Top" Height="94" Margin="5,5,5,0">
+        <GroupBox x:Name="AboutArea"  Header="About" VerticalAlignment="Top" Height="94" Margin="5,5,5,0">
             <TextBlock TextWrapping="Wrap" x:Name="AboutBox" Text="TextBlock" Margin="-2,-2,0,-3" />
         </GroupBox>
         <GroupBox x:Name="AuthorsGroupBox" Header="Authors" Margin="5,104,5,10" />
