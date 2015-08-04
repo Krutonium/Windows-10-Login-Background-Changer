@@ -17,6 +17,12 @@
   <accet_color_button>Use Current Accent Color</accet_color_button>
   <apply_changes_button>Apply Changes?</apply_changes_button>
   
+  <!-- Labels -->
+  <image_scale>Image Scaling</image_scale>
+  <show_user_info>Show User Information</show_user_info>
+  <show_glyphs>Show Glyphs</show_glyphs>
+  <flyout_loc>Flyout Location</flyout_loc>
+  
   <!-- Message bodies -->
   <background_disabled>Background image is disabled in the registry</background_disabled>
   <EULA>You agree that upon using this software, we are not at fault if your system stops working correctly.</EULA>

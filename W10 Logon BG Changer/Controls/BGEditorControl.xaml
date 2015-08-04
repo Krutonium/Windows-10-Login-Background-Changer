@@ -38,11 +38,11 @@
                 <Custom:ToggleSwitchButton IsChecked="True" Tag="gimage" x:Name="ShowGlyphsIconsToggle"
                                            Content="ToggleSwitchButton" Margin="0,42,0,39" Width="70"
                                            HorizontalAlignment="Right" Height="35" />
-                <TextBlock HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap"
+                <TextBlock x:Name="ShowUserInfoLabel" HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap"
                            Text="Show User Information" VerticalAlignment="Top" />
-                <TextBlock HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap"
+                <TextBlock x:Name="ShowGlyphsLabel"  HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap"
                            Text="Show Glyphs" VerticalAlignment="Top" />
-                <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap"
+                <TextBlock x:Name="FlyoutLocationLabel" HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap"
                            Text="Flyout Location" VerticalAlignment="Top" />
                 <ComboBox x:Name="FlyoutPosSelect" Margin="96,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
                     <ComboBoxItem Content="Left" />
@@ -58,7 +58,7 @@
             <ComboBoxItem Content="My Resolution" />
             <ComboBoxItem Content="None" IsSelected="True" />
         </ComboBox>
-        <TextBlock Margin="10,144,213,0" TextWrapping="Wrap" Text="Image Scaling" VerticalAlignment="Top"
+        <TextBlock x:Name="ImageScalingLabel" Margin="10,144,213,0" TextWrapping="Wrap" Text="Image Scaling" VerticalAlignment="Top"
                    Foreground="White" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="146,39,0,0" TextWrapping="Wrap" Text="OR" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667"/>
     </Grid>

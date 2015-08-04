@@ -74,6 +74,10 @@ namespace W10_Logon_BG_Changer.Controls
             pickColor.Text = LanguageLibrary.Language.Default.color_preview;
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
             ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
+            ImageScalingLabel.Text = LanguageLibrary.Language.Default.image_scale;
+            ShowUserInfoLabel.Text = LanguageLibrary.Language.Default.show_user_info;
+            ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
+            FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
