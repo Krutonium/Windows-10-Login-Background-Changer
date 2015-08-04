@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <lang_name>Intergallactic Klingon</lang_name>
+  
+  <!-- titles -->
+  <title_error>Qagh</title_error>
+  <title_info>De'</title_info>
+  <title_warning>Qob</title_warning>
+  <title_finished>rln</title_finished>
+  <title_eula>QBUC</title_eula>
+  <title_bg_disabled>patmey lulo'ta' Disabled</title_bg_disabled>
+  <title_are_you_sure>bIbej'a'?</title_are_you_sure>
+  
+  <!-- Buttons -->
+  <browse_button>wutlh</browse_button>
+  <color_button>nguvmoH</color_button>
+  <accet_color_button>lo' Qu'mey potlh nguvmoH</accet_color_button>
+  <apply_changes_button>choH chenmoH?</apply_changes_button>
+  
+  <!-- Labels -->
+  <image_scale>ghItlhvam ghISDen</image_scale>
+  <show_user_info>User De' cha'</show_user_info>
+  <show_glyphs>cha' Glyphs</show_glyphs>
+  <flyout_loc>Dop tach</flyout_loc>
+  
+  <!-- Message bodies -->
+  <background_disabled>Qotlh patmey lulo'ta' ghItlhvam neH registry</background_disabled>
+  <EULA>'e' HuvHa' software lo', 'oHbe' maH DeSDu' pIch vaj correctly Qap 'e' mev pat jIQochbe'.</EULA>
+  <color_preview>nguvmoH cha'</color_preview>
+  <finished_msg>teywI' ghob'e' wa'DIch wIv SoH ngejtaH login patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</finished_msg>
+  <select_img>naDev nargh patmey lulo'ta' filename.</select_img>
+  <reset_image_msg>be ghItlhvam reset DaneH'a'?</reset_image_msg>
+  <no_selected_file>teywI' ghob'e' wa'DIch wIv SoH ngejtaH login patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</no_selected_file>
+</Language>
