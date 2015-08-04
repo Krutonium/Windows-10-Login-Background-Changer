@@ -49,6 +49,13 @@ namespace W10_Logon_BG_Changer.Controls
             ShowUserImageToggle.IsChecked = Settings.Default.Get("uimage", true);//Settings.Default.uimage;
             ShowGlyphsIconsToggle.IsChecked = Settings.Default.Get("gimage", true);//Settings.Default.gimage;
 
+            var color = Settings.Default.Get("dcolor", Color.WhiteSmoke);
+
+            ColorPreview.Background =
+                new SolidColorBrush(color.ToMediaColor());
+
+            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
+
             //Debug.WriteLine(Settings.Default.flyoutloc);
             switch (Settings.Default.Get("flyout", Position.Right))
             {
@@ -94,6 +101,11 @@ namespace W10_Logon_BG_Changer.Controls
             _mainWindow.SelectedFile = fileName;
             SelectedFile.Text = ofd.SafeFileName;
             ColorPreview.Background = _orgColor;
+            var c = ((SolidColorBrush)ColorPreview.Background).Color;
+            var color = Color.FromArgb(c.R, c.G, c.B);
+            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
+
+            Settings.Default.Set("dcolor", color);
             Settings.Default.Set("filename", ofd.FileName);
             Settings.Default.Save();
             _mainWindow.GlyphsViewer.ToolTip = ofd.FileName;
@@ -129,6 +141,7 @@ namespace W10_Logon_BG_Changer.Controls
 
             Reset(f);
             Settings.Default.Delete("current.img");
+            Settings.Default.Delete("dcolor");
             Settings.Default.Save();
         }
 
@@ -143,6 +156,11 @@ namespace W10_Logon_BG_Changer.Controls
                 return;
             }
 
+            var c = ((SolidColorBrush) ColorPreview.Background).Color;
+            var color = Color.FromArgb(c.R, c.G, c.B);
+            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
+
+            Settings.Default.Set("dcolor", color);
             Settings.Default.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
             Settings.Default.Save();
             _runningApplySettings = true;
@@ -183,20 +201,12 @@ namespace W10_Logon_BG_Changer.Controls
 
             string hex = ColorTranslator.ToHtml(Color.FromArgb(c.ToArgb()));
 
-            var converter = new System.Windows.Media.BrushConverter();
+            var converter = new BrushConverter();
             var fillcolor = (Brush)converter.ConvertFromString(hex);
 
             ColorPreview.Background = fillcolor;
 
-            var clr = c;
-
-            var r = Convert.ToInt32(clr.R);
-            var g = Convert.ToInt32(clr.G);
-            var b = Convert.ToInt32(clr.B);
-
-            var rgb = r + g + b;
-
-            pickColor.Foreground = rgb > 382 ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
+            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(c).ToMediaColor());
         }
 
         private void RestoreHeroDefaults_Click(object sender, RoutedEventArgs e)
@@ -214,6 +224,10 @@ namespace W10_Logon_BG_Changer.Controls
         {
             SelectedFile.Text = "Background filename appears here.";
             ColorPreview.Background = _orgColor;
+            var c = ((SolidColorBrush)ColorPreview.Background).Color;
+            var color = Color.FromArgb(c.R, c.G, c.B);
+
+            Settings.Default.Set("dcolor", color);
 
             if (image != "")
             {
