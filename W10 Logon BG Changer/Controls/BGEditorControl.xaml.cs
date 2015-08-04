@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using TSettings;
+using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
 using Button = System.Windows.Controls.Button;
@@ -106,20 +107,12 @@ namespace W10_Logon_BG_Changer.Controls
             if (dialog != DialogResult.OK && dialog != DialogResult.Yes) return;
             _mainWindow.SelectedFile = FillImageColor(cfd.Color);
 
-            var sd = new SolidColorBrush(cfd.Color.ToMediaColor());
-            ColorPreview.Background = sd;
+            ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor()); ;
 
             SelectedFile.Text = "Background filename will appear here.";
 
-            var clr = cfd.Color;
-
-            var r = Convert.ToInt32(clr.R);
-            var g = Convert.ToInt32(clr.G);
-            var b = Convert.ToInt32(clr.B);
-
-            var rgb = r + g + b;
-
-            pickColor.Foreground = rgb > 382 ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
+            //pickColor.Foreground = rgb > 382 ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
+            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
