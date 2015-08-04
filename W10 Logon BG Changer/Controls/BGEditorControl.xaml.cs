@@ -111,7 +111,6 @@ namespace W10_Logon_BG_Changer.Controls
 
             SelectedFile.Text = "Background filename will appear here.";
 
-            //pickColor.Foreground = rgb > 382 ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
         }
 
