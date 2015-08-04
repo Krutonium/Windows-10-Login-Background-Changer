@@ -38,6 +38,11 @@ namespace W10_Logon_BG_Changer
             LanguageLibrary.Language.Set(Settings.Default.Get("language", "en_us"));
             Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
 
+            foreach (var lang in LanguageLibrary.Language.GetLangNames())
+            {
+                Debug.WriteLine("Languages - [{0}] {1}", lang.Key, lang.Value);
+            }
+
             if (!Settings.Default.Get("eula", false))
             {
                 var dlg =
@@ -111,6 +116,13 @@ namespace W10_Logon_BG_Changer
 
                 WallpaperViewer.Source = new BitmapImage(new Uri(temp));
             }
+
+            EditBackgroundLabel.Text = LanguageLibrary.Language.Default.main_top_edit;
+            LockWindowsLabel.Text = LanguageLibrary.Language.Default.main_top_lock;
+            AboutButton.Content = LanguageLibrary.Language.Default.main_top_about;
+
+            SettingFlyout.Header = LanguageLibrary.Language.Default.flyout_edit_title;
+            AboutFlyout.Header = LanguageLibrary.Language.Default.flyout_about_title;
         }
 
         public string SelectedFile

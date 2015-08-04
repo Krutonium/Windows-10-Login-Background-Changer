@@ -25,7 +25,7 @@
                                          Visual="{StaticResource appbar_lock}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock Margin="4 0 0 0"
+                    <TextBlock x:Name="LockWindowsLabel" Margin="4 0 0 0"
                                VerticalAlignment="Center"
                                Text="Lock Windows" />
                 </StackPanel>
@@ -39,7 +39,7 @@
                                          Visual="{StaticResource appbar_settings}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock Margin="4 0 0 0"
+                    <TextBlock x:Name="EditBackgroundLabel"  Margin="4 0 0 0"
                                VerticalAlignment="Center"
                                Text="Edit Background" />
                 </StackPanel>

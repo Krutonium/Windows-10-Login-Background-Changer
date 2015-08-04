@@ -11,6 +11,15 @@
   <title_bg_disabled>Background Disabled</title_bg_disabled>
   <title_are_you_sure>Are you sure?</title_are_you_sure>
   
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>About</main_top_about>
+  <main_top_lock>Lock Windows</main_top_lock>
+  <main_top_edit>Edit Background</main_top_edit>
+  
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Edit Background</flyout_edit_title>
+  <flyout_about_title>About</flyout_about_title>
+  
   <!-- Buttons -->
   <browse_button>Browse</browse_button>
   <color_button>Color</color_button>
