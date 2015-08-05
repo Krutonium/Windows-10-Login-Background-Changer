@@ -1,6 +1,7 @@
 ﻿using HelperLibrary;
 using MahApps.Metro.Controls;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -8,6 +9,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -16,6 +18,7 @@ using W10_Logon_BG_Changer.Controls;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.Animations;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
+using Image = System.Drawing.Image;
 
 namespace W10_Logon_BG_Changer
 {
@@ -37,11 +40,6 @@ namespace W10_Logon_BG_Changer
 
             LanguageLibrary.Language.Set(Settings.Default.Get("language", "en_us"));
             Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
-
-            foreach (var lang in LanguageLibrary.Language.GetLangNames())
-            {
-                Debug.WriteLine("Languages - [{0}] {1}", lang.Key, lang.Value);
-            }
 
             if (!Settings.Default.Get("eula", false))
             {
@@ -70,6 +68,8 @@ namespace W10_Logon_BG_Changer
             Settings.Default.Save();
 
             Debug.WriteLine("[EULA Test] {0}", Settings.Default.Get<bool>("eula"));
+
+            LanguageFlyout.Content = new LanguageSelectControl(this);
 
             SettingFlyout.Content = new BgEditorControl(this);
             SettingFlyout.IsOpen = true;
@@ -324,6 +324,11 @@ namespace W10_Logon_BG_Changer
         {
             SettingFlyout.IsOpen = false;
             AboutFlyout.IsOpen = false;
+        }
+
+        private void LanguageSelect_OnClick(object sender, RoutedEventArgs e)
+        {
+            LanguageFlyout.IsOpen = !LanguageFlyout.IsOpen;
         }
     }
 }
