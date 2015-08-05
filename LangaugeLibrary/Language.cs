@@ -9,30 +9,62 @@ namespace LanguageLibrary
 {
     public class Language
     {
-        public static dynamic Default { get; private set; }
+        private static dynamic _default;
+
+        public static dynamic Default
+        {
+            get; set;
+        }
+
+        public static void Init(string name = "en_us")
+        {
+            _default = new ExpandoObject();
+            SetBaseLang(name);
+        }
 
         public static void Set(string name)
         {
-            dynamic temp = new ExpandoObject();
-            string xml = "";
+            var xml = GetXml(name);
 
-            using (Stream stream = Assembly.GetAssembly(typeof(Language)).GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
+            IDictionary<string, object> defaults = (IDictionary<string, object>)_default.Language;
+            dynamic temp = new ExpandoObject();
+
+            XmlToDynamic.Parse(temp, XElement.Parse(xml));
+
+            foreach (var item in ((IDictionary<string, object>) temp.Language).Where(item => defaults.ContainsKey(item.Key)))
+            {
+                defaults[item.Key] = item.Value;
+            }
+
+            Default = defaults.ToExpando();
+        }
+
+        private static void SetBaseLang(string name)
+        {
+            var xml = GetXml(name);
+
+            XmlToDynamic.Parse(_default, XElement.Parse(xml));
+        }
+
+        private static string GetXml(string name)
+        {
+            var xml = "";
+
+            using (var stream = Assembly.GetAssembly(typeof(Language)).GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
                 if (stream != null)
-                    using (StreamReader reader = new StreamReader(stream))
+                    using (var reader = new StreamReader(stream))
                     {
                         xml = reader.ReadToEnd();
                     }
 
-            XmlToDynamic.Parse(temp, XElement.Parse(xml));
-
-            Default = temp.Language;
+            return xml;
         }
 
         public static Dictionary<string, string> GetLangNames()
         {
-            Dictionary<string, string> langs = new Dictionary<string, string>();
+            var langs = new Dictionary<string, string>();
 
-            string[] embeddedResources = Assembly.GetAssembly(typeof(Language)).GetManifestResourceNames();
+            var embeddedResources = Assembly.GetAssembly(typeof(Language)).GetManifestResourceNames();
 
             foreach (var lang in embeddedResources.Where(lang => lang.ToLower().EndsWith(".xml")))
             {
