@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <lang_name>Português (Brasil)</lang_name>
+
+  <!-- titles -->
+  <title_error>Erro</title_error>
+  <title_info>Informação</title_info>
+  <title_warning>Alerta</title_warning>
+  <title_finished>Concluído</title_finished>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Fundo Desabilitado</title_bg_disabled>
+  <title_are_you_sure>Tem certeza?</title_are_you_sure>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>Sobre</main_top_about>
+  <main_top_lock>Bloquear Windows</main_top_lock>
+  <main_top_edit>Editar Fundo</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Editar Fundo</flyout_edit_title>
+  <flyout_about_title>Sobre</flyout_about_title>
+
+  <!-- Groups -->
+  <group_restore_default>Restaurar Padrões</group_restore_default>
+  <group_advanced_options>Configurações</group_advanced_options>
+  <group_authors_area>Autores</group_authors_area>
+  <group_about_area>Sobre</group_about_area>
+
+  <!-- Buttons -->
+  <browse_button>Procurar</browse_button>
+  <color_button>Cor</color_button>
+  <accet_color_button>Usar cor do tema atual</accet_color_button>
+  <apply_changes_button>Aplicar alterações?</apply_changes_button>
+  <restore_defaults_button>Restaurar Padrões</restore_defaults_button>
+  <restore_hero_button>Restaurar Herói</restore_hero_button>
+
+  <!-- Labels -->
+  <image_scale>Escalonamento de Imagem</image_scale>
+  <show_user_info>Exibir informações do usuário</show_user_info>
+  <show_glyphs>Exibir ícones</show_glyphs>
+  <flyout_loc>Posição do painel</flyout_loc>
+
+  <!-- Message bodies -->
+  <background_disabled>A imagem de fundo está desabilitada no registro do Windows</background_disabled>
+  <EULA>Você concorda que utilizando este software, nós não temos culpa se seu sistema parar de funcionar corretamente.</EULA>
+  <color_preview>Preview de cor</color_preview>
+  <finished_msg>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de login! (Você pode escolhe usar as opções padrão)"</finished_msg>
+  <select_img>O nome do arquivo de fundo aparece aqui.</select_img>
+  <reset_image_msg>Tem certeza que deseja redefinir a imagem?</reset_image_msg>
+  <no_selected_file>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de login! (Você pode escolher usar as opções padrão)</no_selected_file>
+</Language>
