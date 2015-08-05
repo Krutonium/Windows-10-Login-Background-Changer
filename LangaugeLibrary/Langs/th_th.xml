@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <lang_name>ไทย (TH)</lang_name>
+  <title_error>Error</title_error>
+  <title_info>ความผิดพลาด</title_info>
+  <title_warning>การเตือน</title_warning>
+  <title_finished>เสร็จสิ้น</title_finished>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>พื้นหลังปิดการใช้งาน</title_bg_disabled>
+  <title_are_you_sure>คุณแน่ใจไหม?</title_are_you_sure>
+  <main_top_about>เกี่ยวกับ</main_top_about>
+  <main_top_lock>ล็อคของ Windows</main_top_lock>
+  <main_top_edit>แก้ไขประวัติความเป็นมา</main_top_edit>
+  <flyout_edit_title>แก้ไขประวัติความเป็นมา</flyout_edit_title>
+  <flyout_about_title>เกี่ยวกับ</flyout_about_title>
+  <group_restore_default>เรียกคืนไปยังค่าเริ่มต้น</group_restore_default>
+  <group_advanced_options>ตั้งค่าโปรแกรมประยุกต์</group_advanced_options>
+  <group_authors_area>ผู้เขียน</group_authors_area>
+  <group_about_area>เกี่ยวกับ</group_about_area>
+  <browse_button>เรียกดู</browse_button>
+  <color_button>สี</color_button>
+  <accet_color_button>ใช้สีสำเนียงปัจจุบัน</accet_color_button>
+  <apply_changes_button>ใช้การเปลี่ยนแปลง?</apply_changes_button>
+  <restore_defaults_button>คืนค่าเริ่มต้น</restore_defaults_button>
+  <restore_hero_button>เรียกคืนฮีโร่</restore_hero_button>
+  <image_scale>ภาพการปรับขนาด</image_scale>
+  <show_user_info>แสดงข้อมูลผู้ใช้</show_user_info>
+  <show_glyphs>แสดงร่ายมนตร์</show_glyphs>
+  <flyout_loc>บินออกจากที่ตั้ง</flyout_loc>
+  <background_disabled>ภาพพื้นหลังถูกปิดใช้งานในรีจิสทรี</background_disabled>
+  <EULA>คุณยอมรับว่าเมื่อมีการใช้ซอฟต์แวร์นี้เราไม่ได้อยู่ที่ความผิดในกรณีที่ระบบของคุณหยุดทำงานอย่างถูกต้อง</EULA>
+  <color_preview>ดูตัวอย่างสี</color_preview>
+  <finished_msg>ก่อนอื่นคุณต้องเลือกไฟล์ก่อนจึงจะสามารถตั้งค่าพื้นหลังเข้าสู่ระบบของคุณ! (ตัวเลือกเริ่มต้นนับเป็นไฟล์)</finished_msg>
+  <select_img>พื้นหลังชื่อไฟล์ปรากฏขึ้นที่นี่</select_img>
+  <reset_image_msg>คุณแน่ใจว่าคุณต้องการที่จะตั้งค่าภาพ?</reset_image_msg>
+  <no_selected_file>You must first select a file before you can set your login background! (Default options count as a file)</no_selected_file>
+</Language>
