@@ -36,7 +36,10 @@ namespace W10_Logon_BG_Changer
 
             Settings.Init(Config.SettingsFilePath, new TSettings.Encryptions.DesEncrpytion("W10Logon", "W10Logon"));
 
+            //default all strings to en-us
+            LanguageLibrary.Language.Init();
             LanguageLibrary.Language.Set(Settings.Default.Get("language", "en_us"));
+
             Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
 
             if (!Settings.Default.Get("eula", false))
