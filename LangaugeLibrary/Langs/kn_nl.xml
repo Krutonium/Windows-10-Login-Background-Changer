@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
   <lang_name>Intergallactic Klingon</lang_name>
   <title_error>Qagh</title_error>
@@ -13,15 +13,15 @@
   <main_top_edit>patmey lulo'ta' edit</main_top_edit>
   <flyout_edit_title>patmey lulo'ta' edit</flyout_edit_title>
   <flyout_about_title>umqu' ghot</flyout_about_title>
-  <group_restore_default>Restore to Defaults</group_restore_default>
-  <group_advanced_options>Application Settings</group_advanced_options>
-  <group_authors_area>Authors</group_authors_area>
-  <group_about_area>About</group_about_area>
+  <group_restore_default>SabHa' bI'reS</group_restore_default>
+  <group_advanced_options>ghun SeH</group_advanced_options>
+  <group_authors_area>pwople ghItlh</group_authors_area>
+  <group_about_area>umqu' ghot</group_about_area>
   <browse_button>wutlh</browse_button>
   <color_button>nguvmoH</color_button>
   <accet_color_button>lo' Qu'mey potlh nguvmoH</accet_color_button>
   <apply_changes_button>choH chenmoH?</apply_changes_button>
-  <restore_defaults_button>Restore Defaults</restore_defaults_button>
+  <restore_defaults_button>Default SabHa'</restore_defaults_button>
   <restore_hero_button>Restore Hero</restore_hero_button>
   <image_scale>ghItlhvam ghISDen</image_scale>
   <show_user_info>User De' cha'</show_user_info>
