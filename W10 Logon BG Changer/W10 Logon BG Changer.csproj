@@ -65,11 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\LanguageSelectControl.xaml.cs">
+      <DependentUpon>LanguageSelectControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tools\Animations\ImageFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\Helpers.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
+    <Compile Include="Tools\Models\LangFormatTree.cs" />
     <Compile Include="Tools\PriBuilder.cs" />
     <Compile Include="Tools\UserColorHandler\ColorFunctions.cs" />
     <Compile Include="Tools\UserColorHandler\ImmersiveColors.cs" />
@@ -79,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\BGEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LanguageSelectControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
