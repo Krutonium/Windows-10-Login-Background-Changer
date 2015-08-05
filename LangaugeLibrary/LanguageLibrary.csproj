@@ -60,6 +60,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Langs\kn_nl.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Langs\pt_br.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
