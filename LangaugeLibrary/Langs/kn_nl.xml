@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Language>
   <lang_name>Intergallactic Klingon</lang_name>
-  
-  <!-- titles -->
   <title_error>Qagh</title_error>
   <title_info>De'</title_info>
   <title_warning>Qob</title_warning>
@@ -10,29 +8,25 @@
   <title_eula>QBUC</title_eula>
   <title_bg_disabled>patmey lulo'ta' Disabled</title_bg_disabled>
   <title_are_you_sure>bIbej'a'?</title_are_you_sure>
-  
-    <!-- Main Screen Title Buttons -->
   <main_top_about>umqu' ghot</main_top_about>
   <main_top_lock>ngaQ windows</main_top_lock>
   <main_top_edit>patmey lulo'ta' edit</main_top_edit>
-  
-  <!-- Flyout Titles -->
   <flyout_edit_title>patmey lulo'ta' edit</flyout_edit_title>
   <flyout_about_title>umqu' ghot</flyout_about_title>
-  
-  <!-- Buttons -->
+  <group_restore_default>Restore to Defaults</group_restore_default>
+  <group_advanced_options>Application Settings</group_advanced_options>
+  <group_authors_area>Authors</group_authors_area>
+  <group_about_area>About</group_about_area>
   <browse_button>wutlh</browse_button>
   <color_button>nguvmoH</color_button>
   <accet_color_button>lo' Qu'mey potlh nguvmoH</accet_color_button>
   <apply_changes_button>choH chenmoH?</apply_changes_button>
-  
-  <!-- Labels -->
+  <restore_defaults_button>Restore Defaults</restore_defaults_button>
+  <restore_hero_button>Restore Hero</restore_hero_button>
   <image_scale>ghItlhvam ghISDen</image_scale>
   <show_user_info>User De' cha'</show_user_info>
   <show_glyphs>cha' Glyphs</show_glyphs>
   <flyout_loc>Dop tach</flyout_loc>
-  
-  <!-- Message bodies -->
   <background_disabled>Qotlh patmey lulo'ta' ghItlhvam neH registry</background_disabled>
   <EULA>'e' HuvHa' software lo', 'oHbe' maH DeSDu' pIch vaj correctly Qap 'e' mev pat jIQochbe'.</EULA>
   <color_preview>nguvmoH cha'</color_preview>
