@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using W10_Logon_BG_Changer.Annotations;
 
 namespace W10_Logon_BG_Changer.Tools.Models
@@ -34,6 +29,7 @@ namespace W10_Logon_BG_Changer.Tools.Models
                 OnPropertyChanged1();
             }
         }
+
         public bool Enabled
         {
             get { return _enabled; }

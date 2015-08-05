@@ -148,7 +148,7 @@ namespace W10_Logon_BG_Changer.Controls
 
             if (msg != MessageBoxResult.Yes) return;
             File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
-            
+
             var f = Path.GetTempFileName();
             Properties.Resources._default.Save(f, ImageFormat.Png);
 
@@ -169,7 +169,7 @@ namespace W10_Logon_BG_Changer.Controls
                 return;
             }
 
-            var c = ((SolidColorBrush) ColorPreview.Background).Color;
+            var c = ((SolidColorBrush)ColorPreview.Background).Color;
             var color = Color.FromArgb(c.R, c.G, c.B);
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
 

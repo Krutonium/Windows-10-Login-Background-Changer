@@ -2,7 +2,7 @@
 <Language>
   <!-- This must be in the language of the file to make it easier on people D: -->
   <lang_name>English US</lang_name>
-  
+
   <!-- titles -->
   <title_error>Error</title_error>
   <title_info>Info</title_info>
@@ -11,22 +11,22 @@
   <title_eula>EULA</title_eula>
   <title_bg_disabled>Background Disabled</title_bg_disabled>
   <title_are_you_sure>Are you sure?</title_are_you_sure>
-  
+
   <!-- Main Screen Title Buttons -->
   <main_top_about>About</main_top_about>
   <main_top_lock>Lock Windows</main_top_lock>
   <main_top_edit>Edit Background</main_top_edit>
-  
+
   <!-- Flyout Titles -->
   <flyout_edit_title>Edit Background</flyout_edit_title>
   <flyout_about_title>About</flyout_about_title>
-  
+
   <!-- Groups -->
   <group_restore_default>Restore to Defaults</group_restore_default>
   <group_advanced_options>Application Settings</group_advanced_options>
   <group_authors_area>Authors</group_authors_area>
   <group_about_area>About</group_about_area>
-  
+
   <!-- Buttons -->
   <browse_button>Browse</browse_button>
   <color_button>Color</color_button>
@@ -34,13 +34,13 @@
   <apply_changes_button>Apply Changes?</apply_changes_button>
   <restore_defaults_button>Restore Defaults</restore_defaults_button>
   <restore_hero_button>Restore Hero</restore_hero_button>
-  
+
   <!-- Labels -->
   <image_scale>Image Scaling</image_scale>
   <show_user_info>Show User Information</show_user_info>
   <show_glyphs>Show Glyphs</show_glyphs>
   <flyout_loc>Flyout Location</flyout_loc>
-  
+
   <!-- Message bodies -->
   <background_disabled>Background image is disabled in the registry</background_disabled>
   <EULA>You agree that upon using this software, we are not at fault if your system stops working correctly.</EULA>
