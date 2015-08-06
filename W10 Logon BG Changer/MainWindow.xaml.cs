@@ -93,7 +93,6 @@ namespace W10_Logon_BG_Changer
             if (File.Exists(Config.CurrentImageLocation))
             {
                 var temp = Path.GetTempFileName();
-
                 File.Copy(Config.CurrentImageLocation, temp, true);
 
                 Settings.Default.Set("current.img", File.ReadAllBytes(temp));

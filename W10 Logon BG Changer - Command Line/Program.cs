@@ -25,14 +25,6 @@ namespace W10_Logon_BG_Changer___Command_Line
         {
             switch (args[0])
             {
-                case null:
-                    Console.WriteLine("");
-                    Console.WriteLine(@"Please format your command as shown: commandthing [color|image] [hex code|image path]");
-                    Console.WriteLine("");
-                    Console.WriteLine(@"Press any key to exit.");
-                    Console.ReadKey();
-                    return;
-
                 case "authors":
                     Console.WriteLine("");
                     Console.WriteLine(@"Syrexide | https://github.com/Syrexide/");
@@ -40,40 +32,48 @@ namespace W10_Logon_BG_Changer___Command_Line
                     return;
 
                 case "color":
-                    var hex = args[3];
-                    var isHex = TestIfHex(hex);
-                    if (isHex == true)
+                    try
                     {
+                        var hex = args[2];
                         var converter = new System.Drawing.ColorConverter();
                         Color color = (Color)converter.ConvertFromString(hex);
 
                         ChangeColor(color);
                     }
-                    else
+                    catch (Exception e)
                     {
                         Console.WriteLine("");
-                        Console.WriteLine(@"""{0}"" is not a valid hex color code!", hex);
+                        Console.WriteLine("An error occurred: '{0}'", e);
                     }
 
                     return;
 
                 case "image":
-                    var filedir = args[0];
-                    if (File.Exists(filedir) && (Path.GetExtension(filedir) == ".jpg") ||
+                    try
+                    {
+                        var filedir = args[0];
+                        if (File.Exists(filedir) && (Path.GetExtension(filedir) == ".jpg") ||
                         (Path.GetExtension(filedir) == ".png") || (Path.GetExtension(filedir) == ".bmp") ||
                         (Path.GetExtension(filedir) == ".tif") || (Path.GetExtension(filedir) == ".tiff"))
-                    {
-                        ChangeImage(filedir);
+                        {
+                            ChangeImage(filedir);
+                        }
                     }
-                    else
+                    catch (Exception e)
                     {
-                        Console.WriteLine("");
-                        Console.WriteLine(@"File ""{0}"" does not exist, or the file is not an image file!", filedir);
+                        Console.WriteLine("An error occurred: '{0}'", e);
                     }
                     return;
 
                 case "restore":
-                    Restore();
+                    try
+                    {
+                        Restore();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("An error occurred: '{0}'", e);
+                    }
                     return;
             }
         }
