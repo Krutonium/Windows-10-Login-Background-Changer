@@ -8,6 +8,10 @@
 
 [Download the Application](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/latest)
 
+In the event your login screen breaks, please fix it using [This Method](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/issues/56#issuecomment-127042489) and then report that it didn't work to us, along with the image you used and the version of the application. If you can also provide the broken Pri, that will also be useful to us. Thanks!
+
+Tutorial Video by Darth62969 (Thanks!)
+https://www.youtube.com/watch?v=p3-6Qtwkn4w
 
 Changes the Windows 10 Login Screen Background
 
