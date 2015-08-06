@@ -9,6 +9,9 @@
 [Download the Application](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/latest)
 
 
+Tutorial Video by Darth62969 (Thanks!)
+https://www.youtube.com/watch?v=p3-6Qtwkn4w
+
 Changes the Windows 10 Login Screen Background
 
 
