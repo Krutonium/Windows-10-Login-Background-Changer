@@ -31,8 +31,8 @@
   <background_disabled>Qotlh patmey lulo'ta' ghItlhvam neH registry</background_disabled>
   <EULA>'e' HuvHa' software lo', 'oHbe' maH DeSDu' pIch vaj correctly Qap 'e' mev pat jIQochbe'.</EULA>
   <color_preview>nguvmoH cha'</color_preview>
-  <finished_msg>teywI' ghob'e' wa'DIch wIv SoH ngejtaH login patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</finished_msg>
+  <finished_msg>teywI' ghob'e' wa'DIch wIv SoH ngejtaH logon patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</finished_msg>
   <select_img>naDev nargh patmey lulo'ta' filename.</select_img>
   <reset_image_msg>be ghItlhvam reset DaneH'a'?</reset_image_msg>
-  <no_selected_file>teywI' ghob'e' wa'DIch wIv SoH ngejtaH login patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</no_selected_file>
+  <no_selected_file>teywI' ghob'e' wa'DIch wIv SoH ngejtaH logon patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</no_selected_file>
 </Language>

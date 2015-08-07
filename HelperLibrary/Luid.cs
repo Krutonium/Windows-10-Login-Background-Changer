@@ -1,6 +1,4 @@
-using Microsoft.Win32.Security.Win32Structs;
-
-namespace Microsoft.Win32.Security
+namespace HelperLibrary
 {
     /// <summary>
     ///     Summary description for Luid.

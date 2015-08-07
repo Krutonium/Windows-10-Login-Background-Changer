@@ -46,8 +46,8 @@
   <background_disabled>A imagem de fundo está desabilitada no registro do Windows</background_disabled>
   <EULA>Você concorda que utilizando este software, nós não temos culpa se seu sistema parar de funcionar corretamente.</EULA>
   <color_preview>Preview de cor</color_preview>
-  <finished_msg>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de login! (Você pode escolhe usar as opções padrão)"</finished_msg>
+  <finished_msg>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de logon! (Você pode escolhe usar as opções padrão)"</finished_msg>
   <select_img>O nome do arquivo de fundo aparece aqui.</select_img>
   <reset_image_msg>Tem certeza que deseja redefinir a imagem?</reset_image_msg>
-  <no_selected_file>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de login! (Você pode escolher usar as opções padrão)</no_selected_file>
+  <no_selected_file>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de logon! (Você pode escolher usar as opções padrão)</no_selected_file>
 </Language>

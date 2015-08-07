@@ -1,10 +1,9 @@
-using Microsoft.Win32.Security.Win32Structs;
 using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Microsoft.Win32.Security
+namespace HelperLibrary
 {
     /// <summary>
     ///     Summary description for TokenPrivileges.

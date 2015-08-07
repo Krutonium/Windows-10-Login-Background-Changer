@@ -46,8 +46,8 @@
   <background_disabled>Background image is disabled in the registry</background_disabled>
   <EULA>You agree that upon using this software, we are not at fault if your system stops working correctly.</EULA>
   <color_preview>Color Preview</color_preview>
-  <finished_msg>You must first select a file before you can set your login background! (Default options count as a file)"</finished_msg>
+  <finished_msg>You must first select a file before you can set your logon background! (Default options count as a file)"</finished_msg>
   <select_img>Background filename appears here.</select_img>
   <reset_image_msg>Are you sure you want to reset the image?</reset_image_msg>
-  <no_selected_file>You must first select a file before you can set your login background! (Default options count as a file)</no_selected_file>
+  <no_selected_file>You must first select a file before you can set your logon background! (Default options count as a file)</no_selected_file>
 </Language>
