@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace W10_Login_BG_Changer
+namespace W10_Logon_BG_Changer
 {
     public static class Config
     {

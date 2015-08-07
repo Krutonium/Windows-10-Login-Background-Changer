@@ -5,9 +5,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using TSettings;
-using W10_Login_BG_Changer.Tools.Models;
+using W10_Logon_BG_Changer.Tools.Models;
 
-namespace W10_Login_BG_Changer.Controls
+namespace W10_Logon_BG_Changer.Controls
 {
     /// <summary>
     ///     Interaction logic for LanguageSelectControl.xaml

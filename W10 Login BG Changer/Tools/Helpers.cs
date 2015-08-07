@@ -1,7 +1,7 @@
-﻿using Microsoft.Win32;
-using System.Drawing;
+﻿using System.Drawing;
+using Microsoft.Win32;
 
-namespace W10_Login_BG_Changer.Tools
+namespace W10_Logon_BG_Changer.Tools
 {
     internal class Helpers
     {

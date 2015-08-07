@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using W10_Login_BG_Changer.Annotations;
 
-namespace W10_Login_BG_Changer.Tools.Models
+namespace W10_Logon_BG_Changer.Tools.Models
 {
     public class LangFormatTree : INotifyPropertyChanged
     {

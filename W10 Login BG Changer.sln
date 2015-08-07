@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibrary", "HelperLibrary\HelperLibrary.csproj", "{D80AC683-AB1C-4D44-9094-CC60A1011657}"
 EndProject
@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{1864BFB1-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageLibrary", "LangaugeLibrary\LanguageLibrary.csproj", "{6616DFB1-7965-4265-A2AF-723F5E293479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 Login BG Changer", "W10 Login BG Changer\W10 Login BG Changer.csproj", "{7B662768-6BFF-4270-B395-2D531B999BC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 Logon BG Changer", "W10 Login BG Changer\W10 Logon BG Changer.csproj", "{7B662768-6BFF-4270-B395-2D531B999BC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 Login BG Changer - Command Line", "W10 Login BG Changer - Command Line\W10 Login BG Changer - Command Line.csproj", "{F8B89D71-769A-4253-918B-1A767879C975}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W10 Logon BG Changer - Command Line", "W10 Login BG Changer - Command Line\W10 Logon BG Changer - Command Line.csproj", "{F8B89D71-769A-4253-918B-1A767879C975}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
