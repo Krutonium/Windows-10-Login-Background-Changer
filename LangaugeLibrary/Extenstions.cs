@@ -9,7 +9,7 @@ namespace LanguageLibrary
         public static ExpandoObject ToExpando(this IDictionary<string, object> dictionary)
         {
             var expando = new ExpandoObject();
-            var expandoDic = (IDictionary<string, object>) expando;
+            var expandoDic = (IDictionary<string, object>)expando;
 
             // go through the items in the dictionary and copy over the key value pairs)
             foreach (var kvp in dictionary)

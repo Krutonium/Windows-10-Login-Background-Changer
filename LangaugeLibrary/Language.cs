@@ -31,7 +31,7 @@ namespace LanguageLibrary
 
             XmlToDynamic.Parse(temp, XElement.Parse(xml));
 
-            foreach (var item in ((IDictionary<string, object>) temp.Language).Where(item => defaults.ContainsKey(item.Key)))
+            foreach (var item in ((IDictionary<string, object>)temp.Language).Where(item => defaults.ContainsKey(item.Key)))
             {
                 defaults[item.Key] = item.Value;
             }
