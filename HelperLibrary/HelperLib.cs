@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32.Security;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Security.AccessControl;

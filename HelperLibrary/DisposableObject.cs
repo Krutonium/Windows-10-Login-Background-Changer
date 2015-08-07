@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.Win32.Security
+namespace HelperLibrary
 {
     /// <summary>
     ///     Abstract base class for any disposable object.

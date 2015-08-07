@@ -1,0 +1,70 @@
+﻿<controls:MetroWindow x:Class="W10_Logon_BG_Changer.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      ShowIconOnTitleBar="True"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
+                      Title="W10 Logon BG Changer" Height="600" Width="1008"
+                      MinHeight="500" MinWidth="830">
+
+    <controls:MetroWindow.LeftWindowCommands>
+
+        <controls:WindowCommands>
+            <Button Click="LanguageSelect_OnClick" x:Name="LanguageSelect" Content="Select Language" />
+            <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.LeftWindowCommands>
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Click="LockButton_Click" x:Name="LockButton">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{StaticResource appbar_lock}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="LockWindowsLabel" Margin="4 0 0 0"
+                               VerticalAlignment="Center"
+                               Text="Lock Windows" />
+                </StackPanel>
+            </Button>
+            <Button Click="SettingsButton_Click" x:Name="SettingsButton">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock x:Name="EditBackgroundLabel" Margin="4 0 0 0"
+                               VerticalAlignment="Center"
+                               Text="Edit Background" />
+                </StackPanel>
+            </Button>
+
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="SettingFlyout" Header="Background Settings" Width="350">
+                <!-- Your custom content here -->
+            </controls:Flyout>
+            <controls:Flyout x:Name="AboutFlyout" Header="About" Position="Left" Width="350">
+                <!-- Your custom content here -->
+            </controls:Flyout>
+            <controls:Flyout x:Name="LanguageFlyout" Header="Select Language" Position="Left" Width="350">
+                <!-- Your custom content here -->
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+    <Grid>
+        <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
+        <Image x:Name="UserViewer" Source="Images/user.png" />
+        <Image x:Name="PswdViewer" Source="Images/pswd.png" />
+        <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp" />
+    </Grid>
+</controls:MetroWindow>

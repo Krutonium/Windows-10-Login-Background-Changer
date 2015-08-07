@@ -36,20 +36,26 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessToken.cs" />
+    <Compile Include="AccessTokenProcess.cs" />
     <Compile Include="HelperLib.cs" />
     <Compile Include="DisposableObject.cs" />
     <Compile Include="Luid.cs" />
+    <Compile Include="LUID_AND_ATTRIBUTES.cs" />
+    <Compile Include="PrivilegeAttributes.cs" />
+    <Compile Include="ProcessAccessType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityDescriptorControlFlags.cs" />
+    <Compile Include="TokenAccessType.cs" />
     <Compile Include="TokenPrivilege.cs" />
     <Compile Include="TokenPrivileges.cs" />
-    <Compile Include="Win32Enums.cs" />
-    <Compile Include="Win32Interop.cs" />
+    <Compile Include="TOKEN_PRIVILEGES.cs" />
+    <Compile Include="AccessType.cs" />
+    <Compile Include="Win32.cs" />
     <Compile Include="Win32Structs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
