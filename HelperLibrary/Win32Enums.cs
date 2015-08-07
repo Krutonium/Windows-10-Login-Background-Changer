@@ -40,7 +40,7 @@ namespace Microsoft.Win32.Security
         GENERIC_READ = 0x80000000,
         GENERIC_WRITE = 0x40000000,
         GENERIC_EXECUTE = 0x20000000,
-        GENERIC_ALL = 0x10000000,
+        GENERIC_ALL = 0x10000000
     }
 
     [Flags]
@@ -79,7 +79,7 @@ namespace Microsoft.Win32.Security
             TOKEN_ADJUST_DEFAULT,
 
         TOKEN_EXECUTE =
-            AccessType.STANDARD_RIGHTS_EXECUTE,
+            AccessType.STANDARD_RIGHTS_EXECUTE
     }
 
     [Flags]
@@ -140,7 +140,7 @@ namespace Microsoft.Win32.Security
         PROCESS_ALL_ACCESS =
             AccessType.STANDARD_RIGHTS_REQUIRED |
             AccessType.SYNCHRONIZE |
-            0xFFF,
+            0xFFF
     }
 
     [Flags]
@@ -155,7 +155,7 @@ namespace Microsoft.Win32.Security
         Disabled = 0,
         EnabledByDefault = 0x00000001,
         Enabled = 0x00000002,
-        UsedForAccess = 0x80000000,
+        UsedForAccess = 0x80000000
     }
 
     [Flags]
@@ -174,6 +174,6 @@ namespace Microsoft.Win32.Security
         SE_DACL_PROTECTED = 0x1000,
         SE_SACL_PROTECTED = 0x2000,
         SE_RM_CONTROL_VALID = 0x4000,
-        SE_SELF_RELATIVE = 0x8000,
+        SE_SELF_RELATIVE = 0x8000
     }
 }

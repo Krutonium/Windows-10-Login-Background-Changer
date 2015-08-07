@@ -4,20 +4,17 @@ using System.Runtime.InteropServices;
 
 namespace Microsoft.Win32.Security
 {
-    using BOOL = Int32;
-    using DWORD = UInt32;
     using HANDLE = IntPtr;
 
     using PTOKEN_PRIVILEGES = IntPtr;
 
     /// <summary>
-    /// Summary description for Win32Interop.
+    ///     Summary description for Win32Interop.
     /// </summary>
     public class Win32
     {
-        public const BOOL FALSE = 0;
-        public const BOOL TRUE = 1;
-
+        public const int FALSE = 0;
+        public const int TRUE = 1;
         public const int SUCCESS = 0;
         public const int ERROR_SUCCESS = 0;
         public const int ERROR_INSUFFICIENT_BUFFER = 122;
@@ -26,9 +23,9 @@ namespace Microsoft.Win32.Security
         private const string Kernel32 = "kernel32.dll";
         private const string Advapi32 = "Advapi32.dll";
 
-        public static DWORD GetLastError()
+        public static uint GetLastError()
         {
-            return (DWORD)Marshal.GetLastWin32Error();
+            return (uint)Marshal.GetLastWin32Error();
         }
 
         public static void ThrowLastError()
@@ -44,7 +41,7 @@ namespace Microsoft.Win32.Security
             }
         }
 
-        public static void CheckCall(BOOL funcResult)
+        public static void CheckCall(int funcResult)
         {
             CheckCall(funcResult != 0);
         }
@@ -60,11 +57,9 @@ namespace Microsoft.Win32.Security
         }
 
         ///////////////////////////////////////////////////////////////////////////////
-        ///
         /// KERNEL32.DLL
-        ///
         [DllImport(Kernel32, CallingConvention = CallingConvention.Winapi)]
-        public static extern void SetLastError(DWORD dwErrCode);
+        public static extern void SetLastError(uint dwErrCode);
 
         /*
 		[DllImport(Kernel32, CallingConvention=CallingConvention.Winapi, SetLastError=true, CharSet=CharSet.Auto)]
@@ -78,29 +73,27 @@ namespace Microsoft.Win32.Security
 		*/
 
         [DllImport(Kernel32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
-        public static extern HANDLE OpenProcess(ProcessAccessType dwDesiredAccess, BOOL bInheritHandle,
-                                                DWORD dwProcessId);
+        public static extern HANDLE OpenProcess(ProcessAccessType dwDesiredAccess, int bInheritHandle,
+            uint dwProcessId);
 
         [DllImport(Kernel32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
-        public static extern BOOL CloseHandle(HANDLE handle);
+        public static extern int CloseHandle(HANDLE handle);
 
         ///////////////////////////////////////////////////////////////////////////////
-        ///
         /// ADVAPI32.DLL
-        ///
         [DllImport(Advapi32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
-        public static extern BOOL OpenProcessToken(HANDLE hProcess, TokenAccessType dwDesiredAccess, out HANDLE hToken);
+        public static extern int OpenProcessToken(HANDLE hProcess, TokenAccessType dwDesiredAccess, out HANDLE hToken);
 
         [DllImport(Advapi32, CallingConvention = CallingConvention.Winapi, SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern BOOL LookupPrivilegeValue(string lpSystemName, string lpName, out LUID Luid);
+        public static extern int LookupPrivilegeValue(string lpSystemName, string lpName, out LUID Luid);
 
         [DllImport(Advapi32, CallingConvention = CallingConvention.Winapi, SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern BOOL AdjustTokenPrivileges(
+        public static extern int AdjustTokenPrivileges(
             HANDLE TokenHandle,
-            BOOL DisableAllPrivileges,
+            int DisableAllPrivileges,
             PTOKEN_PRIVILEGES NewState,
-            DWORD BufferLength,
+            uint BufferLength,
             PTOKEN_PRIVILEGES PreviousState,
-            out DWORD ReturnLength);
+            out uint ReturnLength);
     }
 }

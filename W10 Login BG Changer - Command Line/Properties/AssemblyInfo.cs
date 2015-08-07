@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("HelperLibrary")]
+[assembly: AssemblyTitle("W10 Login BG Changer - Command Line")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HelperLibrary")]
+[assembly: AssemblyProduct("W10 Login BG Changer - Command Line")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("2ad4fda5-e4b2-45a9-9ff8-a78964ec0c8e")]
+[assembly: Guid("f8b89d71-769a-4253-918b-1a767879c975")]
 
 // Version information for an assembly consists of the following four values:
 //
