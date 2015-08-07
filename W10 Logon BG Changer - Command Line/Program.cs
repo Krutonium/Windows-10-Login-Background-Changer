@@ -16,7 +16,7 @@ namespace W10_Logon_BG_Changer___Command_Line
         private readonly static string NewPriLocation = Path.Combine(Path.GetTempPath(), "new_temp_pri.pri");
         private readonly static string TempPriFile = Path.Combine(Path.GetTempPath(), "bak_temp_pri.pri");
 
-        private static bool TestIfHex(string hex)
+        private static bool IsHex(string hex)
         {
             return (Regex.Match(hex, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success);
         }
@@ -49,8 +49,7 @@ namespace W10_Logon_BG_Changer___Command_Line
                         var hex = arg.Substring(2);
                         try
                         {
-                            var isHex = TestIfHex(hex);
-                            if (isHex)
+                            if (IsHex(hex))
                             {
                                 var converter = new ColorConverter();
                                 Color color = (Color)converter.ConvertFromString(hex);
@@ -183,15 +182,32 @@ namespace W10_Logon_BG_Changer___Command_Line
             File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
         }
 
-        private string ChangeColor(Color c)
+        private static string FillImageColor(Color c)
         {
             var image = Path.GetTempFileName();
 
             DrawFilledRectangle(3840, 2160, new SolidBrush(c)).Save(image, ImageFormat.Jpeg);
 
             return image;
+        }
 
-            // below is unreachable code
+        private static Bitmap DrawFilledRectangle(int x, int y, System.Drawing.Brush b)
+        {
+            var bmp = new Bitmap(x, y);
+            using (var graph = Graphics.FromImage(bmp))
+            {
+                var imageSize = new Rectangle(0, 0, x, y);
+                graph.FillRectangle(b, imageSize);
+            }
+            return bmp;
+        }
+
+        private void ChangeColor(Color c)
+        {
+
+            FillImageColor(c);
+
+            var image = Path.GetTempFileName();
 
             HelperLib.TakeOwnership(Config.LogonFolder);
 
@@ -216,17 +232,6 @@ namespace W10_Logon_BG_Changer___Command_Line
             PriBuilder.CreatePri(TempPriFile, NewPriLocation, image);
 
             File.Copy(NewPriLocation, Config.PriFileLocation, true);
-        }
-
-        private static Bitmap DrawFilledRectangle(int x, int y, System.Drawing.Brush b)
-        {
-            var bmp = new Bitmap(x, y);
-            using (var graph = Graphics.FromImage(bmp))
-            {
-                var imageSize = new Rectangle(0, 0, x, y);
-                graph.FillRectangle(b, imageSize);
-            }
-            return bmp;
         }
     }
 }
