@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using HelperLibrary;
 using MahApps.Metro.Controls;
+using SharedLibrary;
 using TSettings;
 using TSettings.Encryptions;
 using W10_Logon_BG_Changer.Controls;

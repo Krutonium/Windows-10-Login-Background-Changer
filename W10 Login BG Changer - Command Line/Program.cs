@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using HelperLibrary;
-using W10_Logon_BG_Changer___Command_Line.Tools;
+using SharedLibrary;
 
 namespace W10_Logon_BG_Changer___Command_Line
 {
