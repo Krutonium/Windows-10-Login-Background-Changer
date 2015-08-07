@@ -10,11 +10,7 @@ namespace LanguageLibrary
     public class Language
     {
         private static dynamic _default;
-
-        public static dynamic Default
-        {
-            get; set;
-        }
+        public static dynamic Default { get; set; }
 
         public static void Init(string name = "en_us")
         {
@@ -26,12 +22,13 @@ namespace LanguageLibrary
         {
             var xml = GetXml(name);
 
-            IDictionary<string, object> defaults = (IDictionary<string, object>)_default.Language;
+            var defaults = (IDictionary<string, object>)_default.Language;
             dynamic temp = new ExpandoObject();
 
             XmlToDynamic.Parse(temp, XElement.Parse(xml));
 
-            foreach (var item in ((IDictionary<string, object>)temp.Language).Where(item => defaults.ContainsKey(item.Key)))
+            foreach (
+                var item in ((IDictionary<string, object>)temp.Language).Where(item => defaults.ContainsKey(item.Key)))
             {
                 defaults[item.Key] = item.Value;
             }
@@ -50,7 +47,10 @@ namespace LanguageLibrary
         {
             var xml = "";
 
-            using (var stream = Assembly.GetAssembly(typeof(Language)).GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
+            using (
+                var stream =
+                    Assembly.GetAssembly(typeof(Language))
+                        .GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
                 if (stream != null)
                     using (var reader = new StreamReader(stream))
                     {
@@ -69,11 +69,14 @@ namespace LanguageLibrary
             foreach (var lang in embeddedResources.Where(lang => lang.ToLower().EndsWith(".xml")))
             {
                 var name = lang.Split('.')[2];
-                string xml = string.Empty;
+                var xml = string.Empty;
 
-                using (Stream stream = Assembly.GetAssembly(typeof(Language)).GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
+                using (
+                    var stream =
+                        Assembly.GetAssembly(typeof(Language))
+                            .GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
                     if (stream != null)
-                        using (StreamReader reader = new StreamReader(stream))
+                        using (var reader = new StreamReader(stream))
                         {
                             xml = reader.ReadToEnd();
                         }

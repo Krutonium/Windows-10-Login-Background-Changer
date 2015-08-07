@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Xml.Linq;
@@ -58,7 +57,7 @@ namespace LanguageLibrary
             }
             else
             {
-                var dictionary = parent as IDictionary<String, object>;
+                var dictionary = parent as IDictionary<string, object>;
                 if (dictionary != null)
                     dictionary[name] = value;
             }
