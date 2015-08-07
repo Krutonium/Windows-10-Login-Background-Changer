@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using MahApps.Metro.Controls;
+using SharedLibrary;
 using TSettings;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;

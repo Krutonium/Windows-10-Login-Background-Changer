@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6616DFB1-7965-4265-A2AF-723F5E293479}</ProjectGuid>
+    <ProjectGuid>{09C77C13-2EF9-4617-B040-6C8493FBB365}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LanguageLibrary</RootNamespace>
-    <AssemblyName>LanguageLibrary</AssemblyName>
+    <RootNamespace>SharedLibrary</RootNamespace>
+    <AssemblyName>SharedLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,50 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Language.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Extenstions.cs" />
+    <Compile Include="PriBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="XmlToDynamic.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Langs\en_us.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Langs\kn_nl.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Langs\pt_br.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Langs\th_th.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Langs\fr_fr.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
-      <Project>{09C77C13-2EF9-4617-B040-6C8493FBB365}</Project>
-      <Name>SharedLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

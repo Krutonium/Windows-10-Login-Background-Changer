@@ -44,11 +44,8 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
-    <Compile Include="Extensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\PriBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -58,6 +55,10 @@
     <ProjectReference Include="..\HelperLibrary\HelperLibrary.csproj">
       <Project>{d80ac683-ab1c-4d44-9094-cc60a1011657}</Project>
       <Name>HelperLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
+      <Project>{09c77c13-2ef9-4617-b040-6c8493fbb365}</Project>
+      <Name>SharedLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

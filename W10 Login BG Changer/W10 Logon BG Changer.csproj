@@ -75,7 +75,6 @@
     <Compile Include="Tools\Helpers.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
     <Compile Include="Tools\Models\LangFormatTree.cs" />
-    <Compile Include="Tools\PriBuilder.cs" />
     <Compile Include="Tools\UserColorHandler\ColorFunctions.cs" />
     <Compile Include="Tools\UserColorHandler\ImmersiveColors.cs" />
     <Compile Include="Win32API.cs" />
@@ -106,7 +105,6 @@
     <Compile Include="Controls\BGEditorControl.xaml.cs">
       <DependentUpon>BGEditorControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extenstions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -165,6 +163,10 @@
     <ProjectReference Include="..\LangaugeLibrary\LanguageLibrary.csproj">
       <Project>{6616dfb1-7965-4265-a2af-723f5e293479}</Project>
       <Name>LanguageLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
+      <Project>{09C77C13-2EF9-4617-B040-6C8493FBB365}</Project>
+      <Name>SharedLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
