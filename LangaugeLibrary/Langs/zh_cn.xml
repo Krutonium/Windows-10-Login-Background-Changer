@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <lang_name>简体中文</lang_name>
+
+  <!-- titles -->
+  <title_error>错误</title_error>
+  <title_info>信息</title_info>
+  <title_warning>警告</title_warning>
+  <title_finished>完成</title_finished>
+  <title_eula>许可</title_eula>
+  <title_bg_disabled>背景被禁用</title_bg_disabled>
+  <title_are_you_sure>你确定吗？</title_are_you_sure>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>关于</main_top_about>
+  <main_top_lock>锁定 Windows</main_top_lock>
+  <main_top_edit>编辑背景</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>编辑背景</flyout_edit_title>
+  <flyout_about_title>关于</flyout_about_title>
+
+  <!-- Groups -->
+  <group_restore_default>还原到默认值</group_restore_default>
+  <group_advanced_options>应用程序设置( 显示/隐藏 仅用于在此软件上预览图像 )</group_advanced_options>
+  <group_authors_area>作者</group_authors_area>
+  <group_about_area>关于</group_about_area>
+
+  <!-- Buttons -->
+  <browse_button>浏览</browse_button>
+  <color_button>颜色</color_button>
+  <accet_color_button>使用当前强调色彩</accet_color_button>
+  <apply_changes_button>应用更改</apply_changes_button>
+  <restore_defaults_button>恢复默认背景</restore_defaults_button>
+  <restore_hero_button>还原更改</restore_hero_button>
+
+  <!-- Labels -->
+  <image_scale>图像缩放</image_scale>
+  <show_user_info>显示用户信息</show_user_info>
+  <show_glyphs>显示图标栏(右下角)</show_glyphs>
+  <flyout_loc>弹出位置</flyout_loc>
+
+  <!-- Message bodies -->
+  <background_disabled>背景图像在注册表被禁用</background_disabled>
+  <EULA>您同意在使用本软件吗？即使你的系统停止正常运行，也将与我们无关。</EULA>
+  <color_preview>颜色预览</color_preview>
+  <finished_msg>在设置你的登录背景之前，您必须先选择一张图片或背景颜色！</finished_msg>
+  <select_img>请选择一张背景图</select_img>
+  <reset_image_msg>你确定要恢复Windows默认登陆背景？</reset_image_msg>
+  <no_selected_file>在设置你的登录背景之前，您必须先选择一张图片或背景颜色！</no_selected_file>
+</Language>
