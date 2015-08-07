@@ -16,14 +16,10 @@ namespace W10_Logon_BG_Changer___Command_Line
         private readonly static string NewPriLocation = Path.Combine(Path.GetTempPath(), "new_temp_pri.pri");
         private readonly static string TempPriFile = Path.Combine(Path.GetTempPath(), "bak_temp_pri.pri");
 
-        private static bool IsHex(string hex)
-        {
-            return (Regex.Match(hex, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success);
-        }
-
         private static void Main(string[] args)
         {
-            foreach (string arg in args)
+            TakeOwnerShip();
+            foreach (var arg in args)
             {
                 switch (arg.Substring(0, 2).ToUpper())
                 {
@@ -49,13 +45,20 @@ namespace W10_Logon_BG_Changer___Command_Line
                         var hex = arg.Substring(2);
                         try
                         {
-                            if (IsHex(hex))
+                            if (hex.IsHex())
                             {
                                 var converter = new ColorConverter();
-                                Color color = (Color)converter.ConvertFromString(hex);
+                                var convertFromString = converter.ConvertFromString(hex);
+                                if (convertFromString != null)
+                                {
+                                    Color color = (Color) convertFromString;
 
-                                Program p = new Program();
-                                p.ChangeColor(color);
+                                    ChangeColor(color);
+                                }
+                                else
+                                {
+                                    return;
+                                }
 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("");
@@ -151,24 +154,6 @@ namespace W10_Logon_BG_Changer___Command_Line
 
         private static void ChangeImage(string filedir)
         {
-            HelperLib.TakeOwnership(Config.LogonFolder);
-
-            HelperLib.TakeOwnership(Config.PriFileLocation);
-
-            if (!File.Exists(Config.BakPriFileLocation))
-            {
-                File.Copy(Config.PriFileLocation, Config.BakPriFileLocation);
-            }
-
-            HelperLib.TakeOwnership(Config.BakPriFileLocation);
-
-            File.Copy(Config.BakPriFileLocation, TempPriFile, true);
-
-            if (File.Exists(NewPriLocation))
-            {
-                File.Delete(NewPriLocation);
-            }
-
             File.Copy(Config.BakPriFileLocation, TempPriFile, true);
 
             PriBuilder.CreatePri(TempPriFile, NewPriLocation, filedir);
@@ -178,7 +163,6 @@ namespace W10_Logon_BG_Changer___Command_Line
 
         private static void Restore()
         {
-            HelperLib.TakeOwnership(Config.PriFileLocation);
             File.Copy(Config.BakPriFileLocation, Config.PriFileLocation, true);
         }
 
@@ -202,13 +186,20 @@ namespace W10_Logon_BG_Changer___Command_Line
             return bmp;
         }
 
-        private void ChangeColor(Color c)
+        private static void ChangeColor(Color c)
         {
 
-            FillImageColor(c);
+            var image = FillImageColor(c);
 
-            var image = Path.GetTempFileName();
+            File.Copy(Config.BakPriFileLocation, TempPriFile, true);
 
+            PriBuilder.CreatePri(TempPriFile, NewPriLocation, image);
+
+            File.Copy(NewPriLocation, Config.PriFileLocation, true);
+        }
+
+        private static void TakeOwnerShip()
+        {
             HelperLib.TakeOwnership(Config.LogonFolder);
 
             HelperLib.TakeOwnership(Config.PriFileLocation);
@@ -227,11 +218,6 @@ namespace W10_Logon_BG_Changer___Command_Line
                 File.Delete(NewPriLocation);
             }
 
-            File.Copy(Config.BakPriFileLocation, TempPriFile, true);
-
-            PriBuilder.CreatePri(TempPriFile, NewPriLocation, image);
-
-            File.Copy(NewPriLocation, Config.PriFileLocation, true);
         }
     }
 }
