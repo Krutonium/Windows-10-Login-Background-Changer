@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace W10_Login_BG_Changer.Tools
+namespace W10_Logon_BG_Changer.Tools
 {
     public static class PriBuilder
     {

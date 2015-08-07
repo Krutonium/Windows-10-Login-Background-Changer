@@ -1,11 +1,11 @@
-﻿using HelperLibrary;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using W10_Login_BG_Changer___Command_Line.Tools;
+using HelperLibrary;
+using W10_Logon_BG_Changer___Command_Line.Tools;
 
-namespace W10_Login_BG_Changer___Command_Line
+namespace W10_Logon_BG_Changer___Command_Line
 {
     internal class Program
     {

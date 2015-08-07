@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace W10_Login_BG_Changer.Tools.Customs
+namespace W10_Logon_BG_Changer.Tools.Customs
 {
     [Serializable]
     public class SerializableDictionary<TKey, TVal> : Dictionary<TKey, TVal>, IXmlSerializable, ISerializable

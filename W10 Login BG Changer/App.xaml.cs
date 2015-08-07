@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace W10_Login_BG_Changer
+namespace W10_Logon_BG_Changer
 {
     /// <summary>
     ///     Interaction logic for App.xaml

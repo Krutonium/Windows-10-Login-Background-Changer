@@ -1,4 +1,4 @@
-﻿namespace W10_Login_BG_Changer.Tools.UserColorHandler
+﻿namespace W10_Logon_BG_Changer.Tools.UserColorHandler
 {
     public enum ImmersiveColors
     {
