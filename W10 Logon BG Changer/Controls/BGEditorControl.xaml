@@ -59,7 +59,7 @@
                 </ComboBox>
             </Grid>
         </GroupBox>
-        <ComboBox Margin="0,138,10,0" VerticalAlignment="Top" SelectedIndex="4"
+        <ComboBox x:Name="ImageScaleSelect" Margin="0,138,10,0" VerticalAlignment="Top" SelectedIndex="4"
                   SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="144">
             <ComboBoxItem Content="720p" />
             <ComboBoxItem Content="1080p" />
