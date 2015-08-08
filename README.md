@@ -18,7 +18,7 @@ Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.
 # Screenshots
 
 ### GUI:
-![GUI with selected image](http://puu.sh/jtfnK/0cf863912b.png)
+![GUI with selected image](https://camo.githubusercontent.com/3901bfc333c0bb45fc72b984fce4bdfe02f4cd6e/687474703a2f2f7075752e73682f6a74666e4b2f306366383633393132622e706e67)
 
 ### Command Line:
 ![Command Line with help](http://puu.sh/jtfyt/ed30cdfb1e.png)
