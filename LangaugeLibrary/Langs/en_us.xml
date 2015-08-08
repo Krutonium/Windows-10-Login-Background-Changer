@@ -9,14 +9,18 @@
   <title_info>Info</title_info>
   <title_warning>Warning</title_warning>
   <title_finished>Finished</title_finished>
+  <title_success>Success</title_success>
   <title_eula>EULA</title_eula>
   <title_bg_disabled>Background Disabled</title_bg_disabled>
   <title_are_you_sure>Are you sure?</title_are_you_sure>
+  <title_language_set>Language set</title_language_set>
+  <title_select_image>Select an Image</title_select_image>
 
   <!-- Main Screen Title Buttons -->
   <main_top_about>About</main_top_about>
   <main_top_lock>Lock Windows</main_top_lock>
   <main_top_edit>Edit Background</main_top_edit>
+  <main_top_sel_lang>Select Language</main_top_sel_lang>
 
   <!-- Flyout Titles -->
   <flyout_edit_title>Edit Background</flyout_edit_title>
@@ -35,12 +39,14 @@
   <apply_changes_button>Apply Changes?</apply_changes_button>
   <restore_defaults_button>Restore Defaults</restore_defaults_button>
   <restore_hero_button>Restore Hero</restore_hero_button>
+  <image_scale_Resolution>My Resolution</image_scale_Resolution>
 
   <!-- Labels -->
   <image_scale>Image Scaling</image_scale>
   <show_user_info>Show User Information</show_user_info>
   <show_glyphs>Show Glyphs</show_glyphs>
   <flyout_loc>Flyout Location</flyout_loc>
+  <or>OR</or>
 
   <!-- Message bodies -->
   <background_disabled>Background image is disabled in the registry</background_disabled>
@@ -50,4 +56,6 @@
   <select_img>Background filename appears here.</select_img>
   <reset_image_msg>Are you sure you want to reset the image?</reset_image_msg>
   <no_selected_file>You must first select a file before you can set your logon background! (Default options count as a file)</no_selected_file>
+  <success_apply_msg>Successfully changed logon background! Please lock your device to view your new background.</success_apply_msg>
+  <language_set_msg>Language is set. Application must restart to apply language</language_set_msg>
 </Language>

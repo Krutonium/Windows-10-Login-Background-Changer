@@ -34,7 +34,7 @@ namespace W10_Logon_BG_Changer
         public MainWindow()
         {
             InitializeComponent();
-
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Settings.Init(Config.SettingsFilePath, new DesEncrpytion("W10Logon", "W10Logon"));
 
             //default all strings to en-us
@@ -122,9 +122,10 @@ namespace W10_Logon_BG_Changer
             EditBackgroundLabel.Text = LanguageLibrary.Language.Default.main_top_edit;
             LockWindowsLabel.Text = LanguageLibrary.Language.Default.main_top_lock;
             AboutButton.Content = LanguageLibrary.Language.Default.main_top_about;
-
+            LanguageSelect.Content = LanguageLibrary.Language.Default.main_top_sel_lang;
             SettingFlyout.Header = LanguageLibrary.Language.Default.flyout_edit_title;
             AboutFlyout.Header = LanguageLibrary.Language.Default.flyout_about_title;
+            LanguageFlyout.Header = LanguageLibrary.Language.Default.main_top_sel_lang;
         }
 
         public string SelectedFile
@@ -218,8 +219,9 @@ namespace W10_Logon_BG_Changer
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
             MessageBox.Show(
-                "Successfully changed logon background! Please lock your device to view your new background.",
-                "Success!");
+                LanguageLibrary.Language.Default.success_apply_msg,
+                LanguageLibrary.Language.Default.title_success
+                            );
         }
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
