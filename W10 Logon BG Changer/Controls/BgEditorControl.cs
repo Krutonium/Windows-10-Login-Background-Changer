@@ -83,6 +83,9 @@ namespace W10_Logon_BG_Changer.Controls
             RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
             AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
+            textBlock.Text = LanguageLibrary.Language.Default.or;
+            ImageScaleSelect.Items.RemoveAt(3);
+            ImageScaleSelect.Items.Insert(3, LanguageLibrary.Language.Default.image_scale_Resolution);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -90,7 +93,7 @@ namespace W10_Logon_BG_Changer.Controls
             var ofd = new OpenFileDialog
             {
                 Filter = "Image Files|*.png;*.jpg;*.jpeg;*.bmp;*.tif;*.tiff",
-                Title = "Select an Image",
+                Title = LanguageLibrary.Language.Default.title_select_image,
                 Multiselect = false
             };
 
