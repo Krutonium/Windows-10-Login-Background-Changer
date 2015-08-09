@@ -6,7 +6,7 @@
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
                       Title="W10 Logon BG Changer" Height="600" Width="1008"
-                      MinHeight="500" MinWidth="830">
+                      MinHeight="500" MinWidth="830" WindowStartupLocation="CenterScreen">
 
     <controls:MetroWindow.LeftWindowCommands>
 
