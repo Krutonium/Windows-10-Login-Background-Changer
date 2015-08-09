@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -34,12 +35,19 @@ namespace W10_Logon_BG_Changer
         public MainWindow()
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Settings.Init(Config.SettingsFilePath, new DesEncrpytion("W10Logon", "W10Logon"));
+
+            var currentLang = CultureInfo.CurrentCulture.ToString().ToLower().Replace("-", "_");
+            if (!LanguageLibrary.Language.GetLangNames().ContainsValue(currentLang))
+            {
+                currentLang = "en_us";
+            }
+
+            Debug.WriteLine(currentLang);
 
             //default all strings to en-us
             LanguageLibrary.Language.Init();
-            LanguageLibrary.Language.Set(Settings.Default.Get("language", "en_us"));
+            LanguageLibrary.Language.Set(Settings.Default.Get("language", currentLang));
 
             Debug.WriteLine((string)LanguageLibrary.Language.Default.title_error);
 
