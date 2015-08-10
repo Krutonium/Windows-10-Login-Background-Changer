@@ -128,6 +128,20 @@ namespace W10_Logon_BG_Changer.Controls
             Settings.Default.Set("filename", ofd.FileName);
             Settings.Default.Save();
             _mainWindow.GlyphsViewer.ToolTip = ofd.FileName;
+
+            var t = Path.GetTempFileName();
+            var f = Path.GetTempFileName();
+
+            File.Copy(Config.BakPriFileLocation, f, true);
+            LogonPriEditor.ModifyLogonPri(f, t, ofd.FileName);
+
+            var loadedMeta = SharedHelpers.GetFileSize(ofd.FileName);
+            ActualFileSizeTp.Text = loadedMeta.ActualFileSizeHuman;
+            LoadedFileSizeTp.Text = loadedMeta.LoadedFileSizeHuman;
+            PriFileSizeTp.Text = SharedHelpers.GetFileSize(t).ActualFileSizeHuman;
+
+            File.Delete(t);
+            File.Delete(f);
         }
 
         private void ColorPickerButton_Click(object sender, RoutedEventArgs e)
