@@ -32,9 +32,9 @@ namespace SharedLibrary
             outputStream.Seek(headerLength + dataitemOffset + 0x18, SeekOrigin.Begin);
             outputWriter.Write((int)dataitemLength);
             inputStream.Seek(headerLength + dataitemOffset + 0x24, SeekOrigin.Begin);
-            var stringCount = inputReader.ReadInt16();
-            var blobCount = inputReader.ReadInt16();
-            var origDataLength = inputReader.ReadInt32();
+            var stringCount = inputReader.ReadUInt16();
+            var blobCount = inputReader.ReadUInt16();
+            var origDataLength = inputReader.ReadUInt32();
             outputStream.Seek(0xC, SeekOrigin.Current);
             outputWriter.Write((int)(origDataLength + replacementLengthAligned));
             outputStream.Seek(stringCount * 4, SeekOrigin.Current);
