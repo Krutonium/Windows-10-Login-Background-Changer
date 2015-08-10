@@ -3,9 +3,9 @@ using System.IO;
 
 namespace SharedLibrary
 {
-    public static class PriBuilder
+    public static class LogonPriEditor
     {
-        public static void CreatePri(string currentPri, string outputPri, string image)
+        public static void ModifyLogonPri(string currentPri, string outputPri, string image)
         {
             var inputStream = File.OpenRead(currentPri);
             var outputStream = File.Create(outputPri);

@@ -222,7 +222,7 @@ namespace W10_Logon_BG_Changer
                     break;
             }
 
-            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
+            LogonPriEditor.ModifyLogonPri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
