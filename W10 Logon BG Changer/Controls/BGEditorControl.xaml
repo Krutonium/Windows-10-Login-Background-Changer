@@ -12,15 +12,16 @@
             <TextBox.ToolTip>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <TextBlock Text="Actual File Size: " /><TextBlock Width="65px" x:Name="ActualFileSizeTp" TextAlignment="Right" Text="0kb"></TextBlock>
+                        <TextBlock Text="Actual File Size: " />
+                        <TextBlock Width="65px" x:Name="ActualFileSizeTp" TextAlignment="Right" Text="0kb" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
                         <TextBlock Text="Loaded File Size: " />
-                        <TextBlock Width="59px" x:Name="LoadedFileSizeTp" TextAlignment="Right" Text="0kb"></TextBlock>
+                        <TextBlock Width="59px" x:Name="LoadedFileSizeTp" TextAlignment="Right" Text="0kb" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
                         <TextBlock Text="Possible Pri Size: " />
-                        <TextBlock Width="60px" x:Name="PriFileSizeTp" TextAlignment="Right" Text="0kb"></TextBlock>
+                        <TextBlock Width="60px" x:Name="PriFileSizeTp" TextAlignment="Right" Text="0kb" />
                     </StackPanel>
                 </StackPanel>
             </TextBox.ToolTip>
