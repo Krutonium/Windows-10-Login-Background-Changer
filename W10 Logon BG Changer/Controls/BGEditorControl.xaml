@@ -5,18 +5,34 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="W10_Logon_BG_Changer.Controls.BgEditorControl"
     mc:Ignorable="d"
-    d:DesignHeight="500" d:DesignWidth="300">
+    d:DesignHeight="700" d:DesignWidth="300">
     <Grid>
         <TextBox x:Name="SelectedFile" Height="23" Margin="10,10,99,0" TextWrapping="NoWrap"
-                 Text="Background filename appears here." IsReadOnly="True" VerticalAlignment="Top" />
+                 Text="Background filename appears here." IsReadOnly="True" VerticalAlignment="Top">
+            <TextBox.ToolTip>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Actual File Size: " /><TextBlock Width="65px" x:Name="ActualFileSizeTp" TextAlignment="Right" Text="0kb"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                        <TextBlock Text="Loaded File Size: " />
+                        <TextBlock Width="59px" x:Name="LoadedFileSizeTp" TextAlignment="Right" Text="0kb"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                        <TextBlock Text="Possible Pri Size: " />
+                        <TextBlock Width="60px" x:Name="PriFileSizeTp" TextAlignment="Right" Text="0kb"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </TextBox.ToolTip>
+            </TextBox>
         <Button x:Name="BrowseButton" Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
-        <Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="24" Margin="10,80,99,0" VerticalAlignment="Top">
+        <Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="24" Margin="10,82,99,0" VerticalAlignment="Top">
             <TextBlock x:Name="pickColor" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,3,0,0"
                        TextWrapping="Wrap"
                        Text="Pick a color" VerticalAlignment="Top" Width="191" Foreground="Black" />
         </Grid>
-        <Button x:Name="ColorPickerButton" Content="Color" Margin="0,80,10,0" VerticalAlignment="Top"
+        <Button x:Name="ColorPickerButton" Content="Color" Margin="0,82,10,0" VerticalAlignment="Top"
                 Click="ColorPickerButton_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
         <Button x:Name="ApplyChangesButton" Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,242"
@@ -34,7 +50,7 @@
 
             </Grid>
         </GroupBox>
-        <Button x:Name="ColorAccentButton" Content="Use Current Accent Color" Margin="10,108,10,0"
+        <Button x:Name="ColorAccentButton" Content="Use Current Accent Color" Margin="10,110,10,0"
                 VerticalAlignment="Top"
                 Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
         <GroupBox x:Name="AdvancedOptionsArea" Header="Application Settings" Margin="10,0,10,81" Height="156"
@@ -59,7 +75,7 @@
                 </ComboBox>
             </Grid>
         </GroupBox>
-        <ComboBox x:Name="ImageScaleSelect" Margin="0,138,10,0" VerticalAlignment="Top" SelectedIndex="4"
+        <ComboBox x:Name="ImageScaleSelect" Margin="0,140,10,0" VerticalAlignment="Top" SelectedIndex="4"
                   SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="144">
             <ComboBoxItem Content="720p" />
             <ComboBoxItem Content="1080p" />
@@ -67,10 +83,10 @@
             <ComboBoxItem Content="My Resolution" />
             <ComboBoxItem Content="None" IsSelected="True" />
         </ComboBox>
-        <TextBlock x:Name="ImageScalingLabel" Margin="10,144,213,0" TextWrapping="Wrap" Text="Image Scaling"
+        <TextBlock x:Name="ImageScalingLabel" Margin="10,146,213,0" TextWrapping="Wrap" Text="Image Scaling"
                    VerticalAlignment="Top"
                    Foreground="White" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="146,39,0,0" TextWrapping="Wrap" Text="OR"
+        <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
                    VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
     </Grid>
 </UserControl>

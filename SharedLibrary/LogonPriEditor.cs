@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace SharedLibrary
@@ -9,7 +10,8 @@ namespace SharedLibrary
         {
             var inputStream = File.OpenRead(currentPri);
             var outputStream = File.Create(outputPri);
-            var replacementStream = File.OpenRead(image);
+            //var replacementStream = File.OpenRead(image);
+            var replacementStream = File.ReadAllBytes(image);
 
             var inputReader = new BinaryReader(inputStream);
             var outputWriter = new BinaryWriter(outputStream);
@@ -51,7 +53,8 @@ namespace SharedLibrary
             {
                 throw new Exception("Not compatible with this PRI file.");
             }
-            replacementStream.CopyTo(outputStream);
+            outputWriter.Write(replacementStream);
+            //replacementStream.CopyTo(outputStream);
 
             //footer
             outputStream.Seek((long)(replacementLengthAligned - replacementStream.Length), SeekOrigin.Current);
@@ -68,7 +71,7 @@ namespace SharedLibrary
 
             inputReader.Close();
             outputWriter.Close();
-            replacementStream.Close();
+            //replacementStream.Close();
         }
     }
 }
