@@ -67,7 +67,7 @@ namespace W10_Logon_BG_Changer
             if (Helpers.IsBackgroundDisabled())
             {
                 MessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
-                    LanguageLibrary.Language.Default.title_dg_disabled);
+                    LanguageLibrary.Language.Default.title_bg_disabled);
             }
 
             Debug.WriteLine("[AccentColor]: " +
