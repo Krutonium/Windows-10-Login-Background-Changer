@@ -64,6 +64,9 @@
     <EmbeddedResource Include="Langs\pt_br.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Langs\pt_pt.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Langs\th_th.xml" />
   </ItemGroup>
   <ItemGroup>
