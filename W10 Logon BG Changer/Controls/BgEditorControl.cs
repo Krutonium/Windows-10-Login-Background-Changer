@@ -41,15 +41,6 @@ namespace W10_Logon_BG_Changer.Controls
             InitializeComponent();
             _orgColor = ColorPreview.Background;
 
-            ShowUserImageToggle.Checked += _mainWindow.ToggleButton_OnChecked;
-            ShowUserImageToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
-
-            ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
-            ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
-
-            ShowUserImageToggle.IsChecked = Settings.Default.Get("uimage", true); //Settings.Default.uimage;
-            ShowGlyphsIconsToggle.IsChecked = Settings.Default.Get("gimage", true); //Settings.Default.gimage;
-
             var color = Settings.Default.Get("dcolor", Color.WhiteSmoke);
 
             ColorPreview.Background =
@@ -58,17 +49,6 @@ namespace W10_Logon_BG_Changer.Controls
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
 
             //Debug.WriteLine(Settings.Default.flyoutloc);
-            switch (Settings.Default.Get("flyout", Position.Right))
-            {
-                case Position.Right:
-                    FlyoutPosSelect.SelectedIndex = 1;
-                    break;
-
-                case Position.Left:
-                    FlyoutPosSelect.SelectedIndex = 0;
-                    break;
-            }
-
             BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
             ColorPickerButton.Content = LanguageLibrary.Language.Default.color_button;
             SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
@@ -76,13 +56,9 @@ namespace W10_Logon_BG_Changer.Controls
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
             ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
             ImageScalingLabel.Text = LanguageLibrary.Language.Default.image_scale;
-            ShowUserInfoLabel.Text = LanguageLibrary.Language.Default.show_user_info;
-            ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
-            FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
             RestoreHeroButton.Content = LanguageLibrary.Language.Default.restore_hero_button;
             RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
-            AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
             textBlock.Text = LanguageLibrary.Language.Default.or;
             ImageScaleSelect.Items.RemoveAt(3);
             ImageScaleSelect.Items.Insert(3, LanguageLibrary.Language.Default.image_scale_Resolution);
@@ -153,8 +129,7 @@ namespace W10_Logon_BG_Changer.Controls
             _mainWindow.SelectedFile = FillImageColor(cfd.Color);
 
             ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor());
-            ;
-
+            
             SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
 
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
@@ -298,19 +273,9 @@ namespace W10_Logon_BG_Changer.Controls
             Scaling = ((ComboBox)sender).SelectedIndex;
         }
 
-        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ShareBackGround_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(((ComboBox)sender).SelectedIndex);
-            switch (((ComboBox)sender).SelectedIndex)
-            {
-                case 0:
-                    _mainWindow.ChangeFlyoutLocation("left");
-                    break;
-
-                case 1:
-                    _mainWindow.ChangeFlyoutLocation("right");
-                    break;
-            }
+            _mainWindow.CreateBitmapFromVisual();
         }
     }
 }

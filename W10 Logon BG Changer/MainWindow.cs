@@ -9,9 +9,12 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using TSettings;
 using TSettings.Encryptions;
@@ -19,6 +22,7 @@ using W10_Logon_BG_Changer.Controls;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.Animations;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
+using Point = System.Windows.Point;
 
 namespace W10_Logon_BG_Changer
 {
@@ -80,7 +84,7 @@ namespace W10_Logon_BG_Changer
 
             Debug.WriteLine("[EULA Test] {0}", Settings.Default.Get<bool>("eula"));
 
-            LanguageFlyout.Content = new LanguageSelectControl(this);
+            ApplicationSettingsFlyout.Content = new SettingsMenuControl(this);
 
             SettingFlyout.Content = new BgEditorControl(this);
             SettingFlyout.IsOpen = true;
@@ -130,10 +134,9 @@ namespace W10_Logon_BG_Changer
             EditBackgroundLabel.Text = LanguageLibrary.Language.Default.main_top_edit;
             LockWindowsLabel.Text = LanguageLibrary.Language.Default.main_top_lock;
             AboutButton.Content = LanguageLibrary.Language.Default.main_top_about;
-            LanguageSelect.Content = LanguageLibrary.Language.Default.main_top_sel_lang;
             SettingFlyout.Header = LanguageLibrary.Language.Default.flyout_edit_title;
             AboutFlyout.Header = LanguageLibrary.Language.Default.flyout_about_title;
-            LanguageFlyout.Header = LanguageLibrary.Language.Default.main_top_sel_lang;
+            ApplicationSettingsFlyout.Header = LanguageLibrary.Language.Default.main_top_sel_lang;
         }
 
         public string SelectedFile
@@ -338,9 +341,56 @@ namespace W10_Logon_BG_Changer
             AboutFlyout.IsOpen = false;
         }
 
-        private void LanguageSelect_OnClick(object sender, RoutedEventArgs e)
+        public void CreateBitmapFromVisual()
         {
-            LanguageFlyout.IsOpen = !LanguageFlyout.IsOpen;
+            SettingFlyout.Visibility = Visibility.Hidden;
+            AboutFlyout.Visibility = Visibility.Hidden;
+            ApplicationSettingsFlyout.Visibility = Visibility.Hidden;
+
+            Task.Run(() =>
+            {
+                Thread.Sleep(2000);
+            }).ContinueWith(_ =>
+            {
+
+                Dispatcher.Invoke(() =>
+                {
+                    var target = LogonScreenPreview;
+                    Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+
+                    RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32) bounds.Width, (Int32) bounds.Height,
+                        96,
+                        96, PixelFormats.Pbgra32);
+
+                    DrawingVisual visual = new DrawingVisual();
+
+                    using (DrawingContext context = visual.RenderOpen())
+                    {
+                        VisualBrush visualBrush = new VisualBrush(target);
+                        context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+                    }
+
+                    renderTarget.Render(visual);
+                    PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+                    bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+                    var f = Path.GetTempFileName();
+                    using (Stream stm = File.Create(f))
+                    {
+                        bitmapEncoder.Save(stm);
+                    }
+
+                    var bmp = new BitmapImage(new Uri(f));
+                    Clipboard.SetImage(bmp);
+
+                    SettingFlyout.IsOpen = true;
+                    MessageBox.Show("Saved sharing to clipboard", "Save to clipboard");
+                });
+            });
+        }
+
+        private void ApplicationSettings_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationSettingsFlyout.IsOpen = !ApplicationSettingsFlyout.IsOpen;
         }
     }
 }
