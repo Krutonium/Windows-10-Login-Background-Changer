@@ -32,6 +32,7 @@
   <group_advanced_options>应用程序设置( 显示/隐藏 仅用于在此软件上预览图像 )</group_advanced_options>
   <group_authors_area>作者</group_authors_area>
   <group_about_area>关于</group_about_area>
+  <group_select_lang>选择语言</group_select_lang>
 
   <!-- Buttons -->
   <browse_button>浏览</browse_button>
