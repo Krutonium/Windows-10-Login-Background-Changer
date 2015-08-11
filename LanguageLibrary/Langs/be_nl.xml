@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <lang_name>Dutch (BE/NL)</lang_name>
+  <lang_name>Dutch</lang_name>
 
   <!-- titles -->
   <title_error>Fout</title_error>
@@ -14,10 +14,10 @@
   <title_language_set>Taal ingesteld</title_language_set>
   <title_select_image>Selecteer een afbeelding</title_select_image>
   <title_saved_clipboard>Opgeslagen op klembord</title_saved_clipboard>
-  
+
   <!-- Main Screen Title Buttons -->
   <main_top_about>Over</main_top_about>
-  <main_top_lock>Vergrendel Windows</main_top_lock>
+  <main_top_lock>Vergrendel</main_top_lock>
   <main_top_edit>Bewerk Achtergrond</main_top_edit>
 
   <!-- Flyout Titles -->
@@ -36,7 +36,7 @@
   <browse_button>Verken</browse_button>
   <color_button>Kleur</color_button>
   <accet_color_button>Gebruik huidig kleuraccent</accet_color_button>
-  <apply_changes_button>Pas veranderingen toe</apply_changes_button>
+  <apply_changes_button>Wijzigingen toepassen</apply_changes_button>
   <restore_defaults_button>Herstel standaard instellingen</restore_defaults_button>
   <restore_hero_button>Restore Hero</restore_hero_button>
   <image_scale_Resolution>Mijn resolutie</image_scale_Resolution>
@@ -51,12 +51,14 @@
   <!-- Message bodies -->
   <saved_clipboard_msg>Afbeelding opgeslagen op klembord.</saved_clipboard_msg>
   <background_disabled>Achtegrond afbeelding is uitgeschakeld in het register.</background_disabled>
-  <EULA>U gaat ermee akkoord dat de makers van dit programma niet aansprakelijk gesteld kunnen worden
-    in het geval dat uw informaticasysteem stopt met functioneren of werken naar behoren. 
-    Gebruik altijd op eigen risico.</EULA>
+  <EULA>
+    U gaat ermee akkoord dat de makers van dit programma niet aansprakelijk gesteld kunnen worden
+    in het geval dat uw informaticasysteem stopt met functioneren of werken naar behoren.
+    Gebruik altijd op eigen risico.
+  </EULA>
   <color_preview>Voorbeeldweergave kleur</color_preview>
   <finished_msg>U moet eerst een bestand selecter alvorens u uw achtergrond kan instellen! (standaard opties tellen ook als bestand)</finished_msg>
-  <select_img>Bestandsnaam van de achtergrond komt hier.</select_img>
+  <select_img>Bestandsnaam van de achtergrond</select_img>
   <reset_image_msg>Weet u zeker dat u de afbeelding wilt resetten?</reset_image_msg>
   <no_selected_file>U moet eerst een bestand selecter alvorens u uw achtergrond kan instellen! (standaard opties tellen ook als bestand)</no_selected_file>
   <success_apply_msg>Login achtergrond succesvol verandert, vergrendel uw computer om dit te controleren.</success_apply_msg>

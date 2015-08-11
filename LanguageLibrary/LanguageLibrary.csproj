@@ -94,7 +94,10 @@
     <EmbeddedResource Include="Langs\ko_kr.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Langs\nl_nl.xml" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Langs\be_nl.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
