@@ -14,7 +14,20 @@
     <controls:MetroWindow.LeftWindowCommands>
 
         <controls:WindowCommands>
-            <Button Click="ApplicationSettings_Click" x:Name="ApplicationSettings" Content="Application Settings" />
+            <Button Click="ApplicationSettings_Click" x:Name="ApplicationSettings">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                               VerticalAlignment="Center"
+                               Text="App Settings" />
+                </StackPanel>
+            </Button>
             <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
         </controls:WindowCommands>
     </controls:MetroWindow.LeftWindowCommands>
@@ -40,7 +53,7 @@
                                Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                                         Visual="{StaticResource appbar_settings}" />
+                                         Visual="{StaticResource appbar_edit}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock x:Name="EditBackgroundLabel" Margin="4 0 0 0"

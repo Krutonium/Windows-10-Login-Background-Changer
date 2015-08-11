@@ -43,11 +43,7 @@
                   VerticalAlignment="Bottom">
             <Grid>
                 <Button x:Name="RestoreDefaultButton" Click="RestoreDefaults_Click" Content="Restore Default"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Left" Width="126" />
-                <Button x:Name="RestoreHeroButton" Click="RestoreHeroDefaults_Click" Content="Restore Hero"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Right" Width="126" />
+                        VerticalAlignment="Top" />
 
             </Grid>
         </GroupBox>
