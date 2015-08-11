@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Language>
   <!-- This must be in the language of the file to make it easier on people D: -->
-  <lang_name>English</lang_name>
+  <lang_name>English (US)</lang_name>
 
   <!-- titles -->
   <title_error>Error</title_error>
@@ -23,7 +23,7 @@
   <!-- Flyout Titles -->
   <flyout_edit_title>Edit Background</flyout_edit_title>
   <flyout_about_title>About</flyout_about_title>
-  <flyout_settings_title>Settings</flyout_settings_title>
+  <flyout_settings_title>App Settings</flyout_settings_title>
 
   <!-- Groups -->
   <group_restore_default>Restore to Defaults</group_restore_default>
@@ -63,6 +63,5 @@
   <flyout_loc_left_opt>Left</flyout_loc_left_opt>
   <sel_lang>Select Language</sel_lang>
   <share_bg>Share Background</share_bg>
-  <scale_myresolution>My Resolution</scale_myresolution>
-  <scale_none>None</scale_none>
+  <scale_none_opt>None</scale_none_opt>
 </Language>
