@@ -1,5 +1,6 @@
 ﻿using HelperLibrary;
 using MahApps.Metro.Controls;
+using MessageBoxLibrary;
 using SharedLibrary;
 using System;
 using System.Diagnostics;
@@ -54,9 +55,9 @@ namespace W10_Logon_BG_Changer
             if (!Settings.Default.Get("eula", false))
             {
                 var dlg =
-                    MessageBox.Show(
+                    WPFMessageBox.Show(
                         LanguageLibrary.Language.Default.EULA,
-                        LanguageLibrary.Language.Default.title_eula, MessageBoxButton.YesNo);
+                        LanguageLibrary.Language.Default.title_eula, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (dlg == MessageBoxResult.No)
                 {
@@ -66,8 +67,8 @@ namespace W10_Logon_BG_Changer
 
             if (Helpers.IsBackgroundDisabled())
             {
-                MessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
-                    LanguageLibrary.Language.Default.title_dg_disabled);
+                WPFMessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
+                    LanguageLibrary.Language.Default.title_dg_disabled, MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             Debug.WriteLine("[AccentColor]: " +
@@ -226,7 +227,7 @@ namespace W10_Logon_BG_Changer
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
-            MessageBox.Show(
+            WPFMessageBox.Show(
                 LanguageLibrary.Language.Default.success_apply_msg,
                 LanguageLibrary.Language.Default.title_success
                             );

@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MessageBoxLibrary;
 using SharedLibrary;
 using System;
 using System.Diagnostics;
@@ -148,7 +149,7 @@ namespace W10_Logon_BG_Changer.Controls
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
-            var msg = MessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg,
+            var msg = WPFMessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg,
                 LanguageLibrary.Language.Default.title_are_you_sure,
                 MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
@@ -170,8 +171,8 @@ namespace W10_Logon_BG_Changer.Controls
 
             if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
-                MessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
-                    LanguageLibrary.Language.Default.title_error);
+                WPFMessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
+                    LanguageLibrary.Language.Default.title_error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
