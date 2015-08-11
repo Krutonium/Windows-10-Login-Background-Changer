@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using MahApps.Metro.Controls;
+using System.Diagnostics;
 using System.Windows.Controls;
-using MahApps.Metro.Controls;
 using TSettings;
 
 namespace W10_Logon_BG_Changer.Controls
@@ -39,12 +39,14 @@ namespace W10_Logon_BG_Changer.Controls
                     break;
             }
 
+            FlyoutPosSelect.Items.Add(LanguageLibrary.Language.Default.flyout_loc_right_opt);
+            FlyoutPosSelect.Items.Add(LanguageLibrary.Language.Default.flyout_loc_left_opt);
+
             ShowUserInfoLabel.Text = LanguageLibrary.Language.Default.show_user_info;
             ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
             FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
             AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
-            LanguageSelect.Header = LanguageLibrary.Language.Default.main_top_sel_lang;
-
+            LanguageSelect.Header = LanguageLibrary.Language.Default.sel_lang;
         }
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

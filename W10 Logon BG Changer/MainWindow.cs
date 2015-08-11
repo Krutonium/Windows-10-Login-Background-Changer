@@ -136,6 +136,8 @@ namespace W10_Logon_BG_Changer
             AboutButton.Content = LanguageLibrary.Language.Default.main_top_about;
             SettingFlyout.Header = LanguageLibrary.Language.Default.flyout_edit_title;
             AboutFlyout.Header = LanguageLibrary.Language.Default.flyout_about_title;
+            ApplicationSettingsFlyout.Header = LanguageLibrary.Language.Default.flyout_settings_title;
+            settingsName.Text = LanguageLibrary.Language.Default.flyout_settings_title;
         }
 
         public string SelectedFile
@@ -320,13 +322,17 @@ namespace W10_Logon_BG_Changer
                 case "left":
                     SettingFlyout.Position = Position.Left;
                     AboutFlyout.Position = Position.Right;
+                    ApplicationSettingsFlyout.Position = Position.Right;
                     Debug.WriteLine("[AboutFlyout]: right");
+                    Debug.WriteLine("[ApplicationSettingsFlyout]: right");
                     break;
 
                 case "right":
                     SettingFlyout.Position = Position.Right;
                     AboutFlyout.Position = Position.Left;
+                    ApplicationSettingsFlyout.Position = Position.Left;
                     Debug.WriteLine("[AboutFlyout]: left");
+                    Debug.WriteLine("[ApplicationSettingsFlyout]: left");
                     break;
             }
 
@@ -338,6 +344,7 @@ namespace W10_Logon_BG_Changer
         {
             SettingFlyout.IsOpen = false;
             AboutFlyout.IsOpen = false;
+            ApplicationSettingsFlyout.IsOpen = false;
         }
 
         public void CreateBitmapFromVisual()
@@ -351,13 +358,12 @@ namespace W10_Logon_BG_Changer
                 Thread.Sleep(2000);
             }).ContinueWith(_ =>
             {
-
                 Dispatcher.Invoke(() =>
                 {
                     var target = LogonScreenPreview;
                     Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
 
-                    RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32) bounds.Width, (Int32) bounds.Height,
+                    RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height,
                         96,
                         96, PixelFormats.Pbgra32);
 

@@ -49,7 +49,7 @@ namespace W10_Logon_BG_Changer.Controls
                 name.Enabled = !code.Equals(name.LangCode, StringComparison.CurrentCultureIgnoreCase);
             }
 
-            MessageBox.Show(LanguageLibrary.Language.Default.language_set_msg,LanguageLibrary.Language.Default.title_language_set);
+            MessageBox.Show(LanguageLibrary.Language.Default.language_set_msg, LanguageLibrary.Language.Default.title_language_set);
             Settings.Default.Set("language", code);
             Settings.Default.Save();
 
