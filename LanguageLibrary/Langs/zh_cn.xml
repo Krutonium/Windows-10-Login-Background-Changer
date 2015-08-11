@@ -14,6 +14,7 @@
   <title_are_you_sure>你确定吗？</title_are_you_sure>
   <title_language_set>语言设置</title_language_set>
   <title_select_image>选择一张图片</title_select_image>
+  <title_saved_clipboard>保存到剪贴板</title_saved_clipboard>
 
   <!-- Main Screen Title Buttons -->
   <main_top_about>关于</main_top_about>
@@ -24,6 +25,7 @@
   <!-- Flyout Titles -->
   <flyout_edit_title>编辑背景</flyout_edit_title>
   <flyout_about_title>关于</flyout_about_title>
+  <flyout_settings_title>应用设置</flyout_settings_title>
 
   <!-- Groups -->
   <group_restore_default>还原到默认值</group_restore_default>
@@ -48,6 +50,7 @@
   <or>或者</or>
 
   <!-- Message bodies -->
+  <saved_clipboard_msg>图像已保存到剪贴板。</saved_clipboard_msg>
   <background_disabled>背景图像在注册表被禁用</background_disabled>
   <EULA>您同意在使用本软件吗？即使你的系统停止正常运行，也将与我们无关。</EULA>
   <color_preview>颜色预览</color_preview>
@@ -57,4 +60,10 @@
   <no_selected_file>在设置你的登录背景之前，您必须先选择一张图片或背景颜色！</no_selected_file>
   <success_apply_msg>成功修改登录背景！请锁定 Windows，以查看新的背景。</success_apply_msg>
   <language_set_msg>语言已设置，应用程序必须重新启动以应用新的语言。</language_set_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>右</flyout_loc_right_opt>
+  <flyout_loc_left_opt>左</flyout_loc_left_opt>
+  <share_bg>分享背景</share_bg>
+  <scale_none_opt>不要缩放</scale_none_opt>
 </Language>
