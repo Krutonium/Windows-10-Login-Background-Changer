@@ -46,7 +46,7 @@ namespace W10_Logon_BG_Changer.Controls
             ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
             FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
             AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
-            LanguageSelect.Header = LanguageLibrary.Language.Default.sel_lang;
+            LanguageSelect.Header = LanguageLibrary.Language.Default.group_select_lang;
         }
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
