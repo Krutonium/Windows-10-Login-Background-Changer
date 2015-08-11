@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Language>
   <!-- This must be in the language of the file to make it easier on people D: -->
-  <lang_name>English US</lang_name>
+  <lang_name>English</lang_name>
 
   <!-- titles -->
   <title_error>Error</title_error>
@@ -20,11 +19,11 @@
   <main_top_about>About</main_top_about>
   <main_top_lock>Lock Windows</main_top_lock>
   <main_top_edit>Edit Background</main_top_edit>
-  <main_top_sel_lang>Select Language</main_top_sel_lang>
 
   <!-- Flyout Titles -->
   <flyout_edit_title>Edit Background</flyout_edit_title>
   <flyout_about_title>About</flyout_about_title>
+  <flyout_settings_title>Settings</flyout_settings_title>
 
   <!-- Groups -->
   <group_restore_default>Restore to Defaults</group_restore_default>
@@ -36,7 +35,7 @@
   <browse_button>Browse</browse_button>
   <color_button>Color</color_button>
   <accet_color_button>Use Current Accent Color</accet_color_button>
-  <apply_changes_button>Apply Changes?</apply_changes_button>
+  <apply_changes_button>Apply Changes</apply_changes_button>
   <restore_defaults_button>Restore Defaults</restore_defaults_button>
   <restore_hero_button>Restore Hero</restore_hero_button>
   <image_scale_Resolution>My Resolution</image_scale_Resolution>
@@ -58,4 +57,12 @@
   <no_selected_file>You must first select a file before you can set your logon background! (Default options count as a file)</no_selected_file>
   <success_apply_msg>Successfully changed logon background! Please lock your device to view your new background.</success_apply_msg>
   <language_set_msg>Language is set. Application must restart to apply language</language_set_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>Right</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Left</flyout_loc_left_opt>
+  <sel_lang>Select Language</sel_lang>
+  <share_bg>Share Background</share_bg>
+  <scale_myresolution>My Resolution</scale_myresolution>
+  <scale_none>None</scale_none>
 </Language>
