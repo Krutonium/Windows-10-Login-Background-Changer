@@ -56,7 +56,6 @@ namespace W10_Logon_BG_Changer.Controls
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
             ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
             ImageScalingLabel.Text = LanguageLibrary.Language.Default.image_scale;
-            RestoreHeroButton.Content = LanguageLibrary.Language.Default.restore_hero_button;
             RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
             textBlock.Text = LanguageLibrary.Language.Default.or;
@@ -215,17 +214,6 @@ namespace W10_Logon_BG_Changer.Controls
             ColorPreview.Background = fillcolor;
 
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(c).ToMediaColor());
-        }
-
-        private void RestoreHeroDefaults_Click(object sender, RoutedEventArgs e)
-        {
-            var f = Path.GetTempFileName();
-
-            Properties.Resources._default.Save(f, ImageFormat.Png);
-
-            _mainWindow.SelectedFile = f;
-
-            Reset();
         }
 
         private void Reset(string image = "")
