@@ -24,8 +24,8 @@
 					TextWrapping="Wrap"
 					Text="Flyout Location" VerticalAlignment="Top" />
                 <ComboBox x:Name="FlyoutPosSelect" Margin="158,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
-                    <ComboBoxItem Content="Left" />
-                    <ComboBoxItem Content="Right" IsSelected="True" />
+                    <ComboBoxItem x:Name="FlyoutLocLeftOption"  Content="Left" />
+                    <ComboBoxItem x:Name="FlyoutLocRightOption" Content="Right" IsSelected="True" />
                 </ComboBox>
             </Grid>
         </GroupBox>
