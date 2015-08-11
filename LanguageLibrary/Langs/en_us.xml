@@ -14,7 +14,8 @@
   <title_are_you_sure>Are you sure?</title_are_you_sure>
   <title_language_set>Language set</title_language_set>
   <title_select_image>Select an Image</title_select_image>
-
+  <title_saved_clipboard>Saved to clipboard</title_saved_clipboard>
+  
   <!-- Main Screen Title Buttons -->
   <main_top_about>About</main_top_about>
   <main_top_lock>Lock Windows</main_top_lock>
@@ -30,6 +31,7 @@
   <group_advanced_options>Application Settings</group_advanced_options>
   <group_authors_area>Authors</group_authors_area>
   <group_about_area>About</group_about_area>
+  <group_select_lang>Select Language</group_select_lang>
 
   <!-- Buttons -->
   <browse_button>Browse</browse_button>
@@ -48,6 +50,7 @@
   <or>OR</or>
 
   <!-- Message bodies -->
+  <saved_clipboard_msg>Saved image to clipboard.</saved_clipboard_msg>
   <background_disabled>Background image is disabled in the registry</background_disabled>
   <EULA>You agree that upon using this software, we are not at fault if your system stops working correctly.</EULA>
   <color_preview>Color Preview</color_preview>
@@ -61,9 +64,6 @@
   <!-- toyz go categorize these -->
   <flyout_loc_right_opt>Right</flyout_loc_right_opt>
   <flyout_loc_left_opt>Left</flyout_loc_left_opt>
-  <sel_lang>Select Language</sel_lang>
   <share_bg>Share Background</share_bg>
   <scale_none_opt>None</scale_none_opt>
-  <saved_clipboard>Saved to clipboard</saved_clipboard>
-  <saved_clipboard_msg>Saved image to clipboard.</saved_clipboard_msg>
 </Language>
