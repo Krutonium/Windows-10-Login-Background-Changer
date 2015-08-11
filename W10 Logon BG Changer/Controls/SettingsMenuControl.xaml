@@ -23,7 +23,7 @@
                 <TextBlock x:Name="FlyoutLocationLabel" HorizontalAlignment="Left" Margin="10,88,0,0"
 					TextWrapping="Wrap"
 					Text="Flyout Location" VerticalAlignment="Top" />
-                <ComboBox x:Name="FlyoutPosSelect" Margin="96,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
+                <ComboBox x:Name="FlyoutPosSelect" Margin="158,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
                     <ComboBoxItem Content="Left" />
                     <ComboBoxItem Content="Right" IsSelected="True" />
                 </ComboBox>
