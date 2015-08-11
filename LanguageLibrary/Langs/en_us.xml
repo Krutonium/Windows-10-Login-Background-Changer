@@ -64,4 +64,6 @@
   <sel_lang>Select Language</sel_lang>
   <share_bg>Share Background</share_bg>
   <scale_none_opt>None</scale_none_opt>
+  <saved_clipboard>Saved to clipboard</saved_clipboard>
+  <saved_clipboard_msg>Saved image to clipboard.</saved_clipboard_msg>
 </Language>
