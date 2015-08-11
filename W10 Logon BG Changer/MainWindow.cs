@@ -138,6 +138,9 @@ namespace W10_Logon_BG_Changer
             AboutFlyout.Header = LanguageLibrary.Language.Default.flyout_about_title;
             ApplicationSettingsFlyout.Header = LanguageLibrary.Language.Default.flyout_settings_title;
             settingsName.Text = LanguageLibrary.Language.Default.flyout_settings_title;
+
+            userNameField.Text = Environment.UserName;
+            emailField.Text = System.DirectoryServices.AccountManagement.UserPrincipal.Current.EmailAddress;
         }
 
         public string SelectedFile

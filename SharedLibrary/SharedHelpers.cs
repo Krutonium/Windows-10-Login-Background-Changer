@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SharedLibrary.Models;
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharedLibrary.Models;
 
 namespace SharedLibrary
 {
@@ -21,7 +17,7 @@ namespace SharedLibrary
             long loaded = File.ReadAllBytes(path).LongLength;
 
             FileInfo f = new FileInfo(path);
-            long actual = (int) f.Length;
+            long actual = (int)f.Length;
 
             return new FileSizeMetaInformation(actual, loaded);
         }
@@ -37,13 +33,13 @@ namespace SharedLibrary
                 return string.Format(formatTemplate, null, 0, SizeSuffixes[0]);
             }
 
-            var absSize = Math.Abs((double) size);
+            var absSize = Math.Abs((double)size);
             var fpPower = Math.Log(absSize, 1000);
-            var intPower = (int) fpPower;
+            var intPower = (int)fpPower;
             var iUnit = intPower >= SizeSuffixes.Length
                 ? SizeSuffixes.Length - 1
                 : intPower;
-            var normSize = absSize/Math.Pow(1000, iUnit);
+            var normSize = absSize / Math.Pow(1000, iUnit);
 
             return string.Format(
                 formatTemplate,
