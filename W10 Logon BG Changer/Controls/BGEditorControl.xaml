@@ -55,14 +55,14 @@
             <ComboBoxItem Content="720p" />
             <ComboBoxItem Content="1080p" />
             <ComboBoxItem Content="4K" />
-            <ComboBoxItem Content="My Resolution" />
-            <ComboBoxItem Content="None" IsSelected="True" />
+            <ComboBoxItem x:Name="MyResolutionOption" Content="My Resolution" />
+            <ComboBoxItem x:Name="NoneOption"  Content="None" IsSelected="True" />
         </ComboBox>
         <TextBlock x:Name="ImageScalingLabel" Margin="10,146,213,0" TextWrapping="Wrap" Text="Image Scaling"
                    VerticalAlignment="Top"
                    Foreground="White" />
         <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
                    VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
-        <Button Content="Share Background" Margin="10,0,156,120" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom"/>
+        <Button x:Name="shareBG" Content="Share Background" Margin="10,0,156,120" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

@@ -234,7 +234,7 @@
       <Project>{D80AC683-AB1C-4D44-9094-CC60A1011657}</Project>
       <Name>HelperLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LangaugeLibrary\LanguageLibrary.csproj">
+    <ProjectReference Include="..\LanguageLibrary\LanguageLibrary.csproj">
       <Project>{6616dfb1-7965-4265-a2af-723f5e293479}</Project>
       <Name>LanguageLibrary</Name>
     </ProjectReference>

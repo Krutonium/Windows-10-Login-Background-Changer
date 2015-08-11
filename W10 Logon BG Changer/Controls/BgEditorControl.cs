@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using SharedLibrary;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -8,8 +10,6 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using MahApps.Metro.Controls;
-using SharedLibrary;
 using TSettings;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
@@ -58,8 +58,9 @@ namespace W10_Logon_BG_Changer.Controls
             RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
             textBlock.Text = LanguageLibrary.Language.Default.or;
-            ImageScaleSelect.Items.RemoveAt(3);
-            ImageScaleSelect.Items.Insert(3, LanguageLibrary.Language.Default.image_scale_Resolution);
+            shareBG.Content = LanguageLibrary.Language.Default.share_bg;
+            MyResolutionOption.Content = LanguageLibrary.Language.Default.image_scale_Resolution;
+            NoneOption.Content = LanguageLibrary.Language.Default.scale_none_opt;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -127,7 +128,7 @@ namespace W10_Logon_BG_Changer.Controls
             _mainWindow.SelectedFile = FillImageColor(cfd.Color);
 
             ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor());
-            
+
             SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
 
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
