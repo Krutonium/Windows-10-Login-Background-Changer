@@ -58,9 +58,9 @@ namespace W10_Logon_BG_Changer.Controls
             RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
             textBlock.Text = LanguageLibrary.Language.Default.or;
-            ImageScaleSelect.Items.Add(LanguageLibrary.Language.Default.scale_myresolution);
-            ImageScaleSelect.Items.Add(LanguageLibrary.Language.Default.scale_none);
             shareBG.Content = LanguageLibrary.Language.Default.share_bg;
+            MyResolutionOption.Content = LanguageLibrary.Language.Default.image_scale_Resolution;
+            NoneOption.Content = LanguageLibrary.Language.Default.scale_none_opt;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

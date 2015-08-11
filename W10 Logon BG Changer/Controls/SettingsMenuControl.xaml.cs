@@ -39,8 +39,8 @@ namespace W10_Logon_BG_Changer.Controls
                     break;
             }
 
-            FlyoutPosSelect.Items.Add(LanguageLibrary.Language.Default.flyout_loc_right_opt);
-            FlyoutPosSelect.Items.Add(LanguageLibrary.Language.Default.flyout_loc_left_opt);
+            FlyoutLocRightOption.Content = LanguageLibrary.Language.Default.flyout_loc_right_opt;
+            FlyoutLocLeftOption.Content = LanguageLibrary.Language.Default.flyout_loc_left_opt;
 
             ShowUserInfoLabel.Text = LanguageLibrary.Language.Default.show_user_info;
             ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;

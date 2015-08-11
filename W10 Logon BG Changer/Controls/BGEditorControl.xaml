@@ -55,8 +55,8 @@
             <ComboBoxItem Content="720p" />
             <ComboBoxItem Content="1080p" />
             <ComboBoxItem Content="4K" />
-            <ComboBoxItem Content="My Resolution" />
-            <ComboBoxItem Content="None" IsSelected="True" />
+            <ComboBoxItem x:Name="MyResolutionOption" Content="My Resolution" />
+            <ComboBoxItem x:Name="NoneOption"  Content="None" IsSelected="True" />
         </ComboBox>
         <TextBlock x:Name="ImageScalingLabel" Margin="10,146,213,0" TextWrapping="Wrap" Text="Image Scaling"
                    VerticalAlignment="Top"
