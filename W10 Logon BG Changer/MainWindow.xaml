@@ -5,13 +5,29 @@
                       ShowIconOnTitleBar="True"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      
                       Title="W10 Logon BG Changer" Height="600" Width="1008"
                       MinHeight="500" MinWidth="830" WindowStartupLocation="CenterScreen">
 
     <controls:MetroWindow.LeftWindowCommands>
 
         <controls:WindowCommands>
-            <Button Click="LanguageSelect_OnClick" x:Name="LanguageSelect" Content="Select Language" />
+            <Button Click="ApplicationSettings_Click" x:Name="ApplicationSettings">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                         Visual="{StaticResource appbar_settings}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                               VerticalAlignment="Center"
+                               Text="App Settings" />
+                </StackPanel>
+            </Button>
             <Button Click="AboutButton_Click" x:Name="AboutButton" Content="About" />
         </controls:WindowCommands>
     </controls:MetroWindow.LeftWindowCommands>
@@ -37,7 +53,7 @@
                                Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                                         Visual="{StaticResource appbar_settings}" />
+                                         Visual="{StaticResource appbar_edit}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock x:Name="EditBackgroundLabel" Margin="4 0 0 0"
@@ -56,12 +72,12 @@
             <controls:Flyout x:Name="AboutFlyout" Header="About" Position="Left" Width="350">
                 <!-- Your custom content here -->
             </controls:Flyout>
-            <controls:Flyout x:Name="LanguageFlyout" Header="Select Language" Position="Left" Width="350">
+            <controls:Flyout x:Name="ApplicationSettingsFlyout" Header="Application Settings" Position="Left" Width="350">
                 <!-- Your custom content here -->
             </controls:Flyout>
         </controls:FlyoutsControl>
     </controls:MetroWindow.Flyouts>
-    <Grid>
+    <Grid x:Name="LogonScreenPreview">
         <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
         <Image x:Name="UserViewer" Source="Images/user.png" />
         <Image x:Name="PswdViewer" Source="Images/pswd.png" />

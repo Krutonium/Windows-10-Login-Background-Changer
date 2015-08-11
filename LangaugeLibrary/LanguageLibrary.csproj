@@ -64,6 +64,9 @@
     <EmbeddedResource Include="Langs\pt_br.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Langs\pt_pt.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Langs\th_th.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +83,15 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Langs\he_il.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Langs\ru_ru.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Langs\uk_ua.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Langs\ko_kr.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

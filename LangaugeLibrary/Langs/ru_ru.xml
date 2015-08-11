@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <lang_name>Русский RU</lang_name>
+  <title_error>Ошибка</title_error>
+  <title_info>Информация</title_info>
+  <title_warning>Предупреждение</title_warning>
+  <title_finished>Готово</title_finished>
+  <title_success>Успешно</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Фон отключен</title_bg_disabled>
+  <title_are_you_sure>Вы уверенны ?</title_are_you_sure>
+  <title_language_set>Языковые параметры</title_language_set>
+  <title_select_image>Выберите изображение</title_select_image>
+  <main_top_about>О программе</main_top_about>
+  <main_top_lock>Заблокировать Windows</main_top_lock>
+  <main_top_edit>Редактировать фон</main_top_edit>
+  <main_top_sel_lang>Выбрать язык</main_top_sel_lang>
+  <flyout_edit_title>Выбрать фон</flyout_edit_title>
+  <flyout_about_title>Подробнее</flyout_about_title>
+  <group_restore_default>Вернуть по умолчанию</group_restore_default>
+  <group_advanced_options>Настройки программы</group_advanced_options>
+  <group_authors_area>Авторы</group_authors_area>
+  <group_about_area>Подробнее</group_about_area>
+  <browse_button>Обзор</browse_button>
+  <color_button>Цвет</color_button>
+  <accet_color_button>Использовать текущий цвет</accet_color_button>
+  <apply_changes_button>Применить изменения ?</apply_changes_button>
+  <restore_defaults_button>Вернуть заводские настройки</restore_defaults_button>
+  <restore_hero_button>Мастер восстановления</restore_hero_button>
+  <image_scale_Resolution>Мое разрешение экрана</image_scale_Resolution>
+  <image_scale>Размер изображения</image_scale>
+  <show_user_info>Отображать информацию пользователя</show_user_info>
+  <show_glyphs>Показывать знаки</show_glyphs>
+  <flyout_loc>Flyout Location</flyout_loc>
+  <or>Или</or>
+  <background_disabled>Фоновое изображение отключено в реестре</background_disabled>
+  <EULA> Соглашаясь , в случае нестабильной работы системы вы берете берете всю вину на себя</EULA>
+  <color_preview>Предпросмотр цвета</color_preview>
+  <finished_msg>Нужно выбрать файл прежде чем менять фоновое изображение !</finished_msg>
+  <select_img>Название файла фона</select_img>
+  <reset_image_msg>Вы уверенны , что хотите сбросить установки изображения</reset_image_msg>
+  <no_selected_file>Нужно выбрать файл прежде чем менять фоновое изображение !</no_selected_file>
+  <success_apply_msg>Фон заменен успешно. Пожалуйста, заблокируйте устройство для просмотра нового фона блокировки</success_apply_msg>
+  <language_set_msg>Язык изменен. Нужно перезапустить приложение для вступления новых настроек в силу</language_set_msg>
+</Language>

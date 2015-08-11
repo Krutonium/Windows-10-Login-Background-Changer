@@ -68,6 +68,9 @@
     <Compile Include="Controls\LanguageSelectControl.cs">
       <DependentUpon>LanguageSelectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SettingsMenuControl.xaml.cs">
+      <DependentUpon>SettingsMenuControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\CanBeNullAttribute.cs" />
     <Compile Include="Properties\AspChildControlTypeAttribute.cs" />
     <Compile Include="Properties\AspDataFieldAttribute.cs" />
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\LanguageSelectControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SettingsMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
