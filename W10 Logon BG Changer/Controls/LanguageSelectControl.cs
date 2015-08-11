@@ -15,7 +15,7 @@ namespace W10_Logon_BG_Changer.Controls
     public partial class LanguageSelectControl : UserControl
     {
         private readonly MainWindow _mainWindow;
-        public readonly ObservableCollection<LangFormatTree> Names = new ObservableCollection<LangFormatTree>();
+        private readonly ObservableCollection<LangFormatTree> Names = new ObservableCollection<LangFormatTree>();
 
         public LanguageSelectControl(MainWindow mainWindow)
         {

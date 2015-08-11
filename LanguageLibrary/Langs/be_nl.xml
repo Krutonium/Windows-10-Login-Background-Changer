@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <lang_name>Dutch</lang_name>
+
+  <!-- titles -->
+  <title_error>Fout</title_error>
+  <title_info>Info</title_info>
+  <title_warning>Waarschuwing</title_warning>
+  <title_finished>Voltooid</title_finished>
+  <title_success>Succes</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Achtergrond uitgeschakeld</title_bg_disabled>
+  <title_are_you_sure>Bent u het zeker?</title_are_you_sure>
+  <title_language_set>Taal ingesteld</title_language_set>
+  <title_select_image>Selecteer een afbeelding</title_select_image>
+  <title_saved_clipboard>Opgeslagen op klembord</title_saved_clipboard>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>Over</main_top_about>
+  <main_top_lock>Vergrendel</main_top_lock>
+  <main_top_edit>Bewerk Achtergrond</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Bewerk Achtergrond</flyout_edit_title>
+  <flyout_about_title>Over</flyout_about_title>
+  <flyout_settings_title>App Instellingen</flyout_settings_title>
+
+  <!-- Groups -->
+  <group_restore_default>Herstel standaard instellingen</group_restore_default>
+  <group_advanced_options>Applicatie instellingen</group_advanced_options>
+  <group_authors_area>Auteurs</group_authors_area>
+  <group_about_area>Over</group_about_area>
+  <group_select_lang>Selecteer taal</group_select_lang>
+
+  <!-- Buttons -->
+  <browse_button>Verken</browse_button>
+  <color_button>Kleur</color_button>
+  <accet_color_button>Gebruik huidig kleuraccent</accet_color_button>
+  <apply_changes_button>Wijzigingen toepassen</apply_changes_button>
+  <restore_defaults_button>Herstel standaard instellingen</restore_defaults_button>
+  <restore_hero_button>Restore Hero</restore_hero_button>
+  <image_scale_Resolution>Mijn resolutie</image_scale_Resolution>
+
+  <!-- Labels -->
+  <image_scale>Afbeelding schalen</image_scale>
+  <show_user_info>Toon gebruikers info</show_user_info>
+  <show_glyphs>Toon glyphs</show_glyphs>
+  <flyout_loc>Menu locatie</flyout_loc>
+  <or>OF</or>
+
+  <!-- Message bodies -->
+  <saved_clipboard_msg>Afbeelding opgeslagen op klembord.</saved_clipboard_msg>
+  <background_disabled>Achtegrond afbeelding is uitgeschakeld in het register.</background_disabled>
+  <EULA>
+    U gaat ermee akkoord dat de makers van dit programma niet aansprakelijk gesteld kunnen worden
+    in het geval dat uw informaticasysteem stopt met functioneren of werken naar behoren.
+    Gebruik altijd op eigen risico.
+  </EULA>
+  <color_preview>Voorbeeldweergave kleur</color_preview>
+  <finished_msg>U moet eerst een bestand selecter alvorens u uw achtergrond kan instellen! (standaard opties tellen ook als bestand)</finished_msg>
+  <select_img>Bestandsnaam van de achtergrond</select_img>
+  <reset_image_msg>Weet u zeker dat u de afbeelding wilt resetten?</reset_image_msg>
+  <no_selected_file>U moet eerst een bestand selecter alvorens u uw achtergrond kan instellen! (standaard opties tellen ook als bestand)</no_selected_file>
+  <success_apply_msg>Login achtergrond succesvol verandert, vergrendel uw computer om dit te controleren.</success_apply_msg>
+  <language_set_msg>Taal ingesteld. De applicatie moet herstart worden om de wijzigingen door te voeren.</language_set_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>Rechts</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Links</flyout_loc_left_opt>
+  <share_bg>Deel achtergrond</share_bg>
+  <scale_none_opt>Geen</scale_none_opt>
+</Language>
