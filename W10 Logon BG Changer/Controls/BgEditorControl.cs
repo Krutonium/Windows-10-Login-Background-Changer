@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,7 +51,6 @@ namespace W10_Logon_BG_Changer.Controls
             //Debug.WriteLine(Settings.Default.flyoutloc);
             BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
             ColorPickerButton.Content = LanguageLibrary.Language.Default.color_button;
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
             pickColor.Text = LanguageLibrary.Language.Default.color_preview;
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
             ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
@@ -61,6 +61,8 @@ namespace W10_Logon_BG_Changer.Controls
             shareBG.Content = LanguageLibrary.Language.Default.share_bg;
             MyResolutionOption.Content = LanguageLibrary.Language.Default.image_scale_Resolution;
             NoneOption.Content = LanguageLibrary.Language.Default.scale_none_opt;
+
+            TextBoxHelper.SetWatermark(SelectedFile, LanguageLibrary.Language.Default.select_img);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -129,7 +131,7 @@ namespace W10_Logon_BG_Changer.Controls
 
             ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor());
 
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
+            SelectedFile.Text = string.Empty;
 
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
         }
@@ -218,7 +220,7 @@ namespace W10_Logon_BG_Changer.Controls
 
         private void Reset(string image = "")
         {
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
+            SelectedFile.Text = string.Empty;
             ColorPreview.Background = _orgColor;
             var c = ((SolidColorBrush)ColorPreview.Background).Color;
             var color = Color.FromArgb(c.R, c.G, c.B);

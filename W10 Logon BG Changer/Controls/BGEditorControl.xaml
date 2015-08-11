@@ -7,8 +7,8 @@
     mc:Ignorable="d"
     d:DesignHeight="700" d:DesignWidth="300">
     <Grid>
-        <TextBox x:Name="SelectedFile" Height="23" Margin="10,10,99,0" TextWrapping="NoWrap"
-                 Text="Background filename appears here." IsReadOnly="True" VerticalAlignment="Top">
+        <TextBox Focusable="False" Custom:TextBoxHelper.Watermark="Background filename appears here." Foreground="White" x:Name="SelectedFile" Height="23" Margin="10,10,99,0" TextWrapping="NoWrap"
+                  IsReadOnly="True" VerticalAlignment="Top">
             <TextBox.ToolTip>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
