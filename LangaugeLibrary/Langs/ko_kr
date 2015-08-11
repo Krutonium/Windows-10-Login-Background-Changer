@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <lang_name>Korean KR</lang_name>
+  <title_error>오류</title_error>
+  <title_info>정보</title_info>
+  <title_warning>경고</title_warning>
+  <title_finished>완료됨</title_finished>
+  <title_success>성공</title_success>
+  <title_eula>사용자 최종 계약</title_eula>
+  <title_bg_disabled>배경 비활성화</title_bg_disabled>
+  <title_are_you_sure>확실한가요?</title_are_you_sure>
+  <title_language_set>언어 옵션</title_language_set>
+  <title_select_image>이미지 선택</title_select_image>
+  <main_top_about>프로그램 정보</main_top_about>
+  <main_top_lock>윈도우 잠금</main_top_lock>
+  <main_top_edit>배경 편집</main_top_edit>
+  <main_top_sel_lang>언어 선택</main_top_sel_lang>
+  <flyout_edit_title>배경 편집</flyout_edit_title>
+  <flyout_about_title>About</flyout_about_title>
+  <group_restore_default>기본값 복원</group_restore_default>
+  <group_advanced_options>응용프로그램 설정</group_advanced_options>
+  <group_authors_area>저자들</group_authors_area>
+  <group_about_area>About</group_about_area>
+  <browse_button>찾아보기</browse_button>
+  <color_button>색상</color_button>
+  <accet_color_button>현재 시스템 색상을 사용</accet_color_button>
+  <apply_changes_button>변경된 내용을 적용 하시겠습니까?</apply_changes_button>
+  <restore_defaults_button>기본값 복원</restore_defaults_button>
+  <restore_hero_button>Hero 복원</restore_hero_button>
+  <image_scale_Resolution>나의 해결</image_scale_Resolution>
+  <image_scale>이미지 크기조정</image_scale>
+  <show_user_info>사용자 정보</show_user_info>
+  <show_glyphs>문양</show_glyphs>
+  <flyout_loc>Flyout 위치</flyout_loc>
+  <or>또는</or>
+  <background_disabled>배경 이미지는 레지스트리를 통하여 비활성화 됩니다.</background_disabled>
+  <EULA>이 소프트웨어를 사용함에 따라, 시스템이 작동을 멈출 경우, 책임을 지지 않음을 동의합니다.</EULA>
+  <color_preview>색상 미리보기</color_preview>
+  <finished_msg>로그온 배경을 설정하기 전, 먼저 파일을 선택 해주세요. (기본옵션: 파일)</finished_msg>
+  <select_img>배경 파일 이름이 여기에 나타납니다.</select_img>
+  <reset_image_msg>이미지 초기화를 하시겠습니까?</reset_image_msg>
+  <no_selected_file>로그온 배경을 설정하기 전, 먼저 파일을 선택 해주세요. (기본옵션: 파일)</no_selected_file>
+  <success_apply_msg>성공적으로 로그온 배경을 변경하였습니다. 새로운 배경을 확인하시려면, 윈도우 잠금을 해보세요.</success_apply_msg>
+  <language_set_msg>변경된 언어를 적용하기 위해 응용프로그램을 다시 시작해야 합니다.</language_set_msg>
+</Language>
