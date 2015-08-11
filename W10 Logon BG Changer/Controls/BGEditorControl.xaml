@@ -25,7 +25,7 @@
                     </StackPanel>
                 </StackPanel>
             </TextBox.ToolTip>
-            </TextBox>
+        </TextBox>
         <Button x:Name="BrowseButton" Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
         <Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="24" Margin="10,82,99,0" VerticalAlignment="Top">
@@ -36,7 +36,7 @@
         <Button x:Name="ColorPickerButton" Content="Color" Margin="0,82,10,0" VerticalAlignment="Top"
                 Click="ColorPickerButton_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
-        <Button x:Name="ApplyChangesButton" Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,242"
+        <Button x:Name="ApplyChangesButton" Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,83"
                 Height="42"
                 VerticalAlignment="Bottom" />
         <GroupBox x:Name="RestoreDefaultArea" Header="Restore to Default" Margin="10,0,10,10" Height="66"
@@ -54,28 +54,6 @@
         <Button x:Name="ColorAccentButton" Content="Use Current Accent Color" Margin="10,110,10,0"
                 VerticalAlignment="Top"
                 Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
-        <GroupBox x:Name="AdvancedOptionsArea" Header="Application Settings" Margin="10,0,10,81" Height="156"
-                  VerticalAlignment="Bottom">
-            <Grid>
-                <Custom:ToggleSwitchButton IsChecked="True" Tag="uimage" x:Name="ShowUserImageToggle"
-                                           Content="ToggleSwitchButton" Margin="0,0,0,77" Width="70" Height="35"
-                                           HorizontalAlignment="Right" />
-                <Custom:ToggleSwitchButton IsChecked="True" Tag="gimage" x:Name="ShowGlyphsIconsToggle"
-                                           Content="ToggleSwitchButton" Margin="0,42,0,39" Width="70"
-                                           HorizontalAlignment="Right" Height="35" />
-                <TextBlock x:Name="ShowUserInfoLabel" HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap"
-                           Text="Show User Information" VerticalAlignment="Top" />
-                <TextBlock x:Name="ShowGlyphsLabel" HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap"
-                           Text="Show Glyphs" VerticalAlignment="Top" />
-                <TextBlock x:Name="FlyoutLocationLabel" HorizontalAlignment="Left" Margin="10,88,0,0"
-                           TextWrapping="Wrap"
-                           Text="Flyout Location" VerticalAlignment="Top" />
-                <ComboBox x:Name="FlyoutPosSelect" Margin="96,83,0,8" SelectionChanged="Selector_OnSelectionChanged">
-                    <ComboBoxItem Content="Left" />
-                    <ComboBoxItem Content="Right" IsSelected="True" />
-                </ComboBox>
-            </Grid>
-        </GroupBox>
         <ComboBox x:Name="ImageScaleSelect" Margin="0,140,10,0" VerticalAlignment="Top" SelectedIndex="4"
                   SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="144">
             <ComboBoxItem Content="720p" />
@@ -89,5 +67,6 @@
                    Foreground="White" />
         <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
                    VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
+        <Button Content="Share Background" Margin="10,0,156,130" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>
