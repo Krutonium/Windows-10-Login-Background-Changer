@@ -36,10 +36,10 @@
         <Button x:Name="ColorPickerButton" Content="Color" Margin="0,82,10,0" VerticalAlignment="Top"
                 Click="ColorPickerButton_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
-        <Button x:Name="ApplyChangesButton" Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,83"
+        <Button x:Name="ApplyChangesButton" Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,73"
                 Height="42"
                 VerticalAlignment="Bottom" />
-        <GroupBox x:Name="RestoreDefaultArea" Header="Restore to Default" Margin="10,0,10,10" Height="66"
+        <GroupBox x:Name="RestoreDefaultArea" Header="Restore to Default" Margin="0" Height="64"
                   VerticalAlignment="Bottom">
             <Grid>
                 <Button x:Name="RestoreDefaultButton" Click="RestoreDefaults_Click" Content="Restore Default"
@@ -63,6 +63,6 @@
                    Foreground="White" />
         <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
                    VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
-        <Button Content="Share Background" Margin="10,0,156,130" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom"/>
+        <Button Content="Share Background" Margin="10,0,156,120" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>
