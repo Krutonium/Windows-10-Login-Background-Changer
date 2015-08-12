@@ -18,6 +18,11 @@ namespace SharedLibrary
 {
     public static class Extenstions
     {
+        public static Image ResizeImage(this Image imgToResize, System.Drawing.Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
         public static MColor ToMediaColor(this DColor color)
         {
             return MColor.FromArgb(color.A, color.R, color.G, color.B);

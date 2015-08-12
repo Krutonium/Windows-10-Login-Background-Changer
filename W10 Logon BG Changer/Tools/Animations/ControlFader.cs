@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Windows;
 
 namespace W10_Logon_BG_Changer.Tools.Animations
 {
-    public static class ImageFader
+    public static class ControlFader
     {
         private const int interval = 1;
         private const double speed = 0.10;
 
-        public static async void fadeIn(Image image)
+        public static async void FadeIn(FrameworkElement control)
         {
             for (double i = 0; i < 1.01; i += speed)
             {
@@ -18,13 +18,13 @@ namespace W10_Logon_BG_Changer.Tools.Animations
 
                 await Task.Delay(interval);
 
-                Debug.WriteLine("[" + image.Name + "] fadeIn: " + i);
+                Debug.WriteLine("[" + control.Name + "] fadeIn: " + i);
 
-                image.Opacity = i;
+                control.Opacity = i;
             }
         }
 
-        public static async void fadeOut(Image image)
+        public static async void FadeOut(FrameworkElement control)
         {
             for (double i = 1; i > -0.01; i -= speed)
             {
@@ -32,9 +32,9 @@ namespace W10_Logon_BG_Changer.Tools.Animations
 
                 await Task.Delay(interval);
 
-                Debug.WriteLine("[" + image.Name + "] fadeOut: " + i);
+                Debug.WriteLine("[" + control.Name + "] fadeOut: " + i);
 
-                image.Opacity = i;
+                control.Opacity = i;
             }
         }
     }

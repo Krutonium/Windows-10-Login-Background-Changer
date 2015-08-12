@@ -79,16 +79,17 @@
     <Viewbox>
         <Grid x:Name="LogonScreenPreview">
             <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
-            <Image x:Name="UserViewer" Source="Images/user.png" Margin="-4,4,4,-3" Visibility="Hidden" />
-            <Image x:Name="PswdViewer" Source="Images/pswd.png" Visibility="Hidden"  />
             <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp" Margin="10,10,-10,-10"  />
 
-
-
-
-            <TextBlock x:Name="userNameField" Text="null" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1934,971,1941,1183" FontSize="96" TextAlignment="Center" FontFamily="Segoe UI Light" />
-            <TextBlock x:Name="emailField" Text="null" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1933,1055,1939,1096" FontSize="26.667" TextAlignment="Center" FontFamily="Segoe UI Light" />
-
+            <Grid x:Name="InformationFeilds">
+                <Image RenderOptions.BitmapScalingMode="NearestNeighbor" x:Name="UserDisplayPicture" Stretch="UniformToFill"  Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1782,356,1782,1376">
+                    <Image.Clip>
+                        <EllipseGeometry Center="300,300" RadiusX="300" RadiusY="300" />
+                    </Image.Clip>
+                </Image>
+                <TextBlock x:Name="UsernameFeild" Text="null" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1934,971,1941,1183" FontSize="96" TextAlignment="Center" FontFamily="Segoe UI Light" />
+                <TextBlock x:Name="EmailFeild" Text="email@microsoft.com" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1933,1096,1939,1130" FontSize="42" TextAlignment="Center" FontFamily="Segoe UI Light" />
+            </Grid>
             <!-- YAY -->
 
 

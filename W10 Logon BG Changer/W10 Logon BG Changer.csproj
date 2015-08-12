@@ -66,6 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Commands\SelectImageCommand.cs" />
     <Compile Include="Controls\LanguageSelectControl.cs">
       <DependentUpon>LanguageSelectControl.xaml</DependentUpon>
     </Compile>
@@ -140,7 +141,7 @@
     <Compile Include="Properties\ValueProviderAttribute.cs" />
     <Compile Include="Properties\XamlItemBindingOfItemsControlAttribute.cs" />
     <Compile Include="Properties\XamlItemsControlAttribute.cs" />
-    <Compile Include="Tools\Animations\ImageFader.cs" />
+    <Compile Include="Tools\Animations\ControlFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\Helpers.cs" />
@@ -248,8 +249,6 @@
     <None Include="Resources\Authors.txt" />
     <Resource Include="Eula.ico" />
     <Resource Include="Images\glyphs.png" />
-    <Resource Include="Images\pswd.png" />
-    <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\trans.png" />

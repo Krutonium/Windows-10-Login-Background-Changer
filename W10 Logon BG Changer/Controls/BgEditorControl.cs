@@ -1,17 +1,18 @@
-﻿using MahApps.Metro.Controls;
-using SharedLibrary;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro.Controls;
+using SharedLibrary;
 using TSettings;
+using W10_Logon_BG_Changer.Controls.Commands;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
@@ -49,7 +50,7 @@ namespace W10_Logon_BG_Changer.Controls
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
 
             //Debug.WriteLine(Settings.Default.flyoutloc);
-            BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
+            //BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
             ColorPickerButton.Content = LanguageLibrary.Language.Default.color_button;
             pickColor.Text = LanguageLibrary.Language.Default.color_preview;
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
@@ -63,9 +64,13 @@ namespace W10_Logon_BG_Changer.Controls
             NoneOption.Content = LanguageLibrary.Language.Default.scale_none_opt;
 
             TextBoxHelper.SetWatermark(SelectedFile, LanguageLibrary.Language.Default.select_img);
+
+            TextBoxHelper.SetButtonCommandParameter(SelectedFile, "Hello World");
+            TextBoxHelper.SetButtonCommand(SelectedFile, new SelectImageCommand(this, _mainWindow));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public void SelectImageEvent_Clicked(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog
             {
