@@ -12,6 +12,7 @@ namespace W10_Logon_BG_Changer.Controls
     {
         private readonly MainWindow _mainWindow;
 
+        //Just a quick fix
         public SettingsMenuControl(MainWindow mainWindow)
         {
             _mainWindow = mainWindow;

@@ -15,7 +15,7 @@
   <title_language_set>Language set</title_language_set>
   <title_select_image>Select an Image</title_select_image>
   <title_saved_clipboard>Saved to clipboard</title_saved_clipboard>
-  
+
   <!-- Main Screen Title Buttons -->
   <main_top_about>About</main_top_about>
   <main_top_lock>Lock Windows</main_top_lock>
@@ -41,6 +41,7 @@
   <restore_defaults_button>Restore Defaults</restore_defaults_button>
   <restore_hero_button>Restore Hero</restore_hero_button>
   <image_scale_Resolution>My Resolution</image_scale_Resolution>
+  <share_bg>Share Background</share_bg>
 
   <!-- Labels -->
   <image_scale>Image Scaling</image_scale>
@@ -64,6 +65,5 @@
   <!-- toyz go categorize these -->
   <flyout_loc_right_opt>Right</flyout_loc_right_opt>
   <flyout_loc_left_opt>Left</flyout_loc_left_opt>
-  <share_bg>Share Background</share_bg>
   <scale_none_opt>None</scale_none_opt>
 </Language>

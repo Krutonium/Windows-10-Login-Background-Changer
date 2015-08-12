@@ -1,6 +1,6 @@
 using System;
 
-namespace W10_Logon_BG_Changer.Annotations
+namespace W10_Logon_BG_Changer.Properties
 {
     /// <summary>
     ///     Specify what is considered used implicitly when marked

@@ -1,6 +1,6 @@
 using System;
 
-namespace W10_Logon_BG_Changer.Annotations
+namespace W10_Logon_BG_Changer.Properties
 {
     /// <summary>
     ///     For a parameter that is expected to be one of the limited set of values.

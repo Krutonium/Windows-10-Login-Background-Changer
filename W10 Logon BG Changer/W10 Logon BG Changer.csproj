@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -59,16 +60,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Commands\SelectImageCommand.cs" />
     <Compile Include="Controls\LanguageSelectControl.cs">
       <DependentUpon>LanguageSelectControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SettingsMenuControl.xaml.cs">
+    <Compile Include="Controls\SettingsMenuControl.cs">
       <DependentUpon>SettingsMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\CanBeNullAttribute.cs" />
@@ -139,7 +145,7 @@
     <Compile Include="Properties\ValueProviderAttribute.cs" />
     <Compile Include="Properties\XamlItemBindingOfItemsControlAttribute.cs" />
     <Compile Include="Properties\XamlItemsControlAttribute.cs" />
-    <Compile Include="Tools\Animations\ImageFader.cs" />
+    <Compile Include="Tools\Animations\ControlFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\Helpers.cs" />
@@ -247,8 +253,6 @@
     <None Include="Resources\Authors.txt" />
     <Resource Include="Eula.ico" />
     <Resource Include="Images\glyphs.png" />
-    <Resource Include="Images\pswd.png" />
-    <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\trans.png" />

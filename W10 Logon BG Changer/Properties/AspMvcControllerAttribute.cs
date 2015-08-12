@@ -1,6 +1,6 @@
 using System;
 
-namespace W10_Logon_BG_Changer.Annotations
+namespace W10_Logon_BG_Changer.Properties
 {
     /// <summary>
     ///     ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is
