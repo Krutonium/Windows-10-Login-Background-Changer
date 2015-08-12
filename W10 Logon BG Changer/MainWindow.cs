@@ -1,7 +1,4 @@
-﻿using HelperLibrary;
-using MahApps.Metro.Controls;
-using SharedLibrary;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,23 +6,24 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using HelperLibrary;
+using MahApps.Metro.Controls;
+using SharedLibrary;
 using TSettings;
 using TSettings.Encryptions;
 using W10_Logon_BG_Changer.Controls;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.Animations;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
-using Image = System.Drawing.Image;
 using Point = System.Windows.Point;
+using Size = System.Drawing.Size;
 
 namespace W10_Logon_BG_Changer
 {
@@ -147,11 +145,8 @@ namespace W10_Logon_BG_Changer
 #endif
             UserDisplayPicture.Source =
                 Image.FromFile(Helpers.GetUserTilePath(null))
-                    .ResizeImage(new System.Drawing.Size(300, 300))
+                    .ResizeImage(new Size(300, 300))
                     .ToBitmapSource();
-
-            UserDisplayPicture.StretchDirection = StretchDirection.Both;
-            UserDisplayPicture.Stretch = Stretch.Fill;
         }
 
         public string SelectedFile
