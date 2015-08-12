@@ -7,13 +7,14 @@
 
 **[Download](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/latest)**
 
-[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)
+**[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)**
+
+## Notes
+* **Very light colors makes the username and email hard to see. Be careful with lighter colors.**
+* **Some antivirus programs detect this as a virus, so turn it off (temporarily) before you start this program!**
+* **Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.**
 
 In the event your login screen breaks, please fix it using [this method](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/wiki/Can't-Login) and then [report](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/issues/new?title=Login%20Screen%20is%20Broken) that it didn't work to us, along with the image you used and the version of the application. If you can also provide the broken .pri file, that will also be useful to us. Thanks!
-
-**Note: Very light colors makes the username and email hard to see. Be careful with lighter colors.**
-
-Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.
 
 # Screenshots
 
