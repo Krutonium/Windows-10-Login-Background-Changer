@@ -36,7 +36,12 @@
 
   <!-- Buttons -->
   <browse_button>浏览</browse_button>
-  <color_button>颜色</color_button>
+  <solid_color_picker_tooltip>选择一个颜色</solid_color_picker_tooltip>
+  <solid_color_available_colors>可选颜色</solid_color_available_colors>
+  <solid_color_standard_colors>标准颜色</solid_color_standard_colors>
+  <solid_color_standard>标准</solid_color_standard>
+  <solid_color_advanced>高级</solid_color_advanced>
+  <color_picker_button>预览</color_picker_button>
   <accet_color_button>使用当前强调色彩</accet_color_button>
   <apply_changes_button>应用更改</apply_changes_button>
   <restore_defaults_button>恢复默认背景</restore_defaults_button>
@@ -67,4 +72,5 @@
   <flyout_loc_left_opt>左</flyout_loc_left_opt>
   <share_bg>分享背景</share_bg>
   <scale_none_opt>不要缩放</scale_none_opt>
+
 </Language>

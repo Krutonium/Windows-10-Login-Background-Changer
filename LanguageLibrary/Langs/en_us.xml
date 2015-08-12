@@ -35,7 +35,12 @@
 
   <!-- Buttons -->
   <browse_button>Browse</browse_button>
-  <color_button>Color</color_button>
+  <solid_color_picker_tooltip>Select a color</solid_color_picker_tooltip>
+  <solid_color_available_colors>Available Colors</solid_color_available_colors>
+  <solid_color_standard_colors>Standard Colors</solid_color_standard_colors>
+  <solid_color_standard>Standard</solid_color_standard>
+  <solid_color_advanced>Advanced</solid_color_advanced>
+  <color_picker_button>Preview</color_picker_button>
   <accet_color_button>Use Current Accent Color</accet_color_button>
   <apply_changes_button>Apply Changes</apply_changes_button>
   <restore_defaults_button>Restore Defaults</restore_defaults_button>

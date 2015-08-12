@@ -52,6 +52,12 @@ namespace W10_Logon_BG_Changer.Controls
 
             TextBoxHelper.SetButtonCommandParameter(SelectedFile, "Hello World");
             TextBoxHelper.SetButtonCommand(SelectedFile, new SelectImageCommand(this, _mainWindow));
+            ColorPickerButton.Content = LanguageLibrary.Language.Default.color_picker_button;
+            SolidColorPicker.ToolTip = LanguageLibrary.Language.Default.solid_color_picker_tooltip;
+            SolidColorPicker.StandardButtonHeader = LanguageLibrary.Language.Default.solid_color_standard;
+            SolidColorPicker.AdvancedButtonHeader = LanguageLibrary.Language.Default.solid_color_advanced;
+            SolidColorPicker.StandardColorsHeader = LanguageLibrary.Language.Default.solid_color_standard_colors;
+            SolidColorPicker.AvailableColorsHeader = LanguageLibrary.Language.Default.solid_color_available_colors;
         }
 
 

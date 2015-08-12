@@ -77,7 +77,7 @@
         <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
 			VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
         <Button x:Name="SharebackgroundButton" Content="Share Background" Margin="10,0,156,120" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom" />
-        <xctk:ColorPicker x:Name="SolidColorPicker"  Foreground="Black" Margin="10,81,90,0" VerticalAlignment="Top" ColorMode="ColorPalette" />
+        <xctk:ColorPicker x:Name="SolidColorPicker"  Foreground="Black" Margin="10,81,90,0" VerticalAlignment="Top" ColorMode="ColorPalette" ToolTip="Select a color" />
         <Button x:Name="ColorPickerButton" Content="Preview" Margin="0,80,10,0" VerticalAlignment="Top"
                 Click="ColorPickerPreviewButton_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
