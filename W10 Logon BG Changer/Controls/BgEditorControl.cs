@@ -242,15 +242,11 @@ namespace W10_Logon_BG_Changer.Controls
             _mainWindow.CreateBitmapFromVisual();
         }
 
-        private void ColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        private void ColorPickerPreviewButton_Click(object sender, RoutedEventArgs e)
         {
-            if (e == null) return;
-            if (e.NewValue == null) return;
-
-            var c = e.NewValue.Value;
+            if (SolidColorPicker.SelectedColor == null) return;
+            var c = SolidColorPicker.SelectedColor.Value;
             _mainWindow.SelectedFile = FillImageColor(System.Drawing.Color.FromArgb(c.R, c.G, c.B));
-
-            SelectedFile.Text = string.Empty;
         }
     }
 }
