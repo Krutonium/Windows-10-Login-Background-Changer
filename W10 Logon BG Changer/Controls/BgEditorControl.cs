@@ -1,6 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using SharedLibrary;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -8,9 +6,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro.Controls;
+using SharedLibrary;
 using TSettings;
+using W10_Logon_BG_Changer.Controls.Commands;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
 using Brush = System.Windows.Media.Brush;
@@ -48,9 +50,8 @@ namespace W10_Logon_BG_Changer.Controls
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
 
             //Debug.WriteLine(Settings.Default.flyoutloc);
-            BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
+            //BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
             ColorPickerButton.Content = LanguageLibrary.Language.Default.color_button;
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
             pickColor.Text = LanguageLibrary.Language.Default.color_preview;
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
             ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
@@ -61,9 +62,15 @@ namespace W10_Logon_BG_Changer.Controls
             shareBG.Content = LanguageLibrary.Language.Default.share_bg;
             MyResolutionOption.Content = LanguageLibrary.Language.Default.image_scale_Resolution;
             NoneOption.Content = LanguageLibrary.Language.Default.scale_none_opt;
+
+            TextBoxHelper.SetWatermark(SelectedFile, LanguageLibrary.Language.Default.select_img);
+
+            TextBoxHelper.SetButtonCommandParameter(SelectedFile, "Hello World");
+            TextBoxHelper.SetButtonCommand(SelectedFile, new SelectImageCommand(this, _mainWindow));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public void SelectImageEvent_Clicked(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog
             {
@@ -129,7 +136,7 @@ namespace W10_Logon_BG_Changer.Controls
 
             ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor());
 
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
+            SelectedFile.Text = string.Empty;
 
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
         }
@@ -218,7 +225,7 @@ namespace W10_Logon_BG_Changer.Controls
 
         private void Reset(string image = "")
         {
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
+            SelectedFile.Text = string.Empty;
             ColorPreview.Background = _orgColor;
             var c = ((SolidColorBrush)ColorPreview.Background).Color;
             var color = Color.FromArgb(c.R, c.G, c.B);

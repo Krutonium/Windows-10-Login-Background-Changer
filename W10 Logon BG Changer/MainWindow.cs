@@ -9,9 +9,11 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -22,6 +24,7 @@ using W10_Logon_BG_Changer.Controls;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.Animations;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
+using Image = System.Drawing.Image;
 using Point = System.Windows.Point;
 
 namespace W10_Logon_BG_Changer
@@ -39,6 +42,7 @@ namespace W10_Logon_BG_Changer
         public MainWindow()
         {
             InitializeComponent();
+            Debug.WriteLine("[User Picture]: " + Helpers.GetUserTilePath(null));
             Settings.Init(Config.SettingsFilePath, new DesEncrpytion("W10Logon", "W10Logon"));
 
             var currentLang = CultureInfo.CurrentCulture.ToString().ToLower().Replace("-", "_");
@@ -113,7 +117,6 @@ namespace W10_Logon_BG_Changer
                 Settings.Default.Save();
 
                 File.Delete(Config.CurrentImageLocation);
-                //WallpaperViewer.Source = new BitmapImage(new Uri(temp));
             }
 
             Loaded += (o, i) =>
@@ -139,8 +142,16 @@ namespace W10_Logon_BG_Changer
             ApplicationSettingsFlyout.Header = LanguageLibrary.Language.Default.flyout_settings_title;
             settingsName.Text = LanguageLibrary.Language.Default.flyout_settings_title;
 
-            userNameField.Text = Environment.UserName;
-            emailField.Text = System.DirectoryServices.AccountManagement.UserPrincipal.Current.EmailAddress;
+#if !DEBUG
+            UsernameFeild.Text = Environment.UserName;
+#endif
+            UserDisplayPicture.Source =
+                Image.FromFile(Helpers.GetUserTilePath(null))
+                    .ResizeImage(new System.Drawing.Size(300, 300))
+                    .ToBitmapSource();
+
+            UserDisplayPicture.StretchDirection = StretchDirection.Both;
+            UserDisplayPicture.Stretch = Stretch.Fill;
         }
 
         public string SelectedFile
@@ -261,11 +272,11 @@ namespace W10_Logon_BG_Changer
                     switch (tb.IsChecked)
                     {
                         case true:
-                            ImageFader.fadeIn(GlyphsViewer);
+                            ControlFader.FadeIn(GlyphsViewer);
                             break;
 
                         case false:
-                            ImageFader.fadeOut(GlyphsViewer);
+                            ControlFader.FadeOut(GlyphsViewer);
                             break;
                     }
                     break;
@@ -274,11 +285,10 @@ namespace W10_Logon_BG_Changer
                     switch (tb.IsChecked)
                     {
                         case true:
-                            ImageFader.fadeIn(UserViewer);
+                            ControlFader.FadeIn(InformationFeilds);
                             break;
-
                         case false:
-                            ImageFader.fadeOut(UserViewer);
+                            ControlFader.FadeOut(InformationFeilds);
                             break;
                     }
                     break;
