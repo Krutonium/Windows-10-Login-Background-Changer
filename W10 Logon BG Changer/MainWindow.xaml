@@ -7,8 +7,8 @@
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
                       BorderBrush="{DynamicResource AccentColorBrush}"
                       BorderThickness="1"
-
-                      Title="W10 Logon BG Changer" Height="600" Width="1008"
+                      Background="Transparent"
+                      Title="W10 Logon BG Changer" Height="768" Width="1366"
                       MinHeight="500" MinWidth="830" WindowStartupLocation="CenterScreen">
 
     <controls:MetroWindow.LeftWindowCommands>
@@ -76,62 +76,64 @@
             </controls:Flyout>
         </controls:FlyoutsControl>
     </controls:MetroWindow.Flyouts>
-    <Viewbox>
         <Grid x:Name="LogonScreenPreview">
-            <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
-            <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp" Margin="10,10,-10,-10"  />
+        <Viewbox Stretch="Fill">
+            <Grid>
+                <Image x:Name="WallpaperViewer" Source="Images/default.jpg" />
+                <Image x:Name="GlyphsViewer" Source="Images/glyphs.png" MouseUp="ImageViewer_MouseUp"  />
 
-            <Grid x:Name="InformationFeilds">
-                <Image RenderOptions.BitmapScalingMode="NearestNeighbor" x:Name="UserDisplayPicture" Stretch="UniformToFill"  Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1782,356,1782,1376">
-                    <Image.Clip>
-                        <EllipseGeometry Center="300,300" RadiusX="300" RadiusY="300" />
-                    </Image.Clip>
-                </Image>
-                <TextBlock x:Name="UsernameFeild" Text="null" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1934,971,1941,1183" FontSize="96" TextAlignment="Center" FontFamily="Segoe UI Light" />
-                <TextBlock x:Name="EmailFeild" Text="email@microsoft.com" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1933,1096,1939,1130" FontSize="42" TextAlignment="Center" FontFamily="Segoe UI Light" />
+                <Grid x:Name="InformationFeilds">
+                    <Image RenderOptions.BitmapScalingMode="NearestNeighbor" x:Name="UserDisplayPicture" Stretch="UniformToFill"  Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1782,356,1782,1376">
+                        <Image.Clip>
+                            <EllipseGeometry Center="300,300" RadiusX="300" RadiusY="300" />
+                        </Image.Clip>
+                    </Image>
+                    <TextBlock x:Name="UsernameFeild" Text="null" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1934,971,1941,1183" FontSize="96" TextAlignment="Center" FontFamily="Segoe UI Light" />
+                    <TextBlock x:Name="EmailFeild" Text="email@microsoft.com" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1933,1096,1939,1130" FontSize="42" TextAlignment="Center" FontFamily="Segoe UI Light" />
+                </Grid>
+                <!-- YAY -->
+
+
+
+                <Rectangle Fill="#4CFFFFFF" HorizontalAlignment="Center" Height="67" Margin="2189,1148,1657,970" Stroke="#00FF0000" VerticalAlignment="Center" Width="65" />
+                <Rectangle Fill="White" HorizontalAlignment="Center" Height="68" Margin="1713,1196,1774,1018" Stroke="#00FF0000" VerticalAlignment="Center" Width="530" />
+                <Rectangle Fill="#00FF0000" HorizontalAlignment="Center" Height="72" Margin="1657,1145,1656,968" Stroke="#FF8B8B8B" VerticalAlignment="Center" Width="598" RenderTransformOrigin="0.5,0.5" StrokeThickness="4" >
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+
+                <TextBlock HorizontalAlignment="Center" Margin="1674,1163,2134,987" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" Foreground="#FFC2C2C2" FontFamily="Segoe UI Light" FontSize="26.667" />
+
+
+                <Rectangle Fill="White" HorizontalAlignment="Center" Height="8" Margin="2203,1178,1674,999" Stroke="#00FF0000" VerticalAlignment="Center" Width="34" />
+                <Rectangle Fill="White" HorizontalAlignment="Center" Height="6" Margin="2213,1172,1670,1007" Stroke="#00FF0000" VerticalAlignment="Center" Width="28" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="49.275" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Center" Height="8" Margin="2213,1186,1670,991" Stroke="#00FF0000" VerticalAlignment="Center" Width="28" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="-49.275" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
             </Grid>
-            <!-- YAY -->
-
-
-
-            <Rectangle Fill="#4CFFFFFF" HorizontalAlignment="Center" Height="67" Margin="2189,1148,1657,970" Stroke="#00FF0000" VerticalAlignment="Center" Width="65" />
-            <Rectangle Fill="White" HorizontalAlignment="Center" Height="68" Margin="1713,1196,1774,1018" Stroke="#00FF0000" VerticalAlignment="Center" Width="530" />
-            <Rectangle Fill="#00FF0000" HorizontalAlignment="Center" Height="72" Margin="1657,1145,1656,968" Stroke="#FF8B8B8B" VerticalAlignment="Center" Width="598" RenderTransformOrigin="0.5,0.5" StrokeThickness="4" >
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-
-
-            <TextBlock HorizontalAlignment="Center" Margin="1674,1163,2134,987" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" Foreground="#FFC2C2C2" FontFamily="Segoe UI Light" FontSize="26.667" />
-
-
-            <Rectangle Fill="White" HorizontalAlignment="Center" Height="8" Margin="2203,1178,1674,999" Stroke="#00FF0000" VerticalAlignment="Center" Width="34" />
-            <Rectangle Fill="White" HorizontalAlignment="Center" Height="6" Margin="2213,1172,1670,1007" Stroke="#00FF0000" VerticalAlignment="Center" Width="28" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform Angle="49.275" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-            <Rectangle Fill="White" HorizontalAlignment="Center" Height="8" Margin="2213,1186,1670,991" Stroke="#00FF0000" VerticalAlignment="Center" Width="28" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform Angle="-49.275" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-        </Grid>
-    </Viewbox>
+        </Viewbox>
+    </Grid>
 </controls:MetroWindow>
