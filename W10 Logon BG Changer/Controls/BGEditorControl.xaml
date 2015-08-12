@@ -3,24 +3,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="W10_Logon_BG_Changer.Controls.BgEditorControl"
+    xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="W10_Logon_BG_Changer.Controls.BgEditorControl"
     mc:Ignorable="d"
     d:DesignHeight="700" d:DesignWidth="300">
     <Grid>
         <TextBox Focusable="False" Custom:TextBoxHelper.Watermark="Background filename appears here." Foreground="White" x:Name="SelectedFile" Height="23" Margin="10,10,10,0" TextWrapping="NoWrap"
-                  IsReadOnly="True" VerticalAlignment="Top" Style="{DynamicResource ButtonCommandMetroTextBox}">
+			IsReadOnly="True" VerticalAlignment="Top" Style="{DynamicResource ButtonCommandMetroTextBox}">
             <Custom:TextBoxHelper.ButtonContent>
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20"
-                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+						Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                                         Visual="{StaticResource appbar_image_select}" />
+								Visual="{StaticResource appbar_image_select}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock x:Name="Browse" Margin="4 0 0 0"
-                               VerticalAlignment="Center"
-                               Text="Browse" />
+						VerticalAlignment="Center"
+						Text="Browse" />
                 </StackPanel>
             </Custom:TextBoxHelper.ButtonContent>
             <TextBox.ToolTip>
@@ -42,29 +42,29 @@
         </TextBox>
         <!--<Button x:Name="BrowseButton" Content="Browse" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click"
                 HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />-->
-        <Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="24" Margin="10,82,99,0" VerticalAlignment="Top">
+        <!--<Grid x:Name="ColorPreview" Background="WhiteSmoke" Height="24" Margin="10,82,99,0" VerticalAlignment="Top">
             <TextBlock x:Name="pickColor" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,3,0,0"
                        TextWrapping="Wrap"
                        Text="Pick a color" VerticalAlignment="Top" Width="191" Foreground="Black" />
         </Grid>
         <Button x:Name="ColorPickerButton" Content="Color" Margin="0,82,10,0" VerticalAlignment="Top"
                 Click="ColorPickerButton_Click"
-                HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />
+                HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.507,1.6" />-->
         <Button x:Name="ApplyChangesButton" Click="ApplySettings_Click" Content="Apply Changes" Margin="10,0,10,73"
-                Height="42"
-                VerticalAlignment="Bottom" />
+			Height="42"
+			VerticalAlignment="Bottom" />
         <GroupBox x:Name="RestoreDefaultArea" Header="Restore to Default" Margin="0" Height="64"
-                  VerticalAlignment="Bottom">
+			VerticalAlignment="Bottom">
             <Grid>
                 <Button x:Name="RestoreDefaultButton" Click="RestoreDefaults_Click" Content="Restore Default"
-                        VerticalAlignment="Top" />
+					VerticalAlignment="Top" />
             </Grid>
         </GroupBox>
         <Button x:Name="ColorAccentButton" Content="Use Current Accent Color" Margin="10,110,10,0"
-                VerticalAlignment="Top"
-                Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
+			VerticalAlignment="Top"
+			Click="CurrentAccentButton_Click" RenderTransformOrigin="0.507,1.6" />
         <ComboBox x:Name="ImageScaleSelect" Margin="0,140,10,0" VerticalAlignment="Top" SelectedIndex="4"
-                  SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="144">
+			SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="144">
             <ComboBoxItem Content="720p" />
             <ComboBoxItem Content="1080p" />
             <ComboBoxItem Content="4K" />
@@ -72,10 +72,11 @@
             <ComboBoxItem x:Name="NoneOption"  Content="None" IsSelected="True" />
         </ComboBox>
         <TextBlock x:Name="ImageScalingLabel" Margin="10,146,213,0" TextWrapping="Wrap" Text="Image Scaling"
-                   VerticalAlignment="Top"
-                   Foreground="White" />
+			VerticalAlignment="Top"
+			Foreground="White" />
         <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
-                   VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
-        <Button x:Name="shareBG" Content="Share Background" Margin="10,0,156,120" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom" />
+			VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="26.667" />
+        <Button x:Name="SharebackgroundButton" Content="Share Background" Margin="10,0,156,120" Click="ShareBackGround_Click" Height="25" VerticalAlignment="Bottom" />
+        <xctk:ColorPicker x:Name="SolidColorPicker"  Foreground="Black" Margin="10,81,10,0" VerticalAlignment="Top" ColorMode="ColorPalette" SelectedColorChanged="ColorPicker_OnSelectedColorChanged"/>
     </Grid>
 </UserControl>
