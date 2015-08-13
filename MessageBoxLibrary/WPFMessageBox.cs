@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 
 namespace MessageBoxLibrary
 {
-    public static class WPFMessageBox
+    public static class WpfMessageBox
     {
         //
         // Summary:

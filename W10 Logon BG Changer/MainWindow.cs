@@ -64,7 +64,7 @@ namespace W10_Logon_BG_Changer
             if (!Settings.Default.Get("eula", false))
             {
                 var dlg =
-                    WPFMessageBox.Show(
+                    WpfMessageBox.Show(
                         LanguageLibrary.Language.Default.EULA,
                         LanguageLibrary.Language.Default.title_eula, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
@@ -76,7 +76,7 @@ namespace W10_Logon_BG_Changer
 
             if (Helpers.IsBackgroundDisabled())
             {
-                WPFMessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
+                WpfMessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
                     LanguageLibrary.Language.Default.title_dg_disabled, MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
@@ -243,7 +243,7 @@ namespace W10_Logon_BG_Changer
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
-            WPFMessageBox.Show(
+            WpfMessageBox.Show(
                 LanguageLibrary.Language.Default.success_apply_msg,
                 LanguageLibrary.Language.Default.title_success
                             );
@@ -400,7 +400,7 @@ namespace W10_Logon_BG_Changer
                     Clipboard.SetImage(bmp);
 
                     SettingFlyout.IsOpen = true;
-                    WPFMessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
+                    WpfMessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             });
         }

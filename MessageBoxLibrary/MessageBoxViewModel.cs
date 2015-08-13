@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Drawing;
 
 namespace MessageBoxLibrary
 {
@@ -266,13 +261,11 @@ namespace MessageBoxLibrary
         {
             get
             {
-                if (_yesCommand == null)
-                    _yesCommand = new DelegateCommand(() => 
-                        {
-                            Result = MessageBoxResult.Yes;
-                            _view.Close();
-                        });
-                return _yesCommand;
+                return _yesCommand ?? (_yesCommand = new DelegateCommand(() =>
+                {
+                    Result = MessageBoxResult.Yes;
+                    _view.Close();
+                }));
             }
         }
 
@@ -281,13 +274,11 @@ namespace MessageBoxLibrary
         {
             get
             {
-                if (_noCommand == null)
-                    _noCommand = new DelegateCommand(() => 
-                        {
-                            Result = MessageBoxResult.No;
-                            _view.Close();
-                        });
-                return _noCommand;
+                return _noCommand ?? (_noCommand = new DelegateCommand(() =>
+                {
+                    Result = MessageBoxResult.No;
+                    _view.Close();
+                }));
             }
         }
 
@@ -296,13 +287,11 @@ namespace MessageBoxLibrary
         {
             get
             {
-                if (_cancelCommand == null)
-                    _cancelCommand = new DelegateCommand(() =>
-                        {
-                            Result = MessageBoxResult.Cancel;
-                            _view.Close();
-                        });
-                return _cancelCommand;
+                return _cancelCommand ?? (_cancelCommand = new DelegateCommand(() =>
+                {
+                    Result = MessageBoxResult.Cancel;
+                    _view.Close();
+                }));
             }
         }
 
@@ -311,13 +300,11 @@ namespace MessageBoxLibrary
         {
             get
             {
-                if (_okCommand == null)
-                    _okCommand = new DelegateCommand(() => 
-                        {
-                            Result = MessageBoxResult.OK;
-                            _view.Close();
-                        });
-                return _okCommand;
+                return _okCommand ?? (_okCommand = new DelegateCommand(() =>
+                {
+                    Result = MessageBoxResult.OK;
+                    _view.Close();
+                }));
             }
         }
 
@@ -326,31 +313,26 @@ namespace MessageBoxLibrary
         {
             get
             {
-                if (_escapeCommand == null)
-                    _escapeCommand = new DelegateCommand(() =>
+                return _escapeCommand ?? (_escapeCommand = new DelegateCommand(() =>
+                {
+                    switch (ButtonOption)
                     {
-                        switch (ButtonOption)
-                        {
-                            case MessageBoxButton.OK:
-                                Result = MessageBoxResult.OK;
-                                _view.Close();
-                                break;
+                        case MessageBoxButton.OK:
+                            Result = MessageBoxResult.OK;
+                            _view.Close();
+                            break;
 
-                            case MessageBoxButton.YesNoCancel:
-                            case MessageBoxButton.OKCancel:
-                                Result = MessageBoxResult.Cancel;
-                                _view.Close();
-                                break;
+                        case MessageBoxButton.YesNoCancel:
+                        case MessageBoxButton.OKCancel:
+                            Result = MessageBoxResult.Cancel;
+                            _view.Close();
+                            break;
 
-                            case MessageBoxButton.YesNo:
-                                // ignore close
-                                break;
-
-                            default:
-                                break;
-                        }
-                    });
-                return _escapeCommand;
+                        case MessageBoxButton.YesNo:
+                            // ignore close
+                            break;
+                    }
+                }));
             }
         }
 
@@ -359,32 +341,25 @@ namespace MessageBoxLibrary
         {
             get
             {
-                if (_closeCommand == null)
-                    _closeCommand = new DelegateCommand(() =>
+                return _closeCommand ?? (_closeCommand = new DelegateCommand(() =>
+                {
+                    if (Result != MessageBoxResult.None) return;
+                    switch (ButtonOption)
                     {
-                        if (Result == MessageBoxResult.None)
-                        {
-                            switch (ButtonOption)
-                            {
-                                case MessageBoxButton.OK:
-                                    Result = MessageBoxResult.OK;
-                                    break;
+                        case MessageBoxButton.OK:
+                            Result = MessageBoxResult.OK;
+                            break;
 
-                                case MessageBoxButton.YesNoCancel:
-                                case MessageBoxButton.OKCancel:
-                                    Result = MessageBoxResult.Cancel;
-                                    break;
+                        case MessageBoxButton.YesNoCancel:
+                        case MessageBoxButton.OKCancel:
+                            Result = MessageBoxResult.Cancel;
+                            break;
 
-                                case MessageBoxButton.YesNo:
-                                    // ignore close
-                                    break;
-
-                                default:
-                                    break;
-                            }
-                        }
-                    });
-                return _closeCommand;
+                        case MessageBoxButton.YesNo:
+                            // ignore close
+                            break;
+                    }
+                }));
             }
         }
 
@@ -445,9 +420,6 @@ namespace MessageBoxLibrary
 
                 case MessageBoxResult.Cancel:
                     IsCancelDefault = true;
-                    break;
-
-                default:
                     break;
             }
         }
