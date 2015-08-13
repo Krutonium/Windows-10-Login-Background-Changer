@@ -43,11 +43,11 @@ namespace MessageBoxLibrary
     ///     <MyNamespace:CustomControl1/>
     ///
     /// </summary>
-    public class WPFMessageBoxControl : Control
+    public class WpfMessageBoxControl : Control
     {
-        static WPFMessageBoxControl()
+        static WpfMessageBoxControl()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(WPFMessageBoxControl), new FrameworkPropertyMetadata(typeof(WPFMessageBoxControl)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(WpfMessageBoxControl), new FrameworkPropertyMetadata(typeof(WpfMessageBoxControl)));
         }
     }
 }
