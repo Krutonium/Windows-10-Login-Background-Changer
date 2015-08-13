@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup>
     <targetplatformversion>8.0</targetplatformversion>
@@ -246,6 +248,10 @@
     <ProjectReference Include="..\LanguageLibrary\LanguageLibrary.csproj">
       <Project>{6616dfb1-7965-4265-a2af-723f5e293479}</Project>
       <Name>LanguageLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageBoxLibrary\MessageBoxLibrary.csproj">
+      <Project>{e199901c-f95a-449e-8306-5d492feeb4d2}</Project>
+      <Name>MessageBoxLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
       <Project>{09C77C13-2EF9-4617-B040-6C8493FBB365}</Project>

@@ -1,0 +1,10 @@
+﻿<Window x:Class="MessageBoxLibrary.WPFMessageBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MessageBoxLibrary"
+        Title="{Binding Title}" ResizeMode="NoResize" SizeToContent="WidthAndHeight" FlowDirection="{Binding TitleFlowDirection}"
+        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" MinWidth="250" Background="AntiqueWhite" Height="66">
+    <Grid>
+        <local:WpfMessageBoxControl />
+    </Grid>
+</Window>

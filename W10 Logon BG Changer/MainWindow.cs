@@ -1,4 +1,8 @@
-﻿using System;
+﻿using HelperLibrary;
+using MahApps.Metro.Controls;
+using MessageBoxLibrary;
+using SharedLibrary;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -60,9 +64,9 @@ namespace W10_Logon_BG_Changer
             if (!Settings.Default.Get("eula", false))
             {
                 var dlg =
-                    MessageBox.Show(
+                    WpfMessageBox.Show(
                         LanguageLibrary.Language.Default.EULA,
-                        LanguageLibrary.Language.Default.title_eula, MessageBoxButton.YesNo);
+                        LanguageLibrary.Language.Default.title_eula, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (dlg == MessageBoxResult.No)
                 {
@@ -72,8 +76,8 @@ namespace W10_Logon_BG_Changer
 
             if (Helpers.IsBackgroundDisabled())
             {
-                MessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
-                    LanguageLibrary.Language.Default.title_bg_disabled);
+                WpfMessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
+                    LanguageLibrary.Language.Default.title_dg_disabled, MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             Debug.WriteLine("[AccentColor]: " +
@@ -239,7 +243,7 @@ namespace W10_Logon_BG_Changer
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
-            MessageBox.Show(
+            WpfMessageBox.Show(
                 LanguageLibrary.Language.Default.success_apply_msg,
                 LanguageLibrary.Language.Default.title_success
                             );
@@ -396,7 +400,7 @@ namespace W10_Logon_BG_Changer
                     Clipboard.SetImage(bmp);
 
                     SettingFlyout.IsOpen = true;
-                    MessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
+                    WpfMessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             });
         }

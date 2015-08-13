@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MessageBoxLibrary;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -49,7 +50,9 @@ namespace W10_Logon_BG_Changer.Controls
                 name.Enabled = !code.Equals(name.LangCode, StringComparison.CurrentCultureIgnoreCase);
             }
 
-            MessageBox.Show(LanguageLibrary.Language.Default.language_set_msg, LanguageLibrary.Language.Default.title_language_set);
+            WpfMessageBox.Show(LanguageLibrary.Language.Default.language_set_msg, LanguageLibrary.Language.Default.title_language_set,
+                MessageBoxButton.OK, MessageBoxImage.Information);
+
             Settings.Default.Set("language", code);
             Settings.Default.Save();
 

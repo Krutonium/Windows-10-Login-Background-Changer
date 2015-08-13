@@ -1,4 +1,6 @@
-﻿using System;
+using MessageBoxLibrary;
+using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -121,7 +123,7 @@ namespace W10_Logon_BG_Changer.Controls
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
-            var msg = MessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg,
+            var msg = WpfMessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg,
                 LanguageLibrary.Language.Default.title_are_you_sure,
                 MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
@@ -143,8 +145,8 @@ namespace W10_Logon_BG_Changer.Controls
 
             if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
-                MessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
-                    LanguageLibrary.Language.Default.title_error);
+                WpfMessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
+                    LanguageLibrary.Language.Default.title_error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
