@@ -10,6 +10,5 @@
             <TextBlock TextWrapping="Wrap" x:Name="AboutBox" Text="TextBlock" Margin="-2,-2,0,-3" />
         </GroupBox>
         <GroupBox x:Name="AuthorsGroupBox" Header="Authors" Margin="5,104,5,10" />
-
     </Grid>
 </UserControl>

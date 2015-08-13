@@ -3,13 +3,14 @@ using System.IO;
 
 namespace SharedLibrary
 {
-    public static class PriBuilder
+    public static class LogonPriEditor
     {
-        public static void CreatePri(string currentPri, string outputPri, string image)
+        public static void ModifyLogonPri(string currentPri, string outputPri, string image)
         {
             var inputStream = File.OpenRead(currentPri);
             var outputStream = File.Create(outputPri);
-            var replacementStream = File.OpenRead(image);
+            //var replacementStream = File.OpenRead(image);
+            var replacementStream = File.ReadAllBytes(image);
 
             var inputReader = new BinaryReader(inputStream);
             var outputWriter = new BinaryWriter(outputStream);
@@ -32,9 +33,9 @@ namespace SharedLibrary
             outputStream.Seek(headerLength + dataitemOffset + 0x18, SeekOrigin.Begin);
             outputWriter.Write((int)dataitemLength);
             inputStream.Seek(headerLength + dataitemOffset + 0x24, SeekOrigin.Begin);
-            var stringCount = inputReader.ReadInt16();
-            var blobCount = inputReader.ReadInt16();
-            var origDataLength = inputReader.ReadInt32();
+            var stringCount = inputReader.ReadUInt16();
+            var blobCount = inputReader.ReadUInt16();
+            var origDataLength = inputReader.ReadUInt32();
             outputStream.Seek(0xC, SeekOrigin.Current);
             outputWriter.Write((int)(origDataLength + replacementLengthAligned));
             outputStream.Seek(stringCount * 4, SeekOrigin.Current);
@@ -51,7 +52,8 @@ namespace SharedLibrary
             {
                 throw new Exception("Not compatible with this PRI file.");
             }
-            replacementStream.CopyTo(outputStream);
+            outputWriter.Write(replacementStream);
+            //replacementStream.CopyTo(outputStream);
 
             //footer
             outputStream.Seek((long)(replacementLengthAligned - replacementStream.Length), SeekOrigin.Current);
@@ -68,7 +70,7 @@ namespace SharedLibrary
 
             inputReader.Close();
             outputWriter.Close();
-            replacementStream.Close();
+            //replacementStream.Close();
         }
     }
 }

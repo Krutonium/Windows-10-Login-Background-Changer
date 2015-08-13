@@ -16,6 +16,9 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
+  <PropertyGroup>
+    <targetplatformversion>8.0</targetplatformversion>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +50,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -61,14 +65,22 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Commands\SelectImageCommand.cs" />
     <Compile Include="Controls\LanguageSelectControl.cs">
       <DependentUpon>LanguageSelectControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsMenuControl.cs">
+      <DependentUpon>SettingsMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\CanBeNullAttribute.cs" />
     <Compile Include="Properties\AspChildControlTypeAttribute.cs" />
@@ -138,7 +150,7 @@
     <Compile Include="Properties\ValueProviderAttribute.cs" />
     <Compile Include="Properties\XamlItemBindingOfItemsControlAttribute.cs" />
     <Compile Include="Properties\XamlItemsControlAttribute.cs" />
-    <Compile Include="Tools\Animations\ImageFader.cs" />
+    <Compile Include="Tools\Animations\ControlFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
     <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\Helpers.cs" />
@@ -156,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\LanguageSelectControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SettingsMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,7 +245,7 @@
       <Project>{D80AC683-AB1C-4D44-9094-CC60A1011657}</Project>
       <Name>HelperLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LangaugeLibrary\LanguageLibrary.csproj">
+    <ProjectReference Include="..\LanguageLibrary\LanguageLibrary.csproj">
       <Project>{6616dfb1-7965-4265-a2af-723f5e293479}</Project>
       <Name>LanguageLibrary</Name>
     </ProjectReference>
@@ -246,8 +262,6 @@
     <None Include="Resources\Authors.txt" />
     <Resource Include="Eula.ico" />
     <Resource Include="Images\glyphs.png" />
-    <Resource Include="Images\pswd.png" />
-    <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\trans.png" />

@@ -7,13 +7,14 @@
 
 **[Download](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/latest)**
 
-[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)
+**[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)**
 
-In the event your login screen breaks, please fix it using [this method](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/wiki/Can't-Login) and then [report](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/issues/new?title=Login%20screen%20is%20broken) that it didn't work to us, along with the image you used and the version of the application. If you can also provide the broken .pri file, that will also be useful to us. Thanks!
+## Notes
+* **Very light colors makes the username and email hard to see. Be careful with lighter colors.**
+* **Some antivirus programs detect this as a virus, so turn it off (temporarily) before you start this program!**
+* **Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.**
 
-**Note: Very light colors makes the username and email hard to see. Be careful with lighter colors.**
-
-Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.
+In the event your login screen breaks, please fix it using [this method](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/wiki/Can't-Login) and then [report](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/issues/new?title=Login%20Screen%20is%20Broken) that it didn't work to us, along with the image you used and the version of the application. If you can also provide the broken .pri file, that will also be useful to us. Thanks!
 
 # Screenshots
 
@@ -22,3 +23,11 @@ Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.
 
 ### Command Line:
 ![Command Line with help](https://camo.githubusercontent.com/b2183614d3e49981e14d0baabc8b6b61d313ee78/687474703a2f2f7075752e73682f6a746679742f656433306364666231652e706e67)
+
+## User Tips (screen does not flicker) 谷歌翻译
+Step 1: [Windows.UI.Logon.pri.bak.7z](https://github.com/angelkyo/Windows-10-Login-Background-Changer/releases/download/zh_CN_1.1.0.0/Windows.UI.Logon.pri.bak.7z) download this attachment, after extracting "Windows.UI.Logon.pri.bak" file into the "C:\Windows\SystemResources\Windows.UI.Logon" directory, if you has this .bak files in this directory, replace it!
+
+Step 2: Download "W10 Logon BG Changer" , You can use this software to modify the login background.
+
+Note: Please strictly follow the steps to login screen flicker situation will not arise.
+

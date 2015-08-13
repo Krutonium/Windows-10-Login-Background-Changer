@@ -1,6 +1,4 @@
-﻿using MahApps.Metro.Controls;
 using MessageBoxLibrary;
-using SharedLibrary;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -9,20 +7,17 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MahApps.Metro.Controls;
+using Microsoft.Win32;
+using SharedLibrary;
 using TSettings;
-using W10_Logon_BG_Changer.Tools;
+using W10_Logon_BG_Changer.Controls.Commands;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
-using Brush = System.Windows.Media.Brush;
-using Button = System.Windows.Controls.Button;
-using Color = System.Drawing.Color;
-using ComboBox = System.Windows.Controls.ComboBox;
+using Brush = System.Drawing.Brush;
+using Color = System.Windows.Media.Color;
 using Image = System.Drawing.Image;
-using MessageBox = System.Windows.MessageBox;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
-using UserControl = System.Windows.Controls.UserControl;
 
 namespace W10_Logon_BG_Changer.Controls
 {
@@ -33,63 +28,42 @@ namespace W10_Logon_BG_Changer.Controls
     {
         public static int Scaling = 5;
         private readonly MainWindow _mainWindow;
-        private readonly Brush _orgColor;
+        private readonly Color _orgColor;
         private bool _runningApplySettings;
 
         public BgEditorControl(MainWindow mainWindow)
         {
             _mainWindow = mainWindow;
             InitializeComponent();
-            _orgColor = ColorPreview.Background;
+            _orgColor = SolidColorPicker.SelectedColor ?? Colors.White;
 
-            ShowUserImageToggle.Checked += _mainWindow.ToggleButton_OnChecked;
-            ShowUserImageToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
+            var color = Settings.Default.Get("dcolor", System.Drawing.Color.WhiteSmoke);
+            SolidColorPicker.SelectedColor = color.ToMediaColor();
 
-            ShowGlyphsIconsToggle.Checked += _mainWindow.ToggleButton_OnChecked;
-            ShowGlyphsIconsToggle.Unchecked += _mainWindow.ToggleButton_OnUnchecked;
-
-            ShowUserImageToggle.IsChecked = Settings.Default.Get("uimage", true); //Settings.Default.uimage;
-            ShowGlyphsIconsToggle.IsChecked = Settings.Default.Get("gimage", true); //Settings.Default.gimage;
-
-            var color = Settings.Default.Get("dcolor", Color.WhiteSmoke);
-
-            ColorPreview.Background =
-                new SolidColorBrush(color.ToMediaColor());
-
-            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
-
-            //Debug.WriteLine(Settings.Default.flyoutloc);
-            switch (Settings.Default.Get("flyout", Position.Right))
-            {
-                case Position.Right:
-                    FlyoutPosSelect.SelectedIndex = 1;
-                    break;
-
-                case Position.Left:
-                    FlyoutPosSelect.SelectedIndex = 0;
-                    break;
-            }
-
-            BrowseButton.Content = LanguageLibrary.Language.Default.browse_button;
-            ColorPickerButton.Content = LanguageLibrary.Language.Default.color_button;
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
-            pickColor.Text = LanguageLibrary.Language.Default.color_preview;
             ColorAccentButton.Content = LanguageLibrary.Language.Default.accet_color_button;
             ApplyChangesButton.Content = LanguageLibrary.Language.Default.apply_changes_button;
             ImageScalingLabel.Text = LanguageLibrary.Language.Default.image_scale;
-            ShowUserInfoLabel.Text = LanguageLibrary.Language.Default.show_user_info;
-            ShowGlyphsLabel.Text = LanguageLibrary.Language.Default.show_glyphs;
-            FlyoutLocationLabel.Text = LanguageLibrary.Language.Default.flyout_loc;
-            RestoreHeroButton.Content = LanguageLibrary.Language.Default.restore_hero_button;
             RestoreDefaultButton.Content = LanguageLibrary.Language.Default.restore_defaults_button;
             RestoreDefaultArea.Header = LanguageLibrary.Language.Default.group_restore_default;
-            AdvancedOptionsArea.Header = LanguageLibrary.Language.Default.group_advanced_options;
             textBlock.Text = LanguageLibrary.Language.Default.or;
-            ImageScaleSelect.Items.RemoveAt(3);
-            ImageScaleSelect.Items.Insert(3, LanguageLibrary.Language.Default.image_scale_Resolution);
+            SharebackgroundButton.Content = LanguageLibrary.Language.Default.share_bg;
+            MyResolutionOption.Content = LanguageLibrary.Language.Default.image_scale_Resolution;
+            NoneOption.Content = LanguageLibrary.Language.Default.scale_none_opt;
+
+            TextBoxHelper.SetWatermark(SelectedFile, LanguageLibrary.Language.Default.select_img);
+
+            TextBoxHelper.SetButtonCommandParameter(SelectedFile, "Hello World");
+            TextBoxHelper.SetButtonCommand(SelectedFile, new SelectImageCommand(this, _mainWindow));
+            ColorPickerButton.Content = LanguageLibrary.Language.Default.color_picker_button;
+            SolidColorPicker.ToolTip = LanguageLibrary.Language.Default.solid_color_picker_tooltip;
+            SolidColorPicker.StandardButtonHeader = LanguageLibrary.Language.Default.solid_color_standard;
+            SolidColorPicker.AdvancedButtonHeader = LanguageLibrary.Language.Default.solid_color_advanced;
+            SolidColorPicker.StandardColorsHeader = LanguageLibrary.Language.Default.solid_color_standard_colors;
+            SolidColorPicker.AvailableColorsHeader = LanguageLibrary.Language.Default.solid_color_available_colors;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public void SelectImageEvent_Clicked(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog
             {
@@ -118,33 +92,33 @@ namespace W10_Logon_BG_Changer.Controls
                 }
             }
 
-            _mainWindow.SelectedFile = fileName;
             SelectedFile.Text = ofd.SafeFileName;
-            ColorPreview.Background = _orgColor;
-            var c = ((SolidColorBrush)ColorPreview.Background).Color;
+            //ColorPreview.Background = _orgColor;
+            /*var c = ((SolidColorBrush)ColorPreview.Background).Color;
             var color = Color.FromArgb(c.R, c.G, c.B);
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
+            */
+            SolidColorPicker.SelectedColor = _orgColor;
+            _mainWindow.SelectedFile = fileName;
 
-            Settings.Default.Set("dcolor", color);
+            Settings.Default.Set("dcolor", System.Drawing.Color.FromArgb(_orgColor.R, _orgColor.G, _orgColor.B));
             Settings.Default.Set("filename", ofd.FileName);
             Settings.Default.Save();
             _mainWindow.GlyphsViewer.ToolTip = ofd.FileName;
-        }
 
-        private void ColorPickerButton_Click(object sender, RoutedEventArgs e)
-        {
-            var cfd = new ColorDialog();
-            var dialog = cfd.ShowDialog();
+            var t = Path.GetTempFileName();
+            var f = Path.GetTempFileName();
 
-            if (dialog != DialogResult.OK && dialog != DialogResult.Yes) return;
-            _mainWindow.SelectedFile = FillImageColor(cfd.Color);
+            File.Copy(Config.BakPriFileLocation, f, true);
+            LogonPriEditor.ModifyLogonPri(f, t, ofd.FileName);
 
-            ColorPreview.Background = new SolidColorBrush(cfd.Color.ToMediaColor());
-            ;
+            var loadedMeta = SharedHelpers.GetFileSize(ofd.FileName);
+            ActualFileSizeTp.Text = loadedMeta.ActualFileSizeHuman;
+            LoadedFileSizeTp.Text = loadedMeta.LoadedFileSizeHuman;
+            PriFileSizeTp.Text = SharedHelpers.GetFileSize(t).ActualFileSizeHuman;
 
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
-
-            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(cfd.Color).ToMediaColor());
+            File.Delete(t);
+            File.Delete(f);
         }
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
@@ -176,11 +150,17 @@ namespace W10_Logon_BG_Changer.Controls
                 return;
             }
 
-            var c = ((SolidColorBrush)ColorPreview.Background).Color;
+            /*var c = ((SolidColorBrush)ColorPreview.Background).Color;
             var color = Color.FromArgb(c.R, c.G, c.B);
             pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(color).ToMediaColor());
 
-            Settings.Default.Set("dcolor", color);
+            Settings.Default.Set("dcolor", color);*/
+            var c = SolidColorPicker.SelectedColor;
+            if (c.HasValue)
+                Settings.Default.Set("dcolor", System.Drawing.Color.FromArgb(c.Value.R, c.Value.G, c.Value.B));
+            else
+                Settings.Default.Delete("dcolor");
+
             Settings.Default.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
             Settings.Default.Save();
             _runningApplySettings = true;
@@ -211,7 +191,7 @@ namespace W10_Logon_BG_Changer.Controls
         {
             var f = Path.GetTempFileName();
 
-            DrawFilledRectangle(1024, 1024, new SolidBrush(Color.Transparent)).Save(f, ImageFormat.Png);
+            DrawFilledRectangle(1024, 1024, new SolidBrush(System.Drawing.Color.Transparent)).Save(f, ImageFormat.Png);
 
             _mainWindow.SelectedFile = f;
 
@@ -219,35 +199,15 @@ namespace W10_Logon_BG_Changer.Controls
 
             Reset(FillImageColor(c));
 
-            var hex = ColorTranslator.ToHtml(Color.FromArgb(c.ToArgb()));
 
-            var converter = new BrushConverter();
-            var fillcolor = (Brush)converter.ConvertFromString(hex);
-
-            ColorPreview.Background = fillcolor;
-
-            pickColor.Foreground = new SolidColorBrush(Helpers.ContrastColor(c).ToMediaColor());
-        }
-
-        private void RestoreHeroDefaults_Click(object sender, RoutedEventArgs e)
-        {
-            var f = Path.GetTempFileName();
-
-            Properties.Resources._default.Save(f, ImageFormat.Png);
-
-            _mainWindow.SelectedFile = f;
-
-            Reset();
+            SolidColorPicker.SelectedColor = c.ToMediaColor();
         }
 
         private void Reset(string image = "")
         {
-            SelectedFile.Text = LanguageLibrary.Language.Default.select_img;
-            ColorPreview.Background = _orgColor;
-            var c = ((SolidColorBrush)ColorPreview.Background).Color;
-            var color = Color.FromArgb(c.R, c.G, c.B);
-
-            Settings.Default.Set("dcolor", color);
+            SelectedFile.Text = string.Empty;
+            SolidColorPicker.SelectedColor = _orgColor;
+            Settings.Default.Set("dcolor", System.Drawing.Color.FromArgb(_orgColor.R, _orgColor.G, _orgColor.B));
 
             if (image != "")
             {
@@ -260,7 +220,7 @@ namespace W10_Logon_BG_Changer.Controls
             _mainWindow.WallpaperViewer.Source = new BitmapImage(new Uri(url));
         }
 
-        public string FillImageColor(Color c)
+        public string FillImageColor(System.Drawing.Color c)
         {
             var image = Path.GetTempFileName();
 
@@ -269,7 +229,7 @@ namespace W10_Logon_BG_Changer.Controls
             return image;
         }
 
-        private static Bitmap DrawFilledRectangle(int x, int y, System.Drawing.Brush b)
+        private static Bitmap DrawFilledRectangle(int x, int y, Brush b)
         {
             var bmp = new Bitmap(x, y);
             using (var graph = Graphics.FromImage(bmp))
@@ -285,19 +245,16 @@ namespace W10_Logon_BG_Changer.Controls
             Scaling = ((ComboBox)sender).SelectedIndex;
         }
 
-        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ShareBackGround_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(((ComboBox)sender).SelectedIndex);
-            switch (((ComboBox)sender).SelectedIndex)
-            {
-                case 0:
-                    _mainWindow.ChangeFlyoutLocation("left");
-                    break;
+            _mainWindow.CreateBitmapFromVisual();
+        }
 
-                case 1:
-                    _mainWindow.ChangeFlyoutLocation("right");
-                    break;
-            }
+        private void ColorPickerPreviewButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SolidColorPicker.SelectedColor == null) return;
+            var c = SolidColorPicker.SelectedColor.Value;
+            _mainWindow.SelectedFile = FillImageColor(System.Drawing.Color.FromArgb(c.R, c.G, c.B));
         }
     }
 }

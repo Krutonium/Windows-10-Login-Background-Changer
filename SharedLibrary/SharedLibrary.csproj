@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Extenstions.cs" />
-    <Compile Include="PriBuilder.cs" />
+    <Compile Include="SharedHelpers.cs" />
+    <Compile Include="LogonPriEditor.cs" />
+    <Compile Include="Models\FileSizeMetaInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <lang_name>עברית</lang_name>
+  <title_error>שגיאה</title_error>
+  <title_info>מידע</title_info>
+  <title_warning>אזהרה</title_warning>
+  <title_finished>הסתיים</title_finished>
+  <title_success>הצלחה!</title_success>
+  <title_eula>תנאי שימוש</title_eula>
+  <title_bg_disabled>הרקע הושבת</title_bg_disabled>
+  <title_are_you_sure>האם אתם בטוחים?</title_are_you_sure>
+  <title_language_set>בחר שפה</title_language_set>
+  <title_select_image>בחר תמונה</title_select_image>
+  <main_top_about>אודות</main_top_about>
+  <main_top_lock>נעילה</main_top_lock>
+  <main_top_edit>ערוך רקע</main_top_edit>
+  <main_top_sel_lang>בחר שפה</main_top_sel_lang>
+  <flyout_edit_title>ערוך רקע</flyout_edit_title>
+  <flyout_about_title>אודות</flyout_about_title>
+  <group_restore_default>שחזר ברירת מחדל</group_restore_default>
+  <group_advanced_options>הגדרות</group_advanced_options>
+  <group_authors_area>מפתחים</group_authors_area>
+  <group_about_area>על התוכנה</group_about_area>
+  <browse_button>בחר קובץ</browse_button>
+  <color_button>צבע</color_button>
+  <accet_color_button>השתמש בצבע המערכת הנוכחי</accet_color_button>
+  <apply_changes_button>להחיל את השינויים?</apply_changes_button>
+  <restore_defaults_button>שחזר ברירת מחדל</restore_defaults_button>
+  <restore_hero_button>שחזר את Hero</restore_hero_button>
+  <image_scale_Resolution>הרזולוציה שלי</image_scale_Resolution>
+  <image_scale>שינוי גודל תמונה</image_scale>
+  <show_user_info>הצג את פרטי המשתמש</show_user_info>
+  <show_glyphs>הצג אייקונים</show_glyphs>
+  <flyout_loc>כיוון תצוגה</flyout_loc>
+  <or>או</or>
+  <background_disabled>תמונת הרקע מבוטלת דרך הרגיסטרי</background_disabled>
+  <EULA>השימוש בתוכנה באחריותך בלבד, אנחנו לא אחראים אם כתוצאה מכך המערכת שלך עלולה להפסיק לעבוד כראוי</EULA>
+  <color_preview>תצוגת צבע מקדימה</color_preview>
+  <finished_msg>עליכם לבחור קובץ לפני שתוכלו להגדיר אותו כרקע! (הגדרות ברירת המחדל גם נחשבות כקובץ)</finished_msg>
+  <select_img>שם קובץ הרקע</select_img>
+  <reset_image_msg>האם אתה בטוח שברצונך לאפס את התמונה הנוכחית?</reset_image_msg>
+  <no_selected_file>עליכם לבחור קובץ לפני שתוכלו להגדיר אותו כרקע! (הגדרות ברירת המחדל גם נחשבות כקובץ)</no_selected_file>
+  <success_apply_msg>תמונת הרקע של מסך הנעילה שונתה בהצלחה! אנא נעל את המחשב כדי לצפות ברקע החדש שלך.</success_apply_msg>
+  <language_set_msg>Language is set. Application must restart to apply language</language_set_msg>
+</Language>

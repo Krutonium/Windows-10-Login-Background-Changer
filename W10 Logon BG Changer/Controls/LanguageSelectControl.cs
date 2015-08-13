@@ -16,7 +16,7 @@ namespace W10_Logon_BG_Changer.Controls
     public partial class LanguageSelectControl : UserControl
     {
         private readonly MainWindow _mainWindow;
-        public readonly ObservableCollection<LangFormatTree> Names = new ObservableCollection<LangFormatTree>();
+        private readonly ObservableCollection<LangFormatTree> Names = new ObservableCollection<LangFormatTree>();
 
         public LanguageSelectControl(MainWindow mainWindow)
         {
@@ -50,8 +50,9 @@ namespace W10_Logon_BG_Changer.Controls
                 name.Enabled = !code.Equals(name.LangCode, StringComparison.CurrentCultureIgnoreCase);
             }
 
-            WPFMessageBox.Show(LanguageLibrary.Language.Default.language_set_msg,LanguageLibrary.Language.Default.title_language_set, 
+            WPFMessageBox.Show(LanguageLibrary.Language.Default.language_set_msg, LanguageLibrary.Language.Default.title_language_set,
                 MessageBoxButton.OK, MessageBoxImage.Information);
+
             Settings.Default.Set("language", code);
             Settings.Default.Save();
 
