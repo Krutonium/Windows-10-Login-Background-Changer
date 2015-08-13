@@ -400,7 +400,7 @@ namespace W10_Logon_BG_Changer
                     Clipboard.SetImage(bmp);
 
                     SettingFlyout.IsOpen = true;
-                    MessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
+                    WPFMessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             });
         }
