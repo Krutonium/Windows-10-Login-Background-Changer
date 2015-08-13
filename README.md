@@ -23,3 +23,11 @@ In the event your login screen breaks, please fix it using [this method](https:/
 
 ### Command Line:
 ![Command Line with help](https://camo.githubusercontent.com/b2183614d3e49981e14d0baabc8b6b61d313ee78/687474703a2f2f7075752e73682f6a746679742f656433306364666231652e706e67)
+
+## User Tips (screen does not flicker) 谷歌翻译
+Step 1: [Windows.UI.Logon.pri.bak.7z](https://github.com/angelkyo/Windows-10-Login-Background-Changer/releases/download/zh_CN_1.1.0.0/Windows.UI.Logon.pri.bak.7z) download this attachment, after extracting "Windows.UI.Logon.pri.bak" file into the "C:\Windows\SystemResources\Windows.UI.Logon" directory, if you has this .bak files in this directory, replace it!
+
+Step 2: Download "W10 Logon BG Changer" , You can use this software to modify the login background.
+
+Note: Please strictly follow the steps to login screen flicker situation will not arise.
+
