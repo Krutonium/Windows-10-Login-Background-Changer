@@ -1,6 +1,6 @@
 using System;
 
-namespace W10_Logon_BG_Changer.Annotations
+namespace W10_Logon_BG_Changer.Properties
 {
     /// <summary>
     ///     When applied to a target attribute, specifies a requirement for any type marked

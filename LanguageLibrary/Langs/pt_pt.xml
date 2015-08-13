@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <lang_name>Português (Portugal)</lang_name>
+
+  <!-- titles -->
+  <title_error>Erro</title_error>
+  <title_info>Informação</title_info>
+  <title_warning>Aviso</title_warning>
+  <title_finished>Concluído</title_finished>
+  <title_success>Sucesso</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Fundo Inativo</title_bg_disabled>
+  <title_are_you_sure>Tens a certeza?</title_are_you_sure>
+  <title_language_set>Esquema de idioma</title_language_set>
+  <title_select_image>Escolhe uma imagem</title_select_image>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>Sobre</main_top_about>
+  <main_top_lock>Bloquear o Windows</main_top_lock>
+  <main_top_edit>Editar Fundo</main_top_edit>
+  <main_top_sel_lang>Escolher Idioma</main_top_sel_lang>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Editar Fundo</flyout_edit_title>
+  <flyout_about_title>Sobre</flyout_about_title>
+
+  <!-- Groups -->
+  <group_restore_default>Restaurar predefinições</group_restore_default>
+  <group_advanced_options>Definições da aplicação</group_advanced_options>
+  <group_authors_area>Autores</group_authors_area>
+  <group_about_area>Sobre</group_about_area>
+
+  <!-- Buttons -->
+  <browse_button>Navegar</browse_button>
+  <color_button>Cor</color_button>
+  <accet_color_button>Usar cor acentuada atual</accet_color_button>
+  <apply_changes_button>Aplicar alterações?</apply_changes_button>
+  <restore_defaults_button>Restaurar predefinições</restore_defaults_button>
+  <restore_hero_button>Restaurar Hero</restore_hero_button>
+  <image_scale_Resolution>A minha resolução</image_scale_Resolution>
+
+  <!-- Labels -->
+  <image_scale>Escala da imagem</image_scale>
+  <show_user_info>Mostrar informação do utilizador</show_user_info>
+  <show_glyphs>Mostrar símbolos</show_glyphs>
+  <flyout_loc>Posição do Flyout</flyout_loc>
+  <or>OU</or>
+
+  <!-- Message bodies -->
+  <background_disabled>A imagem de fundo está inativa no registo</background_disabled>
+  <EULA>Concordas que ao usar este programa, nós não somos responsáveis caso o teu sistema deixe de funcionar corretamente.</EULA>
+  <color_preview>Previsão de cor</color_preview>
+  <finished_msg>Primeiro é necessário que escolhas uma imagem antes de poderes definir o teu fundo do início de sessão! (As opções predefinidas contam como um ficheiro)"</finished_msg>
+  <select_img>O nome do ficheiro de fundo aparece aqui.</select_img>
+  <reset_image_msg>Tens a certeza que queres repor a imagem?</reset_image_msg>
+  <no_selected_file>Primeiro é necessário que escolhas uma imagem antes de poderes definir o teu fundo do início de sessão! (As opções predefinidas contam como um ficheiro)</no_selected_file>
+  <success_apply_msg>O fundo do início de sessão foi alterado com sucesso! Por favor, bloqueia o teu dispositivo para veres o teu novo fundo.</success_apply_msg>
+  <language_set_msg>Idioma definido. A aplicação tem de ser reiniciada para aplicar a alteração do idioma</language_set_msg>
+</Language>

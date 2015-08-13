@@ -1,7 +1,4 @@
-﻿using HelperLibrary;
-using MahApps.Metro.Controls;
-using SharedLibrary;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,16 +6,24 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using HelperLibrary;
+using MahApps.Metro.Controls;
+using SharedLibrary;
 using TSettings;
 using TSettings.Encryptions;
 using W10_Logon_BG_Changer.Controls;
 using W10_Logon_BG_Changer.Tools;
 using W10_Logon_BG_Changer.Tools.Animations;
 using W10_Logon_BG_Changer.Tools.UserColorHandler;
+using Point = System.Windows.Point;
+using Size = System.Drawing.Size;
 
 namespace W10_Logon_BG_Changer
 {
@@ -35,6 +40,7 @@ namespace W10_Logon_BG_Changer
         public MainWindow()
         {
             InitializeComponent();
+            Debug.WriteLine("[User Picture]: " + Helpers.GetUserTilePath(null));
             Settings.Init(Config.SettingsFilePath, new DesEncrpytion("W10Logon", "W10Logon"));
 
             var currentLang = CultureInfo.CurrentCulture.ToString().ToLower().Replace("-", "_");
@@ -67,7 +73,7 @@ namespace W10_Logon_BG_Changer
             if (Helpers.IsBackgroundDisabled())
             {
                 MessageBox.Show(LanguageLibrary.Language.Default.background_disabled,
-                    LanguageLibrary.Language.Default.title_dg_disabled);
+                    LanguageLibrary.Language.Default.title_bg_disabled);
             }
 
             Debug.WriteLine("[AccentColor]: " +
@@ -80,7 +86,7 @@ namespace W10_Logon_BG_Changer
 
             Debug.WriteLine("[EULA Test] {0}", Settings.Default.Get<bool>("eula"));
 
-            LanguageFlyout.Content = new LanguageSelectControl(this);
+            ApplicationSettingsFlyout.Content = new SettingsMenuControl(this);
 
             SettingFlyout.Content = new BgEditorControl(this);
             SettingFlyout.IsOpen = true;
@@ -109,7 +115,6 @@ namespace W10_Logon_BG_Changer
                 Settings.Default.Save();
 
                 File.Delete(Config.CurrentImageLocation);
-                //WallpaperViewer.Source = new BitmapImage(new Uri(temp));
             }
 
             Loaded += (o, i) =>
@@ -130,10 +135,18 @@ namespace W10_Logon_BG_Changer
             EditBackgroundLabel.Text = LanguageLibrary.Language.Default.main_top_edit;
             LockWindowsLabel.Text = LanguageLibrary.Language.Default.main_top_lock;
             AboutButton.Content = LanguageLibrary.Language.Default.main_top_about;
-            LanguageSelect.Content = LanguageLibrary.Language.Default.main_top_sel_lang;
             SettingFlyout.Header = LanguageLibrary.Language.Default.flyout_edit_title;
             AboutFlyout.Header = LanguageLibrary.Language.Default.flyout_about_title;
-            LanguageFlyout.Header = LanguageLibrary.Language.Default.main_top_sel_lang;
+            ApplicationSettingsFlyout.Header = LanguageLibrary.Language.Default.flyout_settings_title;
+            settingsName.Text = LanguageLibrary.Language.Default.flyout_settings_title;
+
+#if !DEBUG
+            UsernameFeild.Text = Environment.UserName;
+#endif
+            UserDisplayPicture.Source =
+                Image.FromFile(Helpers.GetUserTilePath(null))
+                    .ResizeImage(new Size(300, 300))
+                    .ToBitmapSource();
         }
 
         public string SelectedFile
@@ -222,7 +235,7 @@ namespace W10_Logon_BG_Changer
                     break;
             }
 
-            PriBuilder.CreatePri(_tempPriFile, _newPriLocation, imagetemp);
+            LogonPriEditor.ModifyLogonPri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
 
@@ -254,11 +267,11 @@ namespace W10_Logon_BG_Changer
                     switch (tb.IsChecked)
                     {
                         case true:
-                            ImageFader.fadeIn(GlyphsViewer);
+                            ControlFader.FadeIn(GlyphsViewer);
                             break;
 
                         case false:
-                            ImageFader.fadeOut(GlyphsViewer);
+                            ControlFader.FadeOut(GlyphsViewer);
                             break;
                     }
                     break;
@@ -267,11 +280,10 @@ namespace W10_Logon_BG_Changer
                     switch (tb.IsChecked)
                     {
                         case true:
-                            ImageFader.fadeIn(UserViewer);
+                            ControlFader.FadeIn(InformationFeilds);
                             break;
-
                         case false:
-                            ImageFader.fadeOut(UserViewer);
+                            ControlFader.FadeOut(InformationFeilds);
                             break;
                     }
                     break;
@@ -318,13 +330,17 @@ namespace W10_Logon_BG_Changer
                 case "left":
                     SettingFlyout.Position = Position.Left;
                     AboutFlyout.Position = Position.Right;
+                    ApplicationSettingsFlyout.Position = Position.Right;
                     Debug.WriteLine("[AboutFlyout]: right");
+                    Debug.WriteLine("[ApplicationSettingsFlyout]: right");
                     break;
 
                 case "right":
                     SettingFlyout.Position = Position.Right;
                     AboutFlyout.Position = Position.Left;
+                    ApplicationSettingsFlyout.Position = Position.Left;
                     Debug.WriteLine("[AboutFlyout]: left");
+                    Debug.WriteLine("[ApplicationSettingsFlyout]: left");
                     break;
             }
 
@@ -336,11 +352,58 @@ namespace W10_Logon_BG_Changer
         {
             SettingFlyout.IsOpen = false;
             AboutFlyout.IsOpen = false;
+            ApplicationSettingsFlyout.IsOpen = false;
         }
 
-        private void LanguageSelect_OnClick(object sender, RoutedEventArgs e)
+        public void CreateBitmapFromVisual()
         {
-            LanguageFlyout.IsOpen = !LanguageFlyout.IsOpen;
+            SettingFlyout.Visibility = Visibility.Hidden;
+            AboutFlyout.Visibility = Visibility.Hidden;
+            ApplicationSettingsFlyout.Visibility = Visibility.Hidden;
+
+            Task.Run(() =>
+            {
+                Thread.Sleep(2000);
+            }).ContinueWith(_ =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    var target = LogonScreenPreview;
+                    Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+
+                    RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height,
+                        96,
+                        96, PixelFormats.Pbgra32);
+
+                    DrawingVisual visual = new DrawingVisual();
+
+                    using (DrawingContext context = visual.RenderOpen())
+                    {
+                        VisualBrush visualBrush = new VisualBrush(target);
+                        context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+                    }
+
+                    renderTarget.Render(visual);
+                    PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+                    bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+                    var f = Path.GetTempFileName();
+                    using (Stream stm = File.Create(f))
+                    {
+                        bitmapEncoder.Save(stm);
+                    }
+
+                    var bmp = new BitmapImage(new Uri(f));
+                    Clipboard.SetImage(bmp);
+
+                    SettingFlyout.IsOpen = true;
+                    MessageBox.Show(LanguageLibrary.Language.Default.saved_clipboard_msg, LanguageLibrary.Language.Default.title_saved_clipboard, MessageBoxButton.OK, MessageBoxImage.Information);
+                });
+            });
+        }
+
+        private void ApplicationSettings_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationSettingsFlyout.IsOpen = !ApplicationSettingsFlyout.IsOpen;
         }
     }
 }

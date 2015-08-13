@@ -153,7 +153,7 @@ namespace W10_Logon_BG_Changer___Command_Line
         {
             File.Copy(Config.BakPriFileLocation, TempPriFile, true);
 
-            PriBuilder.CreatePri(TempPriFile, NewPriLocation, filedir);
+            LogonPriEditor.ModifyLogonPri(TempPriFile, NewPriLocation, filedir);
 
             File.Copy(NewPriLocation, Config.PriFileLocation, true);
         }
@@ -189,7 +189,7 @@ namespace W10_Logon_BG_Changer___Command_Line
 
             File.Copy(Config.BakPriFileLocation, TempPriFile, true);
 
-            PriBuilder.CreatePri(TempPriFile, NewPriLocation, image);
+            LogonPriEditor.ModifyLogonPri(TempPriFile, NewPriLocation, image);
 
             File.Copy(NewPriLocation, Config.PriFileLocation, true);
         }

@@ -1,6 +1,6 @@
 using System;
 
-namespace W10_Logon_BG_Changer.Annotations
+namespace W10_Logon_BG_Changer.Properties
 {
     /// <summary>
     ///     Razor attribute. Indicates that a parameter or a method is a Razor section.

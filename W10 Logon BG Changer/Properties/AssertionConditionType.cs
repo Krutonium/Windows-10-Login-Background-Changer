@@ -1,4 +1,4 @@
-namespace W10_Logon_BG_Changer.Annotations
+namespace W10_Logon_BG_Changer.Properties
 {
     /// <summary>
     ///     Specifies assertion type. If the assertion method argument satisfies the condition,

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <lang_name>Українська UA</lang_name>
+  <title_error>Помилка</title_error>
+  <title_info>Інформація</title_info>
+  <title_warning>Попередження</title_warning>
+  <title_finished>Готово</title_finished>
+  <title_success>Вдало</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Фон відключено</title_bg_disabled>
+  <title_are_you_sure>Ви впевнені ?</title_are_you_sure>
+  <title_language_set>Мовні параметри</title_language_set>
+  <title_select_image>Виберіть зображення</title_select_image>
+  <main_top_about>Детальніше</main_top_about>
+  <main_top_lock>Заблокувати Windows</main_top_lock>
+  <main_top_edit>Редагувати фон</main_top_edit>
+  <main_top_sel_lang>Вибрати мову</main_top_sel_lang>
+  <flyout_edit_title>Выбрати фон</flyout_edit_title>
+  <flyout_about_title>Детальніше</flyout_about_title>
+  <group_restore_default>Налаштування за замовчуванням</group_restore_default>
+  <group_advanced_options>Налаштування програми</group_advanced_options>
+  <group_authors_area>Автори</group_authors_area>
+  <group_about_area>Детальніше</group_about_area>
+  <browse_button>Огляд</browse_button>
+  <color_button>Колір</color_button>
+  <accet_color_button>Використовувати теперішній колір</accet_color_button>
+  <apply_changes_button>Зберегти зміни ?</apply_changes_button>
+  <restore_defaults_button>Повернути налатування за замовчуванням</restore_defaults_button>
+  <restore_hero_button>Майстер відновлення</restore_hero_button>
+  <image_scale_Resolution>Роздільна здатність екрану</image_scale_Resolution>
+  <image_scale>Розмір зображення</image_scale>
+  <show_user_info>Показувати інформацію користувача</show_user_info>
+  <show_glyphs>Показувати знаки</show_glyphs>
+  <flyout_loc>Flyout Location</flyout_loc>
+  <or>Чи</or>
+  <background_disabled>Фонове зображення відключене в реестрі</background_disabled>
+  <EULA> Підтверджуючи згоду , ви берете всю відповідальність за нестабільну роботу ПК на себе.</EULA>
+  <color_preview>Попередній перегляд кольору</color_preview>
+  <finished_msg>Потрібно вибрати файл перш ніж міняти фонове зображення !</finished_msg>
+  <select_img>Назва файлу</select_img>
+  <reset_image_msg>Ви впевнені , що хочете скинути установки зображення ?</reset_image_msg>
+  <no_selected_file>Потрібно вибрати файл перш ніж міняти фонове зображення !</no_selected_file>
+  <success_apply_msg>Фон змінено успішно. Будь-ласка , заблокуйте ПК для огляду нового екрану блокування</success_apply_msg>
+  <language_set_msg>Мову змінено. Потрібен рестарт програми для зміни мови</language_set_msg>
+</Language>

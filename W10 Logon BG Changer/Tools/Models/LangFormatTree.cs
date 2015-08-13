@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using W10_Logon_BG_Changer.Annotations;
+using W10_Logon_BG_Changer.Properties;
 
 namespace W10_Logon_BG_Changer.Tools.Models
 {
