@@ -35,4 +35,6 @@
   <select_img>Le fiche de background apparaît ici</select_img>
   <reset_image_msg>Est-ce que vous voulez réinitialiser l'image?</reset_image_msg>
   <no_selected_file>Vous devez d'abord sélectionner un fichier avant que vous pouvez configurer votre connexion background! (Les options par défaut comptent comme un fichier)</no_selected_file>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>
