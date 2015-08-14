@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -24,16 +21,16 @@ namespace MessageBoxLibrary
         static extern IntPtr SendMessage(IntPtr hwnd, uint msg,
                    IntPtr wParam, IntPtr lParam);
 
-        const int GWL_EXSTYLE = -20;
-        const int WS_EX_DLGMODALFRAME = 0x0001;
-        const int WS_EX_RIGHT = 0x00001000;
-        const int WS_EX_RTLREADING = 0x00002000;
+        const int GwlExstyle = -20;
+        const int WsExDlgmodalframe = 0x0001;
+        const int WsExRight = 0x00001000;
+        const int WsExRtlreading = 0x00002000;
 
-        const int SWP_NOSIZE = 0x0001;
-        const int SWP_NOMOVE = 0x0002;
-        const int SWP_NOZORDER = 0x0004;
-        const int SWP_FRAMECHANGED = 0x0020;
-        const uint WM_SETICON = 0x0080;
+        const int SwpNosize = 0x0001;
+        const int SwpNomove = 0x0002;
+        const int SwpNozorder = 0x0004;
+        const int SwpFramechanged = 0x0020;
+        const uint WmSeticon = 0x0080;
 
         public static void RemoveIcon(Window window)
         {
@@ -41,12 +38,12 @@ namespace MessageBoxLibrary
             IntPtr hwnd = new WindowInteropHelper(window).Handle;
 
             // Change the extended window style to not show a window icon
-            int extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
-            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_DLGMODALFRAME);
+            int extendedStyle = GetWindowLong(hwnd, GwlExstyle);
+            SetWindowLong(hwnd, GwlExstyle, extendedStyle | WsExDlgmodalframe);
 
             // Update the window's non-client area to reflect the changes
-            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, SWP_NOMOVE |
-                  SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, SwpNomove |
+                  SwpNosize | SwpNozorder | SwpFramechanged);
         }
 
         public static void SetRightAligned(Window window)
@@ -55,12 +52,12 @@ namespace MessageBoxLibrary
             IntPtr hwnd = new WindowInteropHelper(window).Handle;
 
             // Change the extended window style to not show a window icon
-            int extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
-            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_RIGHT);
+            int extendedStyle = GetWindowLong(hwnd, GwlExstyle);
+            SetWindowLong(hwnd, GwlExstyle, extendedStyle | WsExRight);
 
             // Update the window's non-client area to reflect the changes
-            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, SWP_NOMOVE |
-                  SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, SwpNomove |
+                  SwpNosize | SwpNozorder | SwpFramechanged);
         }
 
         public static void SetRtlReading(Window window)
@@ -69,12 +66,12 @@ namespace MessageBoxLibrary
             IntPtr hwnd = new WindowInteropHelper(window).Handle;
 
             // Change the extended window style to not show a window icon
-            int extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
-            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_RTLREADING);
+            int extendedStyle = GetWindowLong(hwnd, GwlExstyle);
+            SetWindowLong(hwnd, GwlExstyle, extendedStyle | WsExRtlreading);
 
             // Update the window's non-client area to reflect the changes
-            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, SWP_NOMOVE |
-                  SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0, SwpNomove |
+                  SwpNosize | SwpNozorder | SwpFramechanged);
         }
 
     }

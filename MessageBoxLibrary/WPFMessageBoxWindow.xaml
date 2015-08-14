@@ -5,6 +5,6 @@
         Title="{Binding Title}" ResizeMode="NoResize" SizeToContent="WidthAndHeight" FlowDirection="{Binding TitleFlowDirection}"
         ShowInTaskbar="False" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" MinWidth="250" Background="AntiqueWhite" Height="66">
     <Grid>
-        <local:WPFMessageBoxControl />
+        <local:WpfMessageBoxControl />
     </Grid>
 </Window>

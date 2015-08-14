@@ -5,10 +5,10 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <Style TargetType="{x:Type msgbox:WPFMessageBoxControl}">
+            <Style TargetType="{x:Type msgbox:WpfMessageBoxControl}">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type msgbox:WPFMessageBoxControl}">
+                        <ControlTemplate TargetType="{x:Type msgbox:WpfMessageBoxControl}">
                             <Grid Background="{DynamicResource AccentColorBrush}" FlowDirection="{Binding ContentFlowDirection}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="35" />

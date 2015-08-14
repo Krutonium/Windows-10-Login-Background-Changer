@@ -123,7 +123,7 @@ namespace W10_Logon_BG_Changer.Controls
 
         private void RestoreDefaults_Click(object sender, RoutedEventArgs e)
         {
-            var msg = WPFMessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg,
+            var msg = WpfMessageBox.Show(LanguageLibrary.Language.Default.reset_image_msg,
                 LanguageLibrary.Language.Default.title_are_you_sure,
                 MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
 
@@ -145,7 +145,7 @@ namespace W10_Logon_BG_Changer.Controls
 
             if (string.IsNullOrEmpty(_mainWindow.SelectedFile) || !File.Exists(_mainWindow.SelectedFile))
             {
-                WPFMessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
+                WpfMessageBox.Show(LanguageLibrary.Language.Default.no_selected_file,
                     LanguageLibrary.Language.Default.title_error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
