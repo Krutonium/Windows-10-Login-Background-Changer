@@ -66,6 +66,7 @@
   <no_selected_file>You must first select a file before you can set your logon background! (Default options count as a file)</no_selected_file>
   <success_apply_msg>Successfully changed logon background! Please lock your device to view your new background.</success_apply_msg>
   <language_set_msg>Language is set. Application must restart to apply language</language_set_msg>
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 
   <!-- toyz go categorize these -->
   <flyout_loc_right_opt>Right</flyout_loc_right_opt>
