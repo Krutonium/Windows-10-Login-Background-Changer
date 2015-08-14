@@ -42,4 +42,6 @@
   <no_selected_file>Потрібно вибрати файл перш ніж міняти фонове зображення !</no_selected_file>
   <success_apply_msg>Фон змінено успішно. Будь-ласка , заблокуйте ПК для огляду нового екрану блокування</success_apply_msg>
   <language_set_msg>Мову змінено. Потрібен рестарт програми для зміни мови</language_set_msg>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>

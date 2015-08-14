@@ -66,6 +66,8 @@
   <no_selected_file>在设置你的登录背景之前，您必须先选择一张图片或背景颜色！</no_selected_file>
   <success_apply_msg>成功修改登录背景！请锁定 Windows，以查看新的背景。</success_apply_msg>
   <language_set_msg>语言已设置，应用程序必须重新启动以应用新的语言。</language_set_msg>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 
   <!-- toyz go categorize these -->
   <flyout_loc_right_opt>右</flyout_loc_right_opt>

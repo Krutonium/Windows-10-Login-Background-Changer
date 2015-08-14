@@ -35,4 +35,6 @@
   <select_img>พื้นหลังชื่อไฟล์ปรากฏขึ้นที่นี่</select_img>
   <reset_image_msg>คุณแน่ใจว่าคุณต้องการที่จะตั้งค่าภาพ?</reset_image_msg>
   <no_selected_file>You must first select a file before you can set your logon background! (Default options count as a file)</no_selected_file>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>

@@ -63,6 +63,8 @@
   <no_selected_file>U moet eerst een bestand selecter alvorens u uw achtergrond kan instellen! (standaard opties tellen ook als bestand)</no_selected_file>
   <success_apply_msg>Login achtergrond succesvol verandert, vergrendel uw computer om dit te controleren.</success_apply_msg>
   <language_set_msg>Taal ingesteld. De applicatie moet herstart worden om de wijzigingen door te voeren.</language_set_msg>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 
   <!-- toyz go categorize these -->
   <flyout_loc_right_opt>Rechts</flyout_loc_right_opt>
