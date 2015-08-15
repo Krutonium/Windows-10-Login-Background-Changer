@@ -152,6 +152,7 @@
     <Compile Include="Properties\XamlItemsControlAttribute.cs" />
     <Compile Include="Tools\Animations\ControlFader.cs" />
     <Compile Include="Tools\AssemblyInfo.cs" />
+    <Compile Include="Tools\RatioConverter.cs" />
     <Compile Include="Tools\Customs\SerializableDictionary.cs" />
     <Compile Include="Tools\Helpers.cs" />
     <Compile Include="Tools\InlineExpression.cs" />
