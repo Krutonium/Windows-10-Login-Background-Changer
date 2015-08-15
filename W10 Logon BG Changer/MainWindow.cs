@@ -1,8 +1,4 @@
-﻿using HelperLibrary;
-using MahApps.Metro.Controls;
-using MessageBoxLibrary;
-using SharedLibrary;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -19,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using HelperLibrary;
 using MahApps.Metro.Controls;
+using MessageBoxLibrary;
 using SharedLibrary;
 using TSettings;
 using TSettings.Encryptions;
