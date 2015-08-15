@@ -35,7 +35,7 @@ namespace W10_Logon_BG_Changer
             }
             finally
             {
-                Application.Current.Shutdown();
+                Current.Shutdown();
             }
         }
 
