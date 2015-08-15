@@ -50,4 +50,5 @@
   <select_img>O nome do arquivo de fundo aparece aqui.</select_img>
   <reset_image_msg>Tem certeza que deseja redefinir a imagem?</reset_image_msg>
   <no_selected_file>Você deve primeiro selecionar um arquivo, antes de poder definir seu fundo de logon! (Você pode escolher usar as opções padrão)</no_selected_file>
+  <default_error_msg>Houve um erro enquanto a aplicação era executada e essa será fechada</default_error_msg>
 </Language>

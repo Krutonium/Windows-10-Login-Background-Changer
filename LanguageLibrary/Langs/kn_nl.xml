@@ -35,4 +35,6 @@
   <select_img>naDev nargh patmey lulo'ta' filename.</select_img>
   <reset_image_msg>be ghItlhvam reset DaneH'a'?</reset_image_msg>
   <no_selected_file>teywI' ghob'e' wa'DIch wIv SoH ngejtaH logon patmey lulo'ta' laH HIjmeH SoH! (DuH 'ech default je teywI')</no_selected_file>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>

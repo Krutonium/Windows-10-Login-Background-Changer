@@ -42,4 +42,6 @@
   <no_selected_file>עליכם לבחור קובץ לפני שתוכלו להגדיר אותו כרקע! (הגדרות ברירת המחדל גם נחשבות כקובץ)</no_selected_file>
   <success_apply_msg>תמונת הרקע של מסך הנעילה שונתה בהצלחה! אנא נעל את המחשב כדי לצפות ברקע החדש שלך.</success_apply_msg>
   <language_set_msg>Language is set. Application must restart to apply language</language_set_msg>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>

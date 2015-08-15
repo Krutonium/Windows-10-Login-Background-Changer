@@ -58,4 +58,6 @@
   <no_selected_file>Primeiro é necessário que escolhas uma imagem antes de poderes definir o teu fundo do início de sessão! (As opções predefinidas contam como um ficheiro)</no_selected_file>
   <success_apply_msg>O fundo do início de sessão foi alterado com sucesso! Por favor, bloqueia o teu dispositivo para veres o teu novo fundo.</success_apply_msg>
   <language_set_msg>Idioma definido. A aplicação tem de ser reiniciada para aplicar a alteração do idioma</language_set_msg>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>

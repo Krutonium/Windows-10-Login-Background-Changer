@@ -42,4 +42,6 @@
   <no_selected_file>Нужно выбрать файл прежде чем менять фоновое изображение !</no_selected_file>
   <success_apply_msg>Фон заменен успешно. Пожалуйста, заблокируйте устройство для просмотра нового фона блокировки</success_apply_msg>
   <language_set_msg>Язык изменен. Нужно перезапустить приложение для вступления новых настроек в силу</language_set_msg>
+  <!--Requires translation-->
+  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
 </Language>
