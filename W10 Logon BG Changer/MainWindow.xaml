@@ -3,6 +3,7 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:tools="clr-namespace:W10_Logon_BG_Changer.Tools"
+                      xmlns:converts="clr-namespace:W10_Logon_BG_Changer.Tools.Converts"
                       ShowIconOnTitleBar="True"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="{DynamicResource AccentColorBrush2}"
@@ -10,8 +11,8 @@
                       BorderThickness="1"
                       Background="Transparent"
                       Title="W10 Logon BG Changer" 
-                      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={tools:RatioConverter}, ConverterParameter='0.9' }" 
-                      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={tools:RatioConverter}, ConverterParameter='0.9' }" 
+                      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converts:RatioConverter}, ConverterParameter='0.9' }" 
+                      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converts:RatioConverter}, ConverterParameter='0.9' }" 
                       MinHeight="500" MinWidth="830" WindowStartupLocation="CenterScreen">
 
     <controls:MetroWindow.LeftWindowCommands>
