@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <!-- Questo deve rimanere nel file, per permettere ad altre persone di poterlo tradurre senza problemi :3 -->
+  <lang_name>Italiano (Italia)</lang_name>
+
+  <!-- Titoli -->
+  <title_error>Errore</title_error>
+  <title_info>Informazione</title_info>
+  <title_warning>Avvertenza</title_warning>
+  <title_finished>Completato</title_finished>
+  <title_success>Completato</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Sfondo disabilitato</title_bg_disabled>
+  <title_are_you_sure>Sei sicuro di voler continuare?</title_are_you_sure>
+  <title_language_set>Lingua impostata</title_language_set>
+  <title_select_image>Seleziona un'immagine</title_select_image>
+  <title_saved_clipboard>Copiata negli appunti</title_saved_clipboard>
+
+  <!-- Etichette dei bottoni dello schermo principale -->
+  <main_top_about>Informazioni su...</main_top_about>
+  <main_top_lock>Blocca Windows</main_top_lock>
+  <main_top_edit>Modifica sfondo</main_top_edit>
+
+  <!-- Titoli animazioni -->
+  <flyout_edit_title>Edit Background</flyout_edit_title>
+  <flyout_about_title>Informazioni su...</flyout_about_title>
+  <flyout_settings_title>Impostazioni app</flyout_settings_title>
+
+  <!-- Gruppi -->
+  <group_restore_default>Ripristina impostazioni predefinite</group_restore_default>
+  <group_advanced_options>Impostazioni app</group_advanced_options>
+  <group_authors_area>Autori</group_authors_area>
+  <group_about_area>Informazioni su...</group_about_area>
+  <group_select_lang>Cambia lingua di visualizzazione</group_select_lang>
+
+  <!-- Pulsanti -->
+  <browse_button>Sfoglia</browse_button>
+  <solid_color_picker_tooltip>Seleziona un colore</solid_color_picker_tooltip>
+  <solid_color_available_colors>Colori disponibili</solid_color_available_colors>
+  <solid_color_standard_colors>Colori standard</solid_color_standard_colors>
+  <solid_color_standard>Standard</solid_color_standard>
+  <solid_color_advanced>Avanzato</solid_color_advanced>
+  <color_picker_button>Anteprima</color_picker_button>
+  <accet_color_button>Usa l'accento di colore corrente</accet_color_button>
+  <apply_changes_button>Applica cambiamenti</apply_changes_button>
+  <restore_defaults_button>Ripristina impostazioni predefinite</restore_defaults_button>
+  <restore_hero_button>Ripristina Hero</restore_hero_button>
+  <image_scale_Resolution>La mia risoluzione</image_scale_Resolution>
+  <share_bg>Condividi sfondo</share_bg>
+
+  <!-- Etichette di testo -->
+  <image_scale>Cambia scala dell'immagine</image_scale>
+  <show_user_info>Visualizza informazioni utente</show_user_info>
+  <show_glyphs>Mostra glifi</show_glyphs>
+  <flyout_loc>Cambia animazione di sblocco</flyout_loc>
+  <or>OR</or>
+
+  <!-- Corpi di messaggi -->
+  <saved_clipboard_msg>Immagine salvata sugli appunti.</saved_clipboard_msg>
+  <background_disabled>Lo sfondo è disabilitato nel registro di sistema</background_disabled>
+  <EULA>Eseguendo questo programma, tu accetti il rischio di brickare o danneggiare gravemente la tua macchina. Ci esentiamo da qualsiasi responsabilità.</EULA>
+  <color_preview>Anteprima colore</color_preview>
+  <finished_msg>Devi prima selezionare un'immagine, se vuoi cambiare lo sfondo! (Le impostazioni di default contano come file)"</finished_msg>
+  <select_img>Il nome dello sfondo apparirà qui.</select_img>
+  <reset_image_msg>Sei sicuro di voler ripristinare lo sfondo originale?</reset_image_msg>
+  <no_selected_file>Devi prima selezionare un'immagine, se vuoi prima cambiare lo sfondo del lock screen! (Le impostazioni di default contano come file)</no_selected_file>
+  <success_apply_msg>Sfondo del lock screen impostato! Blocca Windows per testarlo.</success_apply_msg>
+  <language_set_msg>La lingua è stata cambiata, bisogna prima riavviare l'app per poterla utilizzare.</language_set_msg>
+  <default_error_msg>C'è stato un errore fatale durante l'esecuzione. L'applicazione verrà terminata.</default_error_msg>
+
+  <!-- ??? -->
+  <flyout_loc_right_opt>Destra</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Sinistra</flyout_loc_left_opt>
+  <scale_none_opt>Nessuna</scale_none_opt>
+</Language>

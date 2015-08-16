@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace MessageBoxLibrary
 {
@@ -332,6 +333,7 @@ namespace MessageBoxLibrary
             return ShowCore(owner, messageBoxText, caption, button, icon, defaultResult, options);
         }
 
+        [STAThread]
         private static MessageBoxResult ShowCore(
             Window owner,
             string messageBoxText,
