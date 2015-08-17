@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <!-- Translated by @cschabetsberger -->
+  <lang_name>Deutsch (DE)</lang_name>
+
+  <!-- titles -->
+  <title_error>Fehler</title_error>
+  <title_info>Information</title_info>
+  <title_warning>Warnung</title_warning>
+  <title_finished>Beendet</title_finished>
+  <title_success>Erfolgreich</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Hintergrund deaktiviert</title_bg_disabled>
+  <title_are_you_sure>Sind Sie sicher?</title_are_you_sure>
+  <title_language_set>Sprache ändern</title_language_set>
+  <title_select_image>Wählen Sie ein Bild aus</title_select_image>
+  <title_saved_clipboard>In die Zwischenablage gespeichert</title_saved_clipboard>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>Über</main_top_about>
+  <main_top_lock>Windows sperren</main_top_lock>
+  <main_top_edit>Hintergrund bearbeiten</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Hintergrund bearbeiten</flyout_edit_title>
+  <flyout_about_title>Über</flyout_about_title>
+  <flyout_settings_title>Programmeinstellungen</flyout_settings_title>
+
+  <!-- Groups -->
+  <group_restore_default>Programmeinstellungen zurücksetzen</group_restore_default>
+  <group_advanced_options>Programmeinstellungen</group_advanced_options>
+  <group_authors_area>Autoren</group_authors_area>
+  <group_about_area>Über</group_about_area>
+  <group_select_lang>Sprache auswählen</group_select_lang>
+
+  <!-- Buttons -->
+  <browse_button>Durchsuchen</browse_button>
+  <solid_color_picker_tooltip>Farbe auswählen</solid_color_picker_tooltip>
+  <solid_color_available_colors>Verfügbare Farben</solid_color_available_colors>
+  <solid_color_standard_colors>Standard Farben</solid_color_standard_colors>
+  <solid_color_standard>Standard</solid_color_standard>
+  <solid_color_advanced>Erweitert</solid_color_advanced>
+  <color_picker_button>Vorschau</color_picker_button>
+  <accet_color_button>Aktuelle Akzentfarbe benutzen</accet_color_button>
+  <apply_changes_button>Änderungen speichern</apply_changes_button>
+  <restore_defaults_button>Standardeinstellungen wiederherstellen</restore_defaults_button>
+  <restore_hero_button>Hero wiederherstellen</restore_hero_button>
+  <image_scale_Resolution>Meine Auflösung</image_scale_Resolution>
+  <share_bg>Hintergrund teilen</share_bg>
+
+  <!-- Labels -->
+  <image_scale>Bildskalierung</image_scale>
+  <show_user_info>Benutzerinformationen anzeigen</show_user_info>
+  <show_glyphs>Zeichen anzeigen</show_glyphs>
+  <flyout_loc>Flyout Position</flyout_loc>
+  <or>ODER</or>
+
+  <!-- Message bodies -->
+  <saved_clipboard_msg>Bild in die Zwischenablage gespeichert.</saved_clipboard_msg>
+  <background_disabled>Hintergrundbild ist in der Registrierungsdatenbank deaktiviert</background_disabled>
+  <EULA>Mit der Benutzung dieser Software stimmen Sie zu, dass wir nicht Schuld sind, sollte Ihr System nicht mehr korrekt funktionieren.</EULA>
+  <color_preview>Farbvorschau</color_preview>
+  <finished_msg>Sie müssen zuerst eine Datei auswählen, bevor Sie Ihren Login Hintergrund ändern können. (Standardoption zählt als eine Datei)</finished_msg>
+  <select_img>Der Hintergrundpfad wird hier angezeigt.</select_img>
+  <reset_image_msg>Sind Sie sicher, dass Sie Ihren Hintergrund zurücksetzen wollen?</reset_image_msg>
+  <no_selected_file>Sie müssen zuerst eine Datei auswählen, bevor Sie Ihren Login Hintergrund ändern können. (Standardoption zählt als eine Datei)</no_selected_file>
+  <success_apply_msg>Login Hintergrund erfolgreich geändert! Bitte sperren Sie ihr Gerät, um Ihren neuen Hintergrund zu sehen.</success_apply_msg>
+  <language_set_msg>Sprache geändert. Das Programm muss neu gestartet werden um die Änderung zu aktivieren.</language_set_msg>
+  <default_error_msg>Während der Ausführung des Programmes ist ein Fehler aufgetreten und es wir nun geschlossen.</default_error_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>Rechts</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Links</flyout_loc_left_opt>
+  <scale_none_opt>Keine</scale_none_opt>
+</Language>
