@@ -16,7 +16,7 @@ namespace W10_Logon_BG_Changer.Controls
     public partial class LanguageSelectControl : UserControl
     {
         private readonly MainWindow _mainWindow;
-        private readonly ObservableCollection<LangFormatTree> Names = new ObservableCollection<LangFormatTree>();
+        private readonly ObservableCollection<LangFormatTree> _names = new ObservableCollection<LangFormatTree>();
 
         public LanguageSelectControl(MainWindow mainWindow)
         {
@@ -31,10 +31,10 @@ namespace W10_Logon_BG_Changer.Controls
             {
                 var enabled = ((string)LanguageLibrary.Language.Default.lang_name).Equals(lang.Key,
                     StringComparison.CurrentCultureIgnoreCase);
-                Names.Add(new LangFormatTree(string.Format("{0} ({1})", lang.Key, lang.Value), lang.Value, !enabled));
+                _names.Add(new LangFormatTree(string.Format("{0} ({1})", lang.Key, lang.Value), lang.Value, !enabled));
             }
 
-            SelectedLanguageView.ItemsSource = Names;
+            SelectedLanguageView.ItemsSource = _names;
         }
 
         private void LanguageClicked_Event(object sender, RoutedEventArgs e)
@@ -44,7 +44,7 @@ namespace W10_Logon_BG_Changer.Controls
 
             var code = (string)btn.Tag;
 
-            foreach (var name in Names)
+            foreach (var name in _names)
             {
                 Debug.WriteLineIf(code == name.LangCode, "code == name.LangCode");
                 name.Enabled = !code.Equals(name.LangCode, StringComparison.CurrentCultureIgnoreCase);
