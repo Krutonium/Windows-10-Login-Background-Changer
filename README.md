@@ -1,6 +1,8 @@
 # W10 Logon BG Changer
 
-[![Join the chat at https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) You can pretty reliably find me on here.
+[![Join the chat at https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+* You can find us on \^Gitter if you need to talk to us.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/4yydgx42k9iqaaw7/branch/master?svg=true)](https://ci.appveyor.com/project/PFCKrutonium/windows-10-login-background-changer/branch/master)
 [![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/windows-10-login-background-changer/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
