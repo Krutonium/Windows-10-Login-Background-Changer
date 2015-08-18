@@ -11,6 +11,13 @@
 
 **[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)**
 
+## The Team
+The project was founded by Krutonium, though he hasn't done much on it in a while;  
+The project has been completely overhauled and revamped by Toyz, much to Krutoniums' delight;  
+The project has been helped immesely by darth62969, since Krutonium and Toyz are busy and bug reports take time;  
+The project is happy to have anyone who joins add themselves here;  
+The project is alive ;)  
+
 ## Notes
 * **Very light colors makes the username and email hard to see. Be careful with lighter colors.**
 * **Some antivirus programs detect this as a virus, so turn it off (temporarily) before you start this program!**
