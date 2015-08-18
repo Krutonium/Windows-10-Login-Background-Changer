@@ -239,11 +239,6 @@ namespace W10_Logon_BG_Changer
             LogonPriEditor.ModifyLogonPri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
-
-            WpfMessageBox.Show(
-                LanguageLibrary.Language.Default.success_apply_msg,
-                LanguageLibrary.Language.Default.title_success
-                            );
         }
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
