@@ -14,7 +14,7 @@
 * **Some antivirus programs detect this as a virus, so turn it off (temporarily) before you start this program!**
 * **Requires Visual Studio 2013 Express for Desktop or better to open the .sln file.**
 
-In the event your login screen breaks, please fix it using [this method](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/wiki/Can't-Login) and then [report](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/issues/new?title=Login%20Screen%20is%20Broken) that it didn't work to us, along with the image you used and the version of the application. If you can also provide the broken .pri file, that will also be useful to us. Thanks!
+In the event your login screen breaks, please fix it using [this method](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/wiki/Can't-Login) and then [report](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/issues/new?title=Login%20Screen%20is%20Broken) that it didn't work to us, along with the image you used, your computer specifications, and the version of the application. If you can also provide the broken .pri file, that will also be useful to us. Also any programs you have installed (like anti-virus,  Stardock's ObjectDesktop, etc.) may be usefull. Thanks!
 
 # Screenshots
 
