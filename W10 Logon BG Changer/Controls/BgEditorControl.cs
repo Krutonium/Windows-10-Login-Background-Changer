@@ -164,7 +164,7 @@ namespace W10_Logon_BG_Changer.Controls
             Settings.Default.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
             Settings.Default.Save();
             _runningApplySettings = true;
-            var holderContent = ((Button)sender);
+            var holderContent = ((Button) sender);
             var progress = new ProgressRing
             {
                 IsActive = true,
@@ -183,6 +183,11 @@ namespace W10_Logon_BG_Changer.Controls
                 {
                     holderContent.Content = def;
                     _runningApplySettings = false;
+
+                    WpfMessageBox.Show(
+                        LanguageLibrary.Language.Default.success_apply_msg,
+                        LanguageLibrary.Language.Default.title_success
+                        );
                 });
             });
         }
