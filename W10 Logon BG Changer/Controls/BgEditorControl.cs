@@ -72,7 +72,7 @@ namespace W10_Logon_BG_Changer.Controls
                 Multiselect = false
             };
 
-            var initialDirectory = Settings.Get("last_folder", string.Empty);
+            var initialDirectory = Settings.Default.Get("last_folder", string.Empty);
                 if (!string.IsNullOrEmpty(initialDirectory))
                     if (Directory.Exists(initialDirectory)) {
                         ofd.InitialDirectory = initialDirectory;
