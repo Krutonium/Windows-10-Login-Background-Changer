@@ -12,6 +12,11 @@
 
 **[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)**
 
+## Windows Insider Preview Builds:
+While we can't guarantee it will work, it does seem to work on at least the following build(s):
+
+* 10525
+
 ## The Team
 The project was founded by Krutonium, though he hasn't done much on it in a while;  
 The project has been completely overhauled and revamped by Toyz, much to Krutoniums' delight;  
