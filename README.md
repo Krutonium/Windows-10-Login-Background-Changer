@@ -1,13 +1,23 @@
-# W10 Logon BG Changer
+# Windows 10 Login Screen Background Changer
 
-[![Join the chat at https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) You can pretty reliably find me on here.
+[![Join the chat at https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+* You can find us on \^Gitter if you need to talk to us.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/4yydgx42k9iqaaw7/branch/master?svg=true)](https://ci.appveyor.com/project/PFCKrutonium/windows-10-login-background-changer/branch/master)
 [![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/windows-10-login-background-changer/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ELBKFBFBRBT46)
 
 **[Download](https://github.com/PFCKrutonium/Windows-10-Login-Background-Changer/releases/latest)**
 
 **[Tutorial/review video by](https://www.youtube.com/watch?v=p3-6Qtwkn4w) [@darth62969](https://github.com/darth62969) [(Thanks!)](https://www.youtube.com/watch?v=p3-6Qtwkn4w)**
+
+## The Team
+The project was founded by Krutonium, though he hasn't done much on it in a while;  
+The project has been completely overhauled and revamped by Toyz, much to Krutoniums' delight;  
+The project has been helped immesely by darth62969, since Krutonium and Toyz are busy and bug reports take time;  
+The project is happy to have anyone who joins add themselves here;  
+The project is alive ;)  
 
 ## Notes
 * **Very light colors makes the username and email hard to see. Be careful with lighter colors.**
