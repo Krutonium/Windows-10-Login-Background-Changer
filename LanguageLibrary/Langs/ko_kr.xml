@@ -34,7 +34,7 @@
   <flyout_loc>Flyout 위치</flyout_loc>
   <or>OR</or>
   <background_disabled>배경 이미지는 레지스트리를 통하여 비활성화 됩니다.</background_disabled>
-  <EULA>이 소프트웨어를 사용함에 따라, 시스템이 작동을 멈출 경우, 책임을 지지 않음을 동의합니다.</EULA>
+  <EULA>이 소프트웨어를 사용함에 따라 시스템의 작동이 멈출 수도 있으며, 이 결과에 대해서 어떠한 책임도 지지 않습니다. 동의하시겠습니까?</EULA>
   <color_preview>색상 미리보기</color_preview>
   <finished_msg>로그온 배경을 설정하기 전, 먼저 파일을 선택 해주세요. (기본옵션: 파일)</finished_msg>
   <select_img>배경 파일 이름이 여기에 나타납니다.</select_img>
