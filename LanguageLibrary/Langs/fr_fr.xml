@@ -49,9 +49,9 @@
   <share_bg>Copier le fond d'écran</share_bg>
 
   <!-- Labels -->
-  <image_scale>Taille de l'image</image_scale>
+  <image_scale>Résolution de l'image</image_scale>
   <show_user_info>Montrer les informations de l'utilisateur</show_user_info>
-  <show_glyphs>Montre les icônes</show_glyphs>
+  <show_glyphs>Montre les icônes (coin inférieur droit)</show_glyphs>
   <flyout_loc>Placement du menu lateral</flyout_loc>
   <or>OU</or>
 
