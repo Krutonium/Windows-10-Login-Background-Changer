@@ -46,13 +46,13 @@
   <restore_defaults_button>Restaurer les valeurs par defauts</restore_defaults_button>
   <restore_hero_button>Restaurer Hero</restore_hero_button>
   <image_scale>Taille d'image</image_scale>
-  <share_bg>Partager le fond d'écran</share_bg>
+  <share_bg>Copier le fond d'écran</share_bg>
 
   <!-- Labels -->
   <image_scale>Taille de l'image</image_scale>
   <show_user_info>Montrer les informations de l'utilisateur</show_user_info>
-  <show_glyphs>Montre les glyphes</show_glyphs>
-  <flyout_loc>Placement des flyouts</flyout_loc>
+  <show_glyphs>Montre les icônes</show_glyphs>
+  <flyout_loc>Placement du menu lateral</flyout_loc>
   <or>OU</or>
 
   <!-- Message bodies -->
@@ -62,7 +62,7 @@
   <color_preview>Prévisualisation de la couleur</color_preview>
   <color_preview>Previsualisation des couleurs</color_preview>
   <finished_msg>Vous devez d'abord sélectionner un fichier avant de pouvoir configurer votre arrière-plan de connexion! (Les options par défaut comptent comme un fichier.)</finished_msg>
-  <select_img>Sélectionner ce fond d'écran ?</select_img>
+  <select_img>Parcourir les images</select_img>
   <reset_image_msg>Voulez-vous réinitialiser l'image ?</reset_image_msg>
   <no_selected_file>Vous devez d'abord sélectionner un fichier avant que de pouvoir configurer votre fond d'écran de connexion! (Les options par défaut comptent comme un fichier.)</no_selected_file>
   <success_apply_msg>Fond d'écran de connexion changé avec succès! Veuillez vérrouiller votre appareil pour voir votre fond d'écran.</success_apply_msg>
