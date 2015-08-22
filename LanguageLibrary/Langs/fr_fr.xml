@@ -1,40 +1,76 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <lang_name>French</lang_name>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <lang_name>Français</lang_name>
+
+  <!-- titles -->
   <title_error>Erreur</title_error>
   <title_info>Information</title_info>
-  <title_warning>Avertissement</title_warning>
+  <title_warning>Avertissements</title_warning>
   <title_finished>Fini</title_finished>
   <title_eula>CLUF</title_eula>
-  <title_bg_disabled>Background désactivée</title_bg_disabled>
-  <title_are_you_sure>Est-ce que vous êtes sûr</title_are_you_sure>
+  <title_bg_disabled>Arrière-plan désactivé</title_bg_disabled>
+  <title_are_you_sure>Êtes-vous sûr ?</title_are_you_sure>
+  <title_language_set>Langue appliquée</title_language_set>
+  <title_select_image>Sélectionner une image</title_select_image>
+  <title_saved_clipboard>Copier dans le presse-papier</title_saved_clipboard>
+
+  <!-- Main Screen Title Buttons -->
   <main_top_about>À propos de</main_top_about>
   <main_top_lock>Verrouiller Windows</main_top_lock>
-  <main_top_edit>Modifier le background</main_top_edit>
-  <flyout_edit_title>Modifier le background</flyout_edit_title>
+  <main_top_edit>Modifier le fond d'écran</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Modifier le fond d'écran</flyout_edit_title>
   <flyout_about_title>À propos de</flyout_about_title>
+  <flyout_settings_title>Paramètres</flyout_settings_title>
+
+  <!-- Groups -->
   <group_restore_default>Restaurer les valeurs par defauts</group_restore_default>
   <group_advanced_options>Paramètres de l'application</group_advanced_options>
   <group_authors_area>Auteurs</group_authors_area>
   <group_about_area>À propos de</group_about_area>
-  <browse_button>Feuilleter</browse_button>
-  <color_button>Couleur</color_button>
-  <accet_color_button>Utilise le couleur de valeur par defaut</accet_color_button>
-  <apply_changes_button>Appliqué les changements</apply_changes_button>
+  <group_select_lang>Sélectionner la langue</group_select_lang>
+
+  <!-- Buttons -->
+  <browse_button>Parcourir</browse_button>
+  <solid_color_picker_tooltip>Sélectionner une couleur</solid_color_picker_tooltip>
+  <solid_color_available_colors>Couleurs disponibles</solid_color_available_colors>
+  <solid_color_standard_colors>Couleurs standards</solid_color_standard_colors>
+  <solid_color_standard>Standards</solid_color_standard>
+  <solid_color_advanced>Avancées</solid_color_advanced>
+  <color_picker_button>Prévisualisation</color_picker_button>
+  <color_button>Couleurs</color_button>
+  <accet_color_button>Appliquer la couleur sélectionnée</accet_color_button>
+  <apply_changes_button>Appliquer les changements</apply_changes_button>
   <restore_defaults_button>Restaurer les valeurs par defauts</restore_defaults_button>
   <restore_hero_button>Restaurer Hero</restore_hero_button>
-  <image_scale>Écaillant d'image</image_scale>
-  <show_user_info>Montre des informations d'utilisateur</show_user_info>
+  <image_scale>Taille d'image</image_scale>
+  <share_bg>Partager le fond d'écran</share_bg>
+
+  <!-- Labels -->
+  <image_scale>Taille de l'image</image_scale>
+  <show_user_info>Montrer les informations de l'utilisateur</show_user_info>
   <show_glyphs>Montre les glyphes</show_glyphs>
-  <flyout_loc>Flyout Locatisation</flyout_loc>
-  <background_disabled>Image de bacground est désactivé dans le registre</background_disabled>
-  <EULA>Par votre utilisation de cette programme, vous accordez que nous ne sommes pas en faute si votre système arrête de fonctionner correctement</EULA>
-  <color_preview>Prevu de couleur</color_preview>
-  <finished_msg>Vous devez d'abord sélectionner un fichier avant que vous pouvez configurer votre connexion background! (Les options par défaut comptent comme un fichier)</finished_msg>
-  <select_img>Le fiche de background apparaît ici</select_img>
-  <reset_image_msg>Est-ce que vous voulez réinitialiser l'image?</reset_image_msg>
-  <no_selected_file>Vous devez d'abord sélectionner un fichier avant que vous pouvez configurer votre connexion background! (Les options par défaut comptent comme un fichier)</no_selected_file>
-  <!--Requires translation-->
-  <default_error_msg>There was an error while executing the application and it will be shutdown</default_error_msg>
+  <flyout_loc>Placement des flyouts</flyout_loc>
+  <or>OU</or>
+
+  <!-- Message bodies -->
+  <saved_clipboard_msg>Image copiée dans le presse-papier.</saved_clipboard_msg>
+  <background_disabled>Fond d'écran désactivé dans le registre.</background_disabled>
+  <EULA>A partir de ce moment, vous acceptez d'être entièrement responsables de tous les dysfonctionnements que ce programme pourrait créer.</EULA>
+  <color_preview>Prévisualisation de la couleur</color_preview>
+  <color_preview>Previsualisation des couleurs</color_preview>
+  <finished_msg>Vous devez d'abord sélectionner un fichier avant de pouvoir configurer votre arrière-plan de connexion! (Les options par défaut comptent comme un fichier.)</finished_msg>
+  <select_img>Sélectionner ce fond d'écran ?</select_img>
+  <reset_image_msg>Voulez-vous réinitialiser l'image ?</reset_image_msg>
+  <no_selected_file>Vous devez d'abord sélectionner un fichier avant que de pouvoir configurer votre fond d'écran de connexion! (Les options par défaut comptent comme un fichier.)</no_selected_file>
+  <success_apply_msg>Fond d'écran de connexion changé avec succès! Veuillez vérrouiller votre appareil pour voir votre fond d'écran.</success_apply_msg>
+  <language_set_msg>La nouvelle langue a été choisie. Le programme doit redémarrer pour appliquer les changements.</language_set_msg>
+  <default_error_msg>Une erreur est survenue pendant l'exécution du programme et il a du être arrêté !</default_error_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>Droite</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Gauche</flyout_loc_left_opt>
+  <scale_none_opt>Sans</scale_none_opt>
 </Language>
