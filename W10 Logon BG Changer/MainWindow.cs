@@ -216,10 +216,14 @@ namespace W10_Logon_BG_Changer
             var imagetemp = Path.GetTempFileName();
             //ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
 
-            PixelateImage(new Bitmap(Image.FromFile(SelectedFile)), (int)SystemParameters.PrimaryScreenWidth,
-                (int)SystemParameters.PrimaryScreenHeight, BgEditorControl.Pixelate).Save(imagetemp, ImageFormat.Png);
+            var img = PixelateImage(new Bitmap(Image.FromFile(SelectedFile)), (int)SystemParameters.PrimaryScreenWidth,
+                (int)SystemParameters.PrimaryScreenHeight, BgEditorControl.Pixelate);
 
-            SelectedFile = imagetemp;
+            if (img != null)
+            {
+                img.Save(imagetemp, ImageFormat.Png);
+                SelectedFile = imagetemp;
+            }
 
             switch (BgEditorControl.Scaling)
             {
@@ -252,12 +256,12 @@ namespace W10_Logon_BG_Changer
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
         }
 
-        private Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, object pixelateSize)
+        private Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize)
         {
-            if (string.Equals("none", pixelateSize))
+            if (pixelateSize == 0)
                 return null;
             else
-                return Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), (int)pixelateSize);
+                return Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
         }
 
         private static Bitmap Pixelate(Bitmap image, Rectangle rectangle, int pixelateSize)
