@@ -177,7 +177,10 @@ namespace W10_Logon_BG_Changer
                         break;
 
                     case 4:
-                        WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                        Dispatcher.BeginInvoke((Action)(() =>
+                        {
+                            WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                        }));
                         break;
                 }
 
@@ -212,6 +215,16 @@ namespace W10_Logon_BG_Changer
 
             var imagetemp = Path.GetTempFileName();
             //ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
+
+            var img = PixelateImage(new Bitmap(Image.FromFile(SelectedFile)), (int)SystemParameters.PrimaryScreenWidth,
+                (int)SystemParameters.PrimaryScreenHeight, BgEditorControl.Pixelate);
+
+            if (img != null)
+            {
+                img.Save(imagetemp, ImageFormat.Png);
+                SelectedFile = imagetemp;
+            }
+
             switch (BgEditorControl.Scaling)
             {
                 case 0:
@@ -236,9 +249,53 @@ namespace W10_Logon_BG_Changer
                     break;
             }
 
+
+
             LogonPriEditor.ModifyLogonPri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
+        }
+
+        private Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize)
+        {
+            if (pixelateSize == 0)
+                return null;
+            else
+                return Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
+        }
+
+        private static Bitmap Pixelate(Bitmap image, Rectangle rectangle, int pixelateSize)
+        {
+            Bitmap pixelated = new System.Drawing.Bitmap(image.Width, image.Height);
+
+            // make an exact copy of the bitmap provided
+            using (Graphics graphics = System.Drawing.Graphics.FromImage(pixelated))
+                graphics.DrawImage(image, new System.Drawing.Rectangle(0, 0, image.Width, image.Height),
+                     new Rectangle(0, 0, image.Width, image.Height), GraphicsUnit.Pixel);
+
+            // look at every pixel in the rectangle while making sure we're within the image bounds
+            for (Int32 xx = rectangle.X; xx < rectangle.X + rectangle.Width && xx < image.Width; xx += pixelateSize)
+            {
+                for (Int32 yy = rectangle.Y; yy < rectangle.Y + rectangle.Height && yy < image.Height; yy += pixelateSize)
+                {
+                    Int32 offsetX = pixelateSize / 2;
+                    Int32 offsetY = pixelateSize / 2;
+
+                    // make sure that the offset is within the boundry of the image
+                    while (xx + offsetX >= image.Width) offsetX--;
+                    while (yy + offsetY >= image.Height) offsetY--;
+
+                    // get the pixel color in the center of the soon to be pixelated area
+                    System.Drawing.Color pixel = pixelated.GetPixel(xx + offsetX, yy + offsetY);
+
+                    // for each pixel in the pixelate size, set it to the center color
+                    for (Int32 x = xx; x < xx + pixelateSize && x < image.Width; x++)
+                        for (Int32 y = yy; y < yy + pixelateSize && y < image.Height; y++)
+                            pixelated.SetPixel(x, y, pixel);
+                }
+            }
+
+            return pixelated;
         }
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)

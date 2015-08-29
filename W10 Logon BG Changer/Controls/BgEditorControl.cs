@@ -27,6 +27,7 @@ namespace W10_Logon_BG_Changer.Controls
     public partial class BgEditorControl : UserControl
     {
         public static int Scaling = 5;
+        public static int Pixelate = 0;
         private readonly MainWindow _mainWindow;
         private readonly Color _orgColor;
         private bool _runningApplySettings;
@@ -73,10 +74,11 @@ namespace W10_Logon_BG_Changer.Controls
             };
 
             var initialDirectory = Settings.Default.Get("last_folder", string.Empty);
-                if (!string.IsNullOrEmpty(initialDirectory))
-                    if (Directory.Exists(initialDirectory)) {
-                        ofd.InitialDirectory = initialDirectory;
-                    }
+            if (!string.IsNullOrEmpty(initialDirectory))
+                if (Directory.Exists(initialDirectory))
+                {
+                    ofd.InitialDirectory = initialDirectory;
+                }
 
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
@@ -167,7 +169,7 @@ namespace W10_Logon_BG_Changer.Controls
             Settings.Default.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
             Settings.Default.Save();
             _runningApplySettings = true;
-            var holderContent = ((Button) sender);
+            var holderContent = ((Button)sender);
             var progress = new ProgressRing
             {
                 IsActive = true,
@@ -263,6 +265,18 @@ namespace W10_Logon_BG_Changer.Controls
             if (SolidColorPicker.SelectedColor == null) return;
             var c = SolidColorPicker.SelectedColor.Value;
             _mainWindow.SelectedFile = FillImageColor(System.Drawing.Color.FromArgb(c.R, c.G, c.B));
+        }
+
+        private void PixelateScaleSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Pixelate = int.Parse(((ComboBoxItem)((ComboBox)sender).SelectedItem).Content.ToString());
+            }
+            catch
+            {
+                Pixelate = 0;
+            }
         }
     }
 }
