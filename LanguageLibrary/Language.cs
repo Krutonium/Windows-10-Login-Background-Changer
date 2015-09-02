@@ -51,7 +51,7 @@ namespace LanguageLibrary
             using (
                 var stream =
                     Assembly.GetAssembly(typeof(Language))
-                        .GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
+                        .GetManifestResourceStream($"LanguageLibrary.Langs.{name}.xml"))
                 if (stream != null)
                     using (var reader = new StreamReader(stream))
                     {
@@ -75,7 +75,7 @@ namespace LanguageLibrary
                 using (
                     var stream =
                         Assembly.GetAssembly(typeof(Language))
-                            .GetManifestResourceStream("LanguageLibrary.Langs." + name + ".xml"))
+                            .GetManifestResourceStream($"LanguageLibrary.Langs.{name}.xml"))
                     if (stream != null)
                         using (var reader = new StreamReader(stream))
                         {

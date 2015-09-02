@@ -6,7 +6,7 @@ namespace W10_Logon_BG_Changer
     public static class Config
     {
         public static readonly string PriFileName = "Windows.UI.Logon.pri";
-        public static readonly string BakPriFileName = PriFileName + ".bak";
+        public static readonly string BakPriFileName = $"{PriFileName}.bak";
         public static readonly string CurrentImage = "current.img";
         public static readonly string SettingsFile = "Settings.bin";
 

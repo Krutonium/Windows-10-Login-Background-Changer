@@ -31,7 +31,7 @@ namespace W10_Logon_BG_Changer.Controls
             {
                 var enabled = ((string)LanguageLibrary.Language.Default.lang_name).Equals(lang.Key,
                     StringComparison.CurrentCultureIgnoreCase);
-                _names.Add(new LangFormatTree(string.Format("{0} ({1})", lang.Key, lang.Value), lang.Value, !enabled));
+                _names.Add(new LangFormatTree($"{lang.Key} ({lang.Value})", lang.Value, !enabled));
             }
 
             SelectedLanguageView.ItemsSource = _names;
