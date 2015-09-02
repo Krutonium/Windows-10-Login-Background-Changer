@@ -19,14 +19,12 @@ namespace HelperLibrary
 
         protected override void Dispose(bool disposing)
         {
-            if (_handle != IntPtr.Zero)
-            {
-                // We don't want to throw an exception here, because there's not
-                // much we can do when failing to close a handle.
-                var rc = Win32.CloseHandle(_handle);
-                if (rc != Win32.FALSE)
-                    _handle = IntPtr.Zero;
-            }
+            if (_handle == IntPtr.Zero) return;
+            // We don't want to throw an exception here, because there's not
+            // much we can do when failing to close a handle.
+            var rc = Win32.CloseHandle(_handle);
+            if (rc != Win32.FALSE)
+                _handle = IntPtr.Zero;
         }
 
         /// <summary>

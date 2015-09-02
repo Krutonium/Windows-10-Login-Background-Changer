@@ -12,9 +12,6 @@ namespace HelperLibrary
             _luid = luid;
         }
 
-        internal LUID GetNativeLUID()
-        {
-            return _luid;
-        }
+        internal LUID GetNativeLuid() => _luid;
     }
 }

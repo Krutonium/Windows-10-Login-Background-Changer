@@ -25,9 +25,7 @@ namespace HelperLibrary
             {
                 IntPtr handle;
                 var rc = Win32.OpenProcessToken(processHandle, desiredAccess, out handle);
-                if (rc == Win32.FALSE)
-                    return IntPtr.Zero;
-                return handle;
+                return rc == Win32.FALSE ? IntPtr.Zero : handle;
             }
             finally
             {
