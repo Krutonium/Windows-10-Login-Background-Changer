@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
@@ -37,7 +38,7 @@ namespace MessageBoxLibrary
         private ICommand _escapeCommand;
         private ICommand _closeCommand;
 
-        private WPFMessageBoxWindow _view;
+        private readonly WPFMessageBoxWindow _view;
         private ImageSource _messageImageSource;
 
         public MessageBoxViewModel(
@@ -67,11 +68,9 @@ namespace MessageBoxLibrary
             get { return _buttonOption; }
             set
             {
-                if (_buttonOption != value)
-                {
-                    _buttonOption = value;
-                    NotifyPropertyChange("ButtonOption");
-                }
+                if (_buttonOption == value) return;
+                _buttonOption = value;
+                NotifyPropertyChange("ButtonOption");
             }
         }
 
@@ -80,11 +79,9 @@ namespace MessageBoxLibrary
             get { return _options; } 
             set
             {
-                if (_options != value)
-                {
-                    _options = value;
-                    NotifyPropertyChange("Options");
-                }
+                if (_options == value) return;
+                _options = value;
+                NotifyPropertyChange("Options");
             }
         }
 
@@ -93,11 +90,9 @@ namespace MessageBoxLibrary
             get { return _title; }
             set
             {
-                if (_title != value)
-                {
-                    _title = value;
-                    NotifyPropertyChange("Title");
-                }
+                if (_title == value) return;
+                _title = value;
+                NotifyPropertyChange("Title");
             }
         }
 
@@ -106,11 +101,9 @@ namespace MessageBoxLibrary
             get { return _message; }
             set
             {
-                if (_message != value)
-                {
-                    _message = value;
-                    NotifyPropertyChange("Message");
-                }
+                if (_message == value) return;
+                _message = value;
+                NotifyPropertyChange("Message");
             }
         }
 
@@ -129,11 +122,9 @@ namespace MessageBoxLibrary
             get { return _yesNoVisibility; }
             set
             {
-                if (_yesNoVisibility != value)
-                {
-                    _yesNoVisibility = value;
-                    NotifyPropertyChange("YesNoVisibility");
-                }
+                if (_yesNoVisibility == value) return;
+                _yesNoVisibility = value;
+                NotifyPropertyChange("YesNoVisibility");
             }
         }
 
@@ -142,11 +133,9 @@ namespace MessageBoxLibrary
             get { return _cancelVisibility; }
             set
             {
-                if (_cancelVisibility != value)
-                {
-                    _cancelVisibility = value;
-                    NotifyPropertyChange("CancelVisibility");
-                }
+                if (_cancelVisibility == value) return;
+                _cancelVisibility = value;
+                NotifyPropertyChange("CancelVisibility");
             }
         }
 
@@ -155,11 +144,9 @@ namespace MessageBoxLibrary
             get { return _okVisibility; }
             set
             {
-                if (_okVisibility != value)
-                {
-                    _okVisibility = value;
-                    NotifyPropertyChange("OkVisibility");
-                }
+                if (_okVisibility == value) return;
+                _okVisibility = value;
+                NotifyPropertyChange("OkVisibility");
             }
         }
 
@@ -168,11 +155,9 @@ namespace MessageBoxLibrary
             get { return _contentTextAlignment; }
             set
             {
-                if (_contentTextAlignment != value)
-                {
-                    _contentTextAlignment = value;
-                    NotifyPropertyChange("ContentTextAlignment");
-                }
+                if (_contentTextAlignment == value) return;
+                _contentTextAlignment = value;
+                NotifyPropertyChange("ContentTextAlignment");
             }
         }
 
@@ -181,11 +166,9 @@ namespace MessageBoxLibrary
             get { return _contentFlowDirection; }
             set
             {
-                if (_contentFlowDirection != value)
-                {
-                    _contentFlowDirection = value;
-                    NotifyPropertyChange("ContentFlowDirection");
-                }
+                if (_contentFlowDirection == value) return;
+                _contentFlowDirection = value;
+                NotifyPropertyChange("ContentFlowDirection");
             }
         }
 
@@ -195,11 +178,9 @@ namespace MessageBoxLibrary
             get { return _titleFlowDirection; }
             set
             {
-                if (_titleFlowDirection != value)
-                {
-                    _titleFlowDirection = value;
-                    NotifyPropertyChange("TitleFlowDirection");
-                }
+                if (_titleFlowDirection == value) return;
+                _titleFlowDirection = value;
+                NotifyPropertyChange("TitleFlowDirection");
             }
         }
 
@@ -209,11 +190,9 @@ namespace MessageBoxLibrary
             get { return _isOkDefault; }
             set 
             {
-                if (_isOkDefault != value)
-                {
-                    _isOkDefault = value;
-                    NotifyPropertyChange("IsOkDefault");
-                }
+                if (_isOkDefault == value) return;
+                _isOkDefault = value;
+                NotifyPropertyChange("IsOkDefault");
             }
         }
 
@@ -222,11 +201,9 @@ namespace MessageBoxLibrary
             get { return _isYesDefault; }
             set
             {
-                if (_isYesDefault != value)
-                {
-                    _isYesDefault = value;
-                    NotifyPropertyChange("IsYesDefault");
-                }
+                if (_isYesDefault == value) return;
+                _isYesDefault = value;
+                NotifyPropertyChange("IsYesDefault");
             }
         }
         
@@ -235,11 +212,9 @@ namespace MessageBoxLibrary
             get { return _isNoDefault; }
             set
             {
-                if (_isNoDefault != value)
-                {
-                    _isNoDefault = value;
-                    NotifyPropertyChange("IsNoDefault");
-                }
+                if (_isNoDefault == value) return;
+                _isNoDefault = value;
+                NotifyPropertyChange("IsNoDefault");
             }
         }
         
@@ -331,6 +306,8 @@ namespace MessageBoxLibrary
                         case MessageBoxButton.YesNo:
                             // ignore close
                             break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                 }));
             }
@@ -366,7 +343,7 @@ namespace MessageBoxLibrary
         private void SetDirections(MessageBoxOptions options)
         {
             switch (options)
-            { 
+            {
                 case MessageBoxOptions.None:
                     ContentTextAlignment = HorizontalAlignment.Left;
                     ContentFlowDirection = FlowDirection.LeftToRight;
@@ -390,7 +367,12 @@ namespace MessageBoxLibrary
                     ContentFlowDirection = FlowDirection.RightToLeft;
                     TitleFlowDirection = FlowDirection.RightToLeft;
                     break;
-
+                case MessageBoxOptions.ServiceNotification:
+                    break;
+                case MessageBoxOptions.DefaultDesktopOnly:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("options", options, null);
             }
         }
 
@@ -405,7 +387,7 @@ namespace MessageBoxLibrary
         private void SetButtonDefault(MessageBoxResult defaultResult)
         {
             switch (defaultResult)
-            { 
+            {
                 case MessageBoxResult.OK:
                     IsOkDefault = true;
                     break;
@@ -421,6 +403,10 @@ namespace MessageBoxLibrary
                 case MessageBoxResult.Cancel:
                     IsCancelDefault = true;
                     break;
+                case MessageBoxResult.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("defaultResult", defaultResult, null);
             }
         }
 
@@ -474,6 +460,8 @@ namespace MessageBoxLibrary
                     MessageImageSource = SystemIcons.Information.ToImageSource();
                     break;
 
+                case MessageBoxImage.None:
+                    break;
                 default:
                     MessageImageSource = null;
                     break;

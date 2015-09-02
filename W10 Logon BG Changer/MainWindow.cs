@@ -256,41 +256,38 @@ namespace W10_Logon_BG_Changer
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
         }
 
-        private Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize)
+        private static Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize)
         {
-            if (pixelateSize == 0)
-                return null;
-            else
-                return Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
+            return pixelateSize == 0 ? null : Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
         }
 
-        private static Bitmap Pixelate(Bitmap image, Rectangle rectangle, int pixelateSize)
+        private static Bitmap Pixelate(Image image, Rectangle rectangle, int pixelateSize)
         {
-            Bitmap pixelated = new System.Drawing.Bitmap(image.Width, image.Height);
+            var pixelated = new Bitmap(image.Width, image.Height);
 
             // make an exact copy of the bitmap provided
-            using (Graphics graphics = System.Drawing.Graphics.FromImage(pixelated))
-                graphics.DrawImage(image, new System.Drawing.Rectangle(0, 0, image.Width, image.Height),
+            using (var graphics = Graphics.FromImage(pixelated))
+                graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height),
                      new Rectangle(0, 0, image.Width, image.Height), GraphicsUnit.Pixel);
 
             // look at every pixel in the rectangle while making sure we're within the image bounds
-            for (Int32 xx = rectangle.X; xx < rectangle.X + rectangle.Width && xx < image.Width; xx += pixelateSize)
+            for (var xx = rectangle.X; xx < rectangle.X + rectangle.Width && xx < image.Width; xx += pixelateSize)
             {
-                for (Int32 yy = rectangle.Y; yy < rectangle.Y + rectangle.Height && yy < image.Height; yy += pixelateSize)
+                for (var yy = rectangle.Y; yy < rectangle.Y + rectangle.Height && yy < image.Height; yy += pixelateSize)
                 {
-                    Int32 offsetX = pixelateSize / 2;
-                    Int32 offsetY = pixelateSize / 2;
+                    var offsetX = pixelateSize / 2;
+                    var offsetY = pixelateSize / 2;
 
                     // make sure that the offset is within the boundry of the image
                     while (xx + offsetX >= image.Width) offsetX--;
                     while (yy + offsetY >= image.Height) offsetY--;
 
                     // get the pixel color in the center of the soon to be pixelated area
-                    System.Drawing.Color pixel = pixelated.GetPixel(xx + offsetX, yy + offsetY);
+                    var pixel = pixelated.GetPixel(xx + offsetX, yy + offsetY);
 
                     // for each pixel in the pixelate size, set it to the center color
-                    for (Int32 x = xx; x < xx + pixelateSize && x < image.Width; x++)
-                        for (Int32 y = yy; y < yy + pixelateSize && y < image.Height; y++)
+                    for (var x = xx; x < xx + pixelateSize && x < image.Width; x++)
+                        for (var y = yy; y < yy + pixelateSize && y < image.Height; y++)
                             pixelated.SetPixel(x, y, pixel);
                 }
             }
@@ -314,32 +311,27 @@ namespace W10_Logon_BG_Changer
 
         private void DoToggleStuff(ToggleButton tb)
         {
-            switch (tb.Tag.ToString())
+            if (tb.Tag.ToString() == "gimage")
             {
-                case "gimage":
-                    switch (tb.IsChecked)
-                    {
-                        case true:
-                            ControlFader.FadeIn(GlyphsViewer);
-                            break;
-
-                        case false:
-                            ControlFader.FadeOut(GlyphsViewer);
-                            break;
-                    }
-                    break;
-
-                case "uimage":
-                    switch (tb.IsChecked)
-                    {
-                        case true:
-                            ControlFader.FadeIn(InformationFeilds);
-                            break;
-                        case false:
-                            ControlFader.FadeOut(InformationFeilds);
-                            break;
-                    }
-                    break;
+                if (tb.IsChecked == true)
+                {
+                    ControlFader.FadeIn(GlyphsViewer);
+                }
+                else if (tb.IsChecked == false)
+                {
+                    ControlFader.FadeOut(GlyphsViewer);
+                }
+            }
+            else if (tb.Tag.ToString() == "uimage")
+            {
+                if (tb.IsChecked == true)
+                {
+                    ControlFader.FadeIn(InformationFeilds);
+                }
+                else if (tb.IsChecked == false)
+                {
+                    ControlFader.FadeOut(InformationFeilds);
+                }
             }
             Settings.Default.Set(tb.Tag.ToString(), tb.IsChecked != null && (bool)tb.IsChecked);
             Settings.Default.Save();
@@ -422,22 +414,22 @@ namespace W10_Logon_BG_Changer
                 Dispatcher.Invoke(() =>
                 {
                     var target = LogonScreenPreview;
-                    Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+                    var bounds = VisualTreeHelper.GetDescendantBounds(target);
 
-                    RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height,
+                    var renderTarget = new RenderTargetBitmap((int)bounds.Width, (int)bounds.Height,
                         96,
                         96, PixelFormats.Pbgra32);
 
-                    DrawingVisual visual = new DrawingVisual();
+                    var visual = new DrawingVisual();
 
-                    using (DrawingContext context = visual.RenderOpen())
+                    using (var context = visual.RenderOpen())
                     {
-                        VisualBrush visualBrush = new VisualBrush(target);
+                        var visualBrush = new VisualBrush(target);
                         context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
                     }
 
                     renderTarget.Render(visual);
-                    PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+                    var bitmapEncoder = new PngBitmapEncoder();
                     bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
                     var f = Path.GetTempFileName();
                     using (Stream stm = File.Create(f))
