@@ -1,6 +1,5 @@
 using MessageBoxLibrary;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -27,7 +26,7 @@ namespace W10_Logon_BG_Changer.Controls
     public partial class BgEditorControl : UserControl
     {
         public static int Scaling = 5;
-        public static int Pixelate = 0;
+        public static int Pixelate;
         private readonly MainWindow _mainWindow;
         private readonly Color _orgColor;
         private bool _runningApplySettings;

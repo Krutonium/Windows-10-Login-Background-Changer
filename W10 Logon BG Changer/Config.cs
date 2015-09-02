@@ -10,7 +10,7 @@ namespace W10_Logon_BG_Changer
         public static readonly string CurrentImage = "current.img";
         public static readonly string SettingsFile = "Settings.bin";
 
-        public static readonly string LogonFolder = Path.Combine(Environment.GetEnvironmentVariable("windir"),
+        public static readonly string LogonFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows),
             "SystemResources", "Windows.UI.Logon");
 
         public static readonly string PriFileLocation = Path.Combine(LogonFolder, PriFileName);

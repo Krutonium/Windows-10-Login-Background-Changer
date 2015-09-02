@@ -33,8 +33,7 @@ namespace MessageBoxLibrary
 
         public bool CanExecute()
         {
-            if (_mCanExecuteMethod != null) return _mCanExecuteMethod(); 
-            return true;
+            return _mCanExecuteMethod == null || _mCanExecuteMethod();
         }
 
         /// <summary>
@@ -53,12 +52,10 @@ namespace MessageBoxLibrary
             get{ return _mIsAutomaticRequeryDisabled; }
             set
             {
-                if (_mIsAutomaticRequeryDisabled != value)
-                {
-                    if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
-                    else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
-                    _mIsAutomaticRequeryDisabled = value;
-                }
+                if (_mIsAutomaticRequeryDisabled == value) return;
+                if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
+                else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
+                _mIsAutomaticRequeryDisabled = value;
             }
         }
         public void RaiseCanExecuteChanged()
@@ -150,12 +147,10 @@ namespace MessageBoxLibrary
             get{ return _mIsAutomaticRequeryDisabled; }
             set
             {
-                if (_mIsAutomaticRequeryDisabled != value)
-                {
-                    if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
-                    else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
-                    _mIsAutomaticRequeryDisabled = value;
-                }
+                if (_mIsAutomaticRequeryDisabled == value) return;
+                if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
+                else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
+                _mIsAutomaticRequeryDisabled = value;
             }
         }
 
@@ -201,9 +196,9 @@ namespace MessageBoxLibrary
             // could cause the array to me modified while we are reading it.
 
             var callers = new EventHandler[x.Count];
-            int count = 0;
+            var count = 0;
 
-            for (int i = x.Count - 1; i >= 0; i--)
+            for (var i = x.Count - 1; i >= 0; i--)
             {
                 var reference = x[i];
                 var handler = reference.Target as EventHandler;
@@ -220,7 +215,7 @@ namespace MessageBoxLibrary
             }
 
             // Call the handlers that we snapshotted
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var handler = callers[i];
                 handler(null, EventArgs.Empty);
@@ -269,7 +264,7 @@ namespace MessageBoxLibrary
         internal static Action<List<WeakReference>, EventHandler> RemoveWeakReferenceHandler = (x, y) =>
         {
             if (x == null) return;
-            for (int i = x.Count - 1; i >= 0; i--)
+            for (var i = x.Count - 1; i >= 0; i--)
             {
                 var reference = x[i];
                 var existingHandler = reference.Target as EventHandler;
