@@ -14,7 +14,7 @@ namespace W10_Logon_BG_Changer.Tools.Converts
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            double size = System.Convert.ToDouble(value) * System.Convert.ToDouble(parameter, CultureInfo.InvariantCulture);
+            var size = System.Convert.ToDouble(value) * System.Convert.ToDouble(parameter, CultureInfo.InvariantCulture);
             return size.ToString("G0", CultureInfo.InvariantCulture);
         }
 
@@ -23,9 +23,6 @@ namespace W10_Logon_BG_Changer.Tools.Converts
             throw new NotImplementedException();
         }
 
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return _instance ?? (_instance = new RatioConverter());
-        }
+        public override object ProvideValue(IServiceProvider serviceProvider) => _instance ?? (_instance = new RatioConverter());
     }
 }

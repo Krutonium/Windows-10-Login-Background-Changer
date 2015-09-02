@@ -11,21 +11,15 @@ namespace W10_Logon_BG_Changer.Tools
         public AssemblyInfo(Assembly assembly)
         {
             if (assembly == null)
-                throw new ArgumentNullException("assembly");
+                throw new ArgumentNullException(nameof(assembly));
             _assembly = assembly;
         }
 
         /// <summary>
         ///     Gets the title property
         /// </summary>
-        public string ProductTitle
-        {
-            get
-            {
-                return GetAttributeValue<AssemblyTitleAttribute>(a => a.Title,
-                    Path.GetFileNameWithoutExtension(_assembly.CodeBase));
-            }
-        }
+        public string ProductTitle => GetAttributeValue<AssemblyTitleAttribute>(a => a.Title,
+            Path.GetFileNameWithoutExtension(_assembly.CodeBase));
 
         /// <summary>
         ///     Gets the application's version
@@ -35,41 +29,29 @@ namespace W10_Logon_BG_Changer.Tools
             get
             {
                 var version = _assembly.GetName().Version;
-                return version != null ? version.ToString() : "1.0.0.0";
+                return version?.ToString() ?? "1.0.0.0";
             }
         }
 
         /// <summary>
         ///     Gets the description about the application.
         /// </summary>
-        public string Description
-        {
-            get { return GetAttributeValue<AssemblyDescriptionAttribute>(a => a.Description); }
-        }
+        public string Description => GetAttributeValue<AssemblyDescriptionAttribute>(a => a.Description);
 
         /// <summary>
         ///     Gets the product's full name.
         /// </summary>
-        public string Product
-        {
-            get { return GetAttributeValue<AssemblyProductAttribute>(a => a.Product); }
-        }
+        public string Product => GetAttributeValue<AssemblyProductAttribute>(a => a.Product);
 
         /// <summary>
         ///     Gets the copyright information for the product.
         /// </summary>
-        public string Copyright
-        {
-            get { return GetAttributeValue<AssemblyCopyrightAttribute>(a => a.Copyright); }
-        }
+        public string Copyright => GetAttributeValue<AssemblyCopyrightAttribute>(a => a.Copyright);
 
         /// <summary>
         ///     Gets the company information for the product.
         /// </summary>
-        public string Company
-        {
-            get { return GetAttributeValue<AssemblyCompanyAttribute>(a => a.Company); }
-        }
+        public string Company => GetAttributeValue<AssemblyCompanyAttribute>(a => a.Company);
 
         protected string GetAttributeValue<TAttr>(Func<TAttr,
             string> resolveFunc, string defaultResult = null) where TAttr : Attribute

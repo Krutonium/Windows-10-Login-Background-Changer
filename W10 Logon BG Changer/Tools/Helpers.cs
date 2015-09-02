@@ -12,8 +12,7 @@ namespace W10_Logon_BG_Changer.Tools
         {
             using (var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"))
             {
-                if (key == null) return false;
-                var o = key.GetValue("DisableLogonBackgroundImage");
+                var o = key?.GetValue("DisableLogonBackgroundImage");
                 if (o != null)
                 {
                     return o.ToString() == "1" || (int)o == 1;
@@ -37,7 +36,7 @@ namespace W10_Logon_BG_Changer.Tools
               CharSet = CharSet.Unicode, PreserveSig = false)]
         public static extern void GetUserTilePath(
           string username,
-          UInt32 whatever, // 0x80000000
+          uint whatever, // 0x80000000
           StringBuilder picpath, int maxLength);
 
         public static string GetUserTilePath(string username)
@@ -47,9 +46,6 @@ namespace W10_Logon_BG_Changer.Tools
             return sb.ToString();
         }
 
-        public static Image GetUserTile(string username)
-        {
-            return Image.FromFile(GetUserTilePath(username));
-        }
+        public static Image GetUserTile(string username) => Image.FromFile(GetUserTilePath(username));
     }
 }

@@ -35,10 +35,10 @@ namespace MessageBoxLibrary
         public static void RemoveIcon(Window window)
         {
             // Get this window's handle
-            IntPtr hwnd = new WindowInteropHelper(window).Handle;
+            var hwnd = new WindowInteropHelper(window).Handle;
 
             // Change the extended window style to not show a window icon
-            int extendedStyle = GetWindowLong(hwnd, GwlExstyle);
+            var extendedStyle = GetWindowLong(hwnd, GwlExstyle);
             SetWindowLong(hwnd, GwlExstyle, extendedStyle | WsExDlgmodalframe);
 
             // Update the window's non-client area to reflect the changes
@@ -49,10 +49,10 @@ namespace MessageBoxLibrary
         public static void SetRightAligned(Window window)
         {
             // Get this window's handle
-            IntPtr hwnd = new WindowInteropHelper(window).Handle;
+            var hwnd = new WindowInteropHelper(window).Handle;
 
             // Change the extended window style to not show a window icon
-            int extendedStyle = GetWindowLong(hwnd, GwlExstyle);
+            var extendedStyle = GetWindowLong(hwnd, GwlExstyle);
             SetWindowLong(hwnd, GwlExstyle, extendedStyle | WsExRight);
 
             // Update the window's non-client area to reflect the changes
@@ -63,10 +63,10 @@ namespace MessageBoxLibrary
         public static void SetRtlReading(Window window)
         {
             // Get this window's handle
-            IntPtr hwnd = new WindowInteropHelper(window).Handle;
+            var hwnd = new WindowInteropHelper(window).Handle;
 
             // Change the extended window style to not show a window icon
-            int extendedStyle = GetWindowLong(hwnd, GwlExstyle);
+            var extendedStyle = GetWindowLong(hwnd, GwlExstyle);
             SetWindowLong(hwnd, GwlExstyle, extendedStyle | WsExRtlreading);
 
             // Update the window's non-client area to reflect the changes

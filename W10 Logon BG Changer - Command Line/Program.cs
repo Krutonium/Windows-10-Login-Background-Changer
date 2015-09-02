@@ -96,7 +96,7 @@ namespace W10_Logon_BG_Changer___Command_Line
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("");
-                        Console.WriteLine("An error occurred: The file \"" + filedir + "\" is not a valid file!");
+                        Console.WriteLine("An error occurred: The file \"{0}\" is not a valid file!", filedir);
                         Console.ResetColor();
                     }
                     break;

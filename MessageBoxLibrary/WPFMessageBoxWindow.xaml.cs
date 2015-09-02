@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Media;
 
 namespace MessageBoxLibrary
@@ -17,9 +8,9 @@ namespace MessageBoxLibrary
     /// <summary>
     /// Interaction logic for WPFMessageBoxWindow.xaml
     /// </summary>
-    public partial class WPFMessageBoxWindow : Window
+    public partial class WpfMessageBoxWindow : Window
     {
-        public WPFMessageBoxWindow()
+        public WpfMessageBoxWindow()
         {
             InitializeComponent();
         }
@@ -45,7 +36,7 @@ namespace MessageBoxLibrary
                 throw new NotImplementedException();
             }
 
-            _messageBoxWindow = new WPFMessageBoxWindow();
+            _messageBoxWindow = new WpfMessageBoxWindow();
 
             setOwner(_messageBoxWindow);
 
@@ -88,7 +79,7 @@ namespace MessageBoxLibrary
         }
 
         [ThreadStatic]
-        private static WPFMessageBoxWindow _messageBoxWindow;
+        private static WpfMessageBoxWindow _messageBoxWindow;
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -110,6 +101,12 @@ namespace MessageBoxLibrary
 
                 case MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading:
                     break;
+                case MessageBoxOptions.ServiceNotification:
+                    break;
+                case MessageBoxOptions.DefaultDesktopOnly:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             // disable close button if needed and remove resize menu items from the window system menu

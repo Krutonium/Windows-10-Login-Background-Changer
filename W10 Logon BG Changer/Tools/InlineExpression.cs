@@ -35,18 +35,11 @@ namespace W10_Logon_BG_Changer.Tools
             textBlock.Inlines.AddRange(inlines);
         }
 
-        public static string GetInlineExpression(TextBlock textBlock)
-        {
-            return (string)textBlock.GetValue(InlineExpressionProperty);
-        }
+        public static string GetInlineExpression(TextBlock textBlock) => (string)textBlock.GetValue(InlineExpressionProperty);
 
-        private static Inline[] GetInlines(FrameworkElement element, IEnumerable<InlineDescription> inlineDescriptions)
-        {
-            return
-                inlineDescriptions.Select(description => GetInline(element, description))
-                    .Where(inline => inline != null)
-                    .ToArray();
-        }
+        private static Inline[] GetInlines(FrameworkElement element, IEnumerable<InlineDescription> inlineDescriptions) => inlineDescriptions.Select(description => GetInline(element, description))
+            .Where(inline => inline != null)
+            .ToArray();
 
         private static Inline GetInline(FrameworkElement element, InlineDescription description)
         {
@@ -150,9 +143,7 @@ namespace W10_Logon_BG_Changer.Tools
             if (element != null)
                 return GetInlineDescription(element);
             var text = node as XmlText;
-            if (text != null)
-                return GetInlineDescription(text);
-            return null;
+            return text != null ? GetInlineDescription(text) : null;
         }
 
         private static InlineDescription GetInlineDescription(XmlElement element)

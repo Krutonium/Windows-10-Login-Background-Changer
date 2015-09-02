@@ -161,26 +161,20 @@ namespace W10_Logon_BG_Changer
                     case 0:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1280, 720).ToBitmapSource();
                         break;
-
                     case 1:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1920, 1080).ToBitmapSource();
                         break;
-
                     case 2:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 3840, 2160).ToBitmapSource();
                         break;
-
                     case 3:
                         WallpaperViewer.Source =
-                            ResizeImage(Image.FromFile(value), (int)SystemParameters.PrimaryScreenWidth,
-                                (int)SystemParameters.PrimaryScreenHeight).ToBitmapSource();
+                            ResizeImage(Image.FromFile(value), (int) SystemParameters.PrimaryScreenWidth,
+                                (int) SystemParameters.PrimaryScreenHeight).ToBitmapSource();
                         break;
-
                     case 4:
-                        Dispatcher.BeginInvoke((Action)(() =>
-                        {
-                            WallpaperViewer.Source = new BitmapImage(new Uri(value));
-                        }));
+                        Dispatcher.BeginInvoke(
+                            (Action) (() => { WallpaperViewer.Source = new BitmapImage(new Uri(value)); }));
                         break;
                 }
 
@@ -256,10 +250,7 @@ namespace W10_Logon_BG_Changer
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
         }
 
-        private static Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize)
-        {
-            return pixelateSize == 0 ? null : Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
-        }
+        private static Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize) => pixelateSize == 0 ? null : Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
 
         private static Bitmap Pixelate(Image image, Rectangle rectangle, int pixelateSize)
         {
@@ -337,10 +328,7 @@ namespace W10_Logon_BG_Changer
             Settings.Default.Save();
         }
 
-        private void LockButton_Click(object sender, RoutedEventArgs e)
-        {
-            Win32Api.LockWorkStation();
-        }
+        private void LockButton_Click(object sender, RoutedEventArgs e) => Win32Api.LockWorkStation();
 
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
@@ -379,7 +367,6 @@ namespace W10_Logon_BG_Changer
                     Debug.WriteLine("[AboutFlyout]: right");
                     Debug.WriteLine("[ApplicationSettingsFlyout]: right");
                     break;
-
                 case "right":
                     SettingFlyout.Position = Position.Right;
                     AboutFlyout.Position = Position.Left;
@@ -446,9 +433,6 @@ namespace W10_Logon_BG_Changer
             });
         }
 
-        private void ApplicationSettings_Click(object sender, RoutedEventArgs e)
-        {
-            ApplicationSettingsFlyout.IsOpen = !ApplicationSettingsFlyout.IsOpen;
-        }
+        private void ApplicationSettings_Click(object sender, RoutedEventArgs e) => ApplicationSettingsFlyout.IsOpen = !ApplicationSettingsFlyout.IsOpen;
     }
 }

@@ -18,15 +18,9 @@ namespace SharedLibrary
 {
     public static class Extenstions
     {
-        public static Image ResizeImage(this Image imgToResize, System.Drawing.Size size)
-        {
-            return (Image)(new Bitmap(imgToResize, size));
-        }
+        public static Image ResizeImage(this Image imgToResize, System.Drawing.Size size) => (Image)(new Bitmap(imgToResize, size));
 
-        public static MColor ToMediaColor(this DColor color)
-        {
-            return MColor.FromArgb(color.A, color.R, color.G, color.B);
-        }
+        public static MColor ToMediaColor(this DColor color) => MColor.FromArgb(color.A, color.R, color.G, color.B);
 
         public static BitmapSource ToBitmapSource(this Image source)
         {
@@ -99,10 +93,7 @@ namespace SharedLibrary
             internal static extern bool DeleteObject(IntPtr hObject);
         }
 
-        public static bool IsHex(this string hex)
-        {
-            return (Regex.Match(hex, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success);
-        }
+        public static bool IsHex(this string hex) => (Regex.Match(hex, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success);
 
         public static ExpandoObject ToExpando(this IDictionary<string, object> dictionary)
         {

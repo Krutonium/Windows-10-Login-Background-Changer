@@ -38,11 +38,11 @@ namespace MessageBoxLibrary
         private ICommand _escapeCommand;
         private ICommand _closeCommand;
 
-        private readonly WPFMessageBoxWindow _view;
+        private readonly WpfMessageBoxWindow _view;
         private ImageSource _messageImageSource;
 
         public MessageBoxViewModel(
-            WPFMessageBoxWindow view,
+            WpfMessageBoxWindow view,
             string title,
             string message,
             MessageBoxButton buttonOption,
@@ -372,17 +372,11 @@ namespace MessageBoxLibrary
                 case MessageBoxOptions.DefaultDesktopOnly:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("options", options, null);
+                    throw new ArgumentOutOfRangeException(nameof(options), options, null);
             }
         }
 
-        private void NotifyPropertyChange(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
+        private void NotifyPropertyChange(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
 
         private void SetButtonDefault(MessageBoxResult defaultResult)
         {
@@ -406,7 +400,7 @@ namespace MessageBoxLibrary
                 case MessageBoxResult.None:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("defaultResult", defaultResult, null);
+                    throw new ArgumentOutOfRangeException(nameof(defaultResult), defaultResult, null);
             }
         }
 
