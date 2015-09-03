@@ -81,9 +81,17 @@ namespace W10_Logon_BG_Changer.Controls
 
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
-            Settings.Default.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
             var fileName = ofd.FileName;
 
+            if (!File.Exists(fileName))
+            {
+                WpfMessageBox.Show($"'{fileName}' does not exist!",
+                    LanguageLibrary.Language.Default.title_error, MessageBoxButton.OK, MessageBoxImage.Error);
+
+                return;
+            }
+
+            Settings.Default.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
             var extension = Path.GetExtension(fileName);
             if (extension != null)
             {
