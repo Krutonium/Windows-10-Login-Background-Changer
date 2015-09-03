@@ -257,15 +257,9 @@ namespace W10_Logon_BG_Changer.Controls
             return bmp;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Scaling = ((ComboBox)sender).SelectedIndex;
-        }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => Scaling = ((ComboBox)sender).SelectedIndex;
 
-        private void ShareBackGround_Click(object sender, RoutedEventArgs e)
-        {
-            _mainWindow.CreateBitmapFromVisual();
-        }
+        private void ShareBackGround_Click(object sender, RoutedEventArgs e) => _mainWindow.CreateBitmapFromVisual();
 
         private void ColorPickerPreviewButton_Click(object sender, RoutedEventArgs e)
         {
