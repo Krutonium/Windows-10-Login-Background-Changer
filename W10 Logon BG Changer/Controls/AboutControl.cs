@@ -41,7 +41,7 @@ namespace W10_Logon_BG_Changer.Controls
                     if (l.Length > 0)
                     {
                         var inlineExpression =
-                            $"<bold>{l[0]}</bold> | <hyperlink NavigateUri='{l[1]}' Click='Url_Click'>{l[1]}</hyperlink>";
+                            $"<bold>{l[0]}</bold> | <hyperlink NavigateUri='{l[1]}'>{l[1]}</hyperlink>";
                         InlineExpression.SetInlineExpression(tb, inlineExpression);
                     }
 
