@@ -94,9 +94,6 @@
     <EmbeddedResource Include="Langs\ko_kr.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Langs\be_nl.xml" />
   </ItemGroup>
   <ItemGroup>

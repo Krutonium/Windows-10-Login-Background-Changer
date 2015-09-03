@@ -284,61 +284,51 @@ namespace MessageBoxLibrary
         }
 
         // called when the escape key is pressed
-        public ICommand EscapeCommand
+        public ICommand EscapeCommand => _escapeCommand ?? (_escapeCommand = new DelegateCommand(() =>
         {
-            get
+            switch (ButtonOption)
             {
-                return _escapeCommand ?? (_escapeCommand = new DelegateCommand(() =>
-                {
-                    switch (ButtonOption)
-                    {
-                        case MessageBoxButton.OK:
-                            Result = MessageBoxResult.OK;
-                            _view.Close();
-                            break;
+                case MessageBoxButton.OK:
+                    Result = MessageBoxResult.OK;
+                    _view.Close();
+                    break;
 
-                        case MessageBoxButton.YesNoCancel:
-                        case MessageBoxButton.OKCancel:
-                            Result = MessageBoxResult.Cancel;
-                            _view.Close();
-                            break;
+                case MessageBoxButton.YesNoCancel:
+                case MessageBoxButton.OKCancel:
+                    Result = MessageBoxResult.Cancel;
+                    _view.Close();
+                    break;
 
-                        case MessageBoxButton.YesNo:
-                            // ignore close
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }));
+                case MessageBoxButton.YesNo:
+                    // ignore close
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-        }
+        }));
 
         // called when the form is closed by via close button click or programmatically
-        public ICommand CloseCommand
+        public ICommand CloseCommand => _closeCommand ?? (_closeCommand = new DelegateCommand(() =>
         {
-            get
+            if (Result != MessageBoxResult.None) return;
+            switch (ButtonOption)
             {
-                return _closeCommand ?? (_closeCommand = new DelegateCommand(() =>
-                {
-                    if (Result != MessageBoxResult.None) return;
-                    switch (ButtonOption)
-                    {
-                        case MessageBoxButton.OK:
-                            Result = MessageBoxResult.OK;
-                            break;
+                case MessageBoxButton.OK:
+                    Result = MessageBoxResult.OK;
+                    break;
 
-                        case MessageBoxButton.YesNoCancel:
-                        case MessageBoxButton.OKCancel:
-                            Result = MessageBoxResult.Cancel;
-                            break;
+                case MessageBoxButton.YesNoCancel:
+                case MessageBoxButton.OKCancel:
+                    Result = MessageBoxResult.Cancel;
+                    break;
 
-                        case MessageBoxButton.YesNo:
-                            // ignore close
-                            break;
-                    }
-                }));
+                case MessageBoxButton.YesNo:
+                    // ignore close
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-        }
+        }));
 
         private void SetDirections(MessageBoxOptions options)
         {

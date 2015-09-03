@@ -52,6 +52,7 @@ namespace W10_Logon_BG_Changer.Tools
             }
 
             Inline inline = null;
+            Span span;
             switch (description.Type)
             {
                 case InlineType.Run:
@@ -65,7 +66,7 @@ namespace W10_Logon_BG_Changer.Tools
                     break;
 
                 case InlineType.Span:
-                    var span = new Span();
+                    span = new Span();
                     inline = span;
                     break;
 
@@ -88,24 +89,20 @@ namespace W10_Logon_BG_Changer.Tools
                     var underline = new Underline();
                     inline = underline;
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
-            if (inline != null)
+            span = inline as Span;
+            if (span != null)
             {
-                var span = inline as Span;
-                if (span != null)
-                {
-                    var childInlines =
-                        description.Inlines.Select(inlineDescription => GetInline(element, inlineDescription))
-                            .Where(childInline => childInline != null)
-                            .ToList();
+                var childInlines = description.Inlines.Select(inlineDescription => GetInline(element, inlineDescription)).Where(childInline => childInline != null).ToList();
 
-                    span.Inlines.AddRange(childInlines);
-                }
-
-                if (style != null)
-                    inline.Style = style;
+                span.Inlines.AddRange(childInlines);
             }
+
+            if (style != null)
+                inline.Style = style;
 
             return inline;
         }
@@ -127,14 +124,7 @@ namespace W10_Logon_BG_Changer.Tools
             xmlDocument.Load(xmlTextReader);
 
             var rootElement = xmlDocument.DocumentElement;
-            if (rootElement == null)
-                return new InlineDescription[0];
-
-            return
-                rootElement.ChildNodes.Cast<XmlNode>()
-                    .Select(GetInlineDescription)
-                    .Where(description => description != null)
-                    .ToArray();
+            return rootElement?.ChildNodes.Cast<XmlNode>().Select(GetInlineDescription).Where(description => description != null).ToArray() ?? new InlineDescription[0];
         }
 
         private static InlineDescription GetInlineDescription(XmlNode node)
@@ -198,18 +188,12 @@ namespace W10_Logon_BG_Changer.Tools
             }
             else
             {
-                childDescriptions.AddRange(
-                    element.ChildNodes.Cast<XmlNode>()
-                        .Select(GetInlineDescription)
-                        .Where(childDescription => childDescription != null));
+                childDescriptions.AddRange(element.ChildNodes.Cast<XmlNode>().Select(GetInlineDescription).Where(childDescription => childDescription != null));
             }
 
             var inlineDescription = new InlineDescription
             {
-                Type = type,
-                StyleName = styleName,
-                Text = text,
-                Inlines = childDescriptions.ToArray()
+                Type = type, StyleName = styleName, Text = text, Inlines = childDescriptions.ToArray()
             };
 
             return inlineDescription;
@@ -223,8 +207,7 @@ namespace W10_Logon_BG_Changer.Tools
 
             var inlineDescription = new InlineDescription
             {
-                Type = InlineType.Run,
-                Text = value
+                Type = InlineType.Run, Text = value
             };
             return inlineDescription;
         }
