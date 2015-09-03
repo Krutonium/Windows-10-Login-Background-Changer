@@ -77,10 +77,10 @@ namespace W10_Logon_BG_Changer
                     LanguageLibrary.Language.Default.title_bg_disabled, MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            Debug.WriteLine("[AccentColor]: " +
-                            ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
+            Debug.WriteLine(
+                $"[AccentColor]: {ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground)}");
 
-            Title += " - " + AssemblyInfo.Version;
+            Title += $" - {AssemblyInfo.Version}";
 
             Settings.Default.Set("eula", true);
             Settings.Default.Save();
@@ -182,15 +182,9 @@ namespace W10_Logon_BG_Changer
             }
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            SettingFlyout.IsOpen = !SettingFlyout.IsOpen;
-        }
+        private void SettingsButton_Click(object sender, RoutedEventArgs e) => SettingFlyout.IsOpen = !SettingFlyout.IsOpen;
 
-        private void AboutButton_Click(object sender, RoutedEventArgs e)
-        {
-            AboutFlyout.IsOpen = !AboutFlyout.IsOpen;
-        }
+        private void AboutButton_Click(object sender, RoutedEventArgs e) => AboutFlyout.IsOpen = !AboutFlyout.IsOpen;
 
         public void ApplyChanges()
         {
@@ -364,18 +358,17 @@ namespace W10_Logon_BG_Changer
                     SettingFlyout.Position = Position.Left;
                     AboutFlyout.Position = Position.Right;
                     ApplicationSettingsFlyout.Position = Position.Right;
-                    Debug.WriteLine("[AboutFlyout]: right");
-                    Debug.WriteLine("[ApplicationSettingsFlyout]: right");
                     break;
                 case "right":
                     SettingFlyout.Position = Position.Right;
                     AboutFlyout.Position = Position.Left;
                     ApplicationSettingsFlyout.Position = Position.Left;
-                    Debug.WriteLine("[AboutFlyout]: left");
-                    Debug.WriteLine("[ApplicationSettingsFlyout]: left");
+
                     break;
             }
 
+            Debug.WriteLine($"[AboutFlyout]: {AboutFlyout.Position}");
+            Debug.WriteLine($"[ApplicationSettingsFlyout]: {ApplicationSettingsFlyout.Position}");
             Settings.Default.Set("flyout", SettingFlyout.Position);
             Settings.Default.Save();
         }

@@ -72,6 +72,8 @@ namespace MessageBoxLibrary
                     SystemSounds.Asterisk.Play();
                     break;
 
+                case MessageBoxImage.None:
+                    break;
                 default:
                     SystemSounds.Beep.Play();
                     break;

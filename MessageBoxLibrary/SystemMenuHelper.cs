@@ -32,7 +32,7 @@ namespace MessageBoxLibrary
 
         private HwndSource _hwndSource;
 
-        public SystemMenuHelper(Window window)
+        public SystemMenuHelper(Visual window)
         {
             AddHook(window);
         }

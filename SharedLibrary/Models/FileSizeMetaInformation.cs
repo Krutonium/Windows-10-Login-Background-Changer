@@ -2,10 +2,10 @@
 {
     public class FileSizeMetaInformation
     {
-        public long ActualFileSize { get; private set; }
-        public long LoadedFileSize { get; private set; }
-        public string LoadedFileSizeHuman { get; private set; }
-        public string ActualFileSizeHuman { get; private set; }
+        public long ActualFileSize { get; }
+        public long LoadedFileSize { get; }
+        public string LoadedFileSizeHuman { get; }
+        public string ActualFileSizeHuman { get; }
 
         public FileSizeMetaInformation(long actual, long loaded)
         {

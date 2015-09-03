@@ -15,15 +15,9 @@ namespace W10_Logon_BG_Changer.Controls.Commands
             _mainWindow = mainWindow;
         }
 
-        public bool CanExecute(object parameter)
-        {
-            return parameter != null;
-        }
+        public bool CanExecute(object parameter) => parameter != null;
 
-        public void Execute(object parameter)
-        {
-            _bgEditorControl.SelectImageEvent_Clicked(this, new RoutedEventArgs());
-        }
+        public void Execute(object parameter) => _bgEditorControl.SelectImageEvent_Clicked(this, new RoutedEventArgs());
 
         public event EventHandler CanExecuteChanged;
     }

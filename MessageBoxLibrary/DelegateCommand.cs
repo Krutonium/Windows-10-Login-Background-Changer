@@ -118,11 +118,7 @@ namespace MessageBoxLibrary
             _mIsAutomaticRequeryDisabled = isAutomaticRequeryDisabled;
         }
 
-        public bool CanExecute(T parameter)
-        {
-            if (_mCanExecuteMethod != null) return _mCanExecuteMethod(parameter); 
-            return true;
-        }
+        public bool CanExecute(T parameter) => _mCanExecuteMethod == null || _mCanExecuteMethod(parameter);
 
         public void Execute(T parameter) => _mExecuteMethod?.Invoke(parameter);
 

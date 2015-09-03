@@ -130,10 +130,7 @@ namespace W10_Logon_BG_Changer.Tools.Customs
             reader.ReadEndElement(); // Read End Element to close Read of containing node
         }
 
-        XmlSchema IXmlSerializable.GetSchema()
-        {
-            return null;
-        }
+        XmlSchema IXmlSerializable.GetSchema() => null;
 
         #endregion IXmlSerializable Members
 

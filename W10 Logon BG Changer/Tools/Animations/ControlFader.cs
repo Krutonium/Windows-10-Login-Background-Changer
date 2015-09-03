@@ -18,7 +18,7 @@ namespace W10_Logon_BG_Changer.Tools.Animations
 
                 await Task.Delay(Interval);
 
-                Debug.WriteLine("[" + control.Name + "] fadeIn: " + i);
+                Debug.WriteLine($"[{control.Name}] fadeIn: {i}");
 
                 control.Opacity = i;
             }
@@ -32,7 +32,7 @@ namespace W10_Logon_BG_Changer.Tools.Animations
 
                 await Task.Delay(Interval);
 
-                Debug.WriteLine("[" + control.Name + "] fadeOut: " + i);
+                Debug.WriteLine($"[{control.Name}] fadeOut: {i}");
 
                 control.Opacity = i;
             }
