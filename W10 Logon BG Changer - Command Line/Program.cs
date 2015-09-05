@@ -16,139 +16,112 @@ namespace W10_Logon_BG_Changer___Command_Line
         {
             TakeOwnership();
 
-            foreach (var arg in args)
+
+            if (args.Length <= 0)
             {
-                switch (arg.Substring(0, 2).ToUpper())
-                {
-                    case "/A":
-                        try
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("");
-                            Console.WriteLine(@"Syrexide | https://github.com/Syrexide/");
-                            Console.WriteLine(@"Toyz | https://github.com/Toyz/");
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        catch (Exception e)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("");
-                            Console.WriteLine(@"An error occurred: '{0}'", e);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
+                Console.WriteLine("Please use '/h' for help");
+                return;
+            }
+
+            if (!args[0].ToLower().StartsWith("/") || !args[0].ToLower().StartsWith("-"))
+            {
+                Console.WriteLine("Please use '/h' for help");
+                return;
+            }
+
+            switch (args[0].ToLower().Replace("/", "").Replace("-", ""))
+            {
+                case "h":
+                    Console.WriteLine("");
+                    Console.WriteLine("HELP");
+                    Console.WriteLine("=====");
+                    Console.WriteLine("");
+                    Console.WriteLine("AUTHORS - /A");
+                    Console.WriteLine("COLOR - /C [HEX CODE]");
+                    Console.WriteLine("IMAGE - /I [IMAGE PATH]");
+                    Console.WriteLine("RESTORE - /R");
+                    Console.WriteLine("HELP - /H");
+                    break;
+
+                case "a":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("");
+                    Console.WriteLine(@"Syrexide | https://github.com/Syrexide/");
+                    Console.WriteLine(@"Toyz | https://github.com/Toyz/");
+                    Console.ResetColor();
+                    break;
+
+                case "c":
+                    if (args.Length < 2)
+                    {
+                        Console.WriteLine("Usage: /c hexcode (Example /c 000000");
                         return;
+                    }
 
-                    case "/C":
-                        var hex = arg.Substring(2);
-                        try
-                        {
-                            if (hex.IsHex())
-                            {
-                                var converter = new ColorConverter();
-                                var convertFromString = converter.ConvertFromString(hex);
-                                if (convertFromString != null)
-                                {
-                                    var color = (Color)convertFromString;
+                    var hex = args[1];
 
-                                    ChangeColor(color);
-                                }
-                                else
-                                {
-                                    return;
-                                }
-
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("");
-                                Console.WriteLine("Success!");
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                            else
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("");
-                                Console.WriteLine(@"""{0}"" is not a valid hex color code!", hex);
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("");
-                            Console.WriteLine(@"An error occurred: '{0}'", e);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
+                    if (!hex.IsHex())
+                    {
+                        Console.WriteLine("Not a valid Hex color!");
                         return;
+                    }
 
-                    case "/H":
-                        Console.WriteLine("");
-                        Console.WriteLine("HELP");
-                        Console.WriteLine("=====");
-                        Console.WriteLine("");
-                        Console.WriteLine("AUTHORS - /A");
-                        Console.WriteLine("COLOR - /C[HEX CODE]");
-                        Console.WriteLine("IMAGE - /I[IMAGE PATH]");
-                        Console.WriteLine("RESTORE - /R");
-                        Console.WriteLine("HELP - /H");
+                    var converter = new ColorConverter();
+                    var convertFromString = converter.ConvertFromString(hex);
+
+                    if(convertFromString != null)
+                        ChangeColor((Color)convertFromString);
+                    break;
+
+                case "i":
+                    if (args.Length < 2)
+                    {
+                        Console.WriteLine("Usage: /i pathtoimage");
                         return;
+                    }
 
-                    case "/I":
-                        var filedir = arg.Substring(2);
-                        try
-                        {
-                            if (File.Exists(filedir) && (Path.GetExtension(filedir) == ".jpg") ||
+                    var filedir = args[1];
+
+                    if (File.Exists(filedir) && (Path.GetExtension(filedir) == ".jpg") ||
                                 (Path.GetExtension(filedir) == ".png") || (Path.GetExtension(filedir) == ".bmp") ||
                                 (Path.GetExtension(filedir) == ".tif") || (Path.GetExtension(filedir) == ".tiff"))
-                            {
-                                ChangeImage(filedir);
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("");
-                                Console.WriteLine("Success!");
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                            else
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("");
-                                Console.WriteLine("An error occurred: The file \"" + filedir + "\" is not a valid file!");
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("");
-                            Console.WriteLine(@"An error occurred: '{0}'", e);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        return;
-
-                    case "/R":
-                        try
-                        {
-                            Restore();
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("");
-                            Console.WriteLine("Success!");
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        catch (Exception e)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("");
-                            Console.WriteLine(@"An error occurred: '{0}'", e);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        return;
-
-                    default:
+                    {
+                        ChangeImage(filedir);
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("");
-                        Console.WriteLine(
-                            @"Please format your command as shown: exe [/A|/C|/H|/I|/R] [/CHEX CODE|/IFILE PATH]");
+                        Console.WriteLine("Success!");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("");
-                        Console.WriteLine(@"Press any key to exit.");
-                        Console.ReadKey(true);
-                        break;
-                }
+                        Console.WriteLine("An error occurred: The file \"{0}\" is not a valid file!", filedir);
+                        Console.ResetColor();
+                    }
+                    break;
+
+                case "r":
+                    try
+                    {
+                        Restore();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("");
+                        Console.WriteLine("Success!");
+                        Console.ResetColor();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("");
+                        Console.WriteLine(@"An error occurred: '{0}'", e);
+                        Console.ResetColor();
+                    }
+                    return;
+
+                default:
+                    Console.WriteLine("Please use '/h' for help");
+                    return;
             }
         }
 

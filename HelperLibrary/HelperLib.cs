@@ -8,7 +8,7 @@ namespace HelperLibrary
 {
     public class HelperLib
     {
-        public static void TakeOwnership(string FD)
+        public static void TakeOwnership(string fd)
         {
             try
             {
@@ -17,9 +17,9 @@ namespace HelperLibrary
                 myProcToken.EnablePrivilege(new TokenPrivilege(TokenPrivilege.SE_TAKE_OWNERSHIP_NAME, true));
                 var identifier = new SecurityIdentifier(WellKnownSidType.BuiltinAdministratorsSid, null);
                 var identity = (NTAccount)identifier.Translate(typeof(NTAccount));
-                if (File.Exists(FD))
+                if (File.Exists(fd))
                 {
-                    var info = new FileInfo(FD);
+                    var info = new FileInfo(fd);
                     var rule = new FileSystemAccessRule(identity.Value, FileSystemRights.FullControl,
                         AccessControlType.Allow);
                     var accessControl = info.GetAccessControl(AccessControlSections.Owner);
@@ -28,9 +28,9 @@ namespace HelperLibrary
                     accessControl.AddAccessRule(rule);
                     info.SetAccessControl(accessControl);
                 }
-                if (Directory.Exists(FD))
+                if (Directory.Exists(fd))
                 {
-                    var info2 = new DirectoryInfo(FD);
+                    var info2 = new DirectoryInfo(fd);
                     var directorySecurity = info2.GetAccessControl(AccessControlSections.All);
                     directorySecurity.SetOwner(identity);
                     info2.SetAccessControl(directorySecurity);
@@ -39,31 +39,31 @@ namespace HelperLibrary
                         AccessControlType.Allow));
                     info2.SetAccessControl(directorySecurity);
                 }
-                Clear(FD);
+                Clear(fd);
             }
             catch (Exception)
             {
             }
         }
 
-        public static void Clear(string Folder)
+        public static void Clear(string folder)
         {
             try
             {
-                if (Directory.Exists(Folder))
+                if (Directory.Exists(folder))
                 {
-                    foreach (var str in Directory.GetDirectories(Folder, "*.*", SearchOption.AllDirectories))
+                    foreach (var str in Directory.GetDirectories(folder, "*.*", SearchOption.AllDirectories))
                     {
                         File.SetAttributes(str, FileAttributes.Normal);
                     }
-                    foreach (var str2 in Directory.GetFiles(Folder, "*.*", SearchOption.AllDirectories))
+                    foreach (var str2 in Directory.GetFiles(folder, "*.*", SearchOption.AllDirectories))
                     {
                         File.SetAttributes(str2, FileAttributes.Normal);
                     }
                 }
-                if (File.Exists(Folder))
+                if (File.Exists(folder))
                 {
-                    File.SetAttributes(Folder, FileAttributes.Normal);
+                    File.SetAttributes(folder, FileAttributes.Normal);
                 }
             }
             catch

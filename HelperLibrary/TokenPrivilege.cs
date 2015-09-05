@@ -57,7 +57,7 @@ namespace HelperLibrary
         public unsafe byte[] GetNativeLUID_AND_ATTRIBUTES()
         {
             LUID_AND_ATTRIBUTES la;
-            la.Luid = _luid.GetNativeLUID();
+            la.Luid = _luid.GetNativeLuid();
             la.Attributes = (uint)_attributes;
             var res = new byte[Marshal.SizeOf(typeof(LUID_AND_ATTRIBUTES))];
             fixed (byte* luida = res)

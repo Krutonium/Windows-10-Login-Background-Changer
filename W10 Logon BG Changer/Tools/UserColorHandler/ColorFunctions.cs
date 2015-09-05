@@ -11,10 +11,7 @@ namespace W10_Logon_BG_Changer.Tools.UserColorHandler
         /// </summary>
         /// <param name="color">Immersive Color</param>
         /// <returns>User-setted color</returns>
-        public static Color GetImmersiveColor(ImmersiveColors color)
-        {
-            return GetMetroColorByString(color.ToString());
-        }
+        public static Color GetImmersiveColor(ImmersiveColors color) => GetMetroColorByString(color.ToString());
 
         #region CALLTOWIN
 

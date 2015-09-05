@@ -1,6 +1,5 @@
 using MessageBoxLibrary;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -27,6 +26,7 @@ namespace W10_Logon_BG_Changer.Controls
     public partial class BgEditorControl : UserControl
     {
         public static int Scaling = 5;
+        public static int Pixelate;
         private readonly MainWindow _mainWindow;
         private readonly Color _orgColor;
         private bool _runningApplySettings;
@@ -73,16 +73,25 @@ namespace W10_Logon_BG_Changer.Controls
             };
 
             var initialDirectory = Settings.Default.Get("last_folder", string.Empty);
-                if (!string.IsNullOrEmpty(initialDirectory))
-                    if (Directory.Exists(initialDirectory)) {
-                        ofd.InitialDirectory = initialDirectory;
-                    }
+            if (!string.IsNullOrEmpty(initialDirectory))
+                if (Directory.Exists(initialDirectory))
+                {
+                    ofd.InitialDirectory = initialDirectory;
+                }
 
             var dialog = ofd.ShowDialog();
             if (dialog != true) return;
-            Settings.Default.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
             var fileName = ofd.FileName;
 
+            if (!File.Exists(fileName))
+            {
+                WpfMessageBox.Show($"'{fileName}' does not exist!",
+                    LanguageLibrary.Language.Default.title_error, MessageBoxButton.OK, MessageBoxImage.Error);
+
+                return;
+            }
+
+            Settings.Default.Set("last_folder", Path.GetDirectoryName(ofd.FileName));
             var extension = Path.GetExtension(fileName);
             if (extension != null)
             {
@@ -167,7 +176,7 @@ namespace W10_Logon_BG_Changer.Controls
             Settings.Default.Set("filename", Path.GetFileName(_mainWindow.SelectedFile));
             Settings.Default.Save();
             _runningApplySettings = true;
-            var holderContent = ((Button) sender);
+            var holderContent = ((Button)sender);
             var progress = new ProgressRing
             {
                 IsActive = true,
@@ -248,21 +257,27 @@ namespace W10_Logon_BG_Changer.Controls
             return bmp;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Scaling = ((ComboBox)sender).SelectedIndex;
-        }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => Scaling = ((ComboBox)sender).SelectedIndex;
 
-        private void ShareBackGround_Click(object sender, RoutedEventArgs e)
-        {
-            _mainWindow.CreateBitmapFromVisual();
-        }
+        private void ShareBackGround_Click(object sender, RoutedEventArgs e) => _mainWindow.CreateBitmapFromVisual();
 
         private void ColorPickerPreviewButton_Click(object sender, RoutedEventArgs e)
         {
             if (SolidColorPicker.SelectedColor == null) return;
             var c = SolidColorPicker.SelectedColor.Value;
             _mainWindow.SelectedFile = FillImageColor(System.Drawing.Color.FromArgb(c.R, c.G, c.B));
+        }
+
+        private void PixelateScaleSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Pixelate = int.Parse(((ComboBoxItem)((ComboBox)sender).SelectedItem).Content.ToString());
+            }
+            catch
+            {
+                Pixelate = 0;
+            }
         }
     }
 }

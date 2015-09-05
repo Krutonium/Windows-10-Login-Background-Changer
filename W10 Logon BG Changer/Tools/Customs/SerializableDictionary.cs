@@ -61,7 +61,7 @@ namespace W10_Logon_BG_Changer.Tools.Customs
             {
                 var kvp =
                     (KeyValuePair<TKey, TVal>)
-                        info.GetValue(string.Format("Item{0}", i), typeof(KeyValuePair<TKey, TVal>));
+                        info.GetValue($"Item{i}", typeof(KeyValuePair<TKey, TVal>));
                 Add(kvp.Key, kvp.Value);
             }
         }
@@ -72,7 +72,7 @@ namespace W10_Logon_BG_Changer.Tools.Customs
             var itemIdx = 0;
             foreach (var kvp in this)
             {
-                info.AddValue(string.Format("Item{0}", itemIdx), kvp, typeof(KeyValuePair<TKey, TVal>));
+                info.AddValue($"Item{itemIdx}", kvp, typeof(KeyValuePair<TKey, TVal>));
                 itemIdx++;
             }
         }
@@ -130,24 +130,15 @@ namespace W10_Logon_BG_Changer.Tools.Customs
             reader.ReadEndElement(); // Read End Element to close Read of containing node
         }
 
-        XmlSchema IXmlSerializable.GetSchema()
-        {
-            return null;
-        }
+        XmlSchema IXmlSerializable.GetSchema() => null;
 
         #endregion IXmlSerializable Members
 
         #region Private Properties
 
-        protected XmlSerializer ValueSerializer
-        {
-            get { return _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof(TVal))); }
-        }
+        protected XmlSerializer ValueSerializer => _valueSerializer ?? (_valueSerializer = new XmlSerializer(typeof(TVal)));
 
-        private XmlSerializer KeySerializer
-        {
-            get { return _keySerializer ?? (_keySerializer = new XmlSerializer(typeof(TKey))); }
-        }
+        private XmlSerializer KeySerializer => _keySerializer ?? (_keySerializer = new XmlSerializer(typeof(TKey)));
 
         #endregion Private Properties
 

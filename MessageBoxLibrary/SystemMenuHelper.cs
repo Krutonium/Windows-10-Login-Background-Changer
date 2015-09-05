@@ -32,7 +32,7 @@ namespace MessageBoxLibrary
 
         private HwndSource _hwndSource;
 
-        public SystemMenuHelper(Window window)
+        public SystemMenuHelper(Visual window)
         {
             AddHook(window);
         }
@@ -45,10 +45,7 @@ namespace MessageBoxLibrary
         {
             if (_hwndSource != null) return;
             _hwndSource = PresentationSource.FromVisual(window) as HwndSource;
-            if (_hwndSource != null)
-            {
-                _hwndSource.AddHook(HwndSourceHook);
-            }
+            _hwndSource?.AddHook(HwndSourceHook);
         }
 
         private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -63,13 +60,11 @@ namespace MessageBoxLibrary
             }
 
             // handles removing the resize items from the system menu
-            if (RemoveResizeMenu)
-            {
-                RemoveMenu(hMenu, ScRestore, MfBycommand);
-                RemoveMenu(hMenu, ScSize, MfBycommand);
-                RemoveMenu(hMenu, ScMinimize, MfBycommand);
-                RemoveMenu(hMenu, ScMaximize, MfBycommand);
-            }
+            if (!RemoveResizeMenu) return IntPtr.Zero;
+            RemoveMenu(hMenu, ScRestore, MfBycommand);
+            RemoveMenu(hMenu, ScSize, MfBycommand);
+            RemoveMenu(hMenu, ScMinimize, MfBycommand);
+            RemoveMenu(hMenu, ScMaximize, MfBycommand);
 
             return IntPtr.Zero;
         }

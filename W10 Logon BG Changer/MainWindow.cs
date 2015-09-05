@@ -77,10 +77,10 @@ namespace W10_Logon_BG_Changer
                     LanguageLibrary.Language.Default.title_bg_disabled, MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            Debug.WriteLine("[AccentColor]: " +
-                            ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground));
+            Debug.WriteLine(
+                $"[AccentColor]: {ColorFunctions.GetImmersiveColor(ImmersiveColors.ImmersiveStartBackground)}");
 
-            Title += " - " + AssemblyInfo.Version;
+            Title += $" - {AssemblyInfo.Version}";
 
             Settings.Default.Set("eula", true);
             Settings.Default.Save();
@@ -161,23 +161,20 @@ namespace W10_Logon_BG_Changer
                     case 0:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1280, 720).ToBitmapSource();
                         break;
-
                     case 1:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 1920, 1080).ToBitmapSource();
                         break;
-
                     case 2:
                         WallpaperViewer.Source = ResizeImage(Image.FromFile(value), 3840, 2160).ToBitmapSource();
                         break;
-
                     case 3:
                         WallpaperViewer.Source =
-                            ResizeImage(Image.FromFile(value), (int)SystemParameters.PrimaryScreenWidth,
-                                (int)SystemParameters.PrimaryScreenHeight).ToBitmapSource();
+                            ResizeImage(Image.FromFile(value), (int) SystemParameters.PrimaryScreenWidth,
+                                (int) SystemParameters.PrimaryScreenHeight).ToBitmapSource();
                         break;
-
                     case 4:
-                        WallpaperViewer.Source = new BitmapImage(new Uri(value));
+                        Dispatcher.BeginInvoke(
+                            (Action) (() => { WallpaperViewer.Source = new BitmapImage(new Uri(value)); }));
                         break;
                 }
 
@@ -185,15 +182,9 @@ namespace W10_Logon_BG_Changer
             }
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            SettingFlyout.IsOpen = !SettingFlyout.IsOpen;
-        }
+        private void SettingsButton_Click(object sender, RoutedEventArgs e) => SettingFlyout.IsOpen = !SettingFlyout.IsOpen;
 
-        private void AboutButton_Click(object sender, RoutedEventArgs e)
-        {
-            AboutFlyout.IsOpen = !AboutFlyout.IsOpen;
-        }
+        private void AboutButton_Click(object sender, RoutedEventArgs e) => AboutFlyout.IsOpen = !AboutFlyout.IsOpen;
 
         public void ApplyChanges()
         {
@@ -212,6 +203,16 @@ namespace W10_Logon_BG_Changer
 
             var imagetemp = Path.GetTempFileName();
             //ResizeImage(Image.FromFile(SelectedFile), 1920, 1080).Save(imagetemp, ImageFormat.Png);
+
+            var img = PixelateImage(new Bitmap(Image.FromFile(SelectedFile)), (int)SystemParameters.PrimaryScreenWidth,
+                (int)SystemParameters.PrimaryScreenHeight, BgEditorControl.Pixelate);
+
+            if (img != null)
+            {
+                img.Save(imagetemp, ImageFormat.Png);
+                SelectedFile = imagetemp;
+            }
+
             switch (BgEditorControl.Scaling)
             {
                 case 0:
@@ -236,9 +237,47 @@ namespace W10_Logon_BG_Changer
                     break;
             }
 
+
+
             LogonPriEditor.ModifyLogonPri(_tempPriFile, _newPriLocation, imagetemp);
 
             File.Copy(_newPriLocation, Config.PriFileLocation, true);
+        }
+
+        private static Bitmap PixelateImage(Bitmap image, int primaryScreenWidth, int primaryScreenHeight, int pixelateSize) => pixelateSize == 0 ? null : Pixelate(image, new Rectangle(0, 0, image.Width, image.Height), pixelateSize);
+
+        private static Bitmap Pixelate(Image image, Rectangle rectangle, int pixelateSize)
+        {
+            var pixelated = new Bitmap(image.Width, image.Height);
+
+            // make an exact copy of the bitmap provided
+            using (var graphics = Graphics.FromImage(pixelated))
+                graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height),
+                     new Rectangle(0, 0, image.Width, image.Height), GraphicsUnit.Pixel);
+
+            // look at every pixel in the rectangle while making sure we're within the image bounds
+            for (var xx = rectangle.X; xx < rectangle.X + rectangle.Width && xx < image.Width; xx += pixelateSize)
+            {
+                for (var yy = rectangle.Y; yy < rectangle.Y + rectangle.Height && yy < image.Height; yy += pixelateSize)
+                {
+                    var offsetX = pixelateSize / 2;
+                    var offsetY = pixelateSize / 2;
+
+                    // make sure that the offset is within the boundry of the image
+                    while (xx + offsetX >= image.Width) offsetX--;
+                    while (yy + offsetY >= image.Height) offsetY--;
+
+                    // get the pixel color in the center of the soon to be pixelated area
+                    var pixel = pixelated.GetPixel(xx + offsetX, yy + offsetY);
+
+                    // for each pixel in the pixelate size, set it to the center color
+                    for (var x = xx; x < xx + pixelateSize && x < image.Width; x++)
+                        for (var y = yy; y < yy + pixelateSize && y < image.Height; y++)
+                            pixelated.SetPixel(x, y, pixel);
+                }
+            }
+
+            return pixelated;
         }
 
         public void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
@@ -257,41 +296,33 @@ namespace W10_Logon_BG_Changer
 
         private void DoToggleStuff(ToggleButton tb)
         {
-            switch (tb.Tag.ToString())
+            if (tb.Tag.ToString() == "gimage")
             {
-                case "gimage":
-                    switch (tb.IsChecked)
-                    {
-                        case true:
-                            ControlFader.FadeIn(GlyphsViewer);
-                            break;
-
-                        case false:
-                            ControlFader.FadeOut(GlyphsViewer);
-                            break;
-                    }
-                    break;
-
-                case "uimage":
-                    switch (tb.IsChecked)
-                    {
-                        case true:
-                            ControlFader.FadeIn(InformationFeilds);
-                            break;
-                        case false:
-                            ControlFader.FadeOut(InformationFeilds);
-                            break;
-                    }
-                    break;
+                if (tb.IsChecked == true)
+                {
+                    ControlFader.FadeIn(GlyphsViewer);
+                }
+                else if (tb.IsChecked == false)
+                {
+                    ControlFader.FadeOut(GlyphsViewer);
+                }
+            }
+            else if (tb.Tag.ToString() == "uimage")
+            {
+                if (tb.IsChecked == true)
+                {
+                    ControlFader.FadeIn(InformationFeilds);
+                }
+                else if (tb.IsChecked == false)
+                {
+                    ControlFader.FadeOut(InformationFeilds);
+                }
             }
             Settings.Default.Set(tb.Tag.ToString(), tb.IsChecked != null && (bool)tb.IsChecked);
             Settings.Default.Save();
         }
 
-        private void LockButton_Click(object sender, RoutedEventArgs e)
-        {
-            Win32Api.LockWorkStation();
-        }
+        private void LockButton_Click(object sender, RoutedEventArgs e) => Win32Api.LockWorkStation();
 
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
@@ -327,19 +358,17 @@ namespace W10_Logon_BG_Changer
                     SettingFlyout.Position = Position.Left;
                     AboutFlyout.Position = Position.Right;
                     ApplicationSettingsFlyout.Position = Position.Right;
-                    Debug.WriteLine("[AboutFlyout]: right");
-                    Debug.WriteLine("[ApplicationSettingsFlyout]: right");
                     break;
-
                 case "right":
                     SettingFlyout.Position = Position.Right;
                     AboutFlyout.Position = Position.Left;
                     ApplicationSettingsFlyout.Position = Position.Left;
-                    Debug.WriteLine("[AboutFlyout]: left");
-                    Debug.WriteLine("[ApplicationSettingsFlyout]: left");
+
                     break;
             }
 
+            Debug.WriteLine($"[AboutFlyout]: {AboutFlyout.Position}");
+            Debug.WriteLine($"[ApplicationSettingsFlyout]: {ApplicationSettingsFlyout.Position}");
             Settings.Default.Set("flyout", SettingFlyout.Position);
             Settings.Default.Save();
         }
@@ -365,22 +394,22 @@ namespace W10_Logon_BG_Changer
                 Dispatcher.Invoke(() =>
                 {
                     var target = LogonScreenPreview;
-                    Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+                    var bounds = VisualTreeHelper.GetDescendantBounds(target);
 
-                    RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height,
+                    var renderTarget = new RenderTargetBitmap((int)bounds.Width, (int)bounds.Height,
                         96,
                         96, PixelFormats.Pbgra32);
 
-                    DrawingVisual visual = new DrawingVisual();
+                    var visual = new DrawingVisual();
 
-                    using (DrawingContext context = visual.RenderOpen())
+                    using (var context = visual.RenderOpen())
                     {
-                        VisualBrush visualBrush = new VisualBrush(target);
+                        var visualBrush = new VisualBrush(target);
                         context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
                     }
 
                     renderTarget.Render(visual);
-                    PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+                    var bitmapEncoder = new PngBitmapEncoder();
                     bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
                     var f = Path.GetTempFileName();
                     using (Stream stm = File.Create(f))
@@ -397,9 +426,6 @@ namespace W10_Logon_BG_Changer
             });
         }
 
-        private void ApplicationSettings_Click(object sender, RoutedEventArgs e)
-        {
-            ApplicationSettingsFlyout.IsOpen = !ApplicationSettingsFlyout.IsOpen;
-        }
+        private void ApplicationSettings_Click(object sender, RoutedEventArgs e) => ApplicationSettingsFlyout.IsOpen = !ApplicationSettingsFlyout.IsOpen;
     }
 }

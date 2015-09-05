@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using W10_Logon_BG_Changer.Tools;
 
 namespace W10_Logon_BG_Changer.Controls
@@ -27,40 +25,31 @@ namespace W10_Logon_BG_Changer.Controls
 
             using (var reader = new StringReader(authors))
             {
-                var line = string.Empty;
+                string line;
                 do
                 {
                     line = reader.ReadLine();
-                    if (line != null)
+                    if (line == null) continue;
+                    var tb = new TextBlock
                     {
-                        var tb = new TextBlock
-                        {
-                            Text = line,
-                            Padding = new Thickness(5)
-                        };
+                        Text = line,
+                        Padding = new Thickness(5)
+                    };
 
-                        var l = line.Split('|');
+                    var l = line.Split('|');
 
-                        if (l.Length > 0)
-                        {
-                            var inlineExpression =
-                                string.Format(
-                                    "<bold>{0}</bold> | <hyperlink NavigateUri='{1}' Click='Url_Click'>{1}</hyperlink>",
-                                    l[0], l[1]);
-                            InlineExpression.SetInlineExpression(tb, inlineExpression);
-                        }
-
-                        sp.Children.Add(tb);
+                    if (l.Length > 0)
+                    {
+                        var inlineExpression =
+                            $"<bold>{l[0]}</bold> | <hyperlink NavigateUri='{l[1]}'>{l[1]}</hyperlink>";
+                        InlineExpression.SetInlineExpression(tb, inlineExpression);
                     }
+
+                    sp.Children.Add(tb);
                 } while (line != null);
             }
 
             AuthorsGroupBox.Content = sp;
-        }
-
-        private void Url_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(((Hyperlink)sender).NavigateUri.ToString());
         }
     }
 }

@@ -1,0 +1,75 @@
+?<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <lang_name>Indonesia (ID)</lang_name>
+
+  <!-- titles -->
+  <title_error>Kesalahan</title_error>
+  <title_info>Info</title_info>
+  <title_warning>Peringatan</title_warning>
+  <title_finished>Selesai</title_finished>
+  <title_success>Sukses</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Gabar Latar Dinonaktifkan</title_bg_disabled>
+  <title_are_you_sure>Apakah Anda yakin?</title_are_you_sure>
+  <title_language_set>Pengaturan Bahasa</title_language_set>
+  <title_select_image>Pilih Gambar</title_select_image>
+  <title_saved_clipboard>Disimpan ke clipboard</title_saved_clipboard>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>Tentang</main_top_about>
+  <main_top_lock>Kunci Windows</main_top_lock>
+  <main_top_edit>Edit Latar</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Edit Latar</flyout_edit_title>
+  <flyout_about_title>Tentang</flyout_about_title>
+  <flyout_settings_title>Pengaturan Aplikasi</flyout_settings_title>
+
+  <!-- Groups -->
+  <group_restore_default>Kembalikan ke Default</group_restore_default>
+  <group_advanced_options>Pengaturan Aplikasi</group_advanced_options>
+  <group_authors_area>Penulis</group_authors_area>
+  <group_about_area>Tentang</group_about_area>
+  <group_select_lang>Pilih Bahasa</group_select_lang>
+
+  <!-- Buttons -->
+  <browse_button>Telusuri</browse_button>
+  <solid_color_picker_tooltip>Pilih warna</solid_color_picker_tooltip>
+  <solid_color_available_colors>Warna yang tersedia</solid_color_available_colors>
+  <solid_color_standard_colors>Warna Standard</solid_color_standard_colors>
+  <solid_color_standard>Standard</solid_color_standard>
+  <solid_color_advanced>Lanjutan</solid_color_advanced>
+  <color_picker_button>Perlihatkan</color_picker_button>
+  <accet_color_button>Gunakan Warna Bawaan Windows</accet_color_button>
+  <apply_changes_button>Pasang Perubahan</apply_changes_button>
+  <restore_defaults_button>Kembalikan ke Standar</restore_defaults_button>
+  <restore_hero_button>Kembalikan ke Standar Windows</restore_hero_button>
+  <image_scale_Resolution>Resolusi Saya</image_scale_Resolution>
+  <share_bg>Bagi Latar Belakang</share_bg>
+
+  <!-- Labels -->
+  <image_scale>Skala Gambar</image_scale>
+  <show_user_info>Tampilkan Informasi Pengguna</show_user_info>
+  <show_glyphs>Tampilkan Ikon Tambahan</show_glyphs>
+  <flyout_loc>Lokasi Flyout</flyout_loc>
+  <or>ATAU</or>
+
+  <!-- Message bodies -->
+  <saved_clipboard_msg>Gambar Disimpan ke clipboard.</saved_clipboard_msg>
+  <background_disabled>Gambar Background dinonaktifkan dalam registri</background_disabled>
+  <EULA>Anda setuju bahwa setelah menggunakan software ini, Kami tidak Bertanggung jawab jika sistem Anda berhenti bekerja dengan benar.</EULA>
+  <color_preview>Perlihatkan Warna</color_preview>
+  <finished_msg>Anda harus memilih file sebelum Anda dapat mengatur latar belakang Login Anda! (Pilihan default dihitung sebagai file)"</finished_msg>
+  <select_img>Nama File Gambar muncul di sini.</select_img>
+  <reset_image_msg>Apakah Anda yakin ingin mengatur ulang gambar?</reset_image_msg>
+  <no_selected_file>Anda harus memilih file sebelum Anda dapat mengatur latar belakang Login Anda! (Pilihan default dihitung sebagai file)</no_selected_file>
+  <success_apply_msg>Berhasil mengubah background Login! Silakan mengunci perangkat Anda untuk melihat latar belakang baru Anda.</success_apply_msg>
+  <language_set_msg>Bahasa telah diatur. Aplikasi harus me-restart untuk menerapkan bahasa</language_set_msg>
+  <default_error_msg>Ada kesalahan saat mengeksekusi aplikasi dan akan di matikan</default_error_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>Kanan</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Kiri</flyout_loc_left_opt>
+  <scale_none_opt>Tidak ada</scale_none_opt>
+</Language>

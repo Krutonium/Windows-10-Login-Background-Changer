@@ -184,7 +184,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Config.cs" />
     <Compile Include="Controls\AboutControl.cs">
       <DependentUpon>AboutControl.xaml</DependentUpon>
     </Compile>

@@ -24,25 +24,21 @@ namespace MessageBoxLibrary
 
         public DelegateCommand(Action executeMethod, Func<bool> canExecuteMethod, bool isAutomaticRequeryDisabled)
         {
-            if (executeMethod == null) throw new ArgumentNullException("executeMethod"); 
+            if (executeMethod == null) throw new ArgumentNullException(nameof(executeMethod)); 
 
             _mExecuteMethod = executeMethod;
             _mCanExecuteMethod = canExecuteMethod;
             _mIsAutomaticRequeryDisabled = isAutomaticRequeryDisabled;
         }
 
-        public bool CanExecute()
-        {
-            if (_mCanExecuteMethod != null) return _mCanExecuteMethod(); 
-            return true;
-        }
+        public bool CanExecute() => _mCanExecuteMethod == null || _mCanExecuteMethod();
 
         /// <summary>
         ///  Execution of the command
         /// </summary>
         public void Execute()
         {
-            if (_mExecuteMethod != null) _mExecuteMethod(); 
+            _mExecuteMethod?.Invoke();
         }
 
         /// <summary>
@@ -53,12 +49,10 @@ namespace MessageBoxLibrary
             get{ return _mIsAutomaticRequeryDisabled; }
             set
             {
-                if (_mIsAutomaticRequeryDisabled != value)
-                {
-                    if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
-                    else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
-                    _mIsAutomaticRequeryDisabled = value;
-                }
+                if (_mIsAutomaticRequeryDisabled == value) return;
+                if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
+                else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
+                _mIsAutomaticRequeryDisabled = value;
             }
         }
         public void RaiseCanExecuteChanged()
@@ -117,45 +111,30 @@ namespace MessageBoxLibrary
 
         public DelegateCommand(Action<T> executeMethod, Func<T, bool> canExecuteMethod, bool isAutomaticRequeryDisabled)
         {
-            if (executeMethod == null) throw new ArgumentNullException("executeMethod"); 
+            if (executeMethod == null) throw new ArgumentNullException(nameof(executeMethod)); 
 
             _mExecuteMethod = executeMethod;
             _mCanExecuteMethod = canExecuteMethod;
             _mIsAutomaticRequeryDisabled = isAutomaticRequeryDisabled;
         }
 
-        public bool CanExecute(T parameter)
-        {
-            if (_mCanExecuteMethod != null) return _mCanExecuteMethod(parameter); 
-            return true;
-        }
+        public bool CanExecute(T parameter) => _mCanExecuteMethod == null || _mCanExecuteMethod(parameter);
 
-        public void Execute(T parameter)
-        {
-            if (_mExecuteMethod != null) _mExecuteMethod(parameter); 
-        }
+        public void Execute(T parameter) => _mExecuteMethod?.Invoke(parameter);
 
-        public void RaiseCanExecuteChanged()
-        {
-            OnCanExecuteChanged();
-        }
+        public void RaiseCanExecuteChanged() => OnCanExecuteChanged();
 
-        protected virtual void OnCanExecuteChanged()
-        {
-            CommandManagerHelper.CallWeakReferenceHandlers(_mCanExecuteChangedHandlers);
-        }
+        protected virtual void OnCanExecuteChanged() => CommandManagerHelper.CallWeakReferenceHandlers(_mCanExecuteChangedHandlers);
 
         public bool IsAutomaticRequeryDisabled
         {
             get{ return _mIsAutomaticRequeryDisabled; }
             set
             {
-                if (_mIsAutomaticRequeryDisabled != value)
-                {
-                    if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
-                    else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
-                    _mIsAutomaticRequeryDisabled = value;
-                }
+                if (_mIsAutomaticRequeryDisabled == value) return;
+                if (value) CommandManagerHelper.RemoveHandlersFromRequerySuggested(_mCanExecuteChangedHandlers); 
+                else CommandManagerHelper.AddHandlersToRequerySuggested(_mCanExecuteChangedHandlers); 
+                _mIsAutomaticRequeryDisabled = value;
             }
         }
 
@@ -201,9 +180,9 @@ namespace MessageBoxLibrary
             // could cause the array to me modified while we are reading it.
 
             var callers = new EventHandler[x.Count];
-            int count = 0;
+            var count = 0;
 
-            for (int i = x.Count - 1; i >= 0; i--)
+            for (var i = x.Count - 1; i >= 0; i--)
             {
                 var reference = x[i];
                 var handler = reference.Target as EventHandler;
@@ -220,7 +199,7 @@ namespace MessageBoxLibrary
             }
 
             // Call the handlers that we snapshotted
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var handler = callers[i];
                 handler(null, EventArgs.Empty);
@@ -229,32 +208,23 @@ namespace MessageBoxLibrary
 
         internal static Action<List<WeakReference>> AddHandlersToRequerySuggested = x =>
         {
-            if (x != null)
+            x?.ForEach(y =>
             {
-                x.ForEach(y =>
-                {
-                    var handler = y.Target as EventHandler;
-                    if (handler != null) CommandManager.RequerySuggested += handler;
-                });
-            }
+                var handler = y.Target as EventHandler;
+                if (handler != null) CommandManager.RequerySuggested += handler;
+            });
         };
 
         internal static Action<List<WeakReference>> RemoveHandlersFromRequerySuggested = x =>
         {
-            if (x != null)
+            x?.ForEach(y =>
             {
-                x.ForEach(y =>
-                {
-                    var handler = y.Target as EventHandler;
-                    if (handler != null) CommandManager.RequerySuggested -= handler; 
-                });
-            }
+                var handler = y.Target as EventHandler;
+                if (handler != null) CommandManager.RequerySuggested -= handler; 
+            });
         };
         
-        internal static void AddWeakReferenceHandler(ref List<WeakReference> handlers, EventHandler handler)
-        {
-            AddWeakReferenceHandler(ref handlers, handler, -1);
-        }
+        internal static void AddWeakReferenceHandler(ref List<WeakReference> handlers, EventHandler handler) => AddWeakReferenceHandler(ref handlers, handler, -1);
 
         internal static void AddWeakReferenceHandler(ref List<WeakReference> handlers, EventHandler handler, int defaultListSize)
         {
@@ -269,7 +239,7 @@ namespace MessageBoxLibrary
         internal static Action<List<WeakReference>, EventHandler> RemoveWeakReferenceHandler = (x, y) =>
         {
             if (x == null) return;
-            for (int i = x.Count - 1; i >= 0; i--)
+            for (var i = x.Count - 1; i >= 0; i--)
             {
                 var reference = x[i];
                 var existingHandler = reference.Target as EventHandler;

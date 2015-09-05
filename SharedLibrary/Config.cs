@@ -6,11 +6,11 @@ namespace SharedLibrary
     public static class Config
     {
         public static readonly string PriFileName = "Windows.UI.Logon.pri";
-        public static readonly string BakPriFileName = PriFileName + ".bak";
+        public static readonly string BakPriFileName = $"{PriFileName}.bak";
         public static readonly string CurrentImage = "current.img";
         public static readonly string SettingsFile = "Settings.bin";
 
-        public static readonly string LogonFolder = Path.Combine(Environment.GetEnvironmentVariable("windir"),
+        public static readonly string LogonFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows),
             "SystemResources", "Windows.UI.Logon");
 
         public static readonly string PriFileLocation = Path.Combine(LogonFolder, PriFileName);

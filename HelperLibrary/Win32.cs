@@ -22,15 +22,9 @@ namespace HelperLibrary
         private const string Kernel32 = "kernel32.dll";
         private const string Advapi32 = "Advapi32.dll";
 
-        public static uint GetLastError()
-        {
-            return (uint)Marshal.GetLastWin32Error();
-        }
+        public static uint GetLastError() => (uint)Marshal.GetLastWin32Error();
 
-        public static void ThrowLastError()
-        {
-            Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
-        }
+        public static void ThrowLastError() => Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
 
         public static void CheckCall(bool funcResult)
         {
@@ -40,20 +34,14 @@ namespace HelperLibrary
             }
         }
 
-        public static void CheckCall(int funcResult)
-        {
-            CheckCall(funcResult != 0);
-        }
+        public static void CheckCall(int funcResult) => CheckCall(funcResult != 0);
 
         public static void CheckCall(HANDLE funcResult)
         {
             CheckCall(!IsNullHandle(funcResult));
         }
 
-        public static bool IsNullHandle(HANDLE ptr)
-        {
-            return (ptr == IntPtr.Zero);
-        }
+        public static bool IsNullHandle(HANDLE ptr) => (ptr == IntPtr.Zero);
 
         ///////////////////////////////////////////////////////////////////////////////
         /// KERNEL32.DLL

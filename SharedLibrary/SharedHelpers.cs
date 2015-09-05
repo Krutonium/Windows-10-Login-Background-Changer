@@ -14,9 +14,9 @@ namespace SharedLibrary
 
         public static FileSizeMetaInformation GetFileSize(string path)
         {
-            long loaded = File.ReadAllBytes(path).LongLength;
+            var loaded = File.ReadAllBytes(path).LongLength;
 
-            FileInfo f = new FileInfo(path);
+            var f = new FileInfo(path);
             long actual = (int)f.Length;
 
             return new FileSizeMetaInformation(actual, loaded);
@@ -26,11 +26,10 @@ namespace SharedLibrary
         {
             Debug.Assert(SizeSuffixes.Length > 0);
 
-            const string formatTemplate = "{0}{1:0.#} {2}";
 
             if (size == 0)
             {
-                return string.Format(formatTemplate, null, 0, SizeSuffixes[0]);
+                return $"{null}{0:0.#} {SizeSuffixes[0]}";
             }
 
             var absSize = Math.Abs((double)size);
@@ -41,9 +40,7 @@ namespace SharedLibrary
                 : intPower;
             var normSize = absSize / Math.Pow(1000, iUnit);
 
-            return string.Format(
-                formatTemplate,
-                size < 0 ? "-" : null, normSize, SizeSuffixes[iUnit]);
+            return $"{(size < 0 ? "-" : null)}{normSize:0.#} {SizeSuffixes[iUnit]}";
         }
     }
 }

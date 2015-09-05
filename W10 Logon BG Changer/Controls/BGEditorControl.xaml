@@ -71,7 +71,22 @@
             <ComboBoxItem x:Name="MyResolutionOption" Content="My Resolution" />
             <ComboBoxItem x:Name="NoneOption"  Content="None" IsSelected="True" />
         </ComboBox>
+        <ComboBox x:Name="PixelateScaleSelect" Margin="0,170,10,0" VerticalAlignment="Top" SelectedIndex="4"
+			SelectionChanged="PixelateScaleSelect_SelectionChanged" HorizontalAlignment="Right" Width="144">
+            <ComboBoxItem Content="10" />
+            <ComboBoxItem Content="15" />
+            <ComboBoxItem Content="20" />
+            <ComboBoxItem Content="25" />
+            <ComboBoxItem Content="50" />
+            <ComboBoxItem Content="75" />
+            <ComboBoxItem Content="100" />
+            <ComboBoxItem Content="200" />
+            <ComboBoxItem x:Name="PixelateNoneOption"  Content="None" IsSelected="True" />
+        </ComboBox>
         <TextBlock x:Name="ImageScalingLabel" Margin="10,146,213,0" TextWrapping="Wrap" Text="Image Scaling"
+			VerticalAlignment="Top"
+			Foreground="White" />
+        <TextBlock x:Name="PixelateImageLabel" Margin="10,176,213,0" TextWrapping="Wrap" Text="Image Pixelate"
 			VerticalAlignment="Top"
 			Foreground="White" />
         <TextBlock TextAlignment="Center" x:Name="textBlock" Margin="10,41,10,0" TextWrapping="Wrap" Text="OR"
