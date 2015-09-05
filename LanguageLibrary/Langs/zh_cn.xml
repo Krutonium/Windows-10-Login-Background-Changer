@@ -54,6 +54,7 @@
   <show_glyphs>显示图标栏(右下角)</show_glyphs>
   <flyout_loc>弹出位置</flyout_loc>
   <or>或者</or>
+  <image_pixelate>图像像素化</image_pixelate>
 
   <!-- 消息正文 -->
   <saved_clipboard_msg>图像已保存到剪贴板.</saved_clipboard_msg>
