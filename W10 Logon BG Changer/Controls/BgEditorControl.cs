@@ -60,6 +60,7 @@ namespace W10_Logon_BG_Changer.Controls
             SolidColorPicker.AdvancedButtonHeader = LanguageLibrary.Language.Default.solid_color_advanced;
             SolidColorPicker.StandardColorsHeader = LanguageLibrary.Language.Default.solid_color_standard_colors;
             SolidColorPicker.AvailableColorsHeader = LanguageLibrary.Language.Default.solid_color_available_colors;
+            PixelateImageLabel.Text = LanguageLibrary.Language.Default.image_pixelate;
         }
 
 

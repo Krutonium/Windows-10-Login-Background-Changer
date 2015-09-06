@@ -54,6 +54,7 @@
   <show_glyphs>Show Glyphs</show_glyphs>
   <flyout_loc>Flyout Location</flyout_loc>
   <or>OR</or>
+  <image_pixelate>Image Pixelate</image_pixelate>
 
   <!-- Message bodies -->
   <saved_clipboard_msg>Saved image to clipboard.</saved_clipboard_msg>
