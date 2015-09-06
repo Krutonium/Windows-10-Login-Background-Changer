@@ -23,7 +23,7 @@ namespace W10_Logon_BG_Changer___Command_Line
                 return;
             }
 
-            if (!args[0].ToLower().StartsWith("/") || !args[0].ToLower().StartsWith("-"))
+            if (!(args[0].ToLower().StartsWith("/") || args[0].ToLower().StartsWith("-")))
             {
                 Console.WriteLine("Please use '/h' for help");
                 return;
