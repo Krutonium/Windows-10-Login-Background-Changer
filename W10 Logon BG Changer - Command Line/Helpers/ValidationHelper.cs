@@ -7,24 +7,24 @@ namespace W10_Logon_BG_Changer___Command_Line.Helpers
 {
     internal class ValidationHelper
     {
-        public void ValidateImageArgument(string[] args)
+        public static void ValidateImageArgument(string[] args)
         {
             if (args.Length < 2)
                 throw new ArgumentException("Usage: /i pathtoimage");
 
-            string filePath = args[1];
+            var filePath = args[1];
 
             if (!File.Exists(filePath))
-                throw new FileNotFoundException(string.Format("An error occurred: The file \"{0}\" does not exist!", filePath));
+                throw new FileNotFoundException($"An error occurred: The file \"{filePath}\" does not exist!");
 
             var validExtensions = new List<string> { ".bmp", ".jpg", ".png", ".tif", ".tiff" };
-            string fileExtension = Path.GetExtension(filePath);
+            var fileExtension = Path.GetExtension(filePath);
 
             if (!validExtensions.Contains(fileExtension))
-                throw new ArgumentException(string.Format("An error occurred: The file \"{0}\" is not a valid file!", filePath));
+                throw new ArgumentException($"An error occurred: The file \"{filePath}\" is not a valid file!");
         }
 
-        public void ValidateColorArgument(string[] args)
+        public static void ValidateColorArgument(string[] args)
         {
             if (args.Length < 2)
                 throw new ArgumentException("Usage: /c hexcode (Example: /c #000000)");
@@ -33,14 +33,14 @@ namespace W10_Logon_BG_Changer___Command_Line.Helpers
                 throw new ArgumentException("Not a valid Hex color!");
         }
 
-        public void ValidateFirstArgument(string[] args)
+        public static void ValidateFirstArgument(string[] args)
         {
             const string message = "Please use '/h' for help";
 
             if (args.Length <= 0)
                 throw new ArgumentException(message);
 
-            string firstArgument = args[0].ToLower();
+            var firstArgument = args[0].ToLower();
 
             if (!(firstArgument.StartsWith("/") || firstArgument.StartsWith("-")))
                 throw new ArgumentException(message);

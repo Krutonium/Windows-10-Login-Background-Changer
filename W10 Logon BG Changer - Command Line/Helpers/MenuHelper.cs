@@ -4,7 +4,7 @@ namespace W10_Logon_BG_Changer___Command_Line.Helpers
 {
     internal class MenuHelper
     {
-        public void ShowHelp()
+        public static void ShowHelp()
         {
             Console.WriteLine();
             Console.WriteLine("HELP");
@@ -17,7 +17,7 @@ namespace W10_Logon_BG_Changer___Command_Line.Helpers
             Console.WriteLine("HELP - /H");
         }
 
-        public void ShowAuthors()
+        public static void ShowAuthors()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
@@ -26,7 +26,7 @@ namespace W10_Logon_BG_Changer___Command_Line.Helpers
             Console.ResetColor();
         }
 
-        public void ShowSuccessMessage()
+        public static void ShowSuccessMessage()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();

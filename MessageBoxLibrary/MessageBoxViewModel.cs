@@ -223,65 +223,39 @@ namespace MessageBoxLibrary
             get { return _isCancelDefault; }
             set
             {
-                if (_isCancelDefault != value)
-                {
-                    _isCancelDefault = value;
-                    NotifyPropertyChange("IsCancelDefault");
-                }
+                if (_isCancelDefault == value) return;
+                _isCancelDefault = value;
+                NotifyPropertyChange("IsCancelDefault");
             }
         }
 
         // called when the yes button is pressed
-        public ICommand YesCommand
+        public ICommand YesCommand => _yesCommand ?? (_yesCommand = new DelegateCommand(() =>
         {
-            get
-            {
-                return _yesCommand ?? (_yesCommand = new DelegateCommand(() =>
-                {
-                    Result = MessageBoxResult.Yes;
-                    _view.Close();
-                }));
-            }
-        }
+            Result = MessageBoxResult.Yes;
+            _view.Close();
+        }));
 
         // called when the no button is pressed
-        public ICommand NoCommand
+        public ICommand NoCommand => _noCommand ?? (_noCommand = new DelegateCommand(() =>
         {
-            get
-            {
-                return _noCommand ?? (_noCommand = new DelegateCommand(() =>
-                {
-                    Result = MessageBoxResult.No;
-                    _view.Close();
-                }));
-            }
-        }
+            Result = MessageBoxResult.No;
+            _view.Close();
+        }));
 
         // called when the cancel button is pressed
-        public ICommand CancelCommand
+        public ICommand CancelCommand => _cancelCommand ?? (_cancelCommand = new DelegateCommand(() =>
         {
-            get
-            {
-                return _cancelCommand ?? (_cancelCommand = new DelegateCommand(() =>
-                {
-                    Result = MessageBoxResult.Cancel;
-                    _view.Close();
-                }));
-            }
-        }
+            Result = MessageBoxResult.Cancel;
+            _view.Close();
+        }));
 
         // called when the ok button is pressed
-        public ICommand OkCommand
+        public ICommand OkCommand => _okCommand ?? (_okCommand = new DelegateCommand(() =>
         {
-            get
-            {
-                return _okCommand ?? (_okCommand = new DelegateCommand(() =>
-                {
-                    Result = MessageBoxResult.OK;
-                    _view.Close();
-                }));
-            }
-        }
+            Result = MessageBoxResult.OK;
+            _view.Close();
+        }));
 
         // called when the escape key is pressed
         public ICommand EscapeCommand => _escapeCommand ?? (_escapeCommand = new DelegateCommand(() =>
