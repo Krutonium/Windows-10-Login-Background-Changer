@@ -21,10 +21,9 @@ namespace W10_Logon_BG_Changer
         {
             try
             {
-                DateTime dtLogFileCreated = DateTime.Now;
-                StreamWriter sw = new StreamWriter("log-" + dtLogFileCreated.Day + dtLogFileCreated.Month
-                        + dtLogFileCreated.Year + "-" + dtLogFileCreated.Second
-                        + dtLogFileCreated.Minute + dtLogFileCreated.Hour + ".log");
+                var dtLogFileCreated = DateTime.Now;
+                var sw = new StreamWriter(
+                    $"log-{dtLogFileCreated.Day}{dtLogFileCreated.Month}{dtLogFileCreated.Year}-{dtLogFileCreated.Second}{dtLogFileCreated.Minute}{dtLogFileCreated.Hour}.log");
 
                 sw.WriteLine("### W10_Logon_BG_Changer Crash ###");
                 sw.WriteLine(HandleException((Exception)e.ExceptionObject));
@@ -45,15 +44,15 @@ namespace W10_Logon_BG_Changer
         /// <param name="ex">The exception</param>
         public string HandleException(Exception ex)
         {
-            string auxError = ex.Message;
-            Exception inner = ex.InnerException;
+            var auxError = ex.Message;
+            var inner = ex.InnerException;
             while (inner != null)
             {
-                auxError += "\n" + inner.Message;
+                auxError += $"\n{inner.Message}";
                 inner = inner.InnerException;
             }
 
-            auxError += "\n" + ex.StackTrace;
+            auxError += $"\n{ex.StackTrace}";
             return auxError;
         }
     }

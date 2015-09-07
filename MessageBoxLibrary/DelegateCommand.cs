@@ -36,10 +36,7 @@ namespace MessageBoxLibrary
         /// <summary>
         ///  Execution of the command
         /// </summary>
-        public void Execute()
-        {
-            _mExecuteMethod?.Invoke();
-        }
+        public void Execute() => _mExecuteMethod?.Invoke();
 
         /// <summary>
         ///  Property to enable or disable CommandManager's automatic requery on this command
@@ -55,15 +52,9 @@ namespace MessageBoxLibrary
                 _mIsAutomaticRequeryDisabled = value;
             }
         }
-        public void RaiseCanExecuteChanged()
-        {
-            OnCanExecuteChanged();
-        }
+        public void RaiseCanExecuteChanged() => OnCanExecuteChanged();
 
-        protected virtual void OnCanExecuteChanged()
-        {
-            CommandManagerHelper.CallWeakReferenceHandlers(_mCanExecuteChangedHandlers);
-        }
+        protected virtual void OnCanExecuteChanged() => CommandManagerHelper.CallWeakReferenceHandlers(_mCanExecuteChangedHandlers);
 
         public event EventHandler CanExecuteChanged
         {
@@ -79,15 +70,9 @@ namespace MessageBoxLibrary
             }
         }
 
-        bool ICommand.CanExecute(object parameter)
-        {
-            return CanExecute();
-        }
+        bool ICommand.CanExecute(object parameter) => CanExecute();
 
-        void ICommand.Execute(object parameter)
-        {
-            Execute();
-        }
+        void ICommand.Execute(object parameter) => Execute();
     }
 
     /// <summary>

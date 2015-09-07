@@ -124,10 +124,8 @@ namespace MessageBoxLibrary
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
-            {
-                _viewModel.EscapeCommand.Execute(null);
-            }
+            if (e.Key != Key.Escape) return;
+            _viewModel.EscapeCommand.Execute(null);
         }
 
         protected override void OnClosed(EventArgs e)
