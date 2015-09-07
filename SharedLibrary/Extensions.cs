@@ -16,7 +16,7 @@ using MColor = System.Windows.Media.Color;
 
 namespace SharedLibrary
 {
-    public static class Extenstions
+    public static class Extensions
     {
         public static Image ResizeImage(this Image imgToResize, System.Drawing.Size size) => (Image)(new Bitmap(imgToResize, size));
 
