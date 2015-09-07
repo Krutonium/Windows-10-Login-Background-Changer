@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="Extenstions.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="SharedHelpers.cs" />
     <Compile Include="LogonPriEditor.cs" />
     <Compile Include="Models\FileSizeMetaInformation.cs" />
