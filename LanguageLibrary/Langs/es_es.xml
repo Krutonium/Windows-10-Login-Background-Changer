@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language>
+  <!-- This must be in the language of the file to make it easier on people D: -->
+  <lang_name>Español (ES)</lang_name>
+
+  <!-- titles -->
+  <title_error>Error</title_error>
+  <title_info>Información</title_info>
+  <title_warning>Advertencia</title_warning>
+  <title_finished>Finalizado</title_finished>
+  <title_success>Realizado</title_success>
+  <title_eula>EULA</title_eula>
+  <title_bg_disabled>Fondo Deshabilitado</title_bg_disabled>
+  <title_are_you_sure>Está seguro?</title_are_you_sure>
+  <title_language_set>Establecer Idioma</title_language_set>
+  <title_select_image>Seleccione la imágen</title_select_image>
+  <title_saved_clipboard>Guardado en el portapapeles</title_saved_clipboard>
+
+  <!-- Main Screen Title Buttons -->
+  <main_top_about>Acerca de...</main_top_about>
+  <main_top_lock>Bloquear Windows</main_top_lock>
+  <main_top_edit>Editar Fondo</main_top_edit>
+
+  <!-- Flyout Titles -->
+  <flyout_edit_title>Editar Fondo</flyout_edit_title>
+  <flyout_about_title>Acerca de...</flyout_about_title>
+  <flyout_settings_title>Configurar Aplicación</flyout_settings_title>
+
+  <!-- Groups -->
+  <group_restore_default>Reestablcer por Defecto</group_restore_default>
+  <group_advanced_options>Configuración de la Aplicación</group_advanced_options>
+  <group_authors_area>Autores</group_authors_area>
+  <group_about_area>Acerca de...</group_about_area>
+  <group_select_lang>Seleccione Idioma</group_select_lang>
+
+  <!-- Buttons -->
+  <browse_button>Buscar</browse_button>
+  <solid_color_picker_tooltip>Seleccionar un color</solid_color_picker_tooltip>
+  <solid_color_available_colors>Colores Disponibles</solid_color_available_colors>
+  <solid_color_standard_colors>Colores Estádar</solid_color_standard_colors>
+  <solid_color_standard>Estándar</solid_color_standard>
+  <solid_color_advanced>Avanzado</solid_color_advanced>
+  <color_picker_button>Vista Previa</color_picker_button>
+  <accet_color_button>Usar el color actual</accet_color_button>
+  <apply_changes_button>Aplicar Cambios</apply_changes_button>
+  <restore_defaults_button>Reestablecer por Defecto</restore_defaults_button>
+  <restore_hero_button>Reestablecer Héroe</restore_hero_button>
+  <image_scale_Resolution>Resolución de Imágen</image_scale_Resolution>
+  <share_bg>Compartir Fondo</share_bg>
+
+  <!-- Labels -->
+  <image_scale>Escala de Imágen</image_scale>
+  <show_user_info>Mostrar Información del Usuario</show_user_info>
+  <show_glyphs>Mostrar Símbolos</show_glyphs>
+  <flyout_loc>Ubicación de menú</flyout_loc>
+  <or>O</or>
+  <image_pixelate>Pixelizar Imágen</image_pixelate>
+
+  <!-- Message bodies -->
+  <saved_clipboard_msg>Imágen Guardada al Portapapeles.</saved_clipboard_msg>
+  <background_disabled>La imágen de fondo esta deshabilitada en el registro</background_disabled>
+  <EULA>Tú aceptas al usar este software, que no somos responsables si tu Sistema deja de trabajar correctamente..</EULA>
+  <color_preview>Vista previa de Color</color_preview>
+  <finished_msg>Primero debes seleccionar un archivo antes de que puedas establecer tu fondo de Inicio de Sesión! (La opción por defecto cuenta como archivo)"</finished_msg>
+  <select_img>Aquí aparece el nombre del archivo de fondo.</select_img>
+  <reset_image_msg>Está seguro que quiere reestablecer la imágen?</reset_image_msg>
+  <no_selected_file>Primero debes seleccionar un archivo antes de que puedas establecer tu fondo de Inicio de Sesión! (La opción por defecto cuenta como archivo)</no_selected_file>
+  <success_apply_msg>Fondo de Inició de Sesión cambiado correctamente! Por favor bloquee su dispositivo para ver el nuevo fondo.</success_apply_msg>
+  <language_set_msg>Idioma establecido. La aplicación debe reiniciarse para aplicar el idioma</language_set_msg>
+  <default_error_msg>Hubo un error mientras se ejecutaba la aplicación y debe cerrarse.</default_error_msg>
+
+  <!-- toyz go categorize these -->
+  <flyout_loc_right_opt>Derecha</flyout_loc_right_opt>
+  <flyout_loc_left_opt>Izquierda</flyout_loc_left_opt>
+  <scale_none_opt>Ninguno</scale_none_opt>
+</Language>
