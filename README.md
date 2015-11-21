@@ -15,7 +15,11 @@
 ## Windows Insider Preview Builds:
 While we can't guarantee it will work, it does seem to work on at least the following build(s):
 
-* 10525
+* All of them so far
+
+## Windows 10 TH2 (Build 10856.11)
+
+* Works!
 
 ## The Team
 The project was founded by Krutonium, though he hasn't done much on it in a while;  
