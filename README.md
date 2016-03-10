@@ -1,3 +1,5 @@
+# Before using this application, please note that new insider preview builds have rendered this program obsolete. Your best option at the moment is to simply wait, or upgrade.
+
 # Windows 10 Login Screen Background Changer
 
 [![Join the chat at https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PFCKrutonium/Windows-10-Login-Background-Changer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
