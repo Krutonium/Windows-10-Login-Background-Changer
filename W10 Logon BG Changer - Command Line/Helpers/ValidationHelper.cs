@@ -18,7 +18,7 @@ namespace W10_Logon_BG_Changer___Command_Line.Helpers
                 throw new FileNotFoundException($"An error occurred: The file \"{filePath}\" does not exist!");
 
             var validExtensions = new List<string> { ".bmp", ".jpg", ".png", ".tif", ".tiff" };
-            var fileExtension = Path.GetExtension(filePath);
+            var fileExtension = Path.GetExtension(filePath).ToLower();
 
             if (!validExtensions.Contains(fileExtension))
                 throw new ArgumentException($"An error occurred: The file \"{filePath}\" is not a valid file!");
