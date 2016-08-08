@@ -1,4 +1,4 @@
-# Before using this application, please note that new insider preview builds (14279 or later) have rendered this program obsolete. Your best option at the moment is to simply wait, or upgrade as part of the Insider Program.
+# Before using this application, please note that new insider preview builds (14279 or later) AND the **Aniversery Update** have rendered this program obsolete. Your best option at the moment is to simply wait, or upgrade as part of the Insider Program.
 
 # Windows 10 Login Screen Background Changer
 
@@ -18,6 +18,10 @@
 While we can't guarantee it will work, it does seem to work on at least the following build(s):
 
 * All of them so far _except_ build 14279-14342. If you are on 14279 or later, please use the built in tool in the settings.
+
+## Windows 10 Aniversery Update
+
+* **Does Not Work**
 
 ## Windows 10 TH2 (Build 10856.11)
 
