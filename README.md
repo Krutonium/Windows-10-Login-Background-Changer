@@ -1,4 +1,4 @@
-# Before using this application, please note that new insider preview builds (14279 or later) AND the **Anniversery Update** have rendered this program obsolete. Your best option at the moment is to simply wait, or upgrade as part of the Insider Program.
+# Before using this application, please note that new insider preview builds (14279 or later) AND the **Anniversery Update** have rendered this program ~~obsolete~~ Dead. Kaput. Steve Ballmered. Your best option at the moment is to simply wait, or upgrade as part of the Insider Program.
 
 # Windows 10 Login Screen Background Changer
 
